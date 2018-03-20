@@ -1,0 +1,115 @@
+<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><html>
+<head>
+<title>404</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+</head>
+<body>
+<center>
+<div id="container" style="max-width:800px;height:400px;margin:20px auto;"></div>
+<h1>哎呀…您访问的页面不存在</h1>
+<h4>
+	Peng8 提示您：您可能输入了错误的网址，或该文章已更改链接地址，或该文章已被删除
+</h4>
+<h4><a href="http://www.peng8.net/" target="_parent">返回博客主页</a></h4>
+</center>
+<script src="http://cdn.bootcss.com/jquery/2.1.0/jquery.min.js"></script>
+<script type="text/javascript" src="http://cdn.hcharts.cn/highcharts/highcharts.js"></script>
+<script type="text/javascript">
+    
+        $(function () {
+            $('#container').highcharts({
+                title: {
+                    text: '',
+                    
+                },
+                
+                xAxis: {
+                    min:0,
+                    max:10,
+                    tickInterval:1,
+                    labels:{
+                         enabled:false
+                    },
+                    lineWidth:0,
+                    tickWidth:0
+                },
+                credits:{
+                    enabled:false
+                },
+                plotOptions:{
+                    series:{
+                    	animation:false,
+                        marker:{
+                            enabled:false,
+                            states:{
+                                hover:{
+                                    enabled:false,
+                                    lineWidthPlus:0
+                                }
+                            }
+                        },
+			states:{
+				hover:{
+					lineWidthPlus:0
+				}
+			}
+                    }
+                },
+                yAxis: {
+                    min:0,
+                    max:10,
+                    tickInterval:1,
+                    gridLineWidth:0,
+                    labels:{
+                         enabled:false
+                    },
+                    title:{
+                        text:''
+                    }
+                },
+                tooltip: {
+                    enabled:false
+                },
+                legend: {
+                    enabled:false
+                },
+                series: [{
+                    name: '4',
+                    data: [
+                        [2,1],
+                        [2,8],
+			[0.5,4],
+                        [3,4] 
+                    ],
+                    
+                },{
+                    name: '0',
+                    data: [
+                        [4.1,1.8],
+			[5.9,1.8],
+			[5.9,7.2],
+			[4.1,7.2],
+			[4.1,1.8]
+                    ]
+                  
+                },{
+                    name: '4',
+                    data: [
+                        [8.5,1],
+                        [8.5,8],
+                        [7,4],
+                        [9.5,4]  
+                    ]
+                   
+                }]
+            });
+        });
+    </script>
+<script type="text/javascript">
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F5273c965cb9a839dda335e206ec0f50d' type='text/javascript'%3E%3C/script%3E"));
+</script>
+
+</body>
+</html>

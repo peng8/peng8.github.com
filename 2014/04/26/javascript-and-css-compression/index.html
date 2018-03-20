@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="baidu-site-verification" content="mDPffBZ70D" />
+  <title>Asp.net 动态压缩脚本或样式 (网页加载性能提升) | Peng8 | 鹏吧</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+   
+    <meta name="author" content="黑桃 K">
+	<meta name="keywords" content="压缩脚本,压缩样式">
+    
+    <meta name="description" itemprop="description" content="Asp.net 动态压缩脚本或样式 (网页加载性能提升)">
+      
+  
+    <link rel="alternative" href="/sitemap.xml" title="Peng8 | 鹏吧" type="application/atom+xml">
+  
+ <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="stylesheet" href="/css/style.css">
+
+  <!--[if lt IE 9]><script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7/html5shiv.min.js"></script><![endif]-->
+  
+<script type="text/javascript">
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F5273c965cb9a839dda335e206ec0f50d' type='text/javascript'%3E%3C/script%3E"));
+</script>
+
+
+</head>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Peng8 | 鹏吧</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">do one thing at a time and do well</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+          <a class="main-nav-link" href="/about">About</a>
+        
+          <a class="main-nav-link" href="/live">Live</a>
+        
+          <a class="main-nav-link" href="https://github.com/peng8">Github</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/sitemap.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="/search/index.html" method="get" accept-charset="utf-8" class="search-form">
+          <input id="txtSearch" type="text" class="search-form-input peng8-search-input" placeholder="Search">
+        </form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-javascript-and-css-compression" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2014/04/26/javascript-and-css-compression/" class="article-date">
+  <time datetime="2014-04-26T07:07:58.000Z" itemprop="datePublished">2014/04/26</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/javascript/">javascript</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Asp.net 动态压缩脚本或样式 (网页加载性能提升)
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+		
+		
+        <blockquote>
+<p>随着jquery、javascript插件越来越多，一些门户站引用的js文件也越来越多<br>我们随便打开一个网页，鼠标右键查看源代码会发现head区域了加载了N个js文件，导致网页的加载速度非常慢。</p>
+</blockquote>
+<p> <strong>当浏览器遇到一个<scrtipt>标签时，会运行里面的javascript代码，然后继续解析，依次往下执行，在此期间下一个脚本是等待下载或等待运行的状态，直到第一个脚本执行完毕，如果引用的是外部文件，浏览器首先会下载外部文件的代码，然后解析并运行代码。试想一下，如果head区域放了很多脚本文件，页面解析和用户交互是被完全阻塞的。 </scrtipt></strong></p>
+<a id="more"></a>
+<p>下面为大家提供几种优化方案：</p>
+<h5 id="⒈-为了减小阻塞，于是部门网站采用了如下优化，将引用代码加到结束标签之前"><a href="#⒈-为了减小阻塞，于是部门网站采用了如下优化，将引用代码加到结束标签之前" class="headerlink" title=" ⒈ 为了减小阻塞，于是部门网站采用了如下优化，将引用代码加到结束标签之前"></a><span style="color:#3498DB"><strong> ⒈ 为了减小阻塞，于是部门网站采用了如下优化，将引用代码加到结束标签之前</strong><span></span></span></h5><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">aaaaaaaaaaaaaaaaaaaaaa</span><br><span class="line">bbbbbbbbbbbbbbbbbbbbbb</span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span> <span class="attr">src</span>=<span class="string">"a.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span> <span class="attr">src</span>=<span class="string">"b.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><strong>原理</strong>：将所有引用脚本放在底部，尽量减少对整个页面下载的影响，这种优化方式不会让网页出现一片空白，但是脚本与脚本之间还是存在下载的阻塞！</p>
+<h5 id="⒉-延迟脚本和异步脚本"><a href="#⒉-延迟脚本和异步脚本" class="headerlink" title=" ⒉ 延迟脚本和异步脚本"></a><span style="color:#3498DB"> <strong>⒉ 延迟脚本和异步脚本</strong></span></h5><p><code>script</code> 中定义了6种属性，其中<code>async</code>和<code>defer</code>是我们优化要用到的。<br><strong>async</strong>：表示立即下载脚本，但不妨碍页面中其他的操作，比如下载其他资源或等待加载其他脚本。只对外部脚本文件有效。<br><strong>defer</strong>：表示脚本可以延迟到文档完全被解析和显示之后再执行<br>这2个属性都能使脚本在执行时不会影响页面的构造。但asyc并不保证按照指定它们的先后顺序执行的。</p>
+<h5 id="⒊-多个脚本合并压缩加载-推荐"><a href="#⒊-多个脚本合并压缩加载-推荐" class="headerlink" title=" ⒊ 多个脚本合并压缩加载(推荐)"></a><span style="color:#3498DB"> <strong>⒊ 多个脚本合并压缩加载(推荐)</strong></span></h5><p>上面解释了脚本加载的原理，很显然为了解决脚本与脚本之间的加载阻塞，可以减少脚本文件的引用数，一次请求加载完毕缓存到客户端，这样即减少了请求次数，也缓解了服务器的压力。这里我们需要用到Yahoo.Yui提供的压缩缩DLL ：<br><strong>Yahoo.Yui.Compressor.dll 和 Yahoo.Yui.Compressor.MsBuildTask.dll</strong></p>
+<p>咱们在项目里新建一个HttpCombiner.ashx 一般处理程序，专门用来处理请求的CSS和Javascript，服务端收到请求后，读取相应的文件合并压缩一起返回给客户端.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br></pre></td><td class="code"><pre><span class="line">public class HttpCombiner : IHttpHandler</span><br><span class="line">   &#123;</span><br><span class="line">       class CacheItem</span><br><span class="line">       &#123;</span><br><span class="line">           public string Content &#123; set; get; &#125;</span><br><span class="line">           public DateTime Expires &#123; set; get; &#125;</span><br><span class="line">       &#125;</span><br><span class="line">       public void ProcessRequest(HttpContext context)</span><br><span class="line">       &#123;</span><br><span class="line">           context.Response.ContentType = &quot;text/javascript&quot;;</span><br><span class="line">           HttpRequest request = context.Request;</span><br><span class="line">           HttpResponse response = context.Response;</span><br><span class="line">           string[] allkeys = request.QueryString.AllKeys;</span><br><span class="line">           if (!allkeys.Contains(&quot;href&quot;) || !allkeys.Contains(&quot;type&quot;) || !allkeys.Contains(&quot;compress&quot;))</span><br><span class="line">           &#123;</span><br><span class="line">               response.Write(&quot;请求格式不正确，正确格式是type=....&amp;href=....&amp;compress=...&quot;);</span><br><span class="line">               response.Write(&quot;type只能是js或则css,compress只能是true或则false，href则是请求的文件，多个文件已逗号分隔&quot;);</span><br><span class="line">           &#125;</span><br><span class="line">           else</span><br><span class="line">           &#123;</span><br><span class="line">               string cacheKey = request.Url.Query;</span><br><span class="line">               #region /*确定合并文件类型*/</span><br><span class="line">               string fileType = request.QueryString[&quot;type&quot;].Trim().ToLower();</span><br><span class="line">               string contenType = string.Empty;</span><br><span class="line">               if (fileType.Equals(&quot;js&quot;))</span><br><span class="line">               &#123;</span><br><span class="line">                   contenType = &quot;text/javascript&quot;;</span><br><span class="line">               &#125;</span><br><span class="line">               else if (fileType.Equals(&quot;css&quot;))</span><br><span class="line">               &#123;</span><br><span class="line">                   contenType = &quot;text/css&quot;;</span><br><span class="line">               &#125;</span><br><span class="line">               /*确定合并文件类型*/</span><br><span class="line">               #endregion</span><br><span class="line">               CacheItem cacheItem = HttpRuntime.Cache.Get(cacheKey) as CacheItem;//服务端缓存</span><br><span class="line">               if (cacheItem == null)</span><br><span class="line">               &#123;</span><br><span class="line">                   #region 合并压缩文件</span><br><span class="line">                   /*合并文件*/</span><br><span class="line">                   string href = context.Request.QueryString[&quot;href&quot;].Trim();</span><br><span class="line">                   string content = string.Empty;</span><br><span class="line">                   string[] files = href.Split(new string[] &#123; &quot;,&quot;, &quot;，&quot; &#125;, StringSplitOptions.RemoveEmptyEntries);</span><br><span class="line">                   StringBuilder sb = new StringBuilder();</span><br><span class="line">                   foreach (string fileName in files)</span><br><span class="line">                   &#123;</span><br><span class="line">                       string filePath = context.Server.MapPath(fileName);</span><br><span class="line">                       if (File.Exists(filePath))</span><br><span class="line">                       &#123;</span><br><span class="line">                           string readstr = File.ReadAllText(filePath, Encoding.UTF8);</span><br><span class="line">                           sb.Append(readstr);</span><br><span class="line">                           //content = JavaScriptCompressor.Compress(content);</span><br><span class="line">                           //response.Write(content);</span><br><span class="line">                       &#125;</span><br><span class="line">                       else</span><br><span class="line">                       &#123;</span><br><span class="line">                           sb.AppendLine(&quot;\r\n未找到源文件&quot; + filePath + &quot;\r\n&quot;);</span><br><span class="line">                       &#125;</span><br><span class="line">                   &#125;</span><br><span class="line">                   content = sb.ToString();</span><br><span class="line">                   /*合并文件*/</span><br><span class="line">                   /*压缩文件*/</span><br><span class="line">                   string compressStr = request.QueryString[&quot;compress&quot;].Trim();</span><br><span class="line">                   bool iscompress = bool.Parse(compressStr);</span><br><span class="line">                   if (iscompress)</span><br><span class="line">                   &#123;</span><br><span class="line">                       if (fileType.Equals(&quot;js&quot;))</span><br><span class="line">                       &#123;</span><br><span class="line">                           content = JavaScriptCompressor.Compress(content);</span><br><span class="line">                       &#125;</span><br><span class="line">                       else if (fileType.Equals(&quot;css&quot;))</span><br><span class="line">                       &#123;</span><br><span class="line">                           content = CssCompressor.Compress(content);</span><br><span class="line">                       &#125;</span><br><span class="line">                   &#125;</span><br><span class="line">                   /*压缩文件*/</span><br><span class="line">                   #endregion</span><br><span class="line">                   cacheItem = new CacheItem() &#123; Content = content, Expires = DateTime.Now.AddMinutes(30) &#125;;</span><br><span class="line">                   HttpRuntime.Cache.Insert(cacheKey, cacheItem, null, cacheItem.Expires, TimeSpan.Zero);</span><br><span class="line">               &#125;</span><br><span class="line">               response.ContentType = contenType;</span><br><span class="line">               if (request.Headers[&quot;If-Modified-Since&quot;] != null &amp;&amp; TimeSpan.FromTicks(cacheItem.Expires.Ticks - DateTime.Parse(request.Headers[&quot;If-Modified-Since&quot;]).Ticks).Seconds &lt; 100)</span><br><span class="line">               &#123;</span><br><span class="line">                   response.StatusCode = 304;</span><br><span class="line">                   // response.Headers.Add(&quot;Content-Encoding&quot;, &quot;gzip&quot;);  </span><br><span class="line">                   response.StatusDescription = &quot;Not Modified&quot;;</span><br><span class="line">               &#125;</span><br><span class="line">               else</span><br><span class="line">               &#123;</span><br><span class="line">                   response.Write(cacheItem.Content);</span><br><span class="line">                   SetClientCaching(response, DateTime.Now);</span><br><span class="line">               &#125;</span><br><span class="line">           &#125;  //合并文件结束</span><br><span class="line">       &#125;</span><br><span class="line">       private void SetClientCaching(HttpResponse response, DateTime lastModified)</span><br><span class="line">       &#123;</span><br><span class="line">           response.Cache.SetETag(lastModified.Ticks.ToString());</span><br><span class="line">           response.Cache.SetLastModified(lastModified);</span><br><span class="line">           //public 以指定响应能由客户端和共享（代理）缓存进行缓存。  </span><br><span class="line">           response.Cache.SetCacheability(HttpCacheability.Public);</span><br><span class="line">           //是允许文档在被视为陈旧之前存在的最长绝对时间。  </span><br><span class="line">           response.Cache.SetMaxAge(new TimeSpan(7, 0, 0, 0));</span><br><span class="line">           //将缓存过期从绝对时间设置为可调时间  </span><br><span class="line">           response.Cache.SetSlidingExpiration(true);</span><br><span class="line">       &#125;  </span><br><span class="line">       public bool IsReusable</span><br><span class="line">       &#123;</span><br><span class="line">           get</span><br><span class="line">           &#123;</span><br><span class="line">               return false;</span><br><span class="line">           &#125;</span><br><span class="line">       &#125;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li>前端调用就很简单明了了，用逗号分割开需要请求的文件<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script src=<span class="string">"handles/HttpCombiner.ashx?type=js&amp;compress=true&amp;href=/Plugins/Highcharts/highcharts.js,/Plugins/Easytabs/easytabs.js"</span> type=<span class="string">"text/javascript"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<blockquote>
+<p>若是压缩css文件，将上面的type修改成css即可。compress 参数表示是否启用压缩。</p>
+</blockquote>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+        <a data-url="http://www.peng8.net/2014/04/26/javascript-and-css-compression/" data-id="cjez2dlzt003b5drujsh41c0u" class="article-share-link" data-share="baidu">分享到</a>
+      
+
+      
+
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/asp-net/">asp.net</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
+
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2014/05/11/how-to-install-dnn-website/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">
+        
+          DNN (DotNetNuke) 7.2版本的安装与介绍
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2014/04/20/checkclient-pc-or-mobile/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">Asp.Net和Javscript 判断客户端是否为移动端</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+  
+  <div id="container-comment"  class="gitment_container"></div>
+  <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+  <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+  <script type="text/javascript">
+  const myTheme = {
+    render(state, instance) {
+      const container = document.createElement('div');
+      container.lang = "en-US"
+      container.className = 'gitment-container gitment-root-container';
+      // if (!state.user.login) {
+      //   container.innerText = "请登录后留言哦"
+      // }
+      container.appendChild(instance.renderHeader(state, instance));
+      container.appendChild(instance.renderEditor(state, instance));
+      container.appendChild(instance.renderComments(state, instance));
+      container.appendChild(instance.renderFooter(state, instance));
+      return container;
+    }
+  }
+  var gitment = new Gitment({
+    id: window.location.pathname,
+    theme: myTheme,
+    owner: 'peng8',
+    repo: 'peng8.github.com',
+    oauth: {
+      client_id: '0295076ded72aceb29c4',
+      client_secret: 'dc65a48ebebdefee137dea8474768f333b90bdf4'
+    }
+  });
+  gitment.render('container-comment');
+  </script>
+  
+ </section>
+        
+          <aside id="sidebar">
+  
+     <div class="widget-wrap">
+    <h3 class="widget-title">我的微博</h3>
+    <div class="widget">
+		<div style="padding: 13px 0 15px;">
+			<div class="weiboShow_developer_pic" style="float: left;margin: 2px 0 0 15px;display: inline;"><a href="http://weibo.com/512338113" target="_blank">
+                    <img src="http://tp2.sinaimg.cn/2005285601/50/40049988623/1" alt="Peng-Sir" title="Peng-Sir" style="box-shadow: 1px 1px 20px rgba(0, 0, 0, 0.15);
+filter: progid:DXImageTransform.Microsoft.Shadow(color='#C3C3C3', Direction=135, Strength=2);"></a></div>
+			<div class="weiboShow_developer_detail" style="margin-left: 73px;">
+                        <dl class="weiboShow_developerDetail_name"><dt><a href="http://weibo.com/512338113" target="_blank" alt="Peng-Sir" title="Peng-Sir">Peng-Sir</a></dt><dd><span class="weiboShow_developerDetail_namedir">北京 海淀区</span></dd></dl>
+                      
+            </div>			
+		</div>
+    </div>
+ </div>
+  
+     <div class="widget-wrap">
+    <h3 class="widget-title">我的微信</h3>
+    <div class="widget">
+		<div style="padding:0px;text-align:center">
+			<h5>扫描下面二维码可加我哦</h5>
+			<img src="http://7oxjce.com1.z0.glb.clouddn.com/peng8_weixin_big.jpg" style="width:250px;"/>
+		</div>
+    </div>
+ </div>
+  
+     <div class="widget-wrap">
+    <h3 class="widget-title">我的Q群</h3>
+    <div class="widget">
+		<div style="padding:0px;text-align:center">
+			<h5>扫描下面二维码可加群</h5>
+			<img src="http://7oxjce.com1.z0.glb.clouddn.com/peng_qqgroup.jpg" style="width:250px;"/>
+		</div>
+		<div style="width:100%;">
+			<h5>QQ群:86031665</h5>
+			<p>欢迎各位小伙伴入驻，群里有大神，妹纸多多</p>
+		</div>
+    </div>
+ </div>
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Highcharts/">Highcharts</a><span class="category-list-count">22</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/angularjs/">angularjs</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/asp-net/">asp.net</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/css/">css</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/dnn/">dnn</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/easyui/">easyui</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/easyui/datagrid/">datagrid</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript/">javascript</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/jquery/">jquery</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/phantomjs/">phantomjs</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/reactjs/">reactjs</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/随笔日记/">随笔日记</a><span class="category-list-count">5</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/2014总结/" style="font-size: 10px; color: #7dc3de">2014总结</a> <a href="/tags/2015总结/" style="font-size: 10px; color: #7dc3de">2015总结</a> <a href="/tags/Highcharts/" style="font-size: 20px; color: #800080">Highcharts</a> <a href="/tags/Highcharts-legend/" style="font-size: 10px; color: #7dc3de">Highcharts legend</a> <a href="/tags/Highcharts不常用属性/" style="font-size: 10px; color: #7dc3de">Highcharts不常用属性</a> <a href="/tags/Highcharts仪表盘/" style="font-size: 10px; color: #7dc3de">Highcharts仪表盘</a> <a href="/tags/Highcharts复制标题/" style="font-size: 10px; color: #7dc3de">Highcharts复制标题</a> <a href="/tags/Highcharts绘制自定义元素/" style="font-size: 10px; color: #7dc3de">Highcharts绘制自定义元素</a> <a href="/tags/Highcharts自定义属性/" style="font-size: 10px; color: #7dc3de">Highcharts自定义属性</a> <a href="/tags/Highmaps/" style="font-size: 10px; color: #7dc3de">Highmaps</a> <a href="/tags/Highstock-K线图/" style="font-size: 10px; color: #7dc3de">Highstock K线图</a> <a href="/tags/Highstock-分时图/" style="font-size: 12.5px; color: #7e92c7">Highstock 分时图</a> <a href="/tags/Swiftype/" style="font-size: 10px; color: #7dc3de">Swiftype</a> <a href="/tags/angularjs/" style="font-size: 15px; color: #7f62af">angularjs</a> <a href="/tags/angularjs-post/" style="font-size: 10px; color: #7dc3de">angularjs post</a> <a href="/tags/angularjs自定义标签/" style="font-size: 10px; color: #7dc3de">angularjs自定义标签</a> <a href="/tags/asp-net/" style="font-size: 17.5px; color: #7f3198">asp.net</a> <a href="/tags/aspose/" style="font-size: 10px; color: #7dc3de">aspose</a> <a href="/tags/bowerrc创建/" style="font-size: 10px; color: #7dc3de">bowerrc创建</a> <a href="/tags/css/" style="font-size: 10px; color: #7dc3de">css</a> <a href="/tags/dnn/" style="font-size: 10px; color: #7dc3de">dnn</a> <a href="/tags/doctype/" style="font-size: 10px; color: #7dc3de">doctype</a> <a href="/tags/easyui/" style="font-size: 10px; color: #7dc3de">easyui</a> <a href="/tags/gojs入门笔记/" style="font-size: 10px; color: #7dc3de">gojs入门笔记</a> <a href="/tags/heatmap/" style="font-size: 12.5px; color: #7e92c7">heatmap</a> <a href="/tags/highchart/" style="font-size: 10px; color: #7dc3de">highchart</a> <a href="/tags/highmaps使用/" style="font-size: 10px; color: #7dc3de">highmaps使用</a> <a href="/tags/javascript/" style="font-size: 17.5px; color: #7f3198">javascript</a> <a href="/tags/jquery/" style="font-size: 17.5px; color: #7f3198">jquery</a> <a href="/tags/myPagination/" style="font-size: 10px; color: #7dc3de">myPagination</a> <a href="/tags/phantomjs/" style="font-size: 15px; color: #7f62af">phantomjs</a> <a href="/tags/phantomjs单独部署/" style="font-size: 10px; color: #7dc3de">phantomjs单独部署</a> <a href="/tags/react/" style="font-size: 12.5px; color: #7e92c7">react</a> <a href="/tags/react-native/" style="font-size: 12.5px; color: #7e92c7">react-native</a> <a href="/tags/tagedit/" style="font-size: 10px; color: #7dc3de">tagedit</a> <a href="/tags/timelinejs/" style="font-size: 10px; color: #7dc3de">timelinejs</a> <a href="/tags/分时图/" style="font-size: 10px; color: #7dc3de">分时图</a> <a href="/tags/地图/" style="font-size: 10px; color: #7dc3de">地图</a> <a href="/tags/希望/" style="font-size: 10px; color: #7dc3de">希望</a> <a href="/tags/延迟加载/" style="font-size: 10px; color: #7dc3de">延迟加载</a> <a href="/tags/智能查询/" style="font-size: 10px; color: #7dc3de">智能查询</a> <a href="/tags/热力图/" style="font-size: 12.5px; color: #7e92c7">热力图</a> <a href="/tags/热点图/" style="font-size: 12.5px; color: #7e92c7">热点图</a> <a href="/tags/美图/" style="font-size: 10px; color: #7dc3de">美图</a> <a href="/tags/随笔/" style="font-size: 10px; color: #7dc3de">随笔</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">七月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">二月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">一月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">十二月 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">十一月 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">十月 2015</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">九月 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">七月 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">六月 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/05/">五月 2015</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/04/">四月 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">三月 2015</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">二月 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">一月 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/12/">十二月 2014</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">十一月 2014</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">十月 2014</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/09/">九月 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08/">八月 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/07/">七月 2014</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/05/">五月 2014</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/04/">四月 2014</a><span class="archive-list-count">4</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">近期文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2016/07/06/write-checkbox-component-in-React/">React-Native 中自定义checkbox组件</a>
+          </li>
+        
+          <li>
+            <a href="/2016/02/23/learn-react-native/">React-Native 环境搭建指南[阿鹏出品]</a>
+          </li>
+        
+          <li>
+            <a href="/2016/01/19/tagedit-demo-by-peng8/">简易模糊查询tagedit的实现</a>
+          </li>
+        
+          <li>
+            <a href="/2015/12/31/2015-summary/">这一年</a>
+          </li>
+        
+          <li>
+            <a href="/2015/12/30/highmaps-of-china-extend/">阿鹏 细说highmaps</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">友情链接</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="http://www.hcharts.cn/" target="_blank">Highcharts中文网</a>
+          </li>
+        
+          <li>
+            <a href="http://bbs.hcharts.cn/" target="_blank">Highcharts论坛</a>
+          </li>
+        
+          <li>
+            <a href="http://www.52wulian.cn/" target="_blank">我爱物联网</a>
+          </li>
+        
+          <li>
+            <a href="http://www.w3cscript.com/" target="_blank">angular教程</a>
+          </li>
+        
+          <li>
+            <a href="http://www.jiweiwei.com/" target="_blank">众生相</a>
+          </li>
+        
+          <li>
+            <a href="http://bbs.dtsoft.net/" target="_blank">DTCMS论坛</a>
+          </li>
+        
+          <li>
+            <a href="http://www.dexcoder.com/" target="_blank">码农的士</a>
+          </li>
+        
+          <li>
+            <a href="http://www.xrpmoon.com/blog/" target="_blank">Java与Ripple究竟怎么玩</a>
+          </li>
+        
+          <li>
+            <a href="http://www.jcore.cn/" target="_blank">jcore</a>
+          </li>
+        
+          <li>
+            <a href="http://www.gaigaiming.com/" target="_blank">改改名</a>
+          </li>
+        
+          <li>
+            <a href="http://kanng.net/" target="_blank">看门狗IT导航</a>
+          </li>
+        
+          <li>
+            <a href="http://www.lanhouzi.net/" target="_blank">蓝猴子</a>
+          </li>
+        
+          <li>
+            <a href="http://blog.brain1981.com/" target="_blank">Brain的技术笔记</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+     <div class="widget-wrap">
+    <h3 class="widget-title">最近访客</h3>
+    <div class="widget">
+		<div style="width:100%">
+			<ul class="ds-recent-visitors" data-num-items="20"></ul>
+		</div>
+    </div>
+ </div>
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 黑桃 K<br>
+      Powered by <a href="http://peng8.net" target="_blank">Peng8.net</a>  
+      
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/about" class="mobile-nav-link">About</a>
+  
+    <a href="/live" class="mobile-nav-link">Live</a>
+  
+    <a href="https://github.com/peng8" class="mobile-nav-link">Github</a>
+  
+</nav>
+    
+<script src="http://libs.baidu.com/jquery/1.8.3/jquery.min.js"></script>
+<!-- 百度分享 start -->
+
+<div id="article-share-box" class="article-share-box">
+  <div id="bdshare" class="bdsharebuttonbox article-share-links">
+    <a class="article-share-weibo" data-cmd="tsina" title="分享到新浪微博"></a>
+    <a class="article-share-weixin" data-cmd="weixin" title="分享到微信"></a>
+    <a class="article-share-qq" data-cmd="tqq" title="分享到QQ"></a>
+    <a class="article-share-twitter" data-cmd="twi" title="分享到人人网"></a>
+    <a class="article-share-more" data-cmd="more" title="更多"></a>
+  </div>
+</div>
+<script>window._bd_share_config={"common":{},"share":[{"bdCustomStyle":"/nocss.css"}]};with(document)0[(getElementsByTagName("head")[0]||body).appendChild(createElement("script")).src="http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion="+~(-new Date()/36e5)];</script>
+
+<!-- 百度分享 end -->
+
+
+<!--返回顶部 -->
+<div id="totop" style="position:fixed;bottom:150px;right:50px;cursor: pointer;z-index:999;transition: all .5s ease 0s;">
+	<i class="fa fa-arrow-up" style="display: inline-block;font-family: FontAwesome;font-style: normal;font-weight: normal;line-height: 1;-webkit-font-smoothing: antialiased;
+-moz-osx-font-smoothing: grayscale;font-size: 35px;"></i>
+</div>
+<script src="/js/totop.js"></script>
+<!-- 返回顶部 end -->
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+<!-- 搜索-->
+
+<script type="text/javascript">
+(function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install','saxnFW97g3pyEKdjicJD','2.0.0');
+  
+</script>
+
+<script src="/js/script.js"></script>
+  </div>
+</body>
+</html>

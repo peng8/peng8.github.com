@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="baidu-site-verification" content="mDPffBZ70D" />
+  <title>Tag: javascript | Peng8 | 鹏吧</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+   
+    <meta name="author" content="黑桃 K">
+	
+    
+    <meta name="description" content="angularjs,Asp.net,C#,css,DNN,EasyUI,Highcharts,Javascript,jQuery,Peng8,鹏吧,黑桃 K">
+      
+  
+    <link rel="alternative" href="/sitemap.xml" title="Peng8 | 鹏吧" type="application/atom+xml">
+  
+ <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="stylesheet" href="/css/style.css">
+
+  <!--[if lt IE 9]><script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7/html5shiv.min.js"></script><![endif]-->
+  
+<script type="text/javascript">
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F5273c965cb9a839dda335e206ec0f50d' type='text/javascript'%3E%3C/script%3E"));
+</script>
+
+
+</head>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Peng8 | 鹏吧</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">do one thing at a time and do well</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+          <a class="main-nav-link" href="/about">About</a>
+        
+          <a class="main-nav-link" href="/live">Live</a>
+        
+          <a class="main-nav-link" href="https://github.com/peng8">Github</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/sitemap.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="/search/index.html" method="get" accept-charset="utf-8" class="search-form">
+          <input id="txtSearch" type="text" class="search-form-input peng8-search-input" placeholder="Search">
+        </form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-easyui-datagrid-checkbox-status" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/01/05/easyui-datagrid-checkbox-status/" class="article-date">
+  <time datetime="2015-01-05T01:37:51.000Z" itemprop="datePublished">2015/01/05</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/easyui/">easyui</a>►<a class="article-category-link" href="/categories/easyui/datagrid/">datagrid</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/01/05/easyui-datagrid-checkbox-status/">EasyUI datagrid实现翻页客户端保存checkbox状态</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+		
+		
+        <p>1、首先设置datagrid属性的idField主键，这里假如为id，若idField为其他的，记住下面的代码里的 id也要做相应的修改。</p>
+<p>2、建立一个全局的javascript数组var checkedItems = []，用来存放选中checkbox的值。</p>
+<p>3、核心方法，<code>addcheckItem()</code>、<code>removeAllItem(rows)</code>、<code>removeSingleItem(rowIndex, rowData)</code>当选中或者取消checkbox时触发。</p>
+<p>　   用来将checkbox的主键值保存在checkedItems数组，或者从数组中删除对应的id值，findCheckedItem(ID)这个函数用来查找数组中是否存在checkbox的值，存在则返回id值，不存在则返回-1.</p>
+<p>4、什么时候调用这些方法呢？分别在<code>datagrid</code>的 <code>onCheckAll: addcheckItem</code>,<code>onCheck: addcheckItem</code>,<code>onUncheckAll: removeAllItem</code>,<code>onUncheck: removeSingleItem</code> 这四个事件中调用对应的方法。</p>
+<p>5、翻页后如何给checkbox赋值呢？关键就在这里，datagrid重写了<code>$.fn.datagrid.defaults.view</code>的<code>onAfterRender</code>事件，因此在datagrid的view事件里绑定这个函数就OK了。<code>onAfterRender</code>事件是当easyui的元素渲染完毕后执行的事件，在这里会调用手写的 <strong>ischeckItem</strong> 函数来实现对checkbox的赋值！<br>　　<br>下面为大家贴上实现的具体代码：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"> $(<span class="string">"#maingrid"</span>).datagrid(&#123; </span><br><span class="line">    idField: <span class="string">'id'</span>, </span><br><span class="line">    view: fileview </span><br><span class="line"> &#125;);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> fileview = $.extend(&#123;&#125;, $.fn.datagrid.defaults.view, &#123; <span class="attr">onAfterRender</span>: <span class="function"><span class="keyword">function</span> (<span class="params">target</span>) </span>&#123; ischeckItem(); &#125; &#125;);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> checkedItems = [];</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">ischeckItem</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; checkedItems.length; i++) &#123;</span><br><span class="line">        $(<span class="string">'#maingrid'</span>).datagrid(<span class="string">'selectRecord'</span>, checkedItems[i]); <span class="comment">//根据id选中行 </span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">findCheckedItem</span>(<span class="params">ID</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; checkedItems.length; i++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (checkedItems[i] == ID) <span class="keyword">return</span> i;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">addcheckItem</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> row = $(<span class="string">'#maingrid'</span>).datagrid(<span class="string">'getChecked'</span>);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; row.length; i++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (findCheckedItem(row[i].id) == <span class="number">-1</span>) &#123;</span><br><span class="line">            checkedItems.push(row[i].id);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">removeAllItem</span>(<span class="params">rows</span>) </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; rows.length; i++) &#123;</span><br><span class="line">        <span class="keyword">var</span> k = findCheckedItem(rows[i].id);</span><br><span class="line">        <span class="keyword">if</span> (k != <span class="number">-1</span>) &#123;</span><br><span class="line">            checkedItems.splice(i, <span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">removeSingleItem</span>(<span class="params">rowIndex, rowData</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> k = findCheckedItem(rowData.id);</span><br><span class="line">    <span class="keyword">if</span> (k != <span class="number">-1</span>) &#123;</span><br><span class="line">        checkedItems.splice(k, <span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>下面是批量删除的代码<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">destroyItems</span>(<span class="params">items</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> row = <span class="literal">null</span>;</span><br><span class="line">    <span class="keyword">if</span> (items == <span class="string">"list"</span>) &#123;</span><br><span class="line">        items = checkedItems.join(<span class="string">','</span>);</span><br><span class="line">        row = $(<span class="string">'#maingrid'</span>).datagrid(<span class="string">'getSelections'</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> &#123;</span><br><span class="line">        row = items;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (row != <span class="literal">null</span>) &#123;</span><br><span class="line">        $.messager.confirm(<span class="string">'Confirm'</span>, <span class="string">'您确定要删除此记录?'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">r</span>) </span>&#123;</span><br><span class="line">            <span class="keyword">if</span> (r) &#123;</span><br><span class="line">                $.post(location.href, &#123; <span class="attr">id</span>: items, <span class="attr">action</span>: <span class="string">"deletelist"</span> &#125;, <span class="function"><span class="keyword">function</span> (<span class="params">result</span>) </span>&#123;</span><br><span class="line">                    <span class="keyword">if</span> (result == <span class="string">"1"</span>) &#123;</span><br><span class="line">                        $(<span class="string">'#maingrid'</span>).datagrid(<span class="string">'reload'</span>);</span><br><span class="line">                    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                        $.messager.show(&#123;</span><br><span class="line">                            title: <span class="string">'Error'</span>,</span><br><span class="line">                            msg: result</span><br><span class="line">                        &#125;);</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> &#123; $.messager.alert(<span class="string">'-警告-'</span>, <span class="string">'请选择至少一条记录才能进行删除'</span>, <span class="string">'info'</span>); &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+        <a data-url="http://www.peng8.net/2015/01/05/easyui-datagrid-checkbox-status/" data-id="cjez2dlyd000y5druysbgzg9x" class="article-share-link" data-share="baidu">分享到</a>
+      
+
+      
+
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/easyui/">easyui</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
+
+
+    </footer>
+  </div>
+  
+</article>
+
+  
+ 
+  
+    <article id="post-common-module-definition" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2014/11/20/common-module-definition/" class="article-date">
+  <time datetime="2014-11-20T04:56:43.000Z" itemprop="datePublished">2014/11/20</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/javascript/">javascript</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2014/11/20/common-module-definition/">前端模块化开发的价值</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>随着互联网的飞速发展，前端开发越来越复杂。本文将从实际项目中遇到的问题出发，讲述模块化能解决哪些问题，以及如何使用 Sea.js 进行前端的模块化开发。</p>
+</blockquote>
+<h2 id="恼人的命名冲突"><a href="#恼人的命名冲突" class="headerlink" title="####恼人的命名冲突"></a>####恼人的命名冲突</h2><p>我们从一个简单的习惯出发。我做项目时，常常会将一些通用的、底层的功能抽象出来，独立成一个个函数，比如<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">each</span>(<span class="params">arr</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// 实现代码</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">log</span>(<span class="params">str</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// 实现代码</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>并像模像样地把这些函数统一放在 util.js 里。需要用到时，引入该文件就行。这一切工作得很好，同事也很感激我提供了这么便利的工具包。<br>直到团队越来越大，开始有人抱怨。</p>
+<blockquote>
+<p>小杨：我想定义一个 each 方法遍历对象，但页头的 util.js 里已经定义了一个，我的只能叫 eachObject 了，好无奈。<br>小高：我自定义了一个 log 方法，为什么小明写的代码就出问题了呢？谁来帮帮我。</p>
+</blockquote>
+        
+          <p class="article-more-link">
+            <a href="/2014/11/20/common-module-definition/#more">查看更多</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      
+        <a data-url="http://www.peng8.net/2014/11/20/common-module-definition/" data-id="cjez2dly4000l5dru7apjx54v" class="article-share-link" data-share="baidu">分享到</a>
+      
+
+      
+
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
+
+
+    </footer>
+  </div>
+  
+</article>
+
+  
+ 
+  
+    <article id="post-judge-object-is-null-or-empty" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2014/08/21/judge-object-is-null-or-empty/" class="article-date">
+  <time datetime="2014-08-21T02:25:59.000Z" itemprop="datePublished">2014/08/21</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/javascript/">javascript</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2014/08/21/judge-object-is-null-or-empty/">JavaScript 判断对象是否存在的几种写法</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在平日的前端开发中，我们会经常遇到一个问题，就是 “某某某对象未定义或者underfined”，为了避免这样的问题，我们在用一个对象或者变量的时候得预先判断，然后做下一步操作，判断对象是否存在的方法有很多种，大致总结了下有如下：</p>
+<ul>
+<li><p><strong>第一种</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (!myObj) &#123;</span><br><span class="line">　　<span class="keyword">var</span> myObj = &#123; &#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>第二种</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (!<span class="built_in">window</span>.myObj) &#123;</span><br><span class="line">　　<span class="keyword">var</span> myObj = &#123; &#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>第三种</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (!<span class="keyword">this</span>.myObj) &#123;　　　　</span><br><span class="line">    <span class="keyword">this</span>.myObj = &#123; &#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+        
+          <p class="article-more-link">
+            <a href="/2014/08/21/judge-object-is-null-or-empty/#more">查看更多</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      
+        <a data-url="http://www.peng8.net/2014/08/21/judge-object-is-null-or-empty/" data-id="cjez2dlzv003g5dru2e7rgmt6" class="article-share-link" data-share="baidu">分享到</a>
+      
+
+      
+
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
+
+
+    </footer>
+  </div>
+  
+</article>
+
+  
+ 
+  
+    <article id="post-html-doctype-instruction" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2014/07/01/html-doctype-instruction/" class="article-date">
+  <time datetime="2014-07-01T03:44:27.000Z" itemprop="datePublished">2014/07/01</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/javascript/">javascript</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2014/07/01/html-doctype-instruction/">html里关于doctype 文档类型的介绍</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+		
+		
+        <p>####DOCTYPE 标签  –  定义了标准文档的类型</p>
+<ul>
+<li>DOCTYPE标签是单独出现的<ul>
+<li>文档类型，会使浏览器使用相应标准加载网页并显示</li>
+<li>文档类型定义在HTML文档的第一行，在html标签之前</li>
+<li>文档不定义DOCTYPE，浏览器将无法获知HTML或XHTML文档的类型，因此会进入混乱模式</li>
+</ul>
+</li>
+<li>DOCTYPE，简称为DTDs，是英文Document type的缩写，中文“文档类型”</li>
+</ul>
+<p>####HTML DOCTYPE文档类型举例说明<br>HTML4.01文档过渡定义类型，此类型定义的文档可以使用HTML中的标签与元素包括一些不被W3C推荐的标签（例如：font、b等），不可以使用框架<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.01 Transitional//EN&quot; &quot;http://www.w3.org/TR/html4/loose.dtd&quot;&gt;</span><br></pre></td></tr></table></figure></p>
+<p>HTML4.01文档严格定义类型，此类型定义的文档可以使用HTML中的标签与元素，不能包含不被W3C推荐的标签（例如：font、b等），不可以使用框架<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.01//EN&quot; &quot;http://www.w3.org/TR/html4/strict.dtd&quot;&gt;</span><br></pre></td></tr></table></figure></p>
+<p>HTML4.01文档框架定义类型，此类型等同于HTML4.01文档过渡定义类型，但可以使用框架<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.01 Frameset//EN&quot; &quot;http://www.w3.org/TR/html4/frameset.dtd&quot;&gt;</span><br></pre></td></tr></table></figure></p>
+<p>XHTML1.0文档过渡定义类型，此类型定义的文档可以使用HTML中的标签与元素包括一些不被W3C推荐的标签（例如：font、b等），不可以使用框架<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.0 Transitional//EN&quot; &quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd&quot;&gt;</span><br></pre></td></tr></table></figure></p>
+<p>XHTML1.0文档严格定义类型，此类型定义的文档只可以使用HTML中定义的标签与元素，不能包含不被W3C推荐的标签（例如：font、b）(梦之都就使用了此类型)，不可以使用框架<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.0 Strict//EN&quot; &quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd&quot;&gt;</span><br></pre></td></tr></table></figure></p>
+<p>XHTML1.0文档框架定义类型，等同于XHTML1.0文档过渡定义类型，但可以使用框架<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.0 Frameset//EN&quot; &quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-frameset.dtd&quot;&gt;</span><br></pre></td></tr></table></figure></p>
+<p>XHTML1.1文档严格定义类型，等同于XHTML1.0文档过渡定义类型<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.1//EN&quot; &quot;http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd&quot;&gt;</span><br></pre></td></tr></table></figure></p>
+<p>HTML5文档类型<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+        <a data-url="http://www.peng8.net/2014/07/01/html-doctype-instruction/" data-id="cjez2dlzo00315drumz3dkuzb" class="article-share-link" data-share="baidu">分享到</a>
+      
+
+      
+
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/doctype/">doctype</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
+
+
+    </footer>
+  </div>
+  
+</article>
+
+  
+ 
+  
+    <article id="post-javascript-and-css-compression" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2014/04/26/javascript-and-css-compression/" class="article-date">
+  <time datetime="2014-04-26T07:07:58.000Z" itemprop="datePublished">2014/04/26</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/javascript/">javascript</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2014/04/26/javascript-and-css-compression/">Asp.net 动态压缩脚本或样式 (网页加载性能提升)</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>随着jquery、javascript插件越来越多，一些门户站引用的js文件也越来越多<br>我们随便打开一个网页，鼠标右键查看源代码会发现head区域了加载了N个js文件，导致网页的加载速度非常慢。</p>
+</blockquote>
+<p> <strong>当浏览器遇到一个<scrtipt>标签时，会运行里面的javascript代码，然后继续解析，依次往下执行，在此期间下一个脚本是等待下载或等待运行的状态，直到第一个脚本执行完毕，如果引用的是外部文件，浏览器首先会下载外部文件的代码，然后解析并运行代码。试想一下，如果head区域放了很多脚本文件，页面解析和用户交互是被完全阻塞的。 </scrtipt></strong></p>
+        
+          <p class="article-more-link">
+            <a href="/2014/04/26/javascript-and-css-compression/#more">查看更多</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      
+        <a data-url="http://www.peng8.net/2014/04/26/javascript-and-css-compression/" data-id="cjez2dlzt003b5drujsh41c0u" class="article-share-link" data-share="baidu">分享到</a>
+      
+
+      
+
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/asp-net/">asp.net</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
+
+
+    </footer>
+  </div>
+  
+</article>
+
+  
+ 
+  
+    <article id="post-checkclient-pc-or-mobile" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2014/04/20/checkclient-pc-or-mobile/" class="article-date">
+  <time datetime="2014-04-20T07:55:20.000Z" itemprop="datePublished">2014/04/20</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/javascript/">javascript</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2014/04/20/checkclient-pc-or-mobile/">Asp.Net和Javscript 判断客户端是否为移动端</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+		
+		
+        <blockquote>
+<p><em>本文介绍3种方法（asp.net cs文件，webconfig文件，js文件） 检测访问网站的客户端是手机还是PC端</em></p>
+</blockquote>
+<p>现在的web网页基本趋向于响应式编程，即服务端只做一份代码，自动判断不同的客户端来加载不同的布局，从而解决了手机端，PC端多份代码的麻烦，但对于那些建站过早的网站，又懒得去弄响应式编程，就只能老老实实用代码判断来定向到不同的页面了。</p>
+<ol>
+<li><p><strong>Asp.Net 后台判断方法</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">private bool IsMobileDevice()</span><br><span class="line">&#123;</span><br><span class="line">        string u = Request.ServerVariables[&quot;HTTP_USER_AGENT&quot;];</span><br><span class="line">        Regex b = new Regex(@&quot;(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine|fennec|hiptop|iemobile|ip(hone|od)|iris|kindle|lge |maemo|midp|mmp|netfront|opera m(ob|in)i|palm( os)?|phone|p(ixi|re)\/|plucker|pocket|psp|series(4|6)0|symbian|treo|up\.(browser|link)|vodafone|wap|windows (ce|phone)|xda|xiino&quot;, RegexOptions.IgnoreCase | RegexOptions.Multiline);</span><br><span class="line">        Regex v = new Regex(@&quot;1207|6310|6590|3gso|4thp|50[1-6]i|770s|802s|a wa|abac|ac(er|oo|s\-)|ai(ko|rn)|al(av|ca|co)|amoi|an(ex|ny|yw)|aptu|ar(ch|go)|as(te|us)|attw|au(di|\-m|r |s )|avan|be(ck|ll|nq)|bi(lb|rd)|bl(ac|az)|br(e|v)w|bumb|bw\-(n|u)|c55\/|capi|ccwa|cdm\-|cell|chtm|cldc|cmd\-|co(mp|nd)|craw|da(it|ll|ng)|dbte|dc\-s|devi|dica|dmob|do(c|p)o|ds(12|\-d)|el(49|ai)|em(l2|ul)|er(ic|k0)|esl8|ez([4-7]0|os|wa|ze)|fetc|fly(\-|_)|g1 u|g560|gene|gf\-5|g\-mo|go(\.w|od)|gr(ad|un)|haie|hcit|hd\-(m|p|t)|hei\-|hi(pt|ta)|hp( i|ip)|hs\-c|ht(c(\-| |_|a|g|p|s|t)|tp)|hu(aw|tc)|i\-(20|go|ma)|i230|iac( |\-|\/)|ibro|idea|ig01|ikom|im1k|inno|ipaq|iris|ja(t|v)a|jbro|jemu|jigs|kddi|keji|kgt( |\/)|klon|kpt |kwc\-|kyo(c|k)|le(no|xi)|lg( g|\/(k|l|u)|50|54|\-[a-w])|libw|lynx|m1\-w|m3ga|m50\/|ma(te|ui|xo)|mc(01|21|ca)|m\-cr|me(rc|ri)|mi(o8|oa|ts)|mmef|mo(01|02|bi|de|do|t(\-| |o|v)|zz)|mt(50|p1|v )|mwbp|mywa|n10[0-2]|n20[2-3]|n30(0|2)|n50(0|2|5)|n7(0(0|1)|10)|ne((c|m)\-|on|tf|wf|wg|wt)|nok(6|i)|nzph|o2im|op(ti|wv)|oran|owg1|p800|pan(a|d|t)|pdxg|pg(13|\-([1-8]|c))|phil|pire|pl(ay|uc)|pn\-2|po(ck|rt|se)|prox|psio|pt\-g|qa\-a|qc(07|12|21|32|60|\-[2-7]|i\-)|qtek|r380|r600|raks|rim9|ro(ve|zo)|s55\/|sa(ge|ma|mm|ms|ny|va)|sc(01|h\-|oo|p\-)|sdk\/|se(c(\-|0|1)|47|mc|nd|ri)|sgh\-|shar|sie(\-|m)|sk\-0|sl(45|id)|sm(al|ar|b3|it|t5)|so(ft|ny)|sp(01|h\-|v\-|v )|sy(01|mb)|t2(18|50)|t6(00|10|18)|ta(gt|lk)|tcl\-|tdg\-|tel(i|m)|tim\-|t\-mo|to(pl|sh)|ts(70|m\-|m3|m5)|tx\-9|up(\.b|g1|si)|utst|v400|v750|veri|vi(rg|te)|vk(40|5[0-3]|\-v)|vm40|voda|vulc|vx(52|53|60|61|70|80|81|83|85|98)|w3c(\-| )|webc|whit|wi(g |nc|nw)|wmlb|wonu|x700|yas\-|your|zeto|zte\-&quot;, RegexOptions.IgnoreCase | RegexOptions.Multiline);</span><br><span class="line">        if ((b.IsMatch(u) || v.IsMatch(u.Substring(0, 4))))</span><br><span class="line">        &#123;</span><br><span class="line">            return true;</span><br><span class="line">        &#125;</span><br><span class="line">        else</span><br><span class="line">        &#123;</span><br><span class="line">            return false;</span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>Asp.Net web.config 配置方案</strong></p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span><br><span class="line"><span class="tag">&lt;<span class="name">configuration</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">system.webServer</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">rewrite</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">rules</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">clear</span> /&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">rule</span> <span class="attr">name</span>=<span class="string">"MobDedect"</span> <span class="attr">stopProcessing</span>=<span class="string">"true"</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">match</span> <span class="attr">url</span>=<span class="string">".*"</span> <span class="attr">ignoreCase</span>=<span class="string">"false"</span> /&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">conditions</span> <span class="attr">logicalGrouping</span>=<span class="string">"MatchAny"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">add</span> <span class="attr">input</span>=<span class="string">"&#123;HTTP_USER_AGENT&#125;"</span> <span class="attr">pattern</span>=<span class="string">"(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine|fennec|hiptop|iemobile|ip(hone|od)|iris|kindle|lge|maemo|midp|mmp|netfront|opera m(ob|in)i|palm( os)?|phone|p(ixi|re)\/|plucker|pocket|psp|series(4|6)0|symbian|treo|up\.(browser|link)|vodafone|wap|windows (ce|phone)|xda|xiino"</span> /&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">add</span> <span class="attr">input</span>=<span class="string">"&#123;HTTP_USER_AGENT&#125;"</span> <span class="attr">pattern</span>=<span class="string">"^(1207|6310|6590|3gso|4thp|50[1-6]i|770s|802s|awa|abac|ac(er|oo|s\-)|ai(ko|rn)|al(av|ca|co)|amoi|an(ex|ny|yw)|aptu|ar(ch|go)|as(te|us)|attw|au(di|\-m|r |s )|avan|be(ck|ll|nq)|bi(lb|rd)|bl(ac|az)|br(e|v)w|bumb|bw\-(n|u)|c55\/|capi|</span></span></span><br><span class="line"><span class="tag"><span class="string">ccwa|cdm\-|cell|chtm|cldc|cmd\-|co(mp|nd)|craw|da(it|ll|ng)|dbte|dc\-s|devi|dica|dmob|do(c|p)o|ds(12|\-d)|el(49|ai)|em(l2|ul)|er(ic|k0)|esl8|ez([4-7]0|os|wa|ze)|fetc|fly(\-|_)|g1u|g560|gene|gf\-5|g\-mo|go(\.w|od)|gr(ad|un)|haie|hcit|hd\-(m|p|t)|hei\-|hi(pt|ta)|hp( i|ip)|hs\-c|ht(c(\-| |_|a|g|p|s|t)|tp)|hu(aw|tc)|i\-(20|go|ma)|i230|iac(|\-|\/)|ibro|idea|ig01|ikom|im1k|inno|ipaq|iris|ja(t|v)a|jbro|jemu|jigs|kddi|keji|kgt( |\/)|klon|kpt |kwc\-|kyo(c|k)|le(no|xi)|lg(g|\/(k|l|u)|50|54|\-[a-w])|libw|lynx|m1\-w|m3ga|m50\/|ma(te|ui|xo)|mc(01|21|ca)|m\-cr|me(rc|ri)|mi(o8|oa|ts)|mmef|mo(01|02|bi|de|do|t(\-| |o|v)|zz)|mt(50|p1|v )|mwbp|mywa|n10[0-2]|n20[2-3]|n30(0|2)|n50(0|2|5)|n7(0(0|1)|10)|ne((c|m)\-|on|tf|wf|wg|wt)|nok(6|i)|nzph|o2im|op(ti|wv)|oran|owg1|p800|pan(a|d|t)|pdxg|pg(13|\-([1-8]|c))|phil|pire|pl(ay|uc)|pn\-2|po(ck|rt|se)|prox|psio|pt\-g|qa\-a|qc(07|12|21|32|60|\-[2-7]|i\-)|qtek|r380|r600|raks|rim9|ro(ve|zo)|s55\/|sa(ge|ma|mm|ms|ny|va)|sc(01|h\-|oo|p\-)|sdk\/|se(c(\-|0|1)|47|mc|nd|ri)|sgh\-|shar|sie(\-|m)|sk\-0|sl(45|id)|sm(al|ar|b3|it|t5)|so(ft|ny)|sp(01|h\-|v\-|v)|sy(01|mb)|t2(18|50)|t6(00|10|18)|ta(gt|lk)|tcl\-|tdg\-|tel(i|m)|tim\-|t\-mo|to(pl|sh)|ts(70|m</span></span></span><br><span class="line"><span class="tag"><span class="string">\-|m3|m5)|tx\-9|up(\.b|g1|si)|utst|v400|v750|veri|vi(rg|te)|vk(40|5[0-3]|\-v)|vm40|voda|vulc|vx(52|53|60|61|70|80|81|83|85|98)|w3c(\-| )|webc|whit|wi(g|nc|nw)|wmlb|wonu|x700|yas\-|your|zeto|zte\-)"</span> /&gt;</span></span><br><span class="line">          <span class="tag">&lt;/<span class="name">conditions</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">action</span> <span class="attr">type</span>=<span class="string">"Rewrite"</span> <span class="attr">url</span>=<span class="string">"http://www.peng8.net"</span> /&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">rule</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">rules</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">rewrite</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">system.webServer</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>纯javascript 方法判断</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(<span class="function"><span class="keyword">function</span>(<span class="params">a,b</span>)</span>&#123;<span class="keyword">if</span>(<span class="regexp">/(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine|fennec|hiptop|iemobile|ip(hone|od)|iris|kindle|lge |maemo|midp|mmp|netfront|opera m(ob|in)i|palm( os)?|phone|p(ixi|re)\/|plucker|pocket|psp|series(4|6)0|symbian|treo|up\.(browser|link)|vodafone|wap|windows (ce|phone)|xda|xiino/i</span>.test(a)||<span class="regexp">/1207|6310|6590|3gso|4thp|50[1-6]i|770s|802s|a wa|abac|ac(er|oo|s\-)|ai(ko|rn)|al(av|ca|co)|amoi|an(ex|ny|yw)|aptu|ar(ch|go)|as(te|us)|attw|au(di|\-m|r |s )|avan|be(ck|ll|nq)|bi(lb|rd)|bl(ac|az)|br(e|v)w|bumb|bw\-(n|u)|c55\/|capi|ccwa|cdm\-|cell|chtm|cldc|cmd\-|co(mp|nd)|craw|da(it|ll|ng)|dbte|dc\-s|devi|dica|dmob|do(c|p)o|ds(12|\-d)|el(49|ai)|em(l2|ul)|er(ic|k0)|esl8|ez([4-7]0|os|wa|ze)|fetc|fly(\-|_)|g1 u|g560|gene|gf\-5|g\-mo|go(\.w|od)|gr(ad|un)|haie|hcit|hd\-(m|p|t)|hei\-|hi(pt|ta)|hp( i|ip)|hs\-c|ht(c(\-| |_|a|g|p|s|t)|tp)|hu(aw|tc)|i\-(20|go|ma)|i230|iac( |\-|\/)|ibro|idea|ig01|ikom|im1k|inno|ipaq|iris|ja(t|v)a|jbro|jemu|jigs|kddi|keji|kgt( |\/)|klon|kpt |kwc\-|kyo(c|k)|le(no|xi)|lg( g|\/(k|l|u)|50|54|\-[a-w])|libw|lynx|m1\-w|m3ga|m50\/|ma(te|ui|xo)|mc(01|21|ca)|m\-cr|me(rc|ri)|mi(o8|oa|ts)|mmef|mo(01|02|bi|de|do|t(\-| |o|v)|zz)|mt(50|p1|v )|mwbp|mywa|n10[0-2]|n20[2-3]|n30(0|2)|n50(0|2|5)|n7(0(0|1)|10)|ne((c|m)\-|on|tf|wf|wg|wt)|nok(6|i)|nzph|o2im|op(ti|wv)|oran|owg1|p800|pan(a|d|t)|pdxg|pg(13|\-([1-8]|c))|phil|pire|pl(ay|uc)|pn\-2|po(ck|rt|se)|prox|psio|pt\-g|qa\-a|qc(07|12|21|32|60|\-[2-7]|i\-)|qtek|r380|r600|raks|rim9|ro(ve|zo)|s55\/|sa(ge|ma|mm|ms|ny|va)|sc(01|h\-|oo|p\-)|sdk\/|se(c(\-|0|1)|47|mc|nd|ri)|sgh\-|shar|sie(\-|m)|sk\-0|sl(45|id)|sm(al|ar|b3|it|t5)|so(ft|ny)|sp(01|h\-|v\-|v )|sy(01|mb)|t2(18|50)|t6(00|10|18)|ta(gt|lk)|tcl\-|tdg\-|tel(i|m)|tim\-|t\-mo|to(pl|sh)|ts(70|m\-|m3|m5)|tx\-9|up(\.b|g1|si)|utst|v400|v750|veri|vi(rg|te)|vk(40|5[0-3]|\-v)|vm40|voda|vulc|vx(52|53|60|61|70|80|81|83|85|98)|w3c(\-| )|webc|whit|wi(g |nc|nw)|wmlb|wonu|x700|yas\-|your|zeto|zte\-/i</span>.test(a.substr(<span class="number">0</span>,<span class="number">4</span>)))<span class="built_in">window</span>.location=b;<span class="built_in">document</span>.write(a)&#125;)(navigator.userAgent||navigator.vendor||<span class="built_in">window</span>.opera,<span class="string">'这里换成移动端的连接地址'</span>);</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+        <a data-url="http://www.peng8.net/2014/04/20/checkclient-pc-or-mobile/" data-id="cjez2dly1000h5dru7ryfcf5y" class="article-share-link" data-share="baidu">分享到</a>
+      
+
+      
+
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/asp-net/">asp.net</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
+
+
+    </footer>
+  </div>
+  
+</article>
+
+  
+ 
+  
+  
+</section>
+        
+          <aside id="sidebar">
+  
+     <div class="widget-wrap">
+    <h3 class="widget-title">我的微博</h3>
+    <div class="widget">
+		<div style="padding: 13px 0 15px;">
+			<div class="weiboShow_developer_pic" style="float: left;margin: 2px 0 0 15px;display: inline;"><a href="http://weibo.com/512338113" target="_blank">
+                    <img src="http://tp2.sinaimg.cn/2005285601/50/40049988623/1" alt="Peng-Sir" title="Peng-Sir" style="box-shadow: 1px 1px 20px rgba(0, 0, 0, 0.15);
+filter: progid:DXImageTransform.Microsoft.Shadow(color='#C3C3C3', Direction=135, Strength=2);"></a></div>
+			<div class="weiboShow_developer_detail" style="margin-left: 73px;">
+                        <dl class="weiboShow_developerDetail_name"><dt><a href="http://weibo.com/512338113" target="_blank" alt="Peng-Sir" title="Peng-Sir">Peng-Sir</a></dt><dd><span class="weiboShow_developerDetail_namedir">北京 海淀区</span></dd></dl>
+                      
+            </div>			
+		</div>
+    </div>
+ </div>
+  
+     <div class="widget-wrap">
+    <h3 class="widget-title">我的微信</h3>
+    <div class="widget">
+		<div style="padding:0px;text-align:center">
+			<h5>扫描下面二维码可加我哦</h5>
+			<img src="http://7oxjce.com1.z0.glb.clouddn.com/peng8_weixin_big.jpg" style="width:250px;"/>
+		</div>
+    </div>
+ </div>
+  
+     <div class="widget-wrap">
+    <h3 class="widget-title">我的Q群</h3>
+    <div class="widget">
+		<div style="padding:0px;text-align:center">
+			<h5>扫描下面二维码可加群</h5>
+			<img src="http://7oxjce.com1.z0.glb.clouddn.com/peng_qqgroup.jpg" style="width:250px;"/>
+		</div>
+		<div style="width:100%;">
+			<h5>QQ群:86031665</h5>
+			<p>欢迎各位小伙伴入驻，群里有大神，妹纸多多</p>
+		</div>
+    </div>
+ </div>
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Highcharts/">Highcharts</a><span class="category-list-count">22</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/angularjs/">angularjs</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/asp-net/">asp.net</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/css/">css</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/dnn/">dnn</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/easyui/">easyui</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/easyui/datagrid/">datagrid</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript/">javascript</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/jquery/">jquery</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/phantomjs/">phantomjs</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/reactjs/">reactjs</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/随笔日记/">随笔日记</a><span class="category-list-count">5</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/2014总结/" style="font-size: 10px; color: #7dc3de">2014总结</a> <a href="/tags/2015总结/" style="font-size: 10px; color: #7dc3de">2015总结</a> <a href="/tags/Highcharts/" style="font-size: 20px; color: #800080">Highcharts</a> <a href="/tags/Highcharts-legend/" style="font-size: 10px; color: #7dc3de">Highcharts legend</a> <a href="/tags/Highcharts不常用属性/" style="font-size: 10px; color: #7dc3de">Highcharts不常用属性</a> <a href="/tags/Highcharts仪表盘/" style="font-size: 10px; color: #7dc3de">Highcharts仪表盘</a> <a href="/tags/Highcharts复制标题/" style="font-size: 10px; color: #7dc3de">Highcharts复制标题</a> <a href="/tags/Highcharts绘制自定义元素/" style="font-size: 10px; color: #7dc3de">Highcharts绘制自定义元素</a> <a href="/tags/Highcharts自定义属性/" style="font-size: 10px; color: #7dc3de">Highcharts自定义属性</a> <a href="/tags/Highmaps/" style="font-size: 10px; color: #7dc3de">Highmaps</a> <a href="/tags/Highstock-K线图/" style="font-size: 10px; color: #7dc3de">Highstock K线图</a> <a href="/tags/Highstock-分时图/" style="font-size: 12.5px; color: #7e92c7">Highstock 分时图</a> <a href="/tags/Swiftype/" style="font-size: 10px; color: #7dc3de">Swiftype</a> <a href="/tags/angularjs/" style="font-size: 15px; color: #7f62af">angularjs</a> <a href="/tags/angularjs-post/" style="font-size: 10px; color: #7dc3de">angularjs post</a> <a href="/tags/angularjs自定义标签/" style="font-size: 10px; color: #7dc3de">angularjs自定义标签</a> <a href="/tags/asp-net/" style="font-size: 17.5px; color: #7f3198">asp.net</a> <a href="/tags/aspose/" style="font-size: 10px; color: #7dc3de">aspose</a> <a href="/tags/bowerrc创建/" style="font-size: 10px; color: #7dc3de">bowerrc创建</a> <a href="/tags/css/" style="font-size: 10px; color: #7dc3de">css</a> <a href="/tags/dnn/" style="font-size: 10px; color: #7dc3de">dnn</a> <a href="/tags/doctype/" style="font-size: 10px; color: #7dc3de">doctype</a> <a href="/tags/easyui/" style="font-size: 10px; color: #7dc3de">easyui</a> <a href="/tags/gojs入门笔记/" style="font-size: 10px; color: #7dc3de">gojs入门笔记</a> <a href="/tags/heatmap/" style="font-size: 12.5px; color: #7e92c7">heatmap</a> <a href="/tags/highchart/" style="font-size: 10px; color: #7dc3de">highchart</a> <a href="/tags/highmaps使用/" style="font-size: 10px; color: #7dc3de">highmaps使用</a> <a href="/tags/javascript/" style="font-size: 17.5px; color: #7f3198">javascript</a> <a href="/tags/jquery/" style="font-size: 17.5px; color: #7f3198">jquery</a> <a href="/tags/myPagination/" style="font-size: 10px; color: #7dc3de">myPagination</a> <a href="/tags/phantomjs/" style="font-size: 15px; color: #7f62af">phantomjs</a> <a href="/tags/phantomjs单独部署/" style="font-size: 10px; color: #7dc3de">phantomjs单独部署</a> <a href="/tags/react/" style="font-size: 12.5px; color: #7e92c7">react</a> <a href="/tags/react-native/" style="font-size: 12.5px; color: #7e92c7">react-native</a> <a href="/tags/tagedit/" style="font-size: 10px; color: #7dc3de">tagedit</a> <a href="/tags/timelinejs/" style="font-size: 10px; color: #7dc3de">timelinejs</a> <a href="/tags/分时图/" style="font-size: 10px; color: #7dc3de">分时图</a> <a href="/tags/地图/" style="font-size: 10px; color: #7dc3de">地图</a> <a href="/tags/希望/" style="font-size: 10px; color: #7dc3de">希望</a> <a href="/tags/延迟加载/" style="font-size: 10px; color: #7dc3de">延迟加载</a> <a href="/tags/智能查询/" style="font-size: 10px; color: #7dc3de">智能查询</a> <a href="/tags/热力图/" style="font-size: 12.5px; color: #7e92c7">热力图</a> <a href="/tags/热点图/" style="font-size: 12.5px; color: #7e92c7">热点图</a> <a href="/tags/美图/" style="font-size: 10px; color: #7dc3de">美图</a> <a href="/tags/随笔/" style="font-size: 10px; color: #7dc3de">随笔</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">七月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">二月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">一月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">十二月 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">十一月 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">十月 2015</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">九月 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">七月 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">六月 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/05/">五月 2015</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/04/">四月 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">三月 2015</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">二月 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">一月 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/12/">十二月 2014</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">十一月 2014</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">十月 2014</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/09/">九月 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08/">八月 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/07/">七月 2014</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/05/">五月 2014</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/04/">四月 2014</a><span class="archive-list-count">4</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">近期文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2016/07/06/write-checkbox-component-in-React/">React-Native 中自定义checkbox组件</a>
+          </li>
+        
+          <li>
+            <a href="/2016/02/23/learn-react-native/">React-Native 环境搭建指南[阿鹏出品]</a>
+          </li>
+        
+          <li>
+            <a href="/2016/01/19/tagedit-demo-by-peng8/">简易模糊查询tagedit的实现</a>
+          </li>
+        
+          <li>
+            <a href="/2015/12/31/2015-summary/">这一年</a>
+          </li>
+        
+          <li>
+            <a href="/2015/12/30/highmaps-of-china-extend/">阿鹏 细说highmaps</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">友情链接</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="http://www.hcharts.cn/" target="_blank">Highcharts中文网</a>
+          </li>
+        
+          <li>
+            <a href="http://bbs.hcharts.cn/" target="_blank">Highcharts论坛</a>
+          </li>
+        
+          <li>
+            <a href="http://www.52wulian.cn/" target="_blank">我爱物联网</a>
+          </li>
+        
+          <li>
+            <a href="http://www.w3cscript.com/" target="_blank">angular教程</a>
+          </li>
+        
+          <li>
+            <a href="http://www.jiweiwei.com/" target="_blank">众生相</a>
+          </li>
+        
+          <li>
+            <a href="http://bbs.dtsoft.net/" target="_blank">DTCMS论坛</a>
+          </li>
+        
+          <li>
+            <a href="http://www.dexcoder.com/" target="_blank">码农的士</a>
+          </li>
+        
+          <li>
+            <a href="http://www.xrpmoon.com/blog/" target="_blank">Java与Ripple究竟怎么玩</a>
+          </li>
+        
+          <li>
+            <a href="http://www.jcore.cn/" target="_blank">jcore</a>
+          </li>
+        
+          <li>
+            <a href="http://www.gaigaiming.com/" target="_blank">改改名</a>
+          </li>
+        
+          <li>
+            <a href="http://kanng.net/" target="_blank">看门狗IT导航</a>
+          </li>
+        
+          <li>
+            <a href="http://www.lanhouzi.net/" target="_blank">蓝猴子</a>
+          </li>
+        
+          <li>
+            <a href="http://blog.brain1981.com/" target="_blank">Brain的技术笔记</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+     <div class="widget-wrap">
+    <h3 class="widget-title">最近访客</h3>
+    <div class="widget">
+		<div style="width:100%">
+			<ul class="ds-recent-visitors" data-num-items="20"></ul>
+		</div>
+    </div>
+ </div>
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 黑桃 K<br>
+      Powered by <a href="http://peng8.net" target="_blank">Peng8.net</a>  
+      
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/about" class="mobile-nav-link">About</a>
+  
+    <a href="/live" class="mobile-nav-link">Live</a>
+  
+    <a href="https://github.com/peng8" class="mobile-nav-link">Github</a>
+  
+</nav>
+    
+<script src="http://libs.baidu.com/jquery/1.8.3/jquery.min.js"></script>
+<!-- 百度分享 start -->
+
+<div id="article-share-box" class="article-share-box">
+  <div id="bdshare" class="bdsharebuttonbox article-share-links">
+    <a class="article-share-weibo" data-cmd="tsina" title="分享到新浪微博"></a>
+    <a class="article-share-weixin" data-cmd="weixin" title="分享到微信"></a>
+    <a class="article-share-qq" data-cmd="tqq" title="分享到QQ"></a>
+    <a class="article-share-twitter" data-cmd="twi" title="分享到人人网"></a>
+    <a class="article-share-more" data-cmd="more" title="更多"></a>
+  </div>
+</div>
+<script>window._bd_share_config={"common":{},"share":[{"bdCustomStyle":"/nocss.css"}]};with(document)0[(getElementsByTagName("head")[0]||body).appendChild(createElement("script")).src="http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion="+~(-new Date()/36e5)];</script>
+
+<!-- 百度分享 end -->
+
+
+<!--返回顶部 -->
+<div id="totop" style="position:fixed;bottom:150px;right:50px;cursor: pointer;z-index:999;transition: all .5s ease 0s;">
+	<i class="fa fa-arrow-up" style="display: inline-block;font-family: FontAwesome;font-style: normal;font-weight: normal;line-height: 1;-webkit-font-smoothing: antialiased;
+-moz-osx-font-smoothing: grayscale;font-size: 35px;"></i>
+</div>
+<script src="/js/totop.js"></script>
+<!-- 返回顶部 end -->
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+<!-- 搜索-->
+
+<script type="text/javascript">
+(function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install','saxnFW97g3pyEKdjicJD','2.0.0');
+  
+</script>
+
+<script src="/js/script.js"></script>
+  </div>
+</body>
+</html>

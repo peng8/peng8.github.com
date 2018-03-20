@@ -1,0 +1,138 @@
+<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><p><link rel="stylesheet" type="text/css" href="http://sandbox.runjs.cn/uploads/rs/228/zroo4bdf/default.css"></p>
+<script src="http://cdn.bootcss.com/jquery/1.8.3/jquery.min.js"></script>
+<script type="text/javascript" src="http://sandbox.runjs.cn/uploads/rs/228/zroo4bdf/garden.js"></script>
+    <script type="text/javascript" src="http://sandbox.runjs.cn/uploads/rs/228/zroo4bdf/functions.js"></script>
+        <script type="text/javascript">
+    // 获取URL参数
+$.request = (function() {
+    var apiMap = {};
+    function request(queryStr) {
+        var api = {};
+        if (apiMap[queryStr]) {
+            return apiMap[queryStr];
+        }
+        api.queryString = (function() {
+            var urlParams = {};
+            var e, d = function(s) {
+                return decodeURIComponent(s.replace(/\+/g, " "));
+            }, q = queryStr.substring(queryStr.indexOf('?') + 1), r = /([^&=]+)=?([^&]*)/g;
+            while (e = r.exec(q))
+                urlParams[d(e[1])] = d(e[2]);
+
+            return urlParams;
+        })();
+        api.getUrl = function() {
+            var url = queryStr.substring(0, queryStr.indexOf('?') + 1);
+            for ( var p in api.queryString) {
+                url += p + '=' + api.queryString[p] + "&";
+            }
+            if (url.lastIndexOf('&') == url.length - 1) {
+                return url.substring(0, url.lastIndexOf('&'));
+            }
+            return url;
+        }
+        apiMap[queryStr] = api;
+        return api;
+    }
+    $.extend(request, request(window.location.href));
+    return request;
+})();
+    </script>
+  <h1 align="center" style="color:red;">Our Love Story
+    <div id="mainDiv">
+        <div id="content">
+            <div id="code">
+                <br>
+                <span class="space"><span class="comments">/** I am a programmers,by my special way,</span><br>
+                <span class="space"><span class="comments">so I write some codes to celebrate our love.**/</span><br>
+                <br>
+                Boy i = <span class="keyword">new</span> Boy(<span class="string boy">"peng8.net"</span>);<br>
+                Girl u = <span class="keyword">new</span> Girl(<span class="string girl">"lovely girl"</span>);<br>
+                <span class="comments">/** Once, I told you I love you.**/ </span><br>
+                i.love(u);<br>
+                <span class="comments">/** Luckily, you accepted and became my girlfriend eversince.**/</span><br>
+                u.accepted();<br>
+                <span class="comments">/** Since then, I miss u every day.**/</span><br>
+                i.miss(u);<br>
+                <span class="comments">/** And take care of u and our love.**/</span><br>
+                i.takeCareOf(u);<br>
+                <span class="comments">/** You say that you won't be so easy to marry me.**/</span><br>
+                <span class="comments">/** So I keep waiting and you will.**/</span><br>
+                <span class="keyword">boolean</span> isHesitate = <span class="keyword">true</span>;<br>
+                <span class="keyword">while</span> (isHesitate) {<br>
+                <span class="placeholder">i.waitFor(u);<br>
+                <span class="placeholder"><span class="comments">/** I think it is an important decision**/</span><br>
+                <span class="placeholder"><span class="comments">/** and you should think it over.**/</span><br>
+                <span class="placeholder">isHesitate = u.thinkOver();<br>
+                <br>
+                <span class="placeholder">i.beWith(u);<br>
+                <br>
+                <span class="placeholder">isHesitate = u.thinkOver();<br>
+                <br>
+                <span class="placeholder">i.onlyLove(u);<br>
+                }<br>
+                <span class="comments">/* After a romantic wedding, we will live happily ever after.**/</span><br>
+                i.marry(u);<br>
+                i.liveHappilyWith(u);<br>
+            </span></span></span></span></span></span></span></span></span></div>
+            <div id="loveHeart">
+                <canvas id="garden"></canvas>
+                <div id="words">
+                    <div id="messages">
+                        Lovely girl,I have fallen in love with you for
+                        <div id="elapseClock"></div>
+                    </div>
+                    <div id="loveu">
+                        Love u forever and ever.
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        if($.request.queryString["boy"]!=null){
+            $(".boy").html($.request.queryString["boy"]);
+        }
+        if($.request.queryString["girl"]!=null){
+            $(".girl").html($.request.queryString["girl"]);
+        }
+        var offsetX = $("#loveHeart").width() / 2;
+        var offsetY = $("#loveHeart").height() / 2 - 55;
+        var together = new Date();
+        var date="2011-05-24";
+        if($.request.queryString["date"]!=null){
+            date=$.request.queryString["date"];
+        }
+
+        together.setFullYear(parseInt(date.split("-")[0]), parseInt(date.split("-")[1]), parseInt(date.split("-")[2]));
+        together.setHours(19);
+        together.setMinutes(0);
+        together.setSeconds(0);
+        together.setMilliseconds(0);
+
+        if (!document.createElement('canvas').getContext) {
+            var msg = document.createElement("div");
+            msg.id = "errorMsg";
+            msg.innerHTML = "Your browser doesn't support HTML5!<br/>Recommend use Chrome 14+/IE 9+/Firefox 7+/Safari 4+"; 
+            document.body.appendChild(msg);
+            $("#code").css("display", "none")
+            $("#copyright").css("position", "absolute");
+            $("#copyright").css("bottom", "10px");
+            document.execCommand("stop");
+        } else {
+            setTimeout(function () {
+                startHeartAnimation();
+            }, 5000);
+
+            timeElapse(together);
+            setInterval(function () {
+                timeElapse(together);
+            }, 500);
+
+            adjustCodePosition();
+            $("#code").typewriter();
+        }
+    </script>
+
+</h1>

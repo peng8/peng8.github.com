@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="baidu-site-verification" content="mDPffBZ70D" />
+  <title>highstock高级篇之股票分时图 | Peng8 | 鹏吧</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+   
+    <meta name="author" content="黑桃 K">
+	<meta name="keywords" content="Highstock,Highcharts开发股票分时图与K线图">
+    
+    <meta name="description" itemprop="description" content="如何使用Highstock开发股票分时图与K线图">
+      
+  
+    <link rel="alternative" href="/sitemap.xml" title="Peng8 | 鹏吧" type="application/atom+xml">
+  
+ <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="stylesheet" href="/css/style.css">
+
+  <!--[if lt IE 9]><script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7/html5shiv.min.js"></script><![endif]-->
+  
+<script type="text/javascript">
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F5273c965cb9a839dda335e206ec0f50d' type='text/javascript'%3E%3C/script%3E"));
+</script>
+
+
+</head>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Peng8 | 鹏吧</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">do one thing at a time and do well</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+          <a class="main-nav-link" href="/about">About</a>
+        
+          <a class="main-nav-link" href="/live">Live</a>
+        
+          <a class="main-nav-link" href="https://github.com/peng8">Github</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/sitemap.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="/search/index.html" method="get" accept-charset="utf-8" class="search-form">
+          <input id="txtSearch" type="text" class="search-form-input peng8-search-input" placeholder="Search">
+        </form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-how-to-use-highstock" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/01/31/how-to-use-highstock/" class="article-date">
+  <time datetime="2015-01-31T09:43:22.000Z" itemprop="datePublished">2015/01/31</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Highcharts/">Highcharts</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      highstock高级篇之股票分时图
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+		
+		
+			<div id="toc" class="toc-article">			
+				<strong class="toc-title">文章目录</strong>
+			
+				<ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#预期想要达成的效果图"><span class="toc-text">预期想要达成的效果图</span></a></li></ol>
+			
+			</div>
+		
+        <blockquote>
+<p> 一直在用<code>highchart</code>在做图表，最近一段时间突然接到一活，需要用 <code>highstock</code> 帮客户完成一个股票K线图和分时图。虽然用法和<code>api</code>上与 <code>highchart</code> 没什么区别，但还是研究一番做出了对应的DEMO，于是抽空与大家分享下。</p>
+</blockquote>
+<h4 id="预期想要达成的效果图"><a href="#预期想要达成的效果图" class="headerlink" title="预期想要达成的效果图"></a>预期想要达成的效果图</h4><p><img src="http://7oxjce.com1.z0.glb.clouddn.com/peng_20150131164032.png" alt=""></p>
+<a id="more"></a>
+<p>####highstock 开发股票或者财经的分时图</p>
+<ul>
+<li><p>准备工作</p>
+<p> <strong>引入 <code>highstock</code> 文件</strong><br><strong>[</strong>这里需要重点注意了，需要引入 <code>highstock</code> 的版本 为 <strong>v1.2.5</strong> 版本，最新版和老版本有很大的区别，至于为什么随后在代码结束后为大家解释 ！<strong>]</strong> </p>
+</li>
+<li><p>图表的初始化 </p>
+<ol>
+<li><p>UTC时间的设置和一些公共设置</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">Highcharts.setOptions(&#123;</span><br><span class="line">		global: &#123;                                                               </span><br><span class="line">            useUTC: <span class="literal">true</span>                                                       </span><br><span class="line">        &#125;, </span><br><span class="line">		lang : &#123;</span><br><span class="line">			rangeSelectorZoom : <span class="string">''</span>,</span><br><span class="line">			months : [ <span class="string">'一月'</span>, <span class="string">'二月'</span>, <span class="string">'三月'</span>, <span class="string">'四月'</span>, <span class="string">'五月'</span>, <span class="string">'六月'</span>, <span class="string">'七月'</span>, <span class="string">'八月'</span>, <span class="string">'九月'</span>, <span class="string">'十月'</span>, <span class="string">'十一月'</span>, <span class="string">'十二月'</span> ],</span><br><span class="line">			shortMonths : [ <span class="string">'1月'</span>, <span class="string">'2月'</span>, <span class="string">'3月'</span>, <span class="string">'4月'</span>, <span class="string">'5月'</span>, <span class="string">'6月'</span>, <span class="string">'7月'</span>, <span class="string">'8月'</span>,</span><br><span class="line">					<span class="string">'9月'</span>, <span class="string">'10月'</span>, <span class="string">'11月'</span>, <span class="string">'12月'</span> ],</span><br><span class="line">			weekdays : [ <span class="string">'周日'</span>, <span class="string">'周一'</span>, <span class="string">'周二'</span>, <span class="string">'周三'</span>, <span class="string">'周四'</span>, <span class="string">'周五'</span>, <span class="string">'周六'</span> ]</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>渲染图表方法</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br></pre></td><td class="code"><pre><span class="line"> <span class="function"><span class="keyword">function</span> <span class="title">initHourChart</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="keyword">var</span> chart=<span class="literal">null</span>;</span><br><span class="line">	<span class="comment">//需要请求的api action 地址</span></span><br><span class="line">	<span class="keyword">var</span> path=<span class="string">"/highstock/hour.json"</span>;</span><br><span class="line">	$.getJSON(path,<span class="function"><span class="keyword">function</span>(<span class="params">data</span>) </span>&#123;</span><br><span class="line">		<span class="keyword">if</span>(data.datas.length==<span class="number">0</span>)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">return</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">var</span> Price = [];</span><br><span class="line">		<span class="comment">//获取首个变量的时间，用来计算获取时间的最小值和最大值</span></span><br><span class="line">		<span class="keyword">var</span> firstData=data.datas[<span class="number">0</span>].updatetime;</span><br><span class="line">		<span class="keyword">var</span> minTime=<span class="built_in">Date</span>.UTC(<span class="built_in">parseInt</span>(firstData.substring(<span class="number">0</span>,<span class="number">4</span>)), <span class="built_in">parseInt</span>(firstData.substring(<span class="number">4</span>,<span class="number">6</span>))<span class="number">-1</span>, <span class="built_in">parseInt</span>(firstData.substring(<span class="number">6</span>,<span class="number">8</span>)), <span class="number">8</span>);</span><br><span class="line">		<span class="keyword">var</span> maxTime=<span class="built_in">Date</span>.UTC(<span class="built_in">parseInt</span>(firstData.substring(<span class="number">0</span>,<span class="number">4</span>)), <span class="built_in">parseInt</span>(firstData.substring(<span class="number">4</span>,<span class="number">6</span>))<span class="number">-1</span>, <span class="built_in">parseInt</span>(firstData.substring(<span class="number">6</span>,<span class="number">8</span>)), <span class="number">20</span>);</span><br><span class="line">		<span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; data.datas.length; i++)</span><br><span class="line">        &#123;</span><br><span class="line">               Price.push([</span><br><span class="line">                   UTC(data.datas[i].updatetime),</span><br><span class="line">                   <span class="built_in">parseFloat</span>(data.datas[i].open) </span><br><span class="line">               ]);</span><br><span class="line">        &#125;</span><br><span class="line">		Price.sort();</span><br><span class="line">		<span class="keyword">var</span> option=&#123;</span><br><span class="line">			colors:[<span class="string">'#4d73a8'</span>],</span><br><span class="line">			chart: &#123;			 </span><br><span class="line">              renderTo:<span class="string">"container"</span>,<span class="comment">// 需要渲染的DIV 的ID名称</span></span><br><span class="line">              alignTicks: <span class="literal">true</span></span><br><span class="line">            &#125;, </span><br><span class="line">             navigator: <span class="literal">false</span>,</span><br><span class="line">             scrollbar: <span class="literal">false</span>,</span><br><span class="line">             rangeSelector: <span class="literal">false</span>,</span><br><span class="line">             plotOptions: &#123;</span><br><span class="line">                 line: &#123;</span><br><span class="line">                   lineWidth: <span class="number">1</span></span><br><span class="line">                 &#125;</span><br><span class="line">             &#125;,</span><br><span class="line">             xAxis:[&#123;</span><br><span class="line">                    tickInterval:<span class="number">60</span> * <span class="number">1000</span> * <span class="number">60</span> *<span class="number">2.5</span>,</span><br><span class="line">                    min:minTime,</span><br><span class="line">                    max:maxTime,</span><br><span class="line">                    startOnTick:<span class="literal">true</span>,</span><br><span class="line">                    endOntick:<span class="literal">true</span>,</span><br><span class="line">                    gridLineColor: <span class="string">'#ccc'</span>,</span><br><span class="line">                    gridLineDashStyle: <span class="string">'dotted'</span>,</span><br><span class="line">                    gridLineWidth: <span class="number">1</span>,</span><br><span class="line">                    tickColor:<span class="string">'none'</span>,</span><br><span class="line">                    lineColor: <span class="string">'#ccc'</span>,</span><br><span class="line">                  	 labels:&#123;</span><br><span class="line">                           formatter:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">                             <span class="keyword">var</span> date = <span class="keyword">new</span> <span class="built_in">Date</span>(<span class="keyword">this</span>.value)</span><br><span class="line">                             <span class="keyword">var</span> hours = date.getHours()</span><br><span class="line">                             <span class="keyword">if</span>(hours&lt;<span class="number">8</span>)&#123;</span><br><span class="line">                               hours = hours + <span class="number">24</span></span><br><span class="line">                             &#125;</span><br><span class="line">                             <span class="keyword">return</span> addZero(hours<span class="number">-8</span>)+<span class="string">':'</span>+addZero(date.getMinutes())</span><br><span class="line">                             &#125;</span><br><span class="line">                       &#125;</span><br><span class="line">             &#125;],</span><br><span class="line">             yAxis:[&#123; </span><br><span class="line">                      gridLineWidth: <span class="number">1</span>,</span><br><span class="line">                      lineColor: <span class="string">'#f00'</span>,</span><br><span class="line">                      labels: &#123;</span><br><span class="line">                          align: <span class="string">'right'</span></span><br><span class="line">                      &#125;,</span><br><span class="line">                      offset:<span class="number">15</span>,</span><br><span class="line">                      min:<span class="number">0</span>,</span><br><span class="line">                      gridLineColor: <span class="string">'#ccc'</span>,</span><br><span class="line">                      gridLineDashStyle: <span class="string">'solid'</span></span><br><span class="line">                &#125;],</span><br><span class="line">             credits: <span class="literal">false</span>,</span><br><span class="line">             series : [&#123;</span><br><span class="line">    			name : <span class="string">'当前价'</span>,</span><br><span class="line">   			    color: <span class="string">'#30527e'</span>,</span><br><span class="line">                   lineWidth: <span class="number">1</span>,</span><br><span class="line">                   type:<span class="string">'line'</span>,</span><br><span class="line">                   yAxis:<span class="number">0</span>,</span><br><span class="line">                   xAxis:<span class="number">0</span>,</span><br><span class="line">                   pointStart: minTime,</span><br><span class="line">    			data:Price</span><br><span class="line">	    	 &#125;]</span><br><span class="line">		&#125;</span><br><span class="line">		chart=<span class="keyword">new</span> Highcharts.StockChart(option);			</span><br><span class="line">	&#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>渲染方法里需要用到的辅助方法，如UTC 的格式化，X轴时间的格式化等等</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">addZero</span>(<span class="params">str</span>)</span>&#123;</span><br><span class="line">	    <span class="keyword">if</span>(str&lt;<span class="number">10</span>)&#123;</span><br><span class="line">	      <span class="keyword">return</span> str = <span class="string">'0'</span> + str</span><br><span class="line">	    &#125;</span><br><span class="line">	    <span class="keyword">return</span> str</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">UTC</span>(<span class="params">time</span>)</span>&#123;</span><br><span class="line">	    <span class="keyword">if</span>(time==<span class="literal">undefined</span>) <span class="keyword">return</span></span><br><span class="line">	      <span class="keyword">if</span> (time.length &lt; <span class="number">10</span>) &#123;</span><br><span class="line">	        time = <span class="string">''</span> + time;</span><br><span class="line">	        <span class="keyword">return</span> <span class="built_in">Date</span>.UTC(time.substring(<span class="number">0</span>, <span class="number">4</span>), time.substring(<span class="number">4</span>, <span class="number">6</span>) - <span class="number">1</span>, time.substring(<span class="number">6</span>,<span class="number">8</span>));</span><br><span class="line">	      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">	        time = <span class="string">''</span> + time;</span><br><span class="line">	        <span class="keyword">return</span> <span class="built_in">Date</span>.UTC(time.substring(<span class="number">0</span>, <span class="number">4</span>), time.substring(<span class="number">4</span>, <span class="number">6</span>) - <span class="number">1</span>, time.substring(<span class="number">6</span>, <span class="number">8</span>), time.substring(<span class="number">9</span>, <span class="number">11</span>), time.substring(<span class="number">12</span>, <span class="number">14</span>), time.substring(<span class="number">15</span>, <span class="number">17</span>));</span><br><span class="line">	      &#125;      </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>请求的<code>json</code>格式，当然格式可以自己定义 ，但是需要修改上面方法里的属性</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">   &quot;datas&quot;: [</span><br><span class="line">       &#123;</span><br><span class="line">           &quot;open&quot;: 2055,</span><br><span class="line">           &quot;updatetime&quot;: &quot;20150129 08:00:00&quot;,</span><br><span class="line">           &quot;status&quot;: 1,</span><br><span class="line">           &quot;high&quot;: 2055,</span><br><span class="line">           &quot;low&quot;: 2053,</span><br><span class="line">           &quot;close&quot;: 2054</span><br><span class="line">       &#125;,</span><br><span class="line">       &#123;</span><br><span class="line">           &quot;open&quot;: 2055,</span><br><span class="line">           &quot;updatetime&quot;: &quot;20150129 08:01:00&quot;,</span><br><span class="line">           &quot;status&quot;: 1,</span><br><span class="line">           &quot;high&quot;: 2055,</span><br><span class="line">           &quot;low&quot;: 2054,</span><br><span class="line">           &quot;close&quot;: 2054</span><br><span class="line">       &#125;,</span><br><span class="line">       &#123;</span><br><span class="line">           &quot;open&quot;: 2055,</span><br><span class="line">           &quot;updatetime&quot;: &quot;20150129 08:02:00&quot;,</span><br><span class="line">           &quot;status&quot;: 1,</span><br><span class="line">           &quot;high&quot;: 2055,</span><br><span class="line">           &quot;low&quot;: 2055,</span><br><span class="line">           &quot;close&quot;: 2055</span><br><span class="line">       &#125;]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>最后完成的效果图(当然样式和其他方面还得做调整)<br><img src="http://7oxjce.com1.z0.glb.clouddn.com/peng_20150131171924.png" alt="初始化的效果图"><br><img src="http://7oxjce.com1.z0.glb.clouddn.com/peng_20150131171749.png" alt="鼠标移上去的效果图"><br>#####方法解释说明<br><code>initHourChart</code> 方法为渲染的核心方法，它先请求服务端的<code>json数据</code>，拿到<code>json数据</code>后，循环遍历开始组建图表所需要的<code>data格式</code>，一个<code>UTC</code> 时间戳，另外一个就是对应的数据值 。需要注意的是<strong>xAxis</strong> 属性里需要设置 <strong>tickInterval</strong> 、<strong>min</strong>和<strong>max</strong> 参数，而且必须要设置。因为股票的分时图一般会有开盘时间和收盘时间，这里的<strong>min</strong>和<strong>max</strong> 决定了<strong>x</strong> 轴时间的<strong>开始</strong>和<strong>结束</strong> ，<strong>tickInterval</strong> 决定了<strong>x </strong>的间隔时间（例子里我以2小时为间隔展示了一天的数据）。</p>
+</li>
+</ol>
+<p>接着我来解释为什么前面我说必须要用<strong>v1.2.5</strong> 版本</p>
+<ol>
+<li><strong>旧版支持时间段固定显示模式，例如上图初始化 就可以显示 早上8点到晚上8点的刻度值，即使当前的数据没有16点以后的数据。而新版当没有16点以后的数据时，会无法显示后面时间段的空白区域，除非将时间点填充null的值，如果后面点有值了动态去更新</strong>。</li>
+<li><strong>定时器功能，我们会在load事件里增加一个定时器，动态为图表增加新的点。因为从开盘后，不是所有时间段的数据都会有。然而这点上，新版增加数据后整个线会向左移动，然后新添加的点才增加进来，具体看官网的DEMO。旧版的处理方式是图表不懂，自动在最后一个点上增加新的数据</strong>。</li>
+</ol>
+<p>附上2张图分别采用新版和旧版，解释上面2个观点<br><img src="http://7oxjce.com1.z0.glb.clouddn.com/peng_20150131173612.png" alt="新版js初始化的图表"><br><img src="http://7oxjce.com1.z0.glb.clouddn.com/peng_20150131173315.png" alt="旧版js初始化的图表"></p>
+</li>
+</ul>
+<blockquote>
+<p>大家可以对比看看2张图的效果！也许新版有其他的解决方案。如果有也可以联系我与大家分享。今天就讲到这里，下篇为大家带来K线图的实例。</p>
+</blockquote>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+        <a data-url="http://www.peng8.net/2015/01/31/how-to-use-highstock/" data-id="cjez2dlzk002v5druuqm2jubj" class="article-share-link" data-share="baidu">分享到</a>
+      
+
+      
+
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Highstock-分时图/">Highstock 分时图</a></li></ul>
+
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2015/02/06/how-to-use-highstock-with-kline/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">
+        
+          highstock高级篇之股票K线图
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2015/01/05/easyui-datagrid-checkbox-status/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">EasyUI datagrid实现翻页客户端保存checkbox状态</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+  
+  <div id="container-comment"  class="gitment_container"></div>
+  <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+  <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+  <script type="text/javascript">
+  const myTheme = {
+    render(state, instance) {
+      const container = document.createElement('div');
+      container.lang = "en-US"
+      container.className = 'gitment-container gitment-root-container';
+      // if (!state.user.login) {
+      //   container.innerText = "请登录后留言哦"
+      // }
+      container.appendChild(instance.renderHeader(state, instance));
+      container.appendChild(instance.renderEditor(state, instance));
+      container.appendChild(instance.renderComments(state, instance));
+      container.appendChild(instance.renderFooter(state, instance));
+      return container;
+    }
+  }
+  var gitment = new Gitment({
+    id: window.location.pathname,
+    theme: myTheme,
+    owner: 'peng8',
+    repo: 'peng8.github.com',
+    oauth: {
+      client_id: '0295076ded72aceb29c4',
+      client_secret: 'dc65a48ebebdefee137dea8474768f333b90bdf4'
+    }
+  });
+  gitment.render('container-comment');
+  </script>
+  
+ </section>
+        
+          <aside id="sidebar">
+  
+     <div class="widget-wrap">
+    <h3 class="widget-title">我的微博</h3>
+    <div class="widget">
+		<div style="padding: 13px 0 15px;">
+			<div class="weiboShow_developer_pic" style="float: left;margin: 2px 0 0 15px;display: inline;"><a href="http://weibo.com/512338113" target="_blank">
+                    <img src="http://tp2.sinaimg.cn/2005285601/50/40049988623/1" alt="Peng-Sir" title="Peng-Sir" style="box-shadow: 1px 1px 20px rgba(0, 0, 0, 0.15);
+filter: progid:DXImageTransform.Microsoft.Shadow(color='#C3C3C3', Direction=135, Strength=2);"></a></div>
+			<div class="weiboShow_developer_detail" style="margin-left: 73px;">
+                        <dl class="weiboShow_developerDetail_name"><dt><a href="http://weibo.com/512338113" target="_blank" alt="Peng-Sir" title="Peng-Sir">Peng-Sir</a></dt><dd><span class="weiboShow_developerDetail_namedir">北京 海淀区</span></dd></dl>
+                      
+            </div>			
+		</div>
+    </div>
+ </div>
+  
+     <div class="widget-wrap">
+    <h3 class="widget-title">我的微信</h3>
+    <div class="widget">
+		<div style="padding:0px;text-align:center">
+			<h5>扫描下面二维码可加我哦</h5>
+			<img src="http://7oxjce.com1.z0.glb.clouddn.com/peng8_weixin_big.jpg" style="width:250px;"/>
+		</div>
+    </div>
+ </div>
+  
+     <div class="widget-wrap">
+    <h3 class="widget-title">我的Q群</h3>
+    <div class="widget">
+		<div style="padding:0px;text-align:center">
+			<h5>扫描下面二维码可加群</h5>
+			<img src="http://7oxjce.com1.z0.glb.clouddn.com/peng_qqgroup.jpg" style="width:250px;"/>
+		</div>
+		<div style="width:100%;">
+			<h5>QQ群:86031665</h5>
+			<p>欢迎各位小伙伴入驻，群里有大神，妹纸多多</p>
+		</div>
+    </div>
+ </div>
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Highcharts/">Highcharts</a><span class="category-list-count">22</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/angularjs/">angularjs</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/asp-net/">asp.net</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/css/">css</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/dnn/">dnn</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/easyui/">easyui</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/easyui/datagrid/">datagrid</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript/">javascript</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/jquery/">jquery</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/phantomjs/">phantomjs</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/reactjs/">reactjs</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/随笔日记/">随笔日记</a><span class="category-list-count">5</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/2014总结/" style="font-size: 10px; color: #7dc3de">2014总结</a> <a href="/tags/2015总结/" style="font-size: 10px; color: #7dc3de">2015总结</a> <a href="/tags/Highcharts/" style="font-size: 20px; color: #800080">Highcharts</a> <a href="/tags/Highcharts-legend/" style="font-size: 10px; color: #7dc3de">Highcharts legend</a> <a href="/tags/Highcharts不常用属性/" style="font-size: 10px; color: #7dc3de">Highcharts不常用属性</a> <a href="/tags/Highcharts仪表盘/" style="font-size: 10px; color: #7dc3de">Highcharts仪表盘</a> <a href="/tags/Highcharts复制标题/" style="font-size: 10px; color: #7dc3de">Highcharts复制标题</a> <a href="/tags/Highcharts绘制自定义元素/" style="font-size: 10px; color: #7dc3de">Highcharts绘制自定义元素</a> <a href="/tags/Highcharts自定义属性/" style="font-size: 10px; color: #7dc3de">Highcharts自定义属性</a> <a href="/tags/Highmaps/" style="font-size: 10px; color: #7dc3de">Highmaps</a> <a href="/tags/Highstock-K线图/" style="font-size: 10px; color: #7dc3de">Highstock K线图</a> <a href="/tags/Highstock-分时图/" style="font-size: 12.5px; color: #7e92c7">Highstock 分时图</a> <a href="/tags/Swiftype/" style="font-size: 10px; color: #7dc3de">Swiftype</a> <a href="/tags/angularjs/" style="font-size: 15px; color: #7f62af">angularjs</a> <a href="/tags/angularjs-post/" style="font-size: 10px; color: #7dc3de">angularjs post</a> <a href="/tags/angularjs自定义标签/" style="font-size: 10px; color: #7dc3de">angularjs自定义标签</a> <a href="/tags/asp-net/" style="font-size: 17.5px; color: #7f3198">asp.net</a> <a href="/tags/aspose/" style="font-size: 10px; color: #7dc3de">aspose</a> <a href="/tags/bowerrc创建/" style="font-size: 10px; color: #7dc3de">bowerrc创建</a> <a href="/tags/css/" style="font-size: 10px; color: #7dc3de">css</a> <a href="/tags/dnn/" style="font-size: 10px; color: #7dc3de">dnn</a> <a href="/tags/doctype/" style="font-size: 10px; color: #7dc3de">doctype</a> <a href="/tags/easyui/" style="font-size: 10px; color: #7dc3de">easyui</a> <a href="/tags/gojs入门笔记/" style="font-size: 10px; color: #7dc3de">gojs入门笔记</a> <a href="/tags/heatmap/" style="font-size: 12.5px; color: #7e92c7">heatmap</a> <a href="/tags/highchart/" style="font-size: 10px; color: #7dc3de">highchart</a> <a href="/tags/highmaps使用/" style="font-size: 10px; color: #7dc3de">highmaps使用</a> <a href="/tags/javascript/" style="font-size: 17.5px; color: #7f3198">javascript</a> <a href="/tags/jquery/" style="font-size: 17.5px; color: #7f3198">jquery</a> <a href="/tags/myPagination/" style="font-size: 10px; color: #7dc3de">myPagination</a> <a href="/tags/phantomjs/" style="font-size: 15px; color: #7f62af">phantomjs</a> <a href="/tags/phantomjs单独部署/" style="font-size: 10px; color: #7dc3de">phantomjs单独部署</a> <a href="/tags/react/" style="font-size: 12.5px; color: #7e92c7">react</a> <a href="/tags/react-native/" style="font-size: 12.5px; color: #7e92c7">react-native</a> <a href="/tags/tagedit/" style="font-size: 10px; color: #7dc3de">tagedit</a> <a href="/tags/timelinejs/" style="font-size: 10px; color: #7dc3de">timelinejs</a> <a href="/tags/分时图/" style="font-size: 10px; color: #7dc3de">分时图</a> <a href="/tags/地图/" style="font-size: 10px; color: #7dc3de">地图</a> <a href="/tags/希望/" style="font-size: 10px; color: #7dc3de">希望</a> <a href="/tags/延迟加载/" style="font-size: 10px; color: #7dc3de">延迟加载</a> <a href="/tags/智能查询/" style="font-size: 10px; color: #7dc3de">智能查询</a> <a href="/tags/热力图/" style="font-size: 12.5px; color: #7e92c7">热力图</a> <a href="/tags/热点图/" style="font-size: 12.5px; color: #7e92c7">热点图</a> <a href="/tags/美图/" style="font-size: 10px; color: #7dc3de">美图</a> <a href="/tags/随笔/" style="font-size: 10px; color: #7dc3de">随笔</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">七月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">二月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">一月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">十二月 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">十一月 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">十月 2015</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">九月 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">七月 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">六月 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/05/">五月 2015</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/04/">四月 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">三月 2015</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">二月 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">一月 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/12/">十二月 2014</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">十一月 2014</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">十月 2014</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/09/">九月 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08/">八月 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/07/">七月 2014</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/05/">五月 2014</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/04/">四月 2014</a><span class="archive-list-count">4</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">近期文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2016/07/06/write-checkbox-component-in-React/">React-Native 中自定义checkbox组件</a>
+          </li>
+        
+          <li>
+            <a href="/2016/02/23/learn-react-native/">React-Native 环境搭建指南[阿鹏出品]</a>
+          </li>
+        
+          <li>
+            <a href="/2016/01/19/tagedit-demo-by-peng8/">简易模糊查询tagedit的实现</a>
+          </li>
+        
+          <li>
+            <a href="/2015/12/31/2015-summary/">这一年</a>
+          </li>
+        
+          <li>
+            <a href="/2015/12/30/highmaps-of-china-extend/">阿鹏 细说highmaps</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">友情链接</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="http://www.hcharts.cn/" target="_blank">Highcharts中文网</a>
+          </li>
+        
+          <li>
+            <a href="http://bbs.hcharts.cn/" target="_blank">Highcharts论坛</a>
+          </li>
+        
+          <li>
+            <a href="http://www.52wulian.cn/" target="_blank">我爱物联网</a>
+          </li>
+        
+          <li>
+            <a href="http://www.w3cscript.com/" target="_blank">angular教程</a>
+          </li>
+        
+          <li>
+            <a href="http://www.jiweiwei.com/" target="_blank">众生相</a>
+          </li>
+        
+          <li>
+            <a href="http://bbs.dtsoft.net/" target="_blank">DTCMS论坛</a>
+          </li>
+        
+          <li>
+            <a href="http://www.dexcoder.com/" target="_blank">码农的士</a>
+          </li>
+        
+          <li>
+            <a href="http://www.xrpmoon.com/blog/" target="_blank">Java与Ripple究竟怎么玩</a>
+          </li>
+        
+          <li>
+            <a href="http://www.jcore.cn/" target="_blank">jcore</a>
+          </li>
+        
+          <li>
+            <a href="http://www.gaigaiming.com/" target="_blank">改改名</a>
+          </li>
+        
+          <li>
+            <a href="http://kanng.net/" target="_blank">看门狗IT导航</a>
+          </li>
+        
+          <li>
+            <a href="http://www.lanhouzi.net/" target="_blank">蓝猴子</a>
+          </li>
+        
+          <li>
+            <a href="http://blog.brain1981.com/" target="_blank">Brain的技术笔记</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+     <div class="widget-wrap">
+    <h3 class="widget-title">最近访客</h3>
+    <div class="widget">
+		<div style="width:100%">
+			<ul class="ds-recent-visitors" data-num-items="20"></ul>
+		</div>
+    </div>
+ </div>
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 黑桃 K<br>
+      Powered by <a href="http://peng8.net" target="_blank">Peng8.net</a>  
+      
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/about" class="mobile-nav-link">About</a>
+  
+    <a href="/live" class="mobile-nav-link">Live</a>
+  
+    <a href="https://github.com/peng8" class="mobile-nav-link">Github</a>
+  
+</nav>
+    
+<script src="http://libs.baidu.com/jquery/1.8.3/jquery.min.js"></script>
+<!-- 百度分享 start -->
+
+<div id="article-share-box" class="article-share-box">
+  <div id="bdshare" class="bdsharebuttonbox article-share-links">
+    <a class="article-share-weibo" data-cmd="tsina" title="分享到新浪微博"></a>
+    <a class="article-share-weixin" data-cmd="weixin" title="分享到微信"></a>
+    <a class="article-share-qq" data-cmd="tqq" title="分享到QQ"></a>
+    <a class="article-share-twitter" data-cmd="twi" title="分享到人人网"></a>
+    <a class="article-share-more" data-cmd="more" title="更多"></a>
+  </div>
+</div>
+<script>window._bd_share_config={"common":{},"share":[{"bdCustomStyle":"/nocss.css"}]};with(document)0[(getElementsByTagName("head")[0]||body).appendChild(createElement("script")).src="http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion="+~(-new Date()/36e5)];</script>
+
+<!-- 百度分享 end -->
+
+
+<!--返回顶部 -->
+<div id="totop" style="position:fixed;bottom:150px;right:50px;cursor: pointer;z-index:999;transition: all .5s ease 0s;">
+	<i class="fa fa-arrow-up" style="display: inline-block;font-family: FontAwesome;font-style: normal;font-weight: normal;line-height: 1;-webkit-font-smoothing: antialiased;
+-moz-osx-font-smoothing: grayscale;font-size: 35px;"></i>
+</div>
+<script src="/js/totop.js"></script>
+<!-- 返回顶部 end -->
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+<!-- 搜索-->
+
+<script type="text/javascript">
+(function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install','saxnFW97g3pyEKdjicJD','2.0.0');
+  
+</script>
+
+<script src="/js/script.js"></script>
+  </div>
+</body>
+</html>

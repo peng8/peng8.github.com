@@ -1,0 +1,115 @@
+<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>网页更换背景</title>
+	<meta charset="utf-8">
+	<style type="text/css">
+	    body { font-family: Helvetica, Arial, sans-serif; }	    
+	    .container {
+	        width: 50%;
+	        margin: 20px auto;
+	        background-color: #FFF;
+	        padding: 20px;
+	    }
+	    .pnav a{ padding:5px; margin:5px;border: 1px solid #ddd;
+		color: #428bca;
+text-decoration: none;
+font-size: 13px !important;
+padding: 3px 6px;
+margin: 0 4px 4px 0;}
+
+.pnav a:hover, a:focus {
+color: #08A5E0;
+outline: none;
+text-decoration: none;
+}
+	    pre { border: 1px solid #CCC; background-color: #EEE; color: #333; padding: 10px; }
+	</style>
+</head>
+<body>
+    <div class="container">
+        <h1>网页更换背景</h1>
+        <p class="pnav"><a id="btnChange" href="javascript:void(0)" target="_blank" rel="noopener">点我更换背景</a><a id="btnChange2" href="javascript:void(0)" target="_blank" rel="noopener">点我自动轮换背景</a><a href="https://github.com/peng8/peng8.github.com/blob/master/js/jquery.backstretch.js" target="_blank">Js 下载地址</a><a href="/">返回作者博客</a></p>
+		<p id="p_result"></p>
+        <pre><code>
+// 创建一个图片数组
+var images = [
+	"test1.jpg",
+	"test2.jpg",
+	"test3.jpg",
+	"test4.jpg"
+];
+// 编辑数组为每个图片附上src路径  
+$(images).each(function () {
+	$('&lt;img/&gt;')[0].src = this;
+});
+
+// 用来标识是否为目前显示的图片
+var index = 0;
+//默认初始化函数
+$.backstretch(images[index], { speed: 500 },test);
+
+function test() {
+	$("#p_result").html("<strong>我是回调函数输出的结果 :"+index+"</strong>");
+}
+$("#btnChange").click(function () {
+	index = Math.floor((Math.random()*images.length)); 
+	$.backstretch(images[index], { speed: 500 },test);
+});
+$("#btnChange2").click(function () {
+	// 定时切换调用
+	setInterval(function () {
+		index = (index >= images.length - 1) ? 0 : index + 1;
+		$.backstretch(images[index], { speed: 500 },test);
+	}, 3000);
+});
+        </code></pre>
+    </div>
+    <div style="display:none;">
+                <script type="text/javascript">
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F5273c965cb9a839dda335e206ec0f50d' type='text/javascript'%3E%3C/script%3E"));
+</script>       
+    </div>
+	<script src="http://libs.baidu.com/jquery/2.1.1/jquery.min.js"></script>
+	<script src="/js/jquery.backstretch.min.js"></script>
+	<script>
+		// 创建一个图片数组
+	    var images = [
+            "http://7oxjce.com1.z0.glb.clouddn.com/peng_bg1 (1).jpg",
+            "http://7oxjce.com1.z0.glb.clouddn.com/peng_bg1 (2).jpg",
+			"http://7oxjce.com1.z0.glb.clouddn.com/peng_bg1 (3).jpg",
+			"http://7oxjce.com1.z0.glb.clouddn.com/peng_bg1 (4).jpg"
+        ];
+		// 编辑数组为每个图片附上src路径  
+	    $(images).each(function () {
+	        $('<img/>')[0].src = this;
+	    });
+		
+	    // 用来标识是否为目前显示的图片
+	    var index = 0;
+		//默认初始化函数
+		$.backstretch(images[index], { speed: 500 },test);
+	    
+	    function test() {
+	        $("#p_result").html("<strong>我是回调函数输出的结果 :"+index+"</strong>");
+	    }
+		$("#btnChange").click(function () {
+			index = Math.floor((Math.random()*images.length)); 
+	        $.backstretch(images[index], { speed: 500 },test);
+	    });
+		var obj=null;
+		$("#btnChange2").click(function () {
+	        // 定时切换调用
+			if(obj!=null)
+			{
+				window.clearInterval(obj);
+			}
+			obj=setInterval(function () {
+				index = (index >= images.length - 1) ? 0 : index + 1;
+				$.backstretch(images[index], { speed: 500 },test);
+			}, 3000);
+	    });
+	   
+    </script>
+</body>
+</html>

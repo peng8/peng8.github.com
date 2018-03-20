@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="baidu-site-verification" content="mDPffBZ70D" />
+  <title>Tag: gojs入门笔记 | Peng8 | 鹏吧</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+   
+    <meta name="author" content="黑桃 K">
+	
+    
+    <meta name="description" content="angularjs,Asp.net,C#,css,DNN,EasyUI,Highcharts,Javascript,jQuery,Peng8,鹏吧,黑桃 K">
+      
+  
+    <link rel="alternative" href="/sitemap.xml" title="Peng8 | 鹏吧" type="application/atom+xml">
+  
+ <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="stylesheet" href="/css/style.css">
+
+  <!--[if lt IE 9]><script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7/html5shiv.min.js"></script><![endif]-->
+  
+<script type="text/javascript">
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F5273c965cb9a839dda335e206ec0f50d' type='text/javascript'%3E%3C/script%3E"));
+</script>
+
+
+</head>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Peng8 | 鹏吧</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">do one thing at a time and do well</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+          <a class="main-nav-link" href="/about">About</a>
+        
+          <a class="main-nav-link" href="/live">Live</a>
+        
+          <a class="main-nav-link" href="https://github.com/peng8">Github</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/sitemap.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="/search/index.html" method="get" accept-charset="utf-8" class="search-form">
+          <input id="txtSearch" type="text" class="search-form-input peng8-search-input" placeholder="Search">
+        </form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-gojs-notes-one" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/07/20/gojs-notes-one/" class="article-date">
+  <time datetime="2015-07-20T06:27:54.000Z" itemprop="datePublished">2015/07/20</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/javascript/">javascript</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/07/20/gojs-notes-one/">gojs 学习笔记（1）</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+		
+		
+        <blockquote>
+<p><strong>gojs</strong> 入门讲解  ——-作者 Peng8</p>
+</blockquote>
+<p></p><p class="article-style1"><code>gojs</code> 是一款非常强大的绘图工具，可以用来画流程图、树图、关系图、力导图、甘特图、电流图等等一些很复杂炫酷的图形。以下是我学习的笔记，帮助大家理解，如有不对的地方请谅解</p>
+<h4 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h4><p>官方网站下载gojs相关的资源包，里面包含了例子、API等资源文件 <a href="http://gojs.net/latest/index.html" target="_blank" rel="noopener">传送门</a></p>
+<p>####一个简单的流程图<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> $ = go.GraphObject.make;</span><br></pre></td></tr></table></figure></p>
+<p>注释：按照我自己的理解，这个全局变量相当于一个画笔，即定义一个画笔工具。之后我们就可以通过<code>$</code>符号来调用它自身的一些方法、属性、枚举对象等。<br>有了画笔，那我们还需要画布，于是我们需要定义一个画布用来装载一些具体内容<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> myDiagram =$(go.Diagram, <span class="string">"myDiagram"</span>,&#123;</span><br><span class="line">    initialAutoScale: go.Diagram.Uniform,</span><br><span class="line">    contentAlignment: go.Spot.Center,</span><br><span class="line">    layout:$(go.ForceDirectedLayout,&#123; </span><br><span class="line">     defaultSpringLength: <span class="number">30</span>, </span><br><span class="line">     defaultElectricalCharge: <span class="number">100</span> </span><br><span class="line">     &#125;)</span><br><span class="line"> &#125;);</span><br></pre></td></tr></table></figure></p>
+<p>注释：<code>go.Diagram</code> 就是我们要定义的画布，注意了，第二个参数 “myDiagram” ，这里是要渲染的DIV 的Id 名称，<code>contentAlignment</code>是内容的对齐方式，<code>layout</code> 代表画布里的元素布局方式，采用了力导图自然排列。<br>这个画笔可以绘制节点、链接、区域、图案、形状、文本等，例如我们要写一个文本就可以这样写：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$(go.TextBlock,&#123;</span><br><span class="line">    text:<span class="string">"www.peng8.net"</span>,</span><br><span class="line">    stroke: <span class="string">"red"</span>,</span><br><span class="line">    font: <span class="string">"bold 10pt helvetica, bold arial, sans-serif"</span>,</span><br><span class="line">    margin: <span class="number">4</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
+<p>注释：上面这段代码应该很好理解，用画笔绘制了一个文本对象<code>go.TextBlock</code> ，并为它填充了属性 text、stroke、font、margin 等。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">myDiagram.nodeTemplate = $(go.Node, <span class="string">"Auto"</span>,</span><br><span class="line">       $(go.Shape, <span class="string">"RoundedRectangle"</span>,</span><br><span class="line">               &#123;</span><br><span class="line">                   fill: <span class="string">"white"</span>,</span><br><span class="line">                   stroke: <span class="string">"red"</span></span><br><span class="line">               &#125;,</span><br><span class="line">               <span class="keyword">new</span> go.Binding(<span class="string">"fill"</span>, <span class="string">"color"</span>)</span><br><span class="line">       ),</span><br><span class="line">       $(go.TextBlock,</span><br><span class="line">             &#123;</span><br><span class="line">                  font: <span class="string">"bold 10pt helvetica, bold arial, sans-serif"</span>,</span><br><span class="line">                  margin: <span class="number">4</span></span><br><span class="line">              &#125;,</span><br><span class="line">           <span class="keyword">new</span> go.Binding(<span class="string">"text"</span>, <span class="string">"text"</span>))</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<p>注释：上面这段代码定义了一个节点模版，一个流程图，由很多很多个节点构成，在节点模版里面有定义了2个模型，一个是形状一个是文本，首先通过<code>go.Shape</code> 定义了一个 圆角矩形 ，默认填充色为 白色，边框颜色为 红色。<br><strong>注意了，仔细看我们会发现 TextBlock 里相对与上面那个TextBlock ，少了一个text属性节点，而在最下面多了一行 <code>new go.Binding(&quot;text&quot;,&quot;text&quot;)</code> ，这什么意思呢？这是申明动态绑定text属性，将数据源中提供text字段的值赋值给当前的text属性，随后介绍数据源的格式。</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">myDiagram.linkTemplate =</span><br><span class="line"> $(go.Link, </span><br><span class="line">             &#123;  adjusting: go.Link.Stretch, reshapable: true &#125;,</span><br><span class="line">             new go.Binding(&quot;points&quot;).makeTwoWay(),</span><br><span class="line">             </span><br><span class="line">             //new go.Binding(&quot;curviness&quot;, &quot;curviness&quot;),</span><br><span class="line">             $(go.Shape,  </span><br><span class="line">                     &#123;</span><br><span class="line">                         isPanelMain: true,</span><br><span class="line">                         stroke: &quot;black&quot;</span><br><span class="line">                     &#125;),</span><br><span class="line">             $(go.Shape,  </span><br><span class="line">                     &#123;</span><br><span class="line">                         toArrow: &quot;standard&quot;,</span><br><span class="line">                         stroke: null</span><br><span class="line">                     &#125;),</span><br><span class="line">            </span><br><span class="line">                     </span><br><span class="line">             $(go.TextBlock,  </span><br><span class="line">                      &#123;</span><br><span class="line">                          textAlign: &quot;center&quot;,</span><br><span class="line">                          segmentOffset: new go.Point(0, -10),</span><br><span class="line">                          font: &quot;10pt helvetica, arial, sans-serif&quot;,</span><br><span class="line">                          stroke: &quot;#555555&quot;,</span><br><span class="line">                          margin: 4</span><br><span class="line">                      &#125;,</span><br><span class="line">                      new go.Binding(&quot;text&quot;, &quot;text&quot;)</span><br><span class="line">             )</span><br><span class="line">     );</span><br></pre></td></tr></table></figure>
+<p>注释：我们定义了节点模版，构成了流程图的每一个点，所谓流程图自然有流向，于是有了连接点与点的线，这里我们称之 流程线 ，可以是虚线、实线、带箭头、不带箭头等。同样上面通过<code>go.Link</code> 构建了流程线，这个对象里面包含了 2个形状，一个文本，2个形状一个用来画线，一个用来画箭头，文本用来显示线上的label。至于里面的属性我就不做详细介绍了，大家可以看API。</p>
+<p>最后就是如何给流程图填充动态数据了，这里我采用了json的方式，流程图赋值就是一句话就够了<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">myDiagram.model = go.Model.fromJson(jsonList);</span><br></pre></td></tr></table></figure></p>
+<p>jsonList 是我前端定义用来接收ajax返回数据的一个对象，它的数据结构是<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> jsonList = &#123;</span><br><span class="line">       nodeKeyProperty: <span class="string">"key"</span>,</span><br><span class="line">       nodeDataArray: [&#123;<span class="attr">key</span>:<span class="number">1</span>,<span class="attr">text</span>:<span class="string">"节点a"</span>&#125;,&#123;<span class="attr">key</span>:<span class="number">2</span>,<span class="attr">text</span>:<span class="string">"节点b"</span>&#125;,&#123;<span class="attr">key</span>:<span class="number">3</span>,<span class="attr">text</span>:<span class="string">"节点c"</span>&#125;],</span><br><span class="line">       linkDataArray: [&#123;<span class="attr">from</span>:<span class="number">1</span>,<span class="attr">to</span>:<span class="number">2</span>,<span class="attr">text</span>:<span class="string">"我是节点a指向节点b"</span>&#125;,&#123;<span class="attr">from</span>:<span class="number">2</span>,<span class="attr">to</span>:<span class="number">3</span>,<span class="attr">text</span>:<span class="string">"我是节点b指向节点c"</span>&#125;,&#123;<span class="attr">from</span>:<span class="number">3</span>,<span class="attr">to</span>:<span class="number">1</span>,<span class="attr">text</span>:<span class="string">"我是节点c指向节点a"</span>&#125;]</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+<p>注释：jsonList 的结构是固定的，包含了<code>nodeKeyProperty</code> 、<code>nodeDataArray</code>、<code>linkDataArray</code> 三个属性，分别代表了 <strong>关联的主键</strong>，<strong>节点数据</strong>，<strong>节点对应关系数据</strong> ，上面from 和to 即 开始节点的主键指向结束节点的主键。<br>我们把上面所有代码合起来，就形成了一个简单的流程图，上图上真相</p>
+<p><img src="http://7oxjce.com1.z0.glb.clouddn.com/peng8_20150720151518.png" alt="简单的流程图"></p>
+<blockquote>
+<p>gojs简单流程图先介绍到这里，后续还会有自定义节点图标、节点编辑、节点扩充等等相关的介绍</p>
+</blockquote>
+<p><strong>敬请期待，待续中…..</strong></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+        <a data-url="http://www.peng8.net/2015/07/20/gojs-notes-one/" data-id="cjez2dlyf00135druo6hl2qk0" class="article-share-link" data-share="baidu">分享到</a>
+      
+
+      
+
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/gojs入门笔记/">gojs入门笔记</a></li></ul>
+
+
+    </footer>
+  </div>
+  
+</article>
+
+  
+ 
+  
+  
+</section>
+        
+          <aside id="sidebar">
+  
+     <div class="widget-wrap">
+    <h3 class="widget-title">我的微博</h3>
+    <div class="widget">
+		<div style="padding: 13px 0 15px;">
+			<div class="weiboShow_developer_pic" style="float: left;margin: 2px 0 0 15px;display: inline;"><a href="http://weibo.com/512338113" target="_blank">
+                    <img src="http://tp2.sinaimg.cn/2005285601/50/40049988623/1" alt="Peng-Sir" title="Peng-Sir" style="box-shadow: 1px 1px 20px rgba(0, 0, 0, 0.15);
+filter: progid:DXImageTransform.Microsoft.Shadow(color='#C3C3C3', Direction=135, Strength=2);"></a></div>
+			<div class="weiboShow_developer_detail" style="margin-left: 73px;">
+                        <dl class="weiboShow_developerDetail_name"><dt><a href="http://weibo.com/512338113" target="_blank" alt="Peng-Sir" title="Peng-Sir">Peng-Sir</a></dt><dd><span class="weiboShow_developerDetail_namedir">北京 海淀区</span></dd></dl>
+                      
+            </div>			
+		</div>
+    </div>
+ </div>
+  
+     <div class="widget-wrap">
+    <h3 class="widget-title">我的微信</h3>
+    <div class="widget">
+		<div style="padding:0px;text-align:center">
+			<h5>扫描下面二维码可加我哦</h5>
+			<img src="http://7oxjce.com1.z0.glb.clouddn.com/peng8_weixin_big.jpg" style="width:250px;"/>
+		</div>
+    </div>
+ </div>
+  
+     <div class="widget-wrap">
+    <h3 class="widget-title">我的Q群</h3>
+    <div class="widget">
+		<div style="padding:0px;text-align:center">
+			<h5>扫描下面二维码可加群</h5>
+			<img src="http://7oxjce.com1.z0.glb.clouddn.com/peng_qqgroup.jpg" style="width:250px;"/>
+		</div>
+		<div style="width:100%;">
+			<h5>QQ群:86031665</h5>
+			<p>欢迎各位小伙伴入驻，群里有大神，妹纸多多</p>
+		</div>
+    </div>
+ </div>
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Highcharts/">Highcharts</a><span class="category-list-count">22</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/angularjs/">angularjs</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/asp-net/">asp.net</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/css/">css</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/dnn/">dnn</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/easyui/">easyui</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/easyui/datagrid/">datagrid</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript/">javascript</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/jquery/">jquery</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/phantomjs/">phantomjs</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/reactjs/">reactjs</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/随笔日记/">随笔日记</a><span class="category-list-count">5</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/2014总结/" style="font-size: 10px; color: #7dc3de">2014总结</a> <a href="/tags/2015总结/" style="font-size: 10px; color: #7dc3de">2015总结</a> <a href="/tags/Highcharts/" style="font-size: 20px; color: #800080">Highcharts</a> <a href="/tags/Highcharts-legend/" style="font-size: 10px; color: #7dc3de">Highcharts legend</a> <a href="/tags/Highcharts不常用属性/" style="font-size: 10px; color: #7dc3de">Highcharts不常用属性</a> <a href="/tags/Highcharts仪表盘/" style="font-size: 10px; color: #7dc3de">Highcharts仪表盘</a> <a href="/tags/Highcharts复制标题/" style="font-size: 10px; color: #7dc3de">Highcharts复制标题</a> <a href="/tags/Highcharts绘制自定义元素/" style="font-size: 10px; color: #7dc3de">Highcharts绘制自定义元素</a> <a href="/tags/Highcharts自定义属性/" style="font-size: 10px; color: #7dc3de">Highcharts自定义属性</a> <a href="/tags/Highmaps/" style="font-size: 10px; color: #7dc3de">Highmaps</a> <a href="/tags/Highstock-K线图/" style="font-size: 10px; color: #7dc3de">Highstock K线图</a> <a href="/tags/Highstock-分时图/" style="font-size: 12.5px; color: #7e92c7">Highstock 分时图</a> <a href="/tags/Swiftype/" style="font-size: 10px; color: #7dc3de">Swiftype</a> <a href="/tags/angularjs/" style="font-size: 15px; color: #7f62af">angularjs</a> <a href="/tags/angularjs-post/" style="font-size: 10px; color: #7dc3de">angularjs post</a> <a href="/tags/angularjs自定义标签/" style="font-size: 10px; color: #7dc3de">angularjs自定义标签</a> <a href="/tags/asp-net/" style="font-size: 17.5px; color: #7f3198">asp.net</a> <a href="/tags/aspose/" style="font-size: 10px; color: #7dc3de">aspose</a> <a href="/tags/bowerrc创建/" style="font-size: 10px; color: #7dc3de">bowerrc创建</a> <a href="/tags/css/" style="font-size: 10px; color: #7dc3de">css</a> <a href="/tags/dnn/" style="font-size: 10px; color: #7dc3de">dnn</a> <a href="/tags/doctype/" style="font-size: 10px; color: #7dc3de">doctype</a> <a href="/tags/easyui/" style="font-size: 10px; color: #7dc3de">easyui</a> <a href="/tags/gojs入门笔记/" style="font-size: 10px; color: #7dc3de">gojs入门笔记</a> <a href="/tags/heatmap/" style="font-size: 12.5px; color: #7e92c7">heatmap</a> <a href="/tags/highchart/" style="font-size: 10px; color: #7dc3de">highchart</a> <a href="/tags/highmaps使用/" style="font-size: 10px; color: #7dc3de">highmaps使用</a> <a href="/tags/javascript/" style="font-size: 17.5px; color: #7f3198">javascript</a> <a href="/tags/jquery/" style="font-size: 17.5px; color: #7f3198">jquery</a> <a href="/tags/myPagination/" style="font-size: 10px; color: #7dc3de">myPagination</a> <a href="/tags/phantomjs/" style="font-size: 15px; color: #7f62af">phantomjs</a> <a href="/tags/phantomjs单独部署/" style="font-size: 10px; color: #7dc3de">phantomjs单独部署</a> <a href="/tags/react/" style="font-size: 12.5px; color: #7e92c7">react</a> <a href="/tags/react-native/" style="font-size: 12.5px; color: #7e92c7">react-native</a> <a href="/tags/tagedit/" style="font-size: 10px; color: #7dc3de">tagedit</a> <a href="/tags/timelinejs/" style="font-size: 10px; color: #7dc3de">timelinejs</a> <a href="/tags/分时图/" style="font-size: 10px; color: #7dc3de">分时图</a> <a href="/tags/地图/" style="font-size: 10px; color: #7dc3de">地图</a> <a href="/tags/希望/" style="font-size: 10px; color: #7dc3de">希望</a> <a href="/tags/延迟加载/" style="font-size: 10px; color: #7dc3de">延迟加载</a> <a href="/tags/智能查询/" style="font-size: 10px; color: #7dc3de">智能查询</a> <a href="/tags/热力图/" style="font-size: 12.5px; color: #7e92c7">热力图</a> <a href="/tags/热点图/" style="font-size: 12.5px; color: #7e92c7">热点图</a> <a href="/tags/美图/" style="font-size: 10px; color: #7dc3de">美图</a> <a href="/tags/随笔/" style="font-size: 10px; color: #7dc3de">随笔</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">七月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">二月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">一月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">十二月 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">十一月 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">十月 2015</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">九月 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">七月 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">六月 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/05/">五月 2015</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/04/">四月 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">三月 2015</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">二月 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">一月 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/12/">十二月 2014</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">十一月 2014</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">十月 2014</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/09/">九月 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08/">八月 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/07/">七月 2014</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/05/">五月 2014</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/04/">四月 2014</a><span class="archive-list-count">4</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">近期文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2016/07/06/write-checkbox-component-in-React/">React-Native 中自定义checkbox组件</a>
+          </li>
+        
+          <li>
+            <a href="/2016/02/23/learn-react-native/">React-Native 环境搭建指南[阿鹏出品]</a>
+          </li>
+        
+          <li>
+            <a href="/2016/01/19/tagedit-demo-by-peng8/">简易模糊查询tagedit的实现</a>
+          </li>
+        
+          <li>
+            <a href="/2015/12/31/2015-summary/">这一年</a>
+          </li>
+        
+          <li>
+            <a href="/2015/12/30/highmaps-of-china-extend/">阿鹏 细说highmaps</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">友情链接</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="http://www.hcharts.cn/" target="_blank">Highcharts中文网</a>
+          </li>
+        
+          <li>
+            <a href="http://bbs.hcharts.cn/" target="_blank">Highcharts论坛</a>
+          </li>
+        
+          <li>
+            <a href="http://www.52wulian.cn/" target="_blank">我爱物联网</a>
+          </li>
+        
+          <li>
+            <a href="http://www.w3cscript.com/" target="_blank">angular教程</a>
+          </li>
+        
+          <li>
+            <a href="http://www.jiweiwei.com/" target="_blank">众生相</a>
+          </li>
+        
+          <li>
+            <a href="http://bbs.dtsoft.net/" target="_blank">DTCMS论坛</a>
+          </li>
+        
+          <li>
+            <a href="http://www.dexcoder.com/" target="_blank">码农的士</a>
+          </li>
+        
+          <li>
+            <a href="http://www.xrpmoon.com/blog/" target="_blank">Java与Ripple究竟怎么玩</a>
+          </li>
+        
+          <li>
+            <a href="http://www.jcore.cn/" target="_blank">jcore</a>
+          </li>
+        
+          <li>
+            <a href="http://www.gaigaiming.com/" target="_blank">改改名</a>
+          </li>
+        
+          <li>
+            <a href="http://kanng.net/" target="_blank">看门狗IT导航</a>
+          </li>
+        
+          <li>
+            <a href="http://www.lanhouzi.net/" target="_blank">蓝猴子</a>
+          </li>
+        
+          <li>
+            <a href="http://blog.brain1981.com/" target="_blank">Brain的技术笔记</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+     <div class="widget-wrap">
+    <h3 class="widget-title">最近访客</h3>
+    <div class="widget">
+		<div style="width:100%">
+			<ul class="ds-recent-visitors" data-num-items="20"></ul>
+		</div>
+    </div>
+ </div>
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 黑桃 K<br>
+      Powered by <a href="http://peng8.net" target="_blank">Peng8.net</a>  
+      
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/about" class="mobile-nav-link">About</a>
+  
+    <a href="/live" class="mobile-nav-link">Live</a>
+  
+    <a href="https://github.com/peng8" class="mobile-nav-link">Github</a>
+  
+</nav>
+    
+<script src="http://libs.baidu.com/jquery/1.8.3/jquery.min.js"></script>
+<!-- 百度分享 start -->
+
+<div id="article-share-box" class="article-share-box">
+  <div id="bdshare" class="bdsharebuttonbox article-share-links">
+    <a class="article-share-weibo" data-cmd="tsina" title="分享到新浪微博"></a>
+    <a class="article-share-weixin" data-cmd="weixin" title="分享到微信"></a>
+    <a class="article-share-qq" data-cmd="tqq" title="分享到QQ"></a>
+    <a class="article-share-twitter" data-cmd="twi" title="分享到人人网"></a>
+    <a class="article-share-more" data-cmd="more" title="更多"></a>
+  </div>
+</div>
+<script>window._bd_share_config={"common":{},"share":[{"bdCustomStyle":"/nocss.css"}]};with(document)0[(getElementsByTagName("head")[0]||body).appendChild(createElement("script")).src="http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion="+~(-new Date()/36e5)];</script>
+
+<!-- 百度分享 end -->
+
+
+<!--返回顶部 -->
+<div id="totop" style="position:fixed;bottom:150px;right:50px;cursor: pointer;z-index:999;transition: all .5s ease 0s;">
+	<i class="fa fa-arrow-up" style="display: inline-block;font-family: FontAwesome;font-style: normal;font-weight: normal;line-height: 1;-webkit-font-smoothing: antialiased;
+-moz-osx-font-smoothing: grayscale;font-size: 35px;"></i>
+</div>
+<script src="/js/totop.js"></script>
+<!-- 返回顶部 end -->
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+<!-- 搜索-->
+
+<script type="text/javascript">
+(function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install','saxnFW97g3pyEKdjicJD','2.0.0');
+  
+</script>
+
+<script src="/js/script.js"></script>
+  </div>
+</body>
+</html>

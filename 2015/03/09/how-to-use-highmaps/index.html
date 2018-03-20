@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="baidu-site-verification" content="mDPffBZ70D" />
+  <title>如何使用highmaps制作中国地图 | Peng8 | 鹏吧</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+   
+    <meta name="author" content="黑桃 K">
+	<meta name="keywords" content="highmaps 中国地图">
+    
+    <meta name="description" itemprop="description" content="如何使用highmaps制作中国地图">
+      
+  
+    <link rel="alternative" href="/sitemap.xml" title="Peng8 | 鹏吧" type="application/atom+xml">
+  
+ <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="stylesheet" href="/css/style.css">
+
+  <!--[if lt IE 9]><script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7/html5shiv.min.js"></script><![endif]-->
+  
+<script type="text/javascript">
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F5273c965cb9a839dda335e206ec0f50d' type='text/javascript'%3E%3C/script%3E"));
+</script>
+
+
+</head>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Peng8 | 鹏吧</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">do one thing at a time and do well</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+          <a class="main-nav-link" href="/about">About</a>
+        
+          <a class="main-nav-link" href="/live">Live</a>
+        
+          <a class="main-nav-link" href="https://github.com/peng8">Github</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/sitemap.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="/search/index.html" method="get" accept-charset="utf-8" class="search-form">
+          <input id="txtSearch" type="text" class="search-form-input peng8-search-input" placeholder="Search">
+        </form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-how-to-use-highmaps" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/03/09/how-to-use-highmaps/" class="article-date">
+  <time datetime="2015-03-09T08:52:42.000Z" itemprop="datePublished">2015/03/09</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Highcharts/">Highcharts</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      如何使用highmaps制作中国地图
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+		
+		
+			<div id="toc" class="toc-article">			
+				<strong class="toc-title">文章目录</strong>
+			
+				<ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#地图初始化代码"><span class="toc-text">地图初始化代码</span></a></li></ol>
+			
+			</div>
+		
+        <blockquote>
+<p>带你走进 Highmaps ，本篇介绍highmap的基本用法</p>
+</blockquote>
+<p>起初因为<code>highmaps</code>对中国地图的支持不够友好，没有台湾，澳门等，你懂的，政治问题。于是放弃了<code>highmaps</code> ，使用了<code>echart</code>的maps，毕竟国产功能也很齐全，但相比<code>highmap</code>，感觉<code>echart</code>相对比较臃肿，而且没有<code>highmap</code>流畅舒服。随着<code>highmaps</code>不断完善，highmaps已经解决了所谓的政治地域问题，特意为中国地图出了三个js版本。<br><strong>China 、China with Hong Kong and Macau、China with Hong Kong, Macau, and Taiwan </strong><br>先来个预览图：<br><img src="http://7oxjce.com1.z0.glb.clouddn.com/peng8_20150529094459.png" alt="全国地图"></p>
+<p><img src="http://7oxjce.com1.z0.glb.clouddn.com/peng8_20150529094529.png" alt="北京市地图展开详情"></p>
+<a id="more"></a>
+<hr>
+<p>####Highmaps 所需文件<br><a href="http://code.highcharts.com/maps/highmaps.js" target="_blank" rel="noopener">http://code.highcharts.com/maps/highmaps.js</a><br>（<em>地图渲染的核心文件 必须引用）<br><a href="http://code.highcharts.com/maps/modules/data.js" target="_blank" rel="noopener">http://code.highcharts.com/maps/modules/data.js</a><br>（</em>地图数据拼接及解析的核心文件 必须引用）<br><a href="http://code.highcharts.com/maps/modules/drilldown.js" target="_blank" rel="noopener">http://code.highcharts.com/maps/modules/drilldown.js</a><br>（地图 展开明细的核心插件，若需要点击显示省市则需要引用，反之则不需要引用）<br><a href="http://sandbox.runjs.cn/uploads/rs/228/zroo4bdf/cn-china-by-peng8.js" target="_blank" rel="noopener">http://sandbox.runjs.cn/uploads/rs/228/zroo4bdf/cn-china-by-peng8.js</a><br>（*中国地图主要省会的坐标及相关数据插件 必须引用，另外这个文件由本人汉化，增加<code>drill-key</code> 用来钻取城市地图，增加<code>cn-name</code> 字段用来显示中文明显，若不需要可以下载官方的 <a href="http://code.highcharts.com/mapdata/countries/cn/custom/cn-all-sar-taiwan.js" target="_blank" rel="noopener">点击此处</a>）</p>
+<h4 id="地图初始化代码"><a href="#地图初始化代码" class="headerlink" title="地图初始化代码"></a>地图初始化代码</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    Highcharts.setOptions(&#123;</span><br><span class="line">        lang:&#123;</span><br><span class="line">            drillUpText:<span class="string">"返回 &gt; &#123;series.name&#125;"</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">    <span class="keyword">var</span> data = Highcharts.geojson(Highcharts.maps[<span class="string">'countries/cn/custom/cn-all-china'</span>]),small = $(<span class="string">'#container'</span>).width() &lt; <span class="number">400</span>;</span><br><span class="line">    <span class="comment">// 给城市设置随机数据</span></span><br><span class="line">    $.each(data, <span class="function"><span class="keyword">function</span> (<span class="params">i</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.drilldown = <span class="keyword">this</span>.properties[<span class="string">'drill-key'</span>];</span><br><span class="line">        <span class="keyword">this</span>.value = i;</span><br><span class="line">    &#125;);</span><br><span class="line">    <span class="comment">//初始化地图</span></span><br><span class="line">    $(<span class="string">'#container'</span>).highcharts(<span class="string">'Map'</span>, &#123;</span><br><span class="line">        chart : &#123;</span><br><span class="line">            events: &#123;</span><br><span class="line">                drilldown: <span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;</span><br><span class="line">                    <span class="keyword">if</span> (!e.seriesOptions) &#123;</span><br><span class="line">                        <span class="keyword">var</span> chart = <span class="keyword">this</span>;                             </span><br><span class="line">                        <span class="keyword">var</span> cname=e.point.properties[<span class="string">"cn-name"</span>];</span><br><span class="line">                        chart.showLoading(<span class="string">'&lt;i class="icon-spinner icon-spin icon-3x"&gt;&lt;/i&gt;'</span>);</span><br><span class="line">                        <span class="comment">// 加载城市数据</span></span><br><span class="line">                        $.ajax(&#123;</span><br><span class="line">                            type: <span class="string">"GET"</span>,</span><br><span class="line">                            url: <span class="string">"http://data.hcharts.cn/jsonp.php?filename=GeoMap/json/"</span>+ e.point.drilldown+<span class="string">".geo.json"</span>,</span><br><span class="line">                            contentType: <span class="string">"application/json; charset=utf-8"</span>,</span><br><span class="line">                            dataType:<span class="string">'jsonp'</span>,</span><br><span class="line">                            crossDomain: <span class="literal">true</span>,</span><br><span class="line">                            success: <span class="function"><span class="keyword">function</span>(<span class="params">json</span>) </span>&#123;</span><br><span class="line">                                data = Highcharts.geojson(json);</span><br><span class="line">                                $.each(data, <span class="function"><span class="keyword">function</span> (<span class="params">i</span>) </span>&#123;</span><br><span class="line">                                    <span class="keyword">this</span>.value = i;</span><br><span class="line">                                &#125;);</span><br><span class="line">                                chart.hideLoading();</span><br><span class="line"></span><br><span class="line">                                chart.addSeriesAsDrilldown(e.point, &#123;</span><br><span class="line">                                    name: e.point.name,</span><br><span class="line">                                    data: data,</span><br><span class="line">                                    dataLabels: &#123;</span><br><span class="line">                                        enabled: <span class="literal">true</span>,</span><br><span class="line">                                        format: <span class="string">'&#123;point.name&#125;'</span></span><br><span class="line">                                    &#125;</span><br><span class="line">                                &#125;);</span><br><span class="line">                            &#125;,</span><br><span class="line">                            error: <span class="function"><span class="keyword">function</span> (<span class="params">XMLHttpRequest, textStatus, errorThrown</span>) </span>&#123;</span><br><span class="line"></span><br><span class="line">                            &#125;</span><br><span class="line">                        &#125;);</span><br><span class="line">                    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">                    <span class="keyword">this</span>.setTitle(<span class="literal">null</span>, &#123; <span class="attr">text</span>: cname &#125;);</span><br><span class="line">                &#125;,</span><br><span class="line">                drillup: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">                    <span class="keyword">this</span>.setTitle(<span class="literal">null</span>, &#123; <span class="attr">text</span>: <span class="string">'中国'</span> &#125;);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;,</span><br><span class="line">        credits:&#123;</span><br><span class="line">            href:<span class="string">"http://www.peng8.net/"</span>,</span><br><span class="line">            text:<span class="string">"www.peng8.net"</span></span><br><span class="line">        &#125;,</span><br><span class="line">        title : &#123;</span><br><span class="line">            text : <span class="string">'highmap中国地图By peng8'</span></span><br><span class="line">        &#125;,</span><br><span class="line">        subtitle: &#123;</span><br><span class="line">            text: <span class="string">'中国'</span>,</span><br><span class="line">            floating: <span class="literal">true</span>,</span><br><span class="line">            align: <span class="string">'right'</span>,</span><br><span class="line">            y: <span class="number">50</span>,</span><br><span class="line">            style: &#123;</span><br><span class="line">                fontSize: <span class="string">'16px'</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;,</span><br><span class="line">        legend: small ? &#123;&#125; : &#123;</span><br><span class="line">            layout: <span class="string">'vertical'</span>,</span><br><span class="line">            align: <span class="string">'right'</span>,</span><br><span class="line">            verticalAlign: <span class="string">'middle'</span></span><br><span class="line">        &#125;,</span><br><span class="line">        <span class="comment">//tooltip:&#123;</span></span><br><span class="line">        <span class="comment">//pointFormat:"&#123;point.properties.cn-name&#125;:&#123;point.value&#125;"</span></span><br><span class="line">        <span class="comment">//&#125;,</span></span><br><span class="line">        colorAxis: &#123;</span><br><span class="line">            min: <span class="number">0</span>,</span><br><span class="line">            minColor: <span class="string">'#E6E7E8'</span>,</span><br><span class="line">            maxColor: <span class="string">'#005645'</span></span><br><span class="line">        &#125;,</span><br><span class="line">        mapNavigation: &#123;</span><br><span class="line">            enabled: <span class="literal">true</span>,</span><br><span class="line">            buttonOptions: &#123;</span><br><span class="line">                verticalAlign: <span class="string">'bottom'</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;,</span><br><span class="line">        plotOptions: &#123;</span><br><span class="line">            map: &#123;</span><br><span class="line">                states: &#123;</span><br><span class="line">                    hover: &#123;</span><br><span class="line">                        color: <span class="string">'#EEDD66'</span></span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;,</span><br><span class="line">        series : [&#123;</span><br><span class="line">            data : data,</span><br><span class="line">            name: <span class="string">'中国'</span>,</span><br><span class="line">            dataLabels: &#123;</span><br><span class="line">                enabled: <span class="literal">true</span>,</span><br><span class="line">                format: <span class="string">'&#123;point.properties.cn-name&#125;'</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;],</span><br><span class="line">        drilldown: &#123;</span><br><span class="line"></span><br><span class="line">            activeDataLabelStyle: &#123;</span><br><span class="line">                color: <span class="string">'#FFFFFF'</span>,</span><br><span class="line">                textDecoration: <span class="string">'none'</span>,</span><br><span class="line">                textShadow: <span class="string">'0 0 3px #000000'</span></span><br><span class="line">            &#125;,</span><br><span class="line">            drillUpButton: &#123;</span><br><span class="line">                relativeTo: <span class="string">'spacingBox'</span>,</span><br><span class="line">                position: &#123;</span><br><span class="line">                    x: <span class="number">0</span>,</span><br><span class="line">                    y: <span class="number">60</span></span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>####highmaps 渲染讲解<br> 看完上面的代码，基本和<code>highchart</code>图表渲染的方式一样 ，说说几个需要注意的地方</p>
+<ul>
+<li><code>Highcharts.maps[&#39;countries/cn/custom/cn-all-china&#39;]</code> 这段代码用来获取引入文件<code>cn-china-by-peng8.js</code>的核心json数据。</li>
+<li><code>Highcharts.geojson</code> 方法将 json数据转换成map需要的json格式供地图解析用。</li>
+<li><p>地图数据构造，这里我用了假数据，data 由引入的js文件获得，然后遍历获得所有省会的信息，并给<code>value</code>和<code>drilldown</code> 赋值，注意了，这里<code>this.drilldown</code> 是用来点击地图传值用的，例子用的是<code>hc-key</code> 节点，当然也可以自己随意定义</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$.each(data, <span class="function"><span class="keyword">function</span> (<span class="params">i</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.drilldown = <span class="keyword">this</span>.properties[<span class="string">'drill-key'</span>];</span><br><span class="line">    <span class="keyword">this</span>.value = i; </span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>接着重点说说点击地图的事件<code>drilldown</code>，<code>drilldown</code>里需要重新获取对应省会的所有市县的json信息。这就是为什么上面需要定义<code>drilldown</code> 属性，根据不用的省会动态获取不同的json文件。例如我点击 <strong>北京</strong>  事件传过去的值就是  <strong>cn-bj</strong>。那接下来去请求市的信息。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">$.ajax(&#123;</span><br><span class="line">	type: <span class="string">"GET"</span>,</span><br><span class="line">	url: <span class="string">"http://data.hcharts.cn/jsonp.php?filename=GeoMap/json/"</span>+ e.point.drilldown+<span class="string">".geo.json"</span>,</span><br><span class="line">	contentType: <span class="string">"application/json; charset=utf-8"</span>,</span><br><span class="line">	dataType:<span class="string">'jsonp'</span>,</span><br><span class="line">	crossDomain: <span class="literal">true</span>,</span><br><span class="line">	success: <span class="function"><span class="keyword">function</span>(<span class="params">json</span>) </span>&#123;</span><br><span class="line">		data = Highcharts.geojson(json);</span><br><span class="line">		$.each(data, <span class="function"><span class="keyword">function</span> (<span class="params">i</span>) </span>&#123;</span><br><span class="line">			<span class="keyword">this</span>.value = i;</span><br><span class="line">		&#125;);</span><br><span class="line">		chart.hideLoading();</span><br><span class="line"></span><br><span class="line">		chart.addSeriesAsDrilldown(e.point, &#123;</span><br><span class="line">			name: e.point.name,</span><br><span class="line">			data: data,</span><br><span class="line">			dataLabels: &#123;</span><br><span class="line">				enabled: <span class="literal">true</span>,</span><br><span class="line">				format: <span class="string">'&#123;point.name&#125;'</span></span><br><span class="line">			&#125;</span><br><span class="line">		&#125;);</span><br><span class="line">	&#125;,</span><br><span class="line">	error: <span class="function"><span class="keyword">function</span> (<span class="params">XMLHttpRequest, textStatus, errorThrown</span>) </span>&#123;&#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>可以看到上面这段代码我根据<code>drilldown</code>传过来的值 请求不同的文件的json文件</p>
+<p>####highmaps 中国各城市坐标的json文件<br>官方只提供省会的坐标文件，但没有提供中国各市的坐标。因此我在网上fork一份中国各市坐标的json文件，需要的朋友可以下载。<br><a href="https://github.com/peng8/GeoMap/tree/master/json" target="_blank" rel="noopener">点击此处前往下载</a></p>
+<p>####highmaps 线上DEMO<br>这里我把代码分享给大家 <a href="http://runjs.cn/detail/ovymune9" target="_blank" rel="noopener">点击此处前往DEMO预览</a></p>
+<p>####新增线上DEMO<br>感谢张兄弟提供的服务端json ，有定制需求的可以联系 简数科技 <a href="https://jianshukeji.com/" target="_blank" rel="noopener">https://jianshukeji.com/</a><br><a href="https://github.com/hcharts/GeoChina" target="_blank" rel="noopener">简数科技提供的json结构</a><br>2017-05-02 增加新的demo 优化json结构，并增加了南海地图<br><a href="https://code.hcharts.cn/peng8/CeRzsi" target="_blank" rel="noopener">最新demo</a></p>
+<blockquote>
+<p>谢谢观赏，最后不懂的大家可以留言，或者给我发邮件，或者微博私信我！</p>
+</blockquote>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+        <a data-url="http://www.peng8.net/2015/03/09/how-to-use-highmaps/" data-id="cjez2dlzg002o5dru48wv1r4w" class="article-share-link" data-share="baidu">分享到</a>
+      
+
+      
+
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Highcharts/">Highcharts</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/highmaps使用/">highmaps使用</a></li></ul>
+
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2015/03/13/draw-custom-element-on-chart/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">
+        
+          如何在highchart中绘制自定义元素
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2015/03/02/highchart-copy-title-to-clipboard/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">highchart如何实现点击标题复制到剪切板</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+  
+  <div id="container-comment"  class="gitment_container"></div>
+  <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+  <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+  <script type="text/javascript">
+  const myTheme = {
+    render(state, instance) {
+      const container = document.createElement('div');
+      container.lang = "en-US"
+      container.className = 'gitment-container gitment-root-container';
+      // if (!state.user.login) {
+      //   container.innerText = "请登录后留言哦"
+      // }
+      container.appendChild(instance.renderHeader(state, instance));
+      container.appendChild(instance.renderEditor(state, instance));
+      container.appendChild(instance.renderComments(state, instance));
+      container.appendChild(instance.renderFooter(state, instance));
+      return container;
+    }
+  }
+  var gitment = new Gitment({
+    id: window.location.pathname,
+    theme: myTheme,
+    owner: 'peng8',
+    repo: 'peng8.github.com',
+    oauth: {
+      client_id: '0295076ded72aceb29c4',
+      client_secret: 'dc65a48ebebdefee137dea8474768f333b90bdf4'
+    }
+  });
+  gitment.render('container-comment');
+  </script>
+  
+ </section>
+        
+          <aside id="sidebar">
+  
+     <div class="widget-wrap">
+    <h3 class="widget-title">我的微博</h3>
+    <div class="widget">
+		<div style="padding: 13px 0 15px;">
+			<div class="weiboShow_developer_pic" style="float: left;margin: 2px 0 0 15px;display: inline;"><a href="http://weibo.com/512338113" target="_blank">
+                    <img src="http://tp2.sinaimg.cn/2005285601/50/40049988623/1" alt="Peng-Sir" title="Peng-Sir" style="box-shadow: 1px 1px 20px rgba(0, 0, 0, 0.15);
+filter: progid:DXImageTransform.Microsoft.Shadow(color='#C3C3C3', Direction=135, Strength=2);"></a></div>
+			<div class="weiboShow_developer_detail" style="margin-left: 73px;">
+                        <dl class="weiboShow_developerDetail_name"><dt><a href="http://weibo.com/512338113" target="_blank" alt="Peng-Sir" title="Peng-Sir">Peng-Sir</a></dt><dd><span class="weiboShow_developerDetail_namedir">北京 海淀区</span></dd></dl>
+                      
+            </div>			
+		</div>
+    </div>
+ </div>
+  
+     <div class="widget-wrap">
+    <h3 class="widget-title">我的微信</h3>
+    <div class="widget">
+		<div style="padding:0px;text-align:center">
+			<h5>扫描下面二维码可加我哦</h5>
+			<img src="http://7oxjce.com1.z0.glb.clouddn.com/peng8_weixin_big.jpg" style="width:250px;"/>
+		</div>
+    </div>
+ </div>
+  
+     <div class="widget-wrap">
+    <h3 class="widget-title">我的Q群</h3>
+    <div class="widget">
+		<div style="padding:0px;text-align:center">
+			<h5>扫描下面二维码可加群</h5>
+			<img src="http://7oxjce.com1.z0.glb.clouddn.com/peng_qqgroup.jpg" style="width:250px;"/>
+		</div>
+		<div style="width:100%;">
+			<h5>QQ群:86031665</h5>
+			<p>欢迎各位小伙伴入驻，群里有大神，妹纸多多</p>
+		</div>
+    </div>
+ </div>
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Highcharts/">Highcharts</a><span class="category-list-count">22</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/angularjs/">angularjs</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/asp-net/">asp.net</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/css/">css</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/dnn/">dnn</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/easyui/">easyui</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/easyui/datagrid/">datagrid</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript/">javascript</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/jquery/">jquery</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/phantomjs/">phantomjs</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/reactjs/">reactjs</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/随笔日记/">随笔日记</a><span class="category-list-count">5</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/2014总结/" style="font-size: 10px; color: #7dc3de">2014总结</a> <a href="/tags/2015总结/" style="font-size: 10px; color: #7dc3de">2015总结</a> <a href="/tags/Highcharts/" style="font-size: 20px; color: #800080">Highcharts</a> <a href="/tags/Highcharts-legend/" style="font-size: 10px; color: #7dc3de">Highcharts legend</a> <a href="/tags/Highcharts不常用属性/" style="font-size: 10px; color: #7dc3de">Highcharts不常用属性</a> <a href="/tags/Highcharts仪表盘/" style="font-size: 10px; color: #7dc3de">Highcharts仪表盘</a> <a href="/tags/Highcharts复制标题/" style="font-size: 10px; color: #7dc3de">Highcharts复制标题</a> <a href="/tags/Highcharts绘制自定义元素/" style="font-size: 10px; color: #7dc3de">Highcharts绘制自定义元素</a> <a href="/tags/Highcharts自定义属性/" style="font-size: 10px; color: #7dc3de">Highcharts自定义属性</a> <a href="/tags/Highmaps/" style="font-size: 10px; color: #7dc3de">Highmaps</a> <a href="/tags/Highstock-K线图/" style="font-size: 10px; color: #7dc3de">Highstock K线图</a> <a href="/tags/Highstock-分时图/" style="font-size: 12.5px; color: #7e92c7">Highstock 分时图</a> <a href="/tags/Swiftype/" style="font-size: 10px; color: #7dc3de">Swiftype</a> <a href="/tags/angularjs/" style="font-size: 15px; color: #7f62af">angularjs</a> <a href="/tags/angularjs-post/" style="font-size: 10px; color: #7dc3de">angularjs post</a> <a href="/tags/angularjs自定义标签/" style="font-size: 10px; color: #7dc3de">angularjs自定义标签</a> <a href="/tags/asp-net/" style="font-size: 17.5px; color: #7f3198">asp.net</a> <a href="/tags/aspose/" style="font-size: 10px; color: #7dc3de">aspose</a> <a href="/tags/bowerrc创建/" style="font-size: 10px; color: #7dc3de">bowerrc创建</a> <a href="/tags/css/" style="font-size: 10px; color: #7dc3de">css</a> <a href="/tags/dnn/" style="font-size: 10px; color: #7dc3de">dnn</a> <a href="/tags/doctype/" style="font-size: 10px; color: #7dc3de">doctype</a> <a href="/tags/easyui/" style="font-size: 10px; color: #7dc3de">easyui</a> <a href="/tags/gojs入门笔记/" style="font-size: 10px; color: #7dc3de">gojs入门笔记</a> <a href="/tags/heatmap/" style="font-size: 12.5px; color: #7e92c7">heatmap</a> <a href="/tags/highchart/" style="font-size: 10px; color: #7dc3de">highchart</a> <a href="/tags/highmaps使用/" style="font-size: 10px; color: #7dc3de">highmaps使用</a> <a href="/tags/javascript/" style="font-size: 17.5px; color: #7f3198">javascript</a> <a href="/tags/jquery/" style="font-size: 17.5px; color: #7f3198">jquery</a> <a href="/tags/myPagination/" style="font-size: 10px; color: #7dc3de">myPagination</a> <a href="/tags/phantomjs/" style="font-size: 15px; color: #7f62af">phantomjs</a> <a href="/tags/phantomjs单独部署/" style="font-size: 10px; color: #7dc3de">phantomjs单独部署</a> <a href="/tags/react/" style="font-size: 12.5px; color: #7e92c7">react</a> <a href="/tags/react-native/" style="font-size: 12.5px; color: #7e92c7">react-native</a> <a href="/tags/tagedit/" style="font-size: 10px; color: #7dc3de">tagedit</a> <a href="/tags/timelinejs/" style="font-size: 10px; color: #7dc3de">timelinejs</a> <a href="/tags/分时图/" style="font-size: 10px; color: #7dc3de">分时图</a> <a href="/tags/地图/" style="font-size: 10px; color: #7dc3de">地图</a> <a href="/tags/希望/" style="font-size: 10px; color: #7dc3de">希望</a> <a href="/tags/延迟加载/" style="font-size: 10px; color: #7dc3de">延迟加载</a> <a href="/tags/智能查询/" style="font-size: 10px; color: #7dc3de">智能查询</a> <a href="/tags/热力图/" style="font-size: 12.5px; color: #7e92c7">热力图</a> <a href="/tags/热点图/" style="font-size: 12.5px; color: #7e92c7">热点图</a> <a href="/tags/美图/" style="font-size: 10px; color: #7dc3de">美图</a> <a href="/tags/随笔/" style="font-size: 10px; color: #7dc3de">随笔</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">七月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">二月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">一月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">十二月 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">十一月 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">十月 2015</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">九月 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">七月 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">六月 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/05/">五月 2015</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/04/">四月 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">三月 2015</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">二月 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">一月 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/12/">十二月 2014</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">十一月 2014</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">十月 2014</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/09/">九月 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08/">八月 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/07/">七月 2014</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/05/">五月 2014</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/04/">四月 2014</a><span class="archive-list-count">4</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">近期文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2016/07/06/write-checkbox-component-in-React/">React-Native 中自定义checkbox组件</a>
+          </li>
+        
+          <li>
+            <a href="/2016/02/23/learn-react-native/">React-Native 环境搭建指南[阿鹏出品]</a>
+          </li>
+        
+          <li>
+            <a href="/2016/01/19/tagedit-demo-by-peng8/">简易模糊查询tagedit的实现</a>
+          </li>
+        
+          <li>
+            <a href="/2015/12/31/2015-summary/">这一年</a>
+          </li>
+        
+          <li>
+            <a href="/2015/12/30/highmaps-of-china-extend/">阿鹏 细说highmaps</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">友情链接</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="http://www.hcharts.cn/" target="_blank">Highcharts中文网</a>
+          </li>
+        
+          <li>
+            <a href="http://bbs.hcharts.cn/" target="_blank">Highcharts论坛</a>
+          </li>
+        
+          <li>
+            <a href="http://www.52wulian.cn/" target="_blank">我爱物联网</a>
+          </li>
+        
+          <li>
+            <a href="http://www.w3cscript.com/" target="_blank">angular教程</a>
+          </li>
+        
+          <li>
+            <a href="http://www.jiweiwei.com/" target="_blank">众生相</a>
+          </li>
+        
+          <li>
+            <a href="http://bbs.dtsoft.net/" target="_blank">DTCMS论坛</a>
+          </li>
+        
+          <li>
+            <a href="http://www.dexcoder.com/" target="_blank">码农的士</a>
+          </li>
+        
+          <li>
+            <a href="http://www.xrpmoon.com/blog/" target="_blank">Java与Ripple究竟怎么玩</a>
+          </li>
+        
+          <li>
+            <a href="http://www.jcore.cn/" target="_blank">jcore</a>
+          </li>
+        
+          <li>
+            <a href="http://www.gaigaiming.com/" target="_blank">改改名</a>
+          </li>
+        
+          <li>
+            <a href="http://kanng.net/" target="_blank">看门狗IT导航</a>
+          </li>
+        
+          <li>
+            <a href="http://www.lanhouzi.net/" target="_blank">蓝猴子</a>
+          </li>
+        
+          <li>
+            <a href="http://blog.brain1981.com/" target="_blank">Brain的技术笔记</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+     <div class="widget-wrap">
+    <h3 class="widget-title">最近访客</h3>
+    <div class="widget">
+		<div style="width:100%">
+			<ul class="ds-recent-visitors" data-num-items="20"></ul>
+		</div>
+    </div>
+ </div>
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 黑桃 K<br>
+      Powered by <a href="http://peng8.net" target="_blank">Peng8.net</a>  
+      
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/about" class="mobile-nav-link">About</a>
+  
+    <a href="/live" class="mobile-nav-link">Live</a>
+  
+    <a href="https://github.com/peng8" class="mobile-nav-link">Github</a>
+  
+</nav>
+    
+<script src="http://libs.baidu.com/jquery/1.8.3/jquery.min.js"></script>
+<!-- 百度分享 start -->
+
+<div id="article-share-box" class="article-share-box">
+  <div id="bdshare" class="bdsharebuttonbox article-share-links">
+    <a class="article-share-weibo" data-cmd="tsina" title="分享到新浪微博"></a>
+    <a class="article-share-weixin" data-cmd="weixin" title="分享到微信"></a>
+    <a class="article-share-qq" data-cmd="tqq" title="分享到QQ"></a>
+    <a class="article-share-twitter" data-cmd="twi" title="分享到人人网"></a>
+    <a class="article-share-more" data-cmd="more" title="更多"></a>
+  </div>
+</div>
+<script>window._bd_share_config={"common":{},"share":[{"bdCustomStyle":"/nocss.css"}]};with(document)0[(getElementsByTagName("head")[0]||body).appendChild(createElement("script")).src="http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion="+~(-new Date()/36e5)];</script>
+
+<!-- 百度分享 end -->
+
+
+<!--返回顶部 -->
+<div id="totop" style="position:fixed;bottom:150px;right:50px;cursor: pointer;z-index:999;transition: all .5s ease 0s;">
+	<i class="fa fa-arrow-up" style="display: inline-block;font-family: FontAwesome;font-style: normal;font-weight: normal;line-height: 1;-webkit-font-smoothing: antialiased;
+-moz-osx-font-smoothing: grayscale;font-size: 35px;"></i>
+</div>
+<script src="/js/totop.js"></script>
+<!-- 返回顶部 end -->
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+<!-- 搜索-->
+
+<script type="text/javascript">
+(function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install','saxnFW97g3pyEKdjicJD','2.0.0');
+  
+</script>
+
+<script src="/js/script.js"></script>
+  </div>
+</body>
+</html>

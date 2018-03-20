@@ -1,0 +1,978 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="baidu-site-verification" content="mDPffBZ70D" />
+  <title>Category: Highcharts | Peng8 | 鹏吧</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+   
+    <meta name="author" content="黑桃 K">
+	
+    
+    <meta name="description" content="angularjs,Asp.net,C#,css,DNN,EasyUI,Highcharts,Javascript,jQuery,Peng8,鹏吧,黑桃 K">
+      
+  
+    <link rel="alternative" href="/sitemap.xml" title="Peng8 | 鹏吧" type="application/atom+xml">
+  
+ <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="stylesheet" href="/css/style.css">
+
+  <!--[if lt IE 9]><script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7/html5shiv.min.js"></script><![endif]-->
+  
+<script type="text/javascript">
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F5273c965cb9a839dda335e206ec0f50d' type='text/javascript'%3E%3C/script%3E"));
+</script>
+
+
+</head>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Peng8 | 鹏吧</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">do one thing at a time and do well</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+          <a class="main-nav-link" href="/about">About</a>
+        
+          <a class="main-nav-link" href="/live">Live</a>
+        
+          <a class="main-nav-link" href="https://github.com/peng8">Github</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/sitemap.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="/search/index.html" method="get" accept-charset="utf-8" class="search-form">
+          <input id="txtSearch" type="text" class="search-form-input peng8-search-input" placeholder="Search">
+        </form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-highmaps-of-china-extend" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/12/30/highmaps-of-china-extend/" class="article-date">
+  <time datetime="2015-12-30T06:40:12.000Z" itemprop="datePublished">2015/12/30</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Highcharts/">Highcharts</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/12/30/highmaps-of-china-extend/">阿鹏 细说highmaps</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>最近发现用highmaps的用户越来越多，都分分加入到QQ群和微信来咨询我 （容我打个广告，鹏吧技术群：<strong>86031665</strong>，(<em>^__^</em>) ），之前写过一篇highmaps的文章，没看过的，请移步至 <a href="http://www.peng8.net/2015/03/09/how-to-use-highmaps">如何使用highmaps，点击此处传送门</a>    ，那么今天又写这篇文章的目的是综合了许多朋友的疑问，为大家在详细说下highmaps的一些具体用法和细节问题。</p>
+<p>##疑问<br>基本大家提的最多的问题如下：</p>
+<ul>
+<li>如何正确引用highmaps文件？ </li>
+<li>如何给highmaps初始化赋值及钻取城市赋值？ </li>
+<li>如何点击省份向下钻取？</li>
+<li>如何给向下钻取的城市动态添加点击事件？</li>
+<li>如何点击省份后不是向下钻取，而是在其右侧独立展示省份的地图？</li>
+</ul>
+<p>带着这些疑问我下面就为大家具体谈谈。。。</p>
+        
+          <p class="article-more-link">
+            <a href="/2015/12/30/highmaps-of-china-extend/#more">查看更多</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      
+        <a data-url="http://www.peng8.net/2015/12/30/highmaps-of-china-extend/" data-id="cjez2dlz400245druizw5269q" class="article-share-link" data-share="baidu">分享到</a>
+      
+
+      
+
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Highmaps/">Highmaps</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/地图/">地图</a></li></ul>
+
+
+    </footer>
+  </div>
+  
+</article>
+
+  
+ 
+  
+    <article id="post-highstock-advanced-usage" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/11/17/highstock-advanced-usage/" class="article-date">
+  <time datetime="2015-11-17T07:30:24.000Z" itemprop="datePublished">2015/11/17</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Highcharts/">Highcharts</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/11/17/highstock-advanced-usage/">highstock 新属性及进阶用法</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="highstock-V2-19-新属性介绍"><a href="#highstock-V2-19-新属性介绍" class="headerlink" title="highstock V2.19 新属性介绍"></a>highstock V2.19 新属性介绍</h4><blockquote>
+<p><strong>ordinal</strong> ：In an ordinal axis, the points are equally spaced in the chart regardless of the actual time or x distance between them. This means that missing data for nights or weekends will not take up space in the chart. Defaults to true.</p>
+</blockquote>
+<p>以上是官方给出的解释，大概说的什么意思呢，用我自己的话理解就是 “在X轴上所有的点都是按时间或者距离等比分配的，这就意味着没有出现的点或者后来延迟加进来的点不会占用掉x轴上的位置和空间”，接下来我们就通过例子和demo讲解。</p>
+<p>之前我写过一篇文章<a href="http://www.peng8.net/2015/01/31/how-to-use-highstock/">highstock分时图的开发</a>，里面提到了这个问题，我们重新回顾一遍，在分时图的开发中，例如我们需要显示的是 早上 8：00到晚上20：00的数据，X轴每隔两小时显示一个label，若当前时间为9点，那么我们需要向服务端拿到8点至15点的数据，那么问题来了，我们会发现图表展示出来整个x轴就是8点到15点，而剩余15点到20点的x轴label并没有占得空间和位置，如下图所示：</p>
+<p><img src="http://7oxjce.com1.z0.glb.clouddn.com/peng_20151117144604.png" alt=""></p>
+        
+          <p class="article-more-link">
+            <a href="/2015/11/17/highstock-advanced-usage/#more">查看更多</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      
+        <a data-url="http://www.peng8.net/2015/11/17/highstock-advanced-usage/" data-id="cjez2dlz600275druqcl3uvjk" class="article-share-link" data-share="baidu">分享到</a>
+      
+
+      
+
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Highstock-分时图/">Highstock 分时图</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/分时图/">分时图</a></li></ul>
+
+
+    </footer>
+  </div>
+  
+</article>
+
+  
+ 
+  
+    <article id="post-unknown-attribute-of-highchart" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/05/27/unknown-attribute-of-highchart/" class="article-date">
+  <time datetime="2015-05-27T03:26:33.000Z" itemprop="datePublished">2015/05/27</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Highcharts/">Highcharts</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/05/27/unknown-attribute-of-highchart/">你所不知的highchart常用属性</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+		
+		
+        <blockquote>
+<p>那些你没用过，你所不知道的highchart秘密，不定期更新。</p>
+</blockquote>
+<h3 id="Highcharts-4-1-9"><a href="#Highcharts-4-1-9" class="headerlink" title="Highcharts 4.1.9"></a>Highcharts 4.1.9</h3><p>####<code>axis.visible</code><br>这个属性用来控制是否显示yAxis或者xAxis，之前我们想要隐藏x和y轴是通过设置它的宽度为0来控制的，现在可以通过这个属性来设置了</p>
+<p>####<code>softThreshold</code><br>此属性是在series里设置的，默认为true。如果设置false，当series里的值出现 0，1，2值会使y轴出现负值，我想大家都遇到过此问题，我们会设置y轴的最小值使y的坐标从0开始<br>如果是true，则不用设置最小值，直接从0开始</p>
+<h3 id="Highcharts-4-1-8"><a href="#Highcharts-4-1-8" class="headerlink" title="Highcharts 4.1.8"></a>Highcharts 4.1.8</h3><p>####<code>exporting.allowHTML</code><br>导出配置的一个属性，这个属性默认是false，默认导出不允许导出的svg中包含自定义的html元素。设置true即可支持自定义html元素导出<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">The HTML is rendered in a foreignObject tag in the generated SVG. </span><br><span class="line">The official export server is based on PhantomJS, which supports this, </span><br><span class="line">but other SVG clients, like Batik, does not support it.</span><br></pre></td></tr></table></figure></p>
+<p>我们会看到官方给出了这样一段话，什么意思呢？就是说渲染svg以外的html元素，官方的phantomjs 是支持的，但其他的客户端导出 例如Batik 是不支持的。</p>
+<h4 id="maxPointWidth"><a href="#maxPointWidth" class="headerlink" title="maxPointWidth"></a><code>maxPointWidth</code></h4><p>默认值是null，用来设置柱子的最大宽度，当图表里只有几根柱子时，柱子会非常的粗，此时就需要应用此属性来设置了。</p>
+<h3 id="Highcharts-4-1-6"><a href="#Highcharts-4-1-6" class="headerlink" title="Highcharts 4.1.6"></a>Highcharts 4.1.6</h3><ul>
+<li>增加<code>xAxis.title.x</code> 和 <code>xAxis.title.y</code> 配置标题的作为</li>
+<li>3D图上 增加scaling 缩放 Z 轴</li>
+</ul>
+<h3 id="Highcharts-4-1-5-以内"><a href="#Highcharts-4-1-5-以内" class="headerlink" title="Highcharts 4.1.5 以内"></a>Highcharts 4.1.5 以内</h3><p>####<code>series.keys</code><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">series: [&#123;</span><br><span class="line">     type: <span class="string">'pie'</span>,</span><br><span class="line">     name: <span class="string">'Browser share'</span>,</span><br><span class="line">     data: [</span><br><span class="line">         [<span class="string">'Firefox'</span>,   <span class="number">45.0</span>],</span><br><span class="line">         [<span class="string">'Chrome'</span>, <span class="number">12.8</span>, <span class="literal">true</span>, <span class="literal">true</span>],</span><br><span class="line">         [<span class="string">'Safari'</span>,    <span class="number">8.5</span>]</span><br><span class="line">     ],</span><br><span class="line">     keys: [<span class="string">'name'</span>, <span class="string">'y'</span>, <span class="string">'sliced'</span>, <span class="string">'selected'</span>]</span><br><span class="line">     <span class="comment">//设置key的顺序后，会按照data提供的数据顺序获取</span></span><br><span class="line">&#125;]</span><br></pre></td></tr></table></figure></p>
+<h4 id="xAxis-labels-autoRotationLimit"><a href="#xAxis-labels-autoRotationLimit" class="headerlink" title="xAxis.labels.autoRotationLimit"></a><code>xAxis.labels.autoRotationLimit</code></h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">xAxis: &#123;</span><br><span class="line">    type: <span class="string">'category'</span>,</span><br><span class="line">    labels: &#123;</span><br><span class="line">        autoRotationLimit: <span class="number">40</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//X轴的label超过指定长度后自动截取</span></span><br></pre></td></tr></table></figure>
+<h4 id="plotOptions-series-pointIntervalUnit"><a href="#plotOptions-series-pointIntervalUnit" class="headerlink" title="plotOptions.series.pointIntervalUnit"></a><code>plotOptions.series.pointIntervalUnit</code></h4><p>  当x轴为 datetime模式时，可以将此属性 设置为 <code>day</code>,<code>month</code>,<code>year</code> ，代表间隔单位</p>
+<p>####<code>xAxis.labels.autoRotation</code><br>此属性是一个数组用来分别设置categories的倾斜度数，例如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">categories: [&apos;January&apos;, &apos;February&apos;, &apos;March&apos;],</span><br><span class="line">labels: &#123;</span><br><span class="line">    autoRotation: [-10, -20, -30]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>####<code>yAxis.tickAmount</code><br>用来设置y轴 label的显示个数</p>
+<h4 id="events-selection"><a href="#events-selection" class="headerlink" title="events.selection"></a><code>events.selection</code></h4><p>当设置了zoomType时，选中图表某个区域，能在此事件中获取到选中的区域的值范围。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">selection: <span class="function"><span class="keyword">function</span> (<span class="params">event</span>) </span>&#123;</span><br><span class="line">	<span class="keyword">var</span> min=Highcharts.numberFormat(event.xAxis[<span class="number">0</span>].min, <span class="number">2</span>);</span><br><span class="line">	<span class="keyword">var</span> max=Highcharts.numberFormat(event.xAxis[<span class="number">0</span>].max, <span class="number">2</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h4 id="chart-panning、chart-panKey"><a href="#chart-panning、chart-panKey" class="headerlink" title="chart.panning、chart.panKey"></a><code>chart.panning</code>、<code>chart.panKey</code></h4><p>这2个属性基本同时出现，要使用panKey，必须先将panning设置为true。它的作用是：设置一个快捷键，当x轴启用zoomType时，放大某一块区域，然后按住所设置的快捷键，点击图表拖拽可以滑动查看。</p>
+<h4 id="xAxis-breaks"><a href="#xAxis-breaks" class="headerlink" title="xAxis.breaks"></a><code>xAxis.breaks</code></h4><p>此属性是一个数组，作用是用一个区间段来代表x轴 某个起始点到某个结束点。例如x轴有1~10个点，我想把 5~8 之间的点不显示，直接显示 1,2,3,4,5,8,9,10。这样6,7 两个点就不显示在x轴上了。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">xAxis: &#123;</span><br><span class="line">	tickInterval: <span class="number">1</span>,</span><br><span class="line">	breaks: [&#123;</span><br><span class="line">		<span class="keyword">from</span>: <span class="number">5</span>,</span><br><span class="line">		to: <span class="number">8</span>,</span><br><span class="line">		breakSize: <span class="number">1</span></span><br><span class="line">	&#125;]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h4 id="xAxis-labels-staggerLines"><a href="#xAxis-labels-staggerLines" class="headerlink" title="xAxis.labels.staggerLines"></a><code>xAxis.labels.staggerLines</code></h4><p>用来设置x轴分行显示</p>
+<h4 id="plotOptions-line-linecap"><a href="#plotOptions-line-linecap" class="headerlink" title="plotOptions.line.linecap"></a><code>plotOptions.line.linecap</code></h4><p>用来设置线条的渲染形状 弧形和方形，默认是弧形，以下设置为方形<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">plotOptions: &#123;</span><br><span class="line">  line: &#123;</span><br><span class="line">      linecap:&quot;square&quot;</span><br><span class="line">  &#125;&#125;</span><br></pre></td></tr></table></figure></p>
+<h4 id="后面待续。。。。不定期更新"><a href="#后面待续。。。。不定期更新" class="headerlink" title="后面待续。。。。不定期更新"></a>后面待续。。。。不定期更新</h4>
+      
+    </div>
+    <footer class="article-footer">
+      
+        <a data-url="http://www.peng8.net/2015/05/27/unknown-attribute-of-highchart/" data-id="cjez2dm0j004k5drultsnch1i" class="article-share-link" data-share="baidu">分享到</a>
+      
+
+      
+
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Highcharts/">Highcharts</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Highcharts不常用属性/">Highcharts不常用属性</a></li></ul>
+
+
+    </footer>
+  </div>
+  
+</article>
+
+  
+ 
+  
+    <article id="post-highchart-gauge" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/05/26/highchart-gauge/" class="article-date">
+  <time datetime="2015-05-26T07:35:21.000Z" itemprop="datePublished">2015/05/26</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Highcharts/">Highcharts</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/05/26/highchart-gauge/">highchart 半圆仪表盘</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+		
+		
+        <blockquote>
+<p>highchart 仪表盘半圆形</p>
+</blockquote>
+<p>####效果图<br><img src="http://7oxjce.com1.z0.glb.clouddn.com/peng8_20150526141433.png" alt=""></p>
+<p>####核心代码</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">pane: &#123;</span><br><span class="line">  startAngle: <span class="number">-90</span>,</span><br><span class="line">  endAngle: <span class="number">90</span>,</span><br><span class="line">  background: [ &#123;</span><br><span class="line">     backgroundColor: <span class="string">'#fff'</span>,</span><br><span class="line">     borderWidth: <span class="number">0</span> </span><br><span class="line"> &#125;]  </span><br><span class="line">&#125;,</span><br><span class="line">chart: &#123;</span><br><span class="line">    type: <span class="string">'gauge'</span>,</span><br><span class="line">    plotBackgroundColor: <span class="literal">null</span>,</span><br><span class="line">    plotBackgroundImage: <span class="literal">null</span>,</span><br><span class="line">    plotBorderWidth: <span class="number">0</span>,</span><br><span class="line">    plotShadow: <span class="literal">false</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>####在线地址<br>DEMO地址：<a href="http://runjs.cn/detail/u5hy1sut" target="_blank" rel="noopener">传送门</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+        <a data-url="http://www.peng8.net/2015/05/26/highchart-gauge/" data-id="cjez2dlyu001o5drubee7bzza" class="article-share-link" data-share="baidu">分享到</a>
+      
+
+      
+
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Highcharts仪表盘/">Highcharts仪表盘</a></li></ul>
+
+
+    </footer>
+  </div>
+  
+</article>
+
+  
+ 
+  
+    <article id="post-highchart-show-value-in-legend" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/05/19/highchart-show-value-in-legend/" class="article-date">
+  <time datetime="2015-05-19T02:42:21.000Z" itemprop="datePublished">2015/05/19</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Highcharts/">Highcharts</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/05/19/highchart-show-value-in-legend/">highchart 在legend中动态显示point点的值</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+		
+		
+        <blockquote>
+<p>插件分享，闲话就不多说了，主要是实现在legend中动态展示point点的值！</p>
+</blockquote>
+<ul>
+<li>将以下代码单独拷入到文件中，引用在highchart.js文件之后<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">(<span class="function"><span class="keyword">function</span> (<span class="params">H</span>) </span>&#123;</span><br><span class="line">   H.Series.prototype.point = &#123;&#125;; </span><br><span class="line">   H.Chart.prototype.callbacks.push(<span class="function"><span class="keyword">function</span> (<span class="params">chart</span>) </span>&#123;</span><br><span class="line">       $(chart.container).bind(<span class="string">'mousemove'</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">           <span class="keyword">var</span> legendOptions = chart.legend.options,</span><br><span class="line">               hoverPoints = chart.hoverPoints;</span><br><span class="line">           </span><br><span class="line">           <span class="keyword">if</span> (!hoverPoints &amp;&amp; chart.hoverPoint) &#123;</span><br><span class="line">               hoverPoints = [chart.hoverPoint];</span><br><span class="line">           &#125;</span><br><span class="line">           <span class="keyword">if</span> (hoverPoints) &#123;</span><br><span class="line">               H.each(hoverPoints, <span class="function"><span class="keyword">function</span> (<span class="params">point</span>) </span>&#123;</span><br><span class="line">                   point.series.point = point;</span><br><span class="line">               &#125;);</span><br><span class="line">               H.each(chart.legend.allItems, <span class="function"><span class="keyword">function</span> (<span class="params">item</span>) </span>&#123;</span><br><span class="line">                   item.legendItem.attr(&#123;</span><br><span class="line">                       text: legendOptions.labelFormat ? </span><br><span class="line">                           H.format(legendOptions.labelFormat, item) :</span><br><span class="line">                           legendOptions.labelFormatter.call(item)</span><br><span class="line">                   &#125;);</span><br><span class="line">               &#125;);</span><br><span class="line">               chart.legend.render();</span><br><span class="line">           &#125;</span><br><span class="line">       &#125;);</span><br><span class="line">   &#125;);</span><br><span class="line">   <span class="comment">// 隐藏tooltip，允许crosshair</span></span><br><span class="line">   H.Tooltip.prototype.defaultFormatter = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123; <span class="keyword">return</span> <span class="literal">false</span>; &#125;;</span><br><span class="line">&#125;(Highcharts));</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p class="article-style1">说明：上述代码是一段扩展，在callback中为图标重新绑定了mousemove事件，当鼠标滑过某个点，动态修改legendItem的属性，并重新渲染</p>
+
+<p>####来张效果示意图<br><img src="http://7oxjce.com1.z0.glb.clouddn.com/peng8_20150519103625.png" alt=""></p>
+<blockquote>
+<p>DEMO地址入口：<a href="http://runjs.cn/detail/re3ncudx" target="_blank" rel="noopener">传送门</a></p>
+</blockquote>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+        <a data-url="http://www.peng8.net/2015/05/19/highchart-show-value-in-legend/" data-id="cjez2dlz1001z5drupx73z192" class="article-share-link" data-share="baidu">分享到</a>
+      
+
+      
+
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Highcharts/">Highcharts</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Highcharts-legend/">Highcharts legend</a></li></ul>
+
+
+    </footer>
+  </div>
+  
+</article>
+
+  
+ 
+  
+    <article id="post-use-custom-property-with-highchart" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/03/31/use-custom-property-with-highchart/" class="article-date">
+  <time datetime="2015-03-31T06:06:41.000Z" itemprop="datePublished">2015/03/31</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Highcharts/">Highcharts</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/03/31/use-custom-property-with-highchart/">highchart 图表之自定义属性的应用</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+		
+		
+        <blockquote>
+<p>有时候很多场景可能对于图表自身所带的数据不能满足当前业务的需求，例如目前图表api里提供了有<code>name</code>、<code>x</code>、<code>y</code> 、<code>color</code> 等属性。我们在<code>tooltip</code>、<code>label</code>、<code>legend</code> 等对象的formatter里可以使用到这些属性，但有时候我们还需要额外的属性或者扩展字段，有些小伙伴就不知道如何处理了！下面就给大家讲解下。</p>
+</blockquote>
+<p>####Demo 场景之一</p>
+<p><div style="background-color:#EFF6FB;padding:10px 5px 10px 5px;"><strong>需求：</strong>我需要图表 渲染完毕后 ，鼠标移到某个点上，tooltip里既要显示y轴的值，又要显示y轴值所占总数的百分比，另外点击这个点又能发生一个跳转，或者根据某个字段传值去弹出一个层展示一个新的列表，遇到这样的需求该如何处理？</div><br><strong>效果图</strong><br><img src="http://7oxjce.com1.z0.glb.clouddn.com/peng_20150331143630.png" alt=""></p>
+<p>####解决方案</p>
+<ul>
+<li>series 数据代码(series 里我们增加了自定义的属性<strong>totals和url 2个</strong> )  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">series: [&#123;</span><br><span class="line">	name:<span class="string">"www.peng8.net"</span>,</span><br><span class="line">       data: [&#123;</span><br><span class="line">           name: <span class="string">'Point 1'</span>,</span><br><span class="line">			url:<span class="string">'http://www.peng8.net'</span>,</span><br><span class="line">			totals:<span class="string">"20%"</span>,</span><br><span class="line">           y: <span class="number">1</span></span><br><span class="line">       &#125;, &#123;</span><br><span class="line">           name: <span class="string">'Point 2'</span>,</span><br><span class="line">			url:<span class="string">'http://www.peng8.net'</span>,</span><br><span class="line">			totals:<span class="string">"30%"</span>,</span><br><span class="line">           y: <span class="number">5</span></span><br><span class="line">       &#125;, &#123;</span><br><span class="line">           name: <span class="string">'Point 3'</span>,</span><br><span class="line">			url:<span class="string">'http://www.peng8.net'</span>,</span><br><span class="line">			totals:<span class="string">"40%"</span>,</span><br><span class="line">           y: <span class="number">5</span></span><br><span class="line">       &#125;, &#123;</span><br><span class="line">           name: <span class="string">'Point 4'</span>,</span><br><span class="line">			url:<span class="string">'http://www.peng8.net'</span>,</span><br><span class="line">			totals:<span class="string">"50%"</span>,</span><br><span class="line">           y: <span class="number">5</span></span><br><span class="line">       &#125;]</span><br><span class="line">   &#125;]</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<ul>
+<li><p>tooltip 关键代码</p>
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">tooltip:&#123;</span><br><span class="line">	formatter:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">		</span><br><span class="line">		<span class="keyword">var</span> htm=<span class="string">""</span>;</span><br><span class="line">		htm+=<span class="string">"标题："</span>+<span class="keyword">this</span>.series.name+<span class="string">"&lt;br /&gt;"</span>;</span><br><span class="line">		htm+=<span class="string">"X轴:"</span>+<span class="keyword">this</span>.x+<span class="string">"&lt;br /&gt;"</span>;</span><br><span class="line">		htm+=<span class="string">"Y轴:"</span>+<span class="keyword">this</span>.y+<span class="string">"&lt;br /&gt;"</span>;</span><br><span class="line">		htm+=<span class="string">"所占百分比:"</span>+<span class="keyword">this</span>.point.totals+<span class="string">"&lt;br /&gt;"</span>;</span><br><span class="line">		<span class="keyword">return</span> htm;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>  这段代码用来格式化tooltip的显示，formatter函数里对tooltip里的内容进行了重组，并调用了自定义的属性 totals</p>
+</li>
+<li><p>events事件处理代码</p>
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">plotOptions:&#123;</span><br><span class="line">	line:&#123;</span><br><span class="line">		cursor:<span class="string">"pointer"</span>,</span><br><span class="line">		point:&#123;</span><br><span class="line">			events:&#123;</span><br><span class="line">				click:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">					<span class="built_in">window</span>.open(<span class="keyword">this</span>.options.url);</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>  events 里，我们在line的click事件里 调用了 url 属性，点击图表中的点，打开自定义的链接url</p>
+</li>
+</ul>
+<p><strong>在线完整DEMO：<a href="http://runjs.cn/detail/lupvscl4" target="_blank" rel="noopener">传送门</a></strong></p>
+<hr>
+<blockquote>
+<p>总结：这个例子难度基本没有，其实重点在于如何去取到我们自定义的属性，我们可以在任何地方要活用一个东西 叫 <strong>this</strong> ，例如在 事件里 用 <code>console.log(this);</code> 去打印当前的对象，然后看看对象里有哪些属性和方法我们可以用，然后一层一层往里面找，熟练掌握后 就能对任何属性 包括图表自身的，或者自己定义的属性 灵活操作！</p>
+</blockquote>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+        <a data-url="http://www.peng8.net/2015/03/31/use-custom-property-with-highchart/" data-id="cjez2dm0l004n5druux825tro" class="article-share-link" data-share="baidu">分享到</a>
+      
+
+      
+
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Highcharts自定义属性/">Highcharts自定义属性</a></li></ul>
+
+
+    </footer>
+  </div>
+  
+</article>
+
+  
+ 
+  
+    <article id="post-draw-custom-element-on-chart" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/03/13/draw-custom-element-on-chart/" class="article-date">
+  <time datetime="2015-03-13T02:35:12.000Z" itemprop="datePublished">2015/03/13</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Highcharts/">Highcharts</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/03/13/draw-custom-element-on-chart/">如何在highchart中绘制自定义元素</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p> <code>highcharts</code> 为我们提供了丰富的扩展接口，今天就给大家讲讲在<code>highcharts</code>中指定的位置画我们想要的按钮、图片、图形、文字等。</p>
+</blockquote>
+<p>####关于highchart 扩展方法<br>我们先来看看highchart自身提供的画图扩展方法 <strong>Renderer</strong>，只有了解了如何画图，我们才能在图表上绘制想要的图形，方法有如下几个，不清楚的可以上官网查看<a href="http://api.highcharts.com/highcharts" target="_blank" rel="noopener">API传送门</a>。</p>
+<ul>
+<li><p><code>arc()</code> 用来画弧线图</p>
+<p>  参数 (Number centerX, Number centerY, Number outerRadius, Number innerRadius, Number start, Number end)<br>  centerX和centerY分别对应x，y的坐标，outerRadius 外弧的半径，innerRadius内弧的半径，start和end 通常为 -Math.PI/2，-Math.PI，或者0 表示弧的方向 。</p>
+</li>
+<li><p><code>circle()</code> 用来画圆形图</p>
+<p> 参数(Number centerX, Number centerY, Number radius)<br> centerX 表示x轴坐标，centerY表示y轴坐标，radius表示半径</p>
+</li>
+<li><p><code>g()</code> 用来构建一个群组将元素包裹，参数只有一个 传入 名称即可</p>
+<p>渲染后会默认变成 <strong>“highcharts-“+ name</strong></p>
+</li>
+<li><p><code>image()</code> 用来嵌入一张图片</p>
+<p> 参数(String source, Number x, Number y, Number width, Number height)<br> source 图片路径，x，y为坐标，width和height为图片的宽和高</p>
+</li>
+<li><p><code>path()</code> 用来画路径图</p>
+<p> 这个方法参数稍微有点复杂，需要参考svg的一些路径命令 ，<a href="http://www.w3.org/TR/SVG/paths.html" target="_blank" rel="noopener">传统门</a></p>
+</li>
+<li><p><code>rect()</code> 用来画区域方形图</p>
+<p> 参数(Number x, Number y, Number width, Number height, Number cornerRadius)<br> x，y分别为x和y轴坐标，width和height为所画区域的宽高，cornerRadius表示图形的圆角</p>
+</li>
+<li><code>text()</code> 用来画文本字符<br>参数 (String str, Number x, Number y)<br>x，y分别为x和y轴坐标，str表示需要绘制的字符串文本
+        
+          <p class="article-more-link">
+            <a href="/2015/03/13/draw-custom-element-on-chart/#more">查看更多</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      
+        <a data-url="http://www.peng8.net/2015/03/13/draw-custom-element-on-chart/" data-id="cjez2dlyc000w5druf2hqrwad" class="article-share-link" data-share="baidu">分享到</a>
+      
+
+      
+
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Highcharts绘制自定义元素/">Highcharts绘制自定义元素</a></li></ul>
+
+
+    </footer>
+  </div>
+  
+</article>
+
+  
+ 
+  
+    <article id="post-how-to-use-highmaps" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/03/09/how-to-use-highmaps/" class="article-date">
+  <time datetime="2015-03-09T08:52:42.000Z" itemprop="datePublished">2015/03/09</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Highcharts/">Highcharts</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/03/09/how-to-use-highmaps/">如何使用highmaps制作中国地图</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>带你走进 Highmaps ，本篇介绍highmap的基本用法</p>
+</blockquote>
+<p>起初因为<code>highmaps</code>对中国地图的支持不够友好，没有台湾，澳门等，你懂的，政治问题。于是放弃了<code>highmaps</code> ，使用了<code>echart</code>的maps，毕竟国产功能也很齐全，但相比<code>highmap</code>，感觉<code>echart</code>相对比较臃肿，而且没有<code>highmap</code>流畅舒服。随着<code>highmaps</code>不断完善，highmaps已经解决了所谓的政治地域问题，特意为中国地图出了三个js版本。<br><strong>China 、China with Hong Kong and Macau、China with Hong Kong, Macau, and Taiwan </strong><br>先来个预览图：<br><img src="http://7oxjce.com1.z0.glb.clouddn.com/peng8_20150529094459.png" alt="全国地图"></p>
+<p><img src="http://7oxjce.com1.z0.glb.clouddn.com/peng8_20150529094529.png" alt="北京市地图展开详情"></p>
+        
+          <p class="article-more-link">
+            <a href="/2015/03/09/how-to-use-highmaps/#more">查看更多</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      
+        <a data-url="http://www.peng8.net/2015/03/09/how-to-use-highmaps/" data-id="cjez2dlzg002o5dru48wv1r4w" class="article-share-link" data-share="baidu">分享到</a>
+      
+
+      
+
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Highcharts/">Highcharts</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/highmaps使用/">highmaps使用</a></li></ul>
+
+
+    </footer>
+  </div>
+  
+</article>
+
+  
+ 
+  
+    <article id="post-highchart-copy-title-to-clipboard" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/03/02/highchart-copy-title-to-clipboard/" class="article-date">
+  <time datetime="2015-03-02T08:27:02.000Z" itemprop="datePublished">2015/03/02</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Highcharts/">Highcharts</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/03/02/highchart-copy-title-to-clipboard/">highchart如何实现点击标题复制到剪切板</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+		
+		
+        <blockquote>
+<p>有人突然问我如何选中highchart图表的标题，然后复制到剪切板，我思考了一会，highchart图表是有svg构成的，借助于图表的事件功能就能获取到标题，甚至图表里的任何数据，那么如何复制到剪切板就是本次为大家要介绍的<code>zClip</code> 和 <code>ZeroClipboard</code>，这2者都能实现剪切的功能。</p>
+</blockquote>
+<p>这里我就谈谈 <strong>highchart</strong> 与 <strong>ZeroClipboard </strong> 实现 图表的标题复制到剪切板</p>
+<ul>
+<li>需要借助<code>ZeroClipboard.js</code>和<code>ZeroClipboard.swf</code></li>
+<li>需要highchart 事件扩展的插件<code>customEvents.js</code>，<a href="http://blacklabel.github.io/custom_events/customEvents.js" target="_blank" rel="noopener">传送门</a></li>
+</ul>
+<p>####具体实现</p>
+<ul>
+<li>ZeroClipboard的初始化<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> client=<span class="literal">null</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">initClipboard</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">	client = <span class="keyword">new</span> ZeroClipboard( <span class="built_in">document</span>.getElementById(<span class="string">"sp_title"</span>) );</span><br><span class="line">	<span class="comment">//client.clip(document.getElementById("d_clip_button"))</span></span><br><span class="line">	client.on( <span class="string">"ready"</span>, <span class="function"><span class="keyword">function</span>(<span class="params"> readyEvent </span>) </span>&#123;</span><br><span class="line">		client.on( <span class="string">"aftercopy"</span>, <span class="function"><span class="keyword">function</span>(<span class="params"> event </span>) </span>&#123;</span><br><span class="line">			alert(<span class="string">"您复制的内容为: "</span> + event.data[<span class="string">"text/plain"</span>] );</span><br><span class="line">		&#125; );</span><br><span class="line">		client.on( <span class="string">'copy'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">event</span>) </span>&#123;</span><br><span class="line">			event.clipboardData.setData(<span class="string">'text/plain'</span>,event.target.innerHTML);</span><br><span class="line">        &#125; );</span><br><span class="line">	&#125; );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><code>new ZeroClipboard()</code> 需要指定需要绑定的DOM元素，图表的标题采用html格式，ID为 “sp_title”。<code>setData()</code> 是给 ZeroClipboard渲染出来的flash对象赋值，这里将点击对象的innerHTML赋值给了flash。<code>ZeroClipboard.swf</code> 需与 <code>ZeroClipboard.js</code>在同一个目录下，若不在同一个目录初始化时必须为ZeroClipboard 指定swf 路径。</p>
+<p>（<strong>ZeroClipboard 的详细介绍请参考官网 <a href="https://github.com/zeroclipboard/zeroclipboard/blob/master/docs/api/ZeroClipboard.md" target="_blank" rel="noopener">点击此处传送</a></strong>）</p>
+<ul>
+<li><p>highchart的初始化</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">'#chart'</span>).highcharts(&#123;</span><br><span class="line">	title:&#123;</span><br><span class="line">		useHTML: <span class="literal">true</span>,</span><br><span class="line">		text: <span class="string">'&lt;span class="chart-title" id="sp_title"&gt;highchart自定义事件&lt;/span&gt;'</span>,</span><br><span class="line">		events: &#123;</span><br><span class="line">            dblclick: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">                <span class="comment">//这里是双击事件</span></span><br><span class="line">             &#125;,</span><br><span class="line">             click: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">				<span class="comment">//这里是标题的单击事件;</span></span><br><span class="line">             &#125;,</span><br><span class="line">             contextmenu: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">                <span class="comment">//这里是标题的右击事件</span></span><br><span class="line">             &#125;</span><br><span class="line">        &#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>最后示意图<br><img src="http://7oxjce.com1.z0.glb.clouddn.com/peng_20150302162005.png" alt="点击标题复制到剪切板"></p>
+</li>
+</ul>
+<blockquote>
+<p>如有不懂的，可以留言或者微博联系我！</p>
+</blockquote>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+        <a data-url="http://www.peng8.net/2015/03/02/highchart-copy-title-to-clipboard/" data-id="cjez2dlym001c5druzyv6kjpd" class="article-share-link" data-share="baidu">分享到</a>
+      
+
+      
+
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Highcharts复制标题/">Highcharts复制标题</a></li></ul>
+
+
+    </footer>
+  </div>
+  
+</article>
+
+  
+ 
+  
+    <article id="post-how-to-use-highstock-with-kline" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/02/06/how-to-use-highstock-with-kline/" class="article-date">
+  <time datetime="2015-02-06T08:33:03.000Z" itemprop="datePublished">2015/02/06</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Highcharts/">Highcharts</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/02/06/how-to-use-highstock-with-kline/">highstock高级篇之股票K线图</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>上篇为大家讲解了股票分时的基本用法，这次接着上篇谈谈K线图，分时图和K线图都属于highstock里的功能图表，所以在使用上基本上相同，但也略有区别。</p>
+</blockquote>
+<h4 id="预期想要达成的效果图"><a href="#预期想要达成的效果图" class="headerlink" title="预期想要达成的效果图"></a>预期想要达成的效果图</h4><p><img src="http://7oxjce.com1.z0.glb.clouddn.com/peng_20150206151850.png" alt=""></p>
+        
+          <p class="article-more-link">
+            <a href="/2015/02/06/how-to-use-highstock-with-kline/#more">查看更多</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      
+        <a data-url="http://www.peng8.net/2015/02/06/how-to-use-highstock-with-kline/" data-id="cjez2dlzi002r5druy0r3x6a0" class="article-share-link" data-share="baidu">分享到</a>
+      
+
+      
+
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Highstock-K线图/">Highstock K线图</a></li></ul>
+
+
+    </footer>
+  </div>
+  
+</article>
+
+  
+ 
+  
+  
+    <nav id="page-nav">
+      <span class="page-number current">1</span><a class="page-number" href="/categories/Highcharts/page/2/">2</a><a class="page-number" href="/categories/Highcharts/page/3/">3</a><a class="extend next" rel="next" href="/categories/Highcharts/page/2/">下一页 &raquo;</a>
+    </nav>
+  
+</section>
+        
+          <aside id="sidebar">
+  
+     <div class="widget-wrap">
+    <h3 class="widget-title">我的微博</h3>
+    <div class="widget">
+		<div style="padding: 13px 0 15px;">
+			<div class="weiboShow_developer_pic" style="float: left;margin: 2px 0 0 15px;display: inline;"><a href="http://weibo.com/512338113" target="_blank">
+                    <img src="http://tp2.sinaimg.cn/2005285601/50/40049988623/1" alt="Peng-Sir" title="Peng-Sir" style="box-shadow: 1px 1px 20px rgba(0, 0, 0, 0.15);
+filter: progid:DXImageTransform.Microsoft.Shadow(color='#C3C3C3', Direction=135, Strength=2);"></a></div>
+			<div class="weiboShow_developer_detail" style="margin-left: 73px;">
+                        <dl class="weiboShow_developerDetail_name"><dt><a href="http://weibo.com/512338113" target="_blank" alt="Peng-Sir" title="Peng-Sir">Peng-Sir</a></dt><dd><span class="weiboShow_developerDetail_namedir">北京 海淀区</span></dd></dl>
+                      
+            </div>			
+		</div>
+    </div>
+ </div>
+  
+     <div class="widget-wrap">
+    <h3 class="widget-title">我的微信</h3>
+    <div class="widget">
+		<div style="padding:0px;text-align:center">
+			<h5>扫描下面二维码可加我哦</h5>
+			<img src="http://7oxjce.com1.z0.glb.clouddn.com/peng8_weixin_big.jpg" style="width:250px;"/>
+		</div>
+    </div>
+ </div>
+  
+     <div class="widget-wrap">
+    <h3 class="widget-title">我的Q群</h3>
+    <div class="widget">
+		<div style="padding:0px;text-align:center">
+			<h5>扫描下面二维码可加群</h5>
+			<img src="http://7oxjce.com1.z0.glb.clouddn.com/peng_qqgroup.jpg" style="width:250px;"/>
+		</div>
+		<div style="width:100%;">
+			<h5>QQ群:86031665</h5>
+			<p>欢迎各位小伙伴入驻，群里有大神，妹纸多多</p>
+		</div>
+    </div>
+ </div>
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Highcharts/">Highcharts</a><span class="category-list-count">22</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/angularjs/">angularjs</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/asp-net/">asp.net</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/css/">css</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/dnn/">dnn</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/easyui/">easyui</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/easyui/datagrid/">datagrid</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript/">javascript</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/jquery/">jquery</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/phantomjs/">phantomjs</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/reactjs/">reactjs</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/随笔日记/">随笔日记</a><span class="category-list-count">5</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/2014总结/" style="font-size: 10px; color: #7dc3de">2014总结</a> <a href="/tags/2015总结/" style="font-size: 10px; color: #7dc3de">2015总结</a> <a href="/tags/Highcharts/" style="font-size: 20px; color: #800080">Highcharts</a> <a href="/tags/Highcharts-legend/" style="font-size: 10px; color: #7dc3de">Highcharts legend</a> <a href="/tags/Highcharts不常用属性/" style="font-size: 10px; color: #7dc3de">Highcharts不常用属性</a> <a href="/tags/Highcharts仪表盘/" style="font-size: 10px; color: #7dc3de">Highcharts仪表盘</a> <a href="/tags/Highcharts复制标题/" style="font-size: 10px; color: #7dc3de">Highcharts复制标题</a> <a href="/tags/Highcharts绘制自定义元素/" style="font-size: 10px; color: #7dc3de">Highcharts绘制自定义元素</a> <a href="/tags/Highcharts自定义属性/" style="font-size: 10px; color: #7dc3de">Highcharts自定义属性</a> <a href="/tags/Highmaps/" style="font-size: 10px; color: #7dc3de">Highmaps</a> <a href="/tags/Highstock-K线图/" style="font-size: 10px; color: #7dc3de">Highstock K线图</a> <a href="/tags/Highstock-分时图/" style="font-size: 12.5px; color: #7e92c7">Highstock 分时图</a> <a href="/tags/Swiftype/" style="font-size: 10px; color: #7dc3de">Swiftype</a> <a href="/tags/angularjs/" style="font-size: 15px; color: #7f62af">angularjs</a> <a href="/tags/angularjs-post/" style="font-size: 10px; color: #7dc3de">angularjs post</a> <a href="/tags/angularjs自定义标签/" style="font-size: 10px; color: #7dc3de">angularjs自定义标签</a> <a href="/tags/asp-net/" style="font-size: 17.5px; color: #7f3198">asp.net</a> <a href="/tags/aspose/" style="font-size: 10px; color: #7dc3de">aspose</a> <a href="/tags/bowerrc创建/" style="font-size: 10px; color: #7dc3de">bowerrc创建</a> <a href="/tags/css/" style="font-size: 10px; color: #7dc3de">css</a> <a href="/tags/dnn/" style="font-size: 10px; color: #7dc3de">dnn</a> <a href="/tags/doctype/" style="font-size: 10px; color: #7dc3de">doctype</a> <a href="/tags/easyui/" style="font-size: 10px; color: #7dc3de">easyui</a> <a href="/tags/gojs入门笔记/" style="font-size: 10px; color: #7dc3de">gojs入门笔记</a> <a href="/tags/heatmap/" style="font-size: 12.5px; color: #7e92c7">heatmap</a> <a href="/tags/highchart/" style="font-size: 10px; color: #7dc3de">highchart</a> <a href="/tags/highmaps使用/" style="font-size: 10px; color: #7dc3de">highmaps使用</a> <a href="/tags/javascript/" style="font-size: 17.5px; color: #7f3198">javascript</a> <a href="/tags/jquery/" style="font-size: 17.5px; color: #7f3198">jquery</a> <a href="/tags/myPagination/" style="font-size: 10px; color: #7dc3de">myPagination</a> <a href="/tags/phantomjs/" style="font-size: 15px; color: #7f62af">phantomjs</a> <a href="/tags/phantomjs单独部署/" style="font-size: 10px; color: #7dc3de">phantomjs单独部署</a> <a href="/tags/react/" style="font-size: 12.5px; color: #7e92c7">react</a> <a href="/tags/react-native/" style="font-size: 12.5px; color: #7e92c7">react-native</a> <a href="/tags/tagedit/" style="font-size: 10px; color: #7dc3de">tagedit</a> <a href="/tags/timelinejs/" style="font-size: 10px; color: #7dc3de">timelinejs</a> <a href="/tags/分时图/" style="font-size: 10px; color: #7dc3de">分时图</a> <a href="/tags/地图/" style="font-size: 10px; color: #7dc3de">地图</a> <a href="/tags/希望/" style="font-size: 10px; color: #7dc3de">希望</a> <a href="/tags/延迟加载/" style="font-size: 10px; color: #7dc3de">延迟加载</a> <a href="/tags/智能查询/" style="font-size: 10px; color: #7dc3de">智能查询</a> <a href="/tags/热力图/" style="font-size: 12.5px; color: #7e92c7">热力图</a> <a href="/tags/热点图/" style="font-size: 12.5px; color: #7e92c7">热点图</a> <a href="/tags/美图/" style="font-size: 10px; color: #7dc3de">美图</a> <a href="/tags/随笔/" style="font-size: 10px; color: #7dc3de">随笔</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">七月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">二月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">一月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">十二月 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">十一月 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">十月 2015</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">九月 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">七月 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">六月 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/05/">五月 2015</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/04/">四月 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">三月 2015</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">二月 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">一月 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/12/">十二月 2014</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">十一月 2014</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">十月 2014</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/09/">九月 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08/">八月 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/07/">七月 2014</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/05/">五月 2014</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/04/">四月 2014</a><span class="archive-list-count">4</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">近期文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2016/07/06/write-checkbox-component-in-React/">React-Native 中自定义checkbox组件</a>
+          </li>
+        
+          <li>
+            <a href="/2016/02/23/learn-react-native/">React-Native 环境搭建指南[阿鹏出品]</a>
+          </li>
+        
+          <li>
+            <a href="/2016/01/19/tagedit-demo-by-peng8/">简易模糊查询tagedit的实现</a>
+          </li>
+        
+          <li>
+            <a href="/2015/12/31/2015-summary/">这一年</a>
+          </li>
+        
+          <li>
+            <a href="/2015/12/30/highmaps-of-china-extend/">阿鹏 细说highmaps</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">友情链接</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="http://www.hcharts.cn/" target="_blank">Highcharts中文网</a>
+          </li>
+        
+          <li>
+            <a href="http://bbs.hcharts.cn/" target="_blank">Highcharts论坛</a>
+          </li>
+        
+          <li>
+            <a href="http://www.52wulian.cn/" target="_blank">我爱物联网</a>
+          </li>
+        
+          <li>
+            <a href="http://www.w3cscript.com/" target="_blank">angular教程</a>
+          </li>
+        
+          <li>
+            <a href="http://www.jiweiwei.com/" target="_blank">众生相</a>
+          </li>
+        
+          <li>
+            <a href="http://bbs.dtsoft.net/" target="_blank">DTCMS论坛</a>
+          </li>
+        
+          <li>
+            <a href="http://www.dexcoder.com/" target="_blank">码农的士</a>
+          </li>
+        
+          <li>
+            <a href="http://www.xrpmoon.com/blog/" target="_blank">Java与Ripple究竟怎么玩</a>
+          </li>
+        
+          <li>
+            <a href="http://www.jcore.cn/" target="_blank">jcore</a>
+          </li>
+        
+          <li>
+            <a href="http://www.gaigaiming.com/" target="_blank">改改名</a>
+          </li>
+        
+          <li>
+            <a href="http://kanng.net/" target="_blank">看门狗IT导航</a>
+          </li>
+        
+          <li>
+            <a href="http://www.lanhouzi.net/" target="_blank">蓝猴子</a>
+          </li>
+        
+          <li>
+            <a href="http://blog.brain1981.com/" target="_blank">Brain的技术笔记</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+     <div class="widget-wrap">
+    <h3 class="widget-title">最近访客</h3>
+    <div class="widget">
+		<div style="width:100%">
+			<ul class="ds-recent-visitors" data-num-items="20"></ul>
+		</div>
+    </div>
+ </div>
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 黑桃 K<br>
+      Powered by <a href="http://peng8.net" target="_blank">Peng8.net</a>  
+      
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/about" class="mobile-nav-link">About</a>
+  
+    <a href="/live" class="mobile-nav-link">Live</a>
+  
+    <a href="https://github.com/peng8" class="mobile-nav-link">Github</a>
+  
+</nav>
+    
+<script src="http://libs.baidu.com/jquery/1.8.3/jquery.min.js"></script>
+<!-- 百度分享 start -->
+
+<div id="article-share-box" class="article-share-box">
+  <div id="bdshare" class="bdsharebuttonbox article-share-links">
+    <a class="article-share-weibo" data-cmd="tsina" title="分享到新浪微博"></a>
+    <a class="article-share-weixin" data-cmd="weixin" title="分享到微信"></a>
+    <a class="article-share-qq" data-cmd="tqq" title="分享到QQ"></a>
+    <a class="article-share-twitter" data-cmd="twi" title="分享到人人网"></a>
+    <a class="article-share-more" data-cmd="more" title="更多"></a>
+  </div>
+</div>
+<script>window._bd_share_config={"common":{},"share":[{"bdCustomStyle":"/nocss.css"}]};with(document)0[(getElementsByTagName("head")[0]||body).appendChild(createElement("script")).src="http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion="+~(-new Date()/36e5)];</script>
+
+<!-- 百度分享 end -->
+
+
+<!--返回顶部 -->
+<div id="totop" style="position:fixed;bottom:150px;right:50px;cursor: pointer;z-index:999;transition: all .5s ease 0s;">
+	<i class="fa fa-arrow-up" style="display: inline-block;font-family: FontAwesome;font-style: normal;font-weight: normal;line-height: 1;-webkit-font-smoothing: antialiased;
+-moz-osx-font-smoothing: grayscale;font-size: 35px;"></i>
+</div>
+<script src="/js/totop.js"></script>
+<!-- 返回顶部 end -->
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+<!-- 搜索-->
+
+<script type="text/javascript">
+(function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install','saxnFW97g3pyEKdjicJD','2.0.0');
+  
+</script>
+
+<script src="/js/script.js"></script>
+  </div>
+</body>
+</html>
