@@ -108,7 +108,7 @@ document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3
 			
 			</div>
 		
-        <p><img src="http://7oxjce.com1.z0.glb.clouddn.com/peng_0006.png" alt="React 工作原理"></p>
+        <p><img src="http://peng8.qiniudn.com/peng_0006.png" alt="React 工作原理"></p>
 <blockquote>
 <p>因为公司业务的需要，不得不开始研究<code>react-native</code>，至于react有哪些优势呢，网上已经一大堆分析了，我就不多啰嗦了，目前这玩意是要征服三端啊，PC、IOS、安卓！如此甚火，诸多公司都开始广泛使用起来，小弟也是废了一番周折，才把环境搭建起来，DEMO跑起来。一个感受是：坑太多了，环境搭建真麻烦。。。下面给大家分享下搭建流程（这里主要是windows环境下搭建安卓，至于IOS的搭建比安卓简单多了，就不详细说了）</p>
 </blockquote>
@@ -121,24 +121,24 @@ document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3
 <h4 id="四、安装react-native-cli"><a href="#四、安装react-native-cli" class="headerlink" title="四、安装react-native-cli"></a>四、安装react-native-cli</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">输入指令 npm install -g react-native-cli</span><br></pre></td></tr></table></figure>
 <h4 id="五、创建项目"><a href="#五、创建项目" class="headerlink" title="五、创建项目"></a>五、创建项目</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">CMD里输入指令  react-native init yourProjectName</span><br></pre></td></tr></table></figure>
 <h4 id="六、安装安卓虚拟机环境"><a href="#六、安装安卓虚拟机环境" class="headerlink" title="六、安装安卓虚拟机环境"></a>六、安装安卓虚拟机环境</h4><p>下载genymotion-2.6.0-vbox 和 genymotion_vbox86tp_4.4.4_150610_091703.ova，前者是虚拟机，后者类似于一个镜像文件可以直接导入到虚拟机中，如果没有第二个镜像文件，可以手动通过虚拟机创建。安装后如下图所示</p>
-<p><img src="http://7oxjce.com1.z0.glb.clouddn.com/peng_20160223151834.png" alt="安卓虚拟机"></p>
-<p><img src="http://7oxjce.com1.z0.glb.clouddn.com/peng_20160223152148.png" alt="启动虚拟器"></p>
+<p><img src="http://peng8.qiniudn.com/peng_20160223151834.png" alt="安卓虚拟机"></p>
+<p><img src="http://peng8.qiniudn.com/peng_20160223152148.png" alt="启动虚拟器"></p>
 <h4 id="七、react-native-run-android"><a href="#七、react-native-run-android" class="headerlink" title="七、react-native run-android"></a>七、react-native run-android</h4><p>回到我们刚才创建的项目目录，CMD中 输入 react-native run-android ，指行会下载一堆东西。<br>注意了下面是重点  界面会出现 DOWNLOADING <strong>https\://services.gradle.org/distributions/gradle-2.4-all.zip</strong><br>这个包是用来编译和打包安卓程序的，而且非常大，很多人网络不好就会卡在这里，下载不了资源，我建议赋值这个链接手动把这个包下载下来。下载后放到哪里呢？</p>
 <h5 id="1、我们找到项目根目录-android-gt-gradle-gt-wrapper-，将压缩包放在此目录，另外编辑gradle-wrapper-properties-这个文件-，注释掉distributionUrl这行，添加新的一行如下："><a href="#1、我们找到项目根目录-android-gt-gradle-gt-wrapper-，将压缩包放在此目录，另外编辑gradle-wrapper-properties-这个文件-，注释掉distributionUrl这行，添加新的一行如下：" class="headerlink" title="1、我们找到项目根目录 android&gt;gradle&gt;wrapper ，将压缩包放在此目录，另外编辑gradle-wrapper.properties 这个文件 ，注释掉distributionUrl这行，添加新的一行如下："></a>1、我们找到项目根目录 <strong>android&gt;gradle&gt;wrapper</strong> ，将压缩包放在此目录，另外编辑<code>gradle-wrapper.properties</code> 这个文件 ，注释掉distributionUrl这行，添加新的一行如下：</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">distributionBase=GRADLE_USER_HOME</span><br><span class="line">distributionPath=wrapper/dists</span><br><span class="line">zipStoreBase=GRADLE_USER_HOME</span><br><span class="line">zipStorePath=wrapper/dists</span><br><span class="line">#distributionUrl=https\://services.gradle.org/distributions/gradle-2.4-all.zip</span><br><span class="line">distributionUrl=gradle-2.4-all.zip</span><br></pre></td></tr></table></figure>
 <p>让程序运行时，直接调用本地目录下的gradle-2.1-all.zip 这个包</p>
 <h5 id="2、拷贝一份gradle-2-1-all-zip-解压到C盘任意位置，接着创建环境变量"><a href="#2、拷贝一份gradle-2-1-all-zip-解压到C盘任意位置，接着创建环境变量" class="headerlink" title="2、拷贝一份gradle-2.1-all.zip 解压到C盘任意位置，接着创建环境变量"></a>2、拷贝一份gradle-2.1-all.zip 解压到C盘任意位置，接着创建环境变量</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">增加变量 GRADLE_HOME 变量值 C:\hepf\gradle-2.4 （解压的路径）</span><br><span class="line">编辑path变量 在后面增加 %GRADLE_HOME %\bin;</span><br></pre></td></tr></table></figure>
 <p>增加上面的环境变量的目的 ，是为了在编译过程中调用 gradle指令。</p>
 <p>上面2个步骤配置完毕后，执行速度就非常快了，执行完毕后 程序会被打包成apk安装到模拟器中</p>
-<p><img src="http://7oxjce.com1.z0.glb.clouddn.com/peng_20160223154438.png" alt="安装成功啦"></p>
+<p><img src="http://peng8.qiniudn.com/peng_20160223154438.png" alt="安装成功啦"></p>
 <h4 id="八、react-native-start"><a href="#八、react-native-start" class="headerlink" title="八、react-native start"></a>八、react-native start</h4><p>看其他人的教程中 说 先运行这个，在运行react-native run-android。<br>我觉得呢，这个命令可以在 react-native run-android之前执行，也可以在之后执行，并没有什么大的影响<br>相当于启动一个服务，动态去编译脚本、图片、安卓资源等等</p>
 <h4 id="九、配置模拟器的WIFI和IP"><a href="#九、配置模拟器的WIFI和IP" class="headerlink" title="九、配置模拟器的WIFI和IP"></a>九、配置模拟器的WIFI和IP</h4><p>模拟器一定要链接上wifi，IP一定要和本机的IP一样，端口设置为8081，这样模拟器就能访问到<br><a href="http://localhost:8081/index.android.bundle?platform=android" target="_blank" rel="noopener">http://localhost:8081/index.android.bundle?platform=android</a> 然后请求我们上一步开启的服务。</p>
-<p><img src="http://7oxjce.com1.z0.glb.clouddn.com/peng_20160223155053.png" alt="配置IP和端口"></p>
+<p><img src="http://peng8.qiniudn.com/peng_20160223155053.png" alt="配置IP和端口"></p>
 <h4 id="十、代理设置"><a href="#十、代理设置" class="headerlink" title="十、代理设置"></a>十、代理设置</h4><p>如果本地的网络是用过代理上网的，那么就需要设置gradle 和 模拟器wifi的代理</p>
 <h5 id="1、gradle-代理设置-项目目录下android-gt-gradle-properties-编辑这个文件-输入代理的IP地址和端口"><a href="#1、gradle-代理设置-项目目录下android-gt-gradle-properties-编辑这个文件-输入代理的IP地址和端口" class="headerlink" title="1、gradle 代理设置 项目目录下android&gt;gradle.properties 编辑这个文件 输入代理的IP地址和端口"></a>1、gradle 代理设置 项目目录下android&gt;gradle.properties 编辑这个文件 输入代理的IP地址和端口</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">android.useDeprecatedNdk=true</span><br><span class="line">systemProp.http.proxyHost=192.168.20.6</span><br><span class="line">systemProp.http.proxyPort=3128</span><br><span class="line">systemProp.http.nonProxyHosts=localhost</span><br><span class="line">#systemProp.http.nonProxyHosts=*.nonproxyrepos.com|localhost</span><br><span class="line"></span><br><span class="line">systemProp.https.proxyHost=192.168.20.6</span><br><span class="line">systemProp.https.proxyPort=3128</span><br><span class="line">systemProp.https.nonProxyHosts=localhost</span><br><span class="line">#systemProp.https.nonProxyHosts=*.nonproxyrepos.com|localhost</span><br></pre></td></tr></table></figure>
-<h5 id="2、wifi代理设置"><a href="#2、wifi代理设置" class="headerlink" title="2、wifi代理设置"></a>2、wifi代理设置</h5><p>划出模拟器的状态栏 ，就是手机界面的状态栏，里面有个wifi 连接图标。点击wifi图标，看下面图片流程<br><img src="http://7oxjce.com1.z0.glb.clouddn.com/peng_20160223155618.png" alt="步骤一"></p>
-<p><img src="http://7oxjce.com1.z0.glb.clouddn.com/peng_20160223155710.png" alt="步骤二"></p>
-<p><img src="http://7oxjce.com1.z0.glb.clouddn.com/peng_20160223155710.png" alt="步骤三"></p>
-<p><img src="http://7oxjce.com1.z0.glb.clouddn.com/peng_20160223155735.png" alt="步骤四"></p>
+<h5 id="2、wifi代理设置"><a href="#2、wifi代理设置" class="headerlink" title="2、wifi代理设置"></a>2、wifi代理设置</h5><p>划出模拟器的状态栏 ，就是手机界面的状态栏，里面有个wifi 连接图标。点击wifi图标，看下面图片流程<br><img src="http://peng8.qiniudn.com/peng_20160223155618.png" alt="步骤一"></p>
+<p><img src="http://peng8.qiniudn.com/peng_20160223155710.png" alt="步骤二"></p>
+<p><img src="http://peng8.qiniudn.com/peng_20160223155710.png" alt="步骤三"></p>
+<p><img src="http://peng8.qiniudn.com/peng_20160223155735.png" alt="步骤四"></p>
 <p>经过这几个设置，手机模拟器就可以通过代理上网了。</p>
 <p>总结：<br>可能在安装过程中 还会遇到很多细节的问题，我没有仔细写全，但大部分原因可以归纳为<br>1、有可能资源请求不了（需要有VPN）<br>2、环境变量没有配置好<br>3、安卓SDK没有装全<br><strong>4、人品问题</strong></p>
 <p>阿鹏就为大家介绍到这里了，有不懂的可以留言或者加QQ群 ：<strong>86031665</strong> ，博客首页有微信和微博联系方式欢迎大家咨询！</p>
@@ -147,7 +147,7 @@ document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://www.peng8.net/2016/02/23/learn-react-native/" data-id="cjezd4omz003itaruwypzhbnc" class="article-share-link" data-share="baidu">分享到</a>
+        <a data-url="http://www.peng8.net/2016/02/23/learn-react-native/" data-id="cjmh5ihbe003jwa2aslsx5shc" class="article-share-link" data-share="baidu">分享到</a>
       
 
       
@@ -240,7 +240,7 @@ filter: progid:DXImageTransform.Microsoft.Shadow(color='#C3C3C3', Direction=135,
     <div class="widget">
 		<div style="padding:0px;text-align:center">
 			<h5>扫描下面二维码可加我哦</h5>
-			<img src="http://7oxjce.com1.z0.glb.clouddn.com/peng8_weixin_big.jpg" style="width:250px;"/>
+			<img src="http://peng8.qiniudn.com/peng8_weixin_big.jpg" style="width:250px;"/>
 		</div>
     </div>
  </div>
@@ -250,7 +250,7 @@ filter: progid:DXImageTransform.Microsoft.Shadow(color='#C3C3C3', Direction=135,
     <div class="widget">
 		<div style="padding:0px;text-align:center">
 			<h5>扫描下面二维码可加群</h5>
-			<img src="http://7oxjce.com1.z0.glb.clouddn.com/peng_qqgroup.jpg" style="width:250px;"/>
+			<img src="http://peng8.qiniudn.com/peng_qqgroup.jpg" style="width:250px;"/>
 		</div>
 		<div style="width:100%;">
 			<h5>QQ群:86031665</h5>

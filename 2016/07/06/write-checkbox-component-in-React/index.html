@@ -131,7 +131,7 @@ document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3
 </ul>
 <p>####renderRow 行数据渲染<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">initCheckBoxData(checkbox)&#123;</span><br><span class="line">        </span><br><span class="line">  if(checkbox!=null)&#123;</span><br><span class="line">    CheckBoxData.push(checkbox);  </span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">renderList(rowData,rowID) &#123;</span><br><span class="line">  return (</span><br><span class="line">       &lt;View style=&#123;styles.listRow&#125; &gt;</span><br><span class="line">           &lt;View&gt;</span><br><span class="line">           &lt;CheckBox</span><br><span class="line">             ref=&#123;(c)=&gt;this.initCheckBoxData(c)&#125;</span><br><span class="line">             label=&quot;&quot;</span><br><span class="line">             checked=&#123;false&#125;</span><br><span class="line">             value=&#123;rowID&#125;</span><br><span class="line">             style=&#123;styles.check&#125;</span><br><span class="line">             onChange=&#123;(checked) =&gt; this.checkSelect(checked,rowID)&#125; /&gt;</span><br><span class="line">             &lt;/View&gt;</span><br><span class="line">             &lt;View style=&#123;styles.rightContainer&#125;&gt;</span><br><span class="line">                 &lt;Text style=&#123;styles.title&#125;&gt;&#123;rowData.title&#125;&lt;/Text&gt;</span><br><span class="line">                 &lt;Text style=&#123;styles.normal&#125;&gt;&#123;rowData.desc&#125;&lt;/Text&gt;</span><br><span class="line">                 &lt;Text style=&#123;styles.normal&#125;&gt;时间:&#123;rowData.pubDate&#125;&lt;/Text&gt;</span><br><span class="line">                 &lt;Text style=&#123;styles.normal&#125;&gt;来源:&#123;rowData.source&#125;&lt;/Text&gt;</span><br><span class="line">             &lt;/View&gt;</span><br><span class="line">         &lt;/View&gt;  </span><br><span class="line">   );</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure></p>
 <p>这个方法用来渲染每行数据，并提供了行对象和行索引，这里我做的是一个新闻列表。展示了新闻标题，描述，时间，来源等字段的展现，最左侧就是一个复选框，我们看到了 <code>&lt;CheckBox /&gt;</code> 这样的自定义组件出现在行数据中，为它指定了 onChange事件、value值绑定、checked默认值及ref输出当前对象，所以 <code>initCheckBoxData</code> 这个方法的作用就是将当前对象保存在一个共有的数组里面，全选的时候可以拿到每行的 Checkbox对象，并调用它自身的方法和属性。<br><strong>干说了大半天，我们还是来看看效果图，界面比较丑，没有美化，望体谅哦…</strong></p>
-<p><img src="http://7oxjce.com1.z0.glb.clouddn.com/peng83BCB85D3.png" alt="结合listview展现checkbox"></p>
+<p><img src="http://peng8.qiniudn.com/peng83BCB85D3.png" alt="结合listview展现checkbox"></p>
 <p>####checkbox全选及单选的原理</p>
 <ul>
 <li><p>单选<br>checkbox 本身外层包裹了一层 TouchableHighlight，TouchableHighlight设置了onPress事件，因此会去改变state里checked的状态，从而重新渲染当前checkbox，同时toggle事件里，调用了回调的onChange函数，将改变的值回传给前端的 checkSelect方法 <code>onChange={(checked) =&gt; this.checkSelect(checked,rowID)}</code> </p>
@@ -142,7 +142,7 @@ document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3
 </ul>
 <p>因此上面listview里渲染时，我们申明了一个 全局变量 <code>var CheckBoxData={]</code>，通过ref 将当前对象全部push到CheckBoxData变量中。这样为后面全选时做准备，下面看看具体全选的方法：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">SelectAll()&#123;</span><br><span class="line">	for (var i = 0; i &lt; CheckBoxData.length; i++) &#123;</span><br><span class="line">	   if(CheckBoxData[i]!=null)&#123;</span><br><span class="line">		   console.log(CheckBoxData[i]);</span><br><span class="line">	       CheckBoxData[i].onChange();</span><br><span class="line">	   &#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>循环去变量CheckBoxData数组，并调用它自身的方法 onChange 去改变state里checked的状态，达到重新渲染的目的。我们在控制台输出看看 checkbox这个对象：</p>
-<p><img src="http://7oxjce.com1.z0.glb.clouddn.com/peng8-26A76DE8.png" alt=""></p>
+<p><img src="http://peng8.qiniudn.com/peng8-26A76DE8.png" alt=""></p>
 <p>一句话：全选的实现无非就是拿到所有的checkbox对象，然后调用它自身的onChange事件 去改变state状态</p>
 <p>####checkbox的取值</p>
 <p>取值就非常简单了，我们初始化的时候，为checkbox每个对象绑定了value值。<br>循环CheckBoxData这个数组时，我们可以拿到每个checkbox state里的checked状态，也能拿到props里的value值，从而知道哪些checkbox被选中了，值是多少！</p>
@@ -155,7 +155,7 @@ document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://www.peng8.net/2016/07/06/write-checkbox-component-in-React/" data-id="cjezd4ony0051taruxrgpy2bp" class="article-share-link" data-share="baidu">分享到</a>
+        <a data-url="http://www.peng8.net/2016/07/06/write-checkbox-component-in-React/" data-id="cjmh5ihd70052wa2abhag3f9t" class="article-share-link" data-share="baidu">分享到</a>
       
 
       
@@ -239,7 +239,7 @@ filter: progid:DXImageTransform.Microsoft.Shadow(color='#C3C3C3', Direction=135,
     <div class="widget">
 		<div style="padding:0px;text-align:center">
 			<h5>扫描下面二维码可加我哦</h5>
-			<img src="http://7oxjce.com1.z0.glb.clouddn.com/peng8_weixin_big.jpg" style="width:250px;"/>
+			<img src="http://peng8.qiniudn.com/peng8_weixin_big.jpg" style="width:250px;"/>
 		</div>
     </div>
  </div>
@@ -249,7 +249,7 @@ filter: progid:DXImageTransform.Microsoft.Shadow(color='#C3C3C3', Direction=135,
     <div class="widget">
 		<div style="padding:0px;text-align:center">
 			<h5>扫描下面二维码可加群</h5>
-			<img src="http://7oxjce.com1.z0.glb.clouddn.com/peng_qqgroup.jpg" style="width:250px;"/>
+			<img src="http://peng8.qiniudn.com/peng_qqgroup.jpg" style="width:250px;"/>
 		</div>
 		<div style="width:100%;">
 			<h5>QQ群:86031665</h5>

@@ -112,7 +112,7 @@ document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3
 <p>闲着没事，帮别人做了个小东西，分享给大家。</p>
 </blockquote>
 <p>这个小DEMO的主要功能就是实现模糊查询，并把当前选择的条件做为选项添加到文本框，随后一并提交到服务端。我们先看看效果图：</p>
-<p><img src="http://7oxjce.com1.z0.glb.clouddn.com/peng_20160119182654.png" alt="最终效果图"></p>
+<p><img src="http://peng8.qiniudn.com/peng_20160119182654.png" alt="最终效果图"></p>
 <a id="more"></a>
 <p>####准备菜（tiao）单（jian）</p>
 <ul>
@@ -134,17 +134,17 @@ document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3
 <li>addedPostfix:需要增加项的后缀</li>
 </ul>
 <p>####补充<br>另外补充下提交到服务端，当选择好很多查询条件后，页面上会生成很多隐藏的input标签，存放着对应text和value，看下图</p>
-<p><img src="http://7oxjce.com1.z0.glb.clouddn.com/peng_20160119185313.png" alt="每个li中都一个input"></p>
+<p><img src="http://peng8.qiniudn.com/peng_20160119185313.png" alt="每个li中都一个input"></p>
 <p>当提交后，我们可以通过<code>Request.Form.AllKeys</code> 拿到所有传递过来的表单参数，然后判断下tag 就是我们需要的<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">StringBuilder shtml = new StringBuilder();</span><br><span class="line">shtml.Append(&quot;&lt;ul&gt;&quot;);</span><br><span class="line">if (Request.Form.AllKeys.Length != 0)&#123;</span><br><span class="line">    string[] formArray = Request.Form.AllKeys;</span><br><span class="line">    foreach (string key in formArray) &#123;</span><br><span class="line">        if (key.Contains(&quot;tag[&quot;)) &#123;</span><br><span class="line">            shtml.Append( &quot;&lt;li&gt;key:&quot;+key+&quot;;value:&quot;+Request.Form[key]+&quot;&lt;/li&gt;&quot;);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">shtml.Append(&quot;&lt;/ul&gt;&quot;);</span><br><span class="line">Literal1.Text = shtml.ToString();</span><br></pre></td></tr></table></figure></p>
 <p>下面是我点击按钮后，我在服务端取到了所有的项，接着输出在前端展现了，另外这里说明下<br><code>tag[1-a]</code> ，这里后端用时 还需要做进一步处理，1代表value，-a代表增加的项，<code>addedPostfix</code> 默认为 -a ，我们可以设置为其他的 例如 b，c，d等等，-d 代表需要删除的项，可以通过<code>deletedPostfix</code>设置成其他的，而下图的value 实际上对应的是搜索的 text，并非真正的value！</p>
-<p><img src="http://7oxjce.com1.z0.glb.clouddn.com/peng_20160119183445.png" alt=""></p>
+<p><img src="http://peng8.qiniudn.com/peng_20160119183445.png" alt=""></p>
 <p>DEMO就介绍到这里，欢迎大家下载 <a href="https://github.com/peng8/tagedit-by-peng8" target="_blank" rel="noopener">传送门</a></p>
 
       
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://www.peng8.net/2016/01/19/tagedit-demo-by-peng8/" data-id="cjezd4ond004btaruobn8ygnc" class="article-share-link" data-share="baidu">分享到</a>
+        <a data-url="http://www.peng8.net/2016/01/19/tagedit-demo-by-peng8/" data-id="cjmh5ihcb004cwa2am9r2krtv" class="article-share-link" data-share="baidu">分享到</a>
       
 
       
@@ -237,7 +237,7 @@ filter: progid:DXImageTransform.Microsoft.Shadow(color='#C3C3C3', Direction=135,
     <div class="widget">
 		<div style="padding:0px;text-align:center">
 			<h5>扫描下面二维码可加我哦</h5>
-			<img src="http://7oxjce.com1.z0.glb.clouddn.com/peng8_weixin_big.jpg" style="width:250px;"/>
+			<img src="http://peng8.qiniudn.com/peng8_weixin_big.jpg" style="width:250px;"/>
 		</div>
     </div>
  </div>
@@ -247,7 +247,7 @@ filter: progid:DXImageTransform.Microsoft.Shadow(color='#C3C3C3', Direction=135,
     <div class="widget">
 		<div style="padding:0px;text-align:center">
 			<h5>扫描下面二维码可加群</h5>
-			<img src="http://7oxjce.com1.z0.glb.clouddn.com/peng_qqgroup.jpg" style="width:250px;"/>
+			<img src="http://peng8.qiniudn.com/peng_qqgroup.jpg" style="width:250px;"/>
 		</div>
 		<div style="width:100%;">
 			<h5>QQ群:86031665</h5>
