@@ -110,12 +110,12 @@ document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3
 <h3 id="二-服务端-Look-here"><a href="#二-服务端-Look-here" class="headerlink" title="二. 服务端 Look here"></a>二. 服务端 Look here</h3><p>我用.NET新建一个解决方案，里面包含了2个项目，一个web项目，另外一个是winform项目，当然你也可以弄2个web项目，不影响部署。</p>
 <h4 id="服务端phantomjs搭建"><a href="#服务端phantomjs搭建" class="headerlink" title=" 服务端phantomjs搭建"></a><1> 服务端phantomjs搭建</1></h4><ol>
 <li>一些准备文件<br><code>phantomjs.exe</code> 和 <code>highcharts工具包</code></li>
-<li>winform界面写出来<br><img src="http://peng8.qiniudn.com/peng_20150911170852.png" alt="服务界面"></li>
+<li>winform界面写出来<br><img src="http://pj99n6r03.bkt.clouddn.com/peng_20150911170852.png" alt="服务界面"></li>
 <li>winform后端核心代码<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">#region 启动进程</span><br><span class="line">  Process  p = new Process();</span><br><span class="line">  p.StartInfo.FileName = Environment.CurrentDirectory + &quot;//phantomjs//phantomjs_1.9V.exe&quot;;</span><br><span class="line"> </span><br><span class="line">  string ExcuteArg = Environment.CurrentDirectory + &quot;//script//highcharts-convert.js -host 127.0.0.1 -port 3003&quot;;</span><br><span class="line">  p.StartInfo.Arguments = string.Format(ExcuteArg);</span><br><span class="line">  p.StartInfo.CreateNoWindow = false;</span><br><span class="line">  p.StartInfo.UseShellExecute = false;</span><br><span class="line">  //重定向标准输出 </span><br><span class="line">  p.StartInfo.RedirectStandardOutput = true;</span><br><span class="line">  //重定向错误输出 </span><br><span class="line">  p.StartInfo.RedirectStandardError = false; ;</span><br><span class="line">  p.StartInfo.WindowStyle = ProcessWindowStyle.Normal;</span><br><span class="line">  string[] result = &#123; &#125;;</span><br><span class="line">  if (!p.Start())</span><br><span class="line">  &#123;</span><br><span class="line">      throw new Exception(&quot;无法启动Headless测试引擎.&quot;);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  result = p.StandardOutput.ReadToEnd().Split(new char[] &#123; &apos;\r&apos;, &apos;\n&apos; &#125;);</span><br><span class="line">  if (result.Length == 0)</span><br><span class="line">  &#123;</span><br><span class="line">      result[0] = &quot;已成功启动，但无数据&quot;;</span><br><span class="line">  &#125;</span><br><span class="line">  foreach (string s in result)</span><br><span class="line">  &#123;</span><br><span class="line">      list_Msg.Items.Add(s);</span><br><span class="line">  &#125;</span><br><span class="line">  #endregion</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
 <h4 id="web端搭建及如何调用phantomjs"><a href="#web端搭建及如何调用phantomjs" class="headerlink" title=" web端搭建及如何调用phantomjs"></a><2> web端搭建及如何调用phantomjs</2></h4><ol>
-<li>web页面搭建<br><img src="http://peng8.qiniudn.com/peng_20150911162403.png" alt="web界面"><br>实际上这个步骤可以省略，只是为了展示返回的数据而已，毕竟可以纯后端生成。</li>
+<li>web页面搭建<br><img src="http://pj99n6r03.bkt.clouddn.com/peng_20150911162403.png" alt="web界面"><br>实际上这个步骤可以省略，只是为了展示返回的数据而已，毕竟可以纯后端生成。</li>
 <li><p>向phantomjs 发起post请求的核心代码</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">private string HttpPostNew(string Url, string postDataStr)</span><br><span class="line">&#123;</span><br><span class="line">    HttpWebRequest request = (HttpWebRequest)WebRequest.Create(Url);</span><br><span class="line">    request.Method = &quot;POST&quot;;</span><br><span class="line">    request.ContentType = &quot;application/x-www-form-urlencoded&quot;;</span><br><span class="line">    request.ContentLength = Encoding.UTF8.GetByteCount(postDataStr);</span><br><span class="line">   </span><br><span class="line">    Stream myRequestStream = request.GetRequestStream();</span><br><span class="line">    StreamWriter myStreamWriter = new StreamWriter(myRequestStream, Encoding.GetEncoding(&quot;gb2312&quot;));</span><br><span class="line">    myStreamWriter.Write(postDataStr);</span><br><span class="line">    myStreamWriter.Close();</span><br><span class="line"></span><br><span class="line">    HttpWebResponse response;</span><br><span class="line">    try</span><br><span class="line">    &#123;</span><br><span class="line">        response = (HttpWebResponse)request.GetResponse();</span><br><span class="line">    &#125;</span><br><span class="line">    catch (WebException ex)</span><br><span class="line">    &#123;</span><br><span class="line">        response = (HttpWebResponse)ex.Response;</span><br><span class="line">    &#125;</span><br><span class="line">    Stream myResponseStream = response.GetResponseStream();</span><br><span class="line">    StreamReader myStreamReader = new StreamReader(myResponseStream, Encoding.GetEncoding(&quot;utf-8&quot;));</span><br><span class="line">    string retString = myStreamReader.ReadToEnd();</span><br><span class="line">    myStreamReader.Close();</span><br><span class="line">    myResponseStream.Close();</span><br><span class="line"></span><br><span class="line">    return retString;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <ol>
@@ -124,7 +124,7 @@ document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3
 </ol>
 </li>
 </ol>
-<h3 id="三-效果展示啦"><a href="#三-效果展示啦" class="headerlink" title="三. 效果展示啦"></a>三. 效果展示啦</h3><p><img src="http://peng8.qiniudn.com/peng_20150911162259.png" alt="最后将base64转换成图片"></p>
+<h3 id="三-效果展示啦"><a href="#三-效果展示啦" class="headerlink" title="三. 效果展示啦"></a>三. 效果展示啦</h3><p><img src="http://pj99n6r03.bkt.clouddn.com/peng_20150911162259.png" alt="最后将base64转换成图片"></p>
 <hr>
 <p><strong>DEMO 下载地址 </strong>：<a href="https://github.com/peng8/phantomjsWebserver" target="_blank" rel="noopener">点我下载</a></p>
 
@@ -132,7 +132,7 @@ document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://www.peng8.net/2015/09/11/render-serverside-as-webserver/" data-id="cjmh5ihc80047wa2axbv57kbx" class="article-share-link" data-share="baidu">分享到</a>
+        <a data-url="http://www.peng8.net/2015/09/11/render-serverside-as-webserver/" data-id="cjpaz099n0046ku2addvah730" class="article-share-link" data-share="baidu">分享到</a>
       
 
       
@@ -174,7 +174,7 @@ filter: progid:DXImageTransform.Microsoft.Shadow(color='#C3C3C3', Direction=135,
     <div class="widget">
 		<div style="padding:0px;text-align:center">
 			<h5>扫描下面二维码可加我哦</h5>
-			<img src="http://peng8.qiniudn.com/peng8_weixin_big.jpg" style="width:250px;"/>
+			<img src="http://pj99n6r03.bkt.clouddn.com/peng8_weixin_big.jpg" style="width:250px;"/>
 		</div>
     </div>
  </div>
@@ -184,7 +184,7 @@ filter: progid:DXImageTransform.Microsoft.Shadow(color='#C3C3C3', Direction=135,
     <div class="widget">
 		<div style="padding:0px;text-align:center">
 			<h5>扫描下面二维码可加群</h5>
-			<img src="http://peng8.qiniudn.com/peng_qqgroup.jpg" style="width:250px;"/>
+			<img src="http://pj99n6r03.bkt.clouddn.com/peng_qqgroup.jpg" style="width:250px;"/>
 		</div>
 		<div style="width:100%;">
 			<h5>QQ群:86031665</h5>

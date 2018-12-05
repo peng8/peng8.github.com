@@ -3,43 +3,20 @@
 
 
     
-    
   <url>
-    <loc>http://www.peng8.net/2014/11/24/highchart-table-export-image-by-phantomjs/</loc>
-    <lastmod>2018-09-25T03:18:16.815Z</lastmod>
+    <loc>http://www.peng8.net/2015/12/31/2015-summary/</loc>
+    <lastmod>2018-12-05T09:22:33.282Z</lastmod>
     <data>
         <display>
-        <title>highchart+table 结合phantomjs 一并生成图片</title>
-        <pubTime>2014-11-24T04:57:06.000Z</pubTime>
+        <title>这一年</title>
+        <pubTime>2015-12-31T10:35:46.000Z</pubTime>
         
-        <tag>Highcharts</tag>
-         
-        <tag>phantomjs</tag>
+        <tag>2015总结</tag>
          
          
            
              
-              <breadCrumb title="Highcharts" url="http://www.peng8.net/categories/Highcharts/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://www.peng8.net/2014/12/10/highchart-draggable-legend/</loc>
-    <lastmod>2018-09-25T03:18:16.815Z</lastmod>
-    <data>
-        <display>
-        <title>highchart legend 可拖拽扩展</title>
-        <pubTime>2014-12-10T01:18:12.000Z</pubTime>
-        
-        <tag>Highcharts</tag>
-         
-         
-           
-             
-              <breadCrumb title="Highcharts" url="http://www.peng8.net/categories/Highcharts/"/>
+              <breadCrumb title="随笔日记" url="http://www.peng8.net/categories/%E9%9A%8F%E7%AC%94%E6%97%A5%E8%AE%B0/"/>
           
         </display>
     </data>
@@ -48,7 +25,7 @@
     
   <url>
     <loc>http://www.peng8.net/2015/09/11/render-serverside-as-webserver/</loc>
-    <lastmod>2018-09-25T03:18:16.815Z</lastmod>
+    <lastmod>2018-12-05T09:20:09.768Z</lastmod>
     <data>
         <display>
         <title>如何将phantomjs单独部署在服务端</title>
@@ -71,8 +48,52 @@
 
     
   <url>
+    <loc>http://www.peng8.net/2014/11/24/highchart-table-export-image-by-phantomjs/</loc>
+    <lastmod>2018-12-05T09:20:09.767Z</lastmod>
+    <data>
+        <display>
+        <title>highchart+table 结合phantomjs 一并生成图片</title>
+        <pubTime>2014-11-24T04:57:06.000Z</pubTime>
+        
+        <tag>Highcharts</tag>
+         
+        <tag>phantomjs</tag>
+         
+         
+           
+             
+              <breadCrumb title="Highcharts" url="http://www.peng8.net/categories/Highcharts/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.peng8.net/2015/05/27/unknown-attribute-of-highchart/</loc>
+    <lastmod>2018-12-05T09:20:09.767Z</lastmod>
+    <data>
+        <display>
+        <title>你所不知的highchart常用属性</title>
+        <pubTime>2015-05-27T03:26:33.000Z</pubTime>
+        
+        <tag>Highcharts</tag>
+         
+        <tag>Highcharts不常用属性</tag>
+         
+         
+           
+             
+              <breadCrumb title="Highcharts" url="http://www.peng8.net/categories/Highcharts/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://www.peng8.net/2015/07/23/use-swiftype-create-engine/</loc>
-    <lastmod>2018-09-25T03:18:16.814Z</lastmod>
+    <lastmod>2018-12-05T09:20:09.766Z</lastmod>
     <data>
         <display>
         <title>使用 Swiftype 创建一个随心所欲的搜索引擎</title>
@@ -91,8 +112,114 @@
 
     
   <url>
+    <loc>http://www.peng8.net/2014/04/15/highchart-custom-button-generate-images/</loc>
+    <lastmod>2018-12-05T09:20:09.765Z</lastmod>
+    <data>
+        <display>
+        <title>如何使用highcharts自定义按钮导出图片</title>
+        <pubTime>2014-04-15T06:09:21.000Z</pubTime>
+        
+        <tag>jquery</tag>
+         
+        <tag>Highcharts</tag>
+         
+         
+           
+             
+              <breadCrumb title="Highcharts" url="http://www.peng8.net/categories/Highcharts/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.peng8.net/2014/04/26/javascript-and-css-compression/</loc>
+    <lastmod>2018-12-05T09:20:09.765Z</lastmod>
+    <data>
+        <display>
+        <title>Asp.net 动态压缩脚本或样式 (网页加载性能提升)</title>
+        <pubTime>2014-04-26T07:07:58.000Z</pubTime>
+        
+        <tag>javascript</tag>
+         
+        <tag>asp.net</tag>
+         
+         
+           
+             
+              <breadCrumb title="javascript" url="http://www.peng8.net/categories/javascript/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.peng8.net/2015/04/08/angularjs-post-param-solution/</loc>
+    <lastmod>2018-12-05T09:20:09.764Z</lastmod>
+    <data>
+        <display>
+        <title>如何解决angularjs中post参数获取不到的问题</title>
+        <pubTime>2015-04-08T08:50:56.000Z</pubTime>
+        
+        <tag>angularjs</tag>
+         
+        <tag>angularjs post</tag>
+         
+         
+           
+             
+              <breadCrumb title="angularjs" url="http://www.peng8.net/categories/angularjs/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.peng8.net/2014/07/07/angularjs-show-html-in-ngmodel/</loc>
+    <lastmod>2018-12-05T09:20:09.763Z</lastmod>
+    <data>
+        <display>
+        <title>angularjs 如何实现自定义html的显示</title>
+        <pubTime>2014-07-07T08:21:30.000Z</pubTime>
+        
+        <tag>angularjs</tag>
+         
+         
+           
+             
+              <breadCrumb title="angularjs" url="http://www.peng8.net/categories/angularjs/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.peng8.net/2014/12/10/highchart-draggable-legend/</loc>
+    <lastmod>2018-12-05T09:20:09.763Z</lastmod>
+    <data>
+        <display>
+        <title>highchart legend 可拖拽扩展</title>
+        <pubTime>2014-12-10T01:18:12.000Z</pubTime>
+        
+        <tag>Highcharts</tag>
+         
+         
+           
+             
+              <breadCrumb title="Highcharts" url="http://www.peng8.net/categories/Highcharts/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://www.peng8.net/2014/10/15/use-phantomjs-generate-snapshot/</loc>
-    <lastmod>2018-09-25T03:18:16.811Z</lastmod>
+    <lastmod>2018-12-05T09:20:09.762Z</lastmod>
     <data>
         <display>
         <title>.NET 利用phantomjs javascript引擎抓取网页快照</title>
@@ -113,21 +240,21 @@
 
     
   <url>
-    <loc>http://www.peng8.net/2015/03/09/how-to-use-highmaps/</loc>
-    <lastmod>2018-09-25T03:18:16.810Z</lastmod>
+    <loc>http://www.peng8.net/2014/09/27/how-to-use-timelinejs/</loc>
+    <lastmod>2018-12-05T09:20:09.761Z</lastmod>
     <data>
         <display>
-        <title>如何使用highmaps制作中国地图</title>
-        <pubTime>2015-03-09T08:52:42.000Z</pubTime>
+        <title>TimelineJs 的使用及应用</title>
+        <pubTime>2014-09-27T13:22:13.000Z</pubTime>
         
-        <tag>Highcharts</tag>
+        <tag>jquery</tag>
          
-        <tag>highmaps使用</tag>
+        <tag>timelinejs</tag>
          
          
            
              
-              <breadCrumb title="Highcharts" url="http://www.peng8.net/categories/Highcharts/"/>
+              <breadCrumb title="jquery" url="http://www.peng8.net/categories/jquery/"/>
           
         </display>
     </data>
@@ -136,7 +263,7 @@
     
   <url>
     <loc>http://www.peng8.net/2016/02/23/learn-react-native/</loc>
-    <lastmod>2018-09-25T03:18:16.810Z</lastmod>
+    <lastmod>2018-12-05T09:20:09.761Z</lastmod>
     <data>
         <display>
         <title>React-Native 环境搭建指南[阿鹏出品]</title>
@@ -158,7 +285,7 @@
     
   <url>
     <loc>http://www.peng8.net/2015/05/19/highchart-show-value-in-legend/</loc>
-    <lastmod>2018-09-25T03:18:16.810Z</lastmod>
+    <lastmod>2018-12-05T09:20:09.760Z</lastmod>
     <data>
         <display>
         <title>highchart 在legend中动态显示point点的值</title>
@@ -179,750 +306,12 @@
 
     
   <url>
-    <loc>http://www.peng8.net/2014/12/31/my-2014-summary/</loc>
-    <lastmod>2018-09-25T03:18:16.809Z</lastmod>
+    <loc>http://www.peng8.net/2014/08/15/interceptors-in-angularjs/</loc>
+    <lastmod>2018-12-05T09:20:09.759Z</lastmod>
     <data>
         <display>
-        <title>一个小攻城师2014年的总结</title>
-        <pubTime>2014-12-31T09:04:15.000Z</pubTime>
-        
-        <tag>2014总结</tag>
-         
-         
-           
-             
-              <breadCrumb title="随笔日记" url="http://www.peng8.net/categories/%E9%9A%8F%E7%AC%94%E6%97%A5%E8%AE%B0/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://www.peng8.net/2014/09/27/how-to-use-timelinejs/</loc>
-    <lastmod>2018-09-25T03:18:16.809Z</lastmod>
-    <data>
-        <display>
-        <title>TimelineJs 的使用及应用</title>
-        <pubTime>2014-09-27T13:22:13.000Z</pubTime>
-        
-        <tag>jquery</tag>
-         
-        <tag>timelinejs</tag>
-         
-         
-           
-             
-              <breadCrumb title="jquery" url="http://www.peng8.net/categories/jquery/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://www.peng8.net/2014/09/12/mypagination-example-instruction/</loc>
-    <lastmod>2018-09-25T03:18:16.809Z</lastmod>
-    <data>
-        <display>
-        <title>myPagination 使用说明及介绍</title>
-        <pubTime>2014-09-12T02:50:00.000Z</pubTime>
-        
-        <tag>jquery</tag>
-         
-        <tag>myPagination</tag>
-         
-         
-           
-             
-              <breadCrumb title="jquery" url="http://www.peng8.net/categories/jquery/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://www.peng8.net/2015/02/06/how-to-use-highstock-with-kline/</loc>
-    <lastmod>2018-09-25T03:18:16.808Z</lastmod>
-    <data>
-        <display>
-        <title>highstock高级篇之股票K线图</title>
-        <pubTime>2015-02-06T08:33:03.000Z</pubTime>
-        
-        <tag>Highstock K线图</tag>
-         
-         
-           
-             
-              <breadCrumb title="Highcharts" url="http://www.peng8.net/categories/Highcharts/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://www.peng8.net/2015/10/09/create-bowerrc-file/</loc>
-    <lastmod>2018-09-25T03:18:16.808Z</lastmod>
-    <data>
-        <display>
-        <title>创建 .bowerrc 文件 , 使用代理下载资源</title>
-        <pubTime>2015-10-09T10:44:47.000Z</pubTime>
-        
-        <tag>bowerrc创建</tag>
-         
-         
-           
-             
-              <breadCrumb title="javascript" url="http://www.peng8.net/categories/javascript/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://www.peng8.net/2016/01/19/tagedit-demo-by-peng8/</loc>
-    <lastmod>2018-09-25T03:18:16.808Z</lastmod>
-    <data>
-        <display>
-        <title>简易模糊查询tagedit的实现</title>
-        <pubTime>2016-01-19T11:57:46.000Z</pubTime>
-        
-        <tag>智能查询</tag>
-         
-        <tag>tagedit</tag>
-         
-         
-           
-             
-              <breadCrumb title="javascript" url="http://www.peng8.net/categories/javascript/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://www.peng8.net/2014/12/09/highchart-rounded-corners/</loc>
-    <lastmod>2018-09-25T03:18:16.808Z</lastmod>
-    <data>
-        <display>
-        <title>Highcharts部分图表圆角显示</title>
-        <pubTime>2014-12-09T05:22:32.000Z</pubTime>
-        
-        <tag>Highcharts</tag>
-         
-         
-           
-             
-              <breadCrumb title="Highcharts" url="http://www.peng8.net/categories/Highcharts/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://www.peng8.net/2015/05/26/highchart-gauge/</loc>
-    <lastmod>2018-09-25T03:18:16.807Z</lastmod>
-    <data>
-        <display>
-        <title>highchart 半圆仪表盘</title>
-        <pubTime>2015-05-26T07:35:21.000Z</pubTime>
-        
-        <tag>Highcharts仪表盘</tag>
-         
-         
-           
-             
-              <breadCrumb title="Highcharts" url="http://www.peng8.net/categories/Highcharts/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://www.peng8.net/2015/11/17/highstock-advanced-usage/</loc>
-    <lastmod>2018-09-25T03:18:16.807Z</lastmod>
-    <data>
-        <display>
-        <title>highstock 新属性及进阶用法</title>
-        <pubTime>2015-11-17T07:30:24.000Z</pubTime>
-        
-        <tag>Highstock 分时图</tag>
-         
-        <tag>分时图</tag>
-         
-         
-           
-             
-              <breadCrumb title="Highcharts" url="http://www.peng8.net/categories/Highcharts/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://www.peng8.net/2015/03/13/draw-custom-element-on-chart/</loc>
-    <lastmod>2018-09-25T03:18:16.807Z</lastmod>
-    <data>
-        <display>
-        <title>如何在highchart中绘制自定义元素</title>
-        <pubTime>2015-03-13T02:35:12.000Z</pubTime>
-        
-        <tag>Highcharts绘制自定义元素</tag>
-         
-         
-           
-             
-              <breadCrumb title="Highcharts" url="http://www.peng8.net/categories/Highcharts/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://www.peng8.net/2015/04/09/aspose-introduction/</loc>
-    <lastmod>2018-09-25T03:18:16.807Z</lastmod>
-    <data>
-        <display>
-        <title>分享 aspose 的一些基本用法</title>
-        <pubTime>2015-04-09T02:46:46.000Z</pubTime>
-        
-        <tag>aspose</tag>
-         
-         
-           
-             
-              <breadCrumb title="asp.net" url="http://www.peng8.net/categories/asp-net/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://www.peng8.net/2016/07/06/write-checkbox-component-in-React/</loc>
-    <lastmod>2018-09-25T03:18:16.807Z</lastmod>
-    <data>
-        <display>
-        <title>React-Native 中自定义checkbox组件</title>
-        <pubTime>2016-07-06T07:19:20.000Z</pubTime>
-        
-        <tag>react</tag>
-         
-        <tag>react-native</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://www.peng8.net/2014/12/04/highchart-click-show-window-dialog/</loc>
-    <lastmod>2018-09-25T03:18:16.807Z</lastmod>
-    <data>
-        <display>
-        <title>highchart 点击图表弹出层展示新图表</title>
-        <pubTime>2014-12-04T08:48:39.000Z</pubTime>
-        
-        <tag>Highcharts</tag>
-         
-         
-           
-             
-              <breadCrumb title="Highcharts" url="http://www.peng8.net/categories/Highcharts/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://www.peng8.net/2015/06/23/my-turning-point/</loc>
-    <lastmod>2018-09-25T03:18:16.807Z</lastmod>
-    <data>
-        <display>
-        <title>转折点</title>
-        <pubTime>2015-06-23T07:39:52.000Z</pubTime>
-        
-        <tag>随笔</tag>
-         
-         
-           
-             
-              <breadCrumb title="随笔日记" url="http://www.peng8.net/categories/%E9%9A%8F%E7%AC%94%E6%97%A5%E8%AE%B0/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://www.peng8.net/2015/10/13/how-to-create-heatmap-two/</loc>
-    <lastmod>2018-09-25T03:18:16.807Z</lastmod>
-    <data>
-        <display>
-        <title>热点图的深入分析(2)</title>
-        <pubTime>2015-10-13T08:43:36.000Z</pubTime>
-        
-        <tag>热点图</tag>
-         
-        <tag>热力图</tag>
-         
-        <tag>heatmap</tag>
-         
-         
-           
-             
-              <breadCrumb title="javascript" url="http://www.peng8.net/categories/javascript/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://www.peng8.net/2014/10/30/highchart-export-excel/</loc>
-    <lastmod>2018-09-25T03:18:16.806Z</lastmod>
-    <data>
-        <display>
-        <title>highchart 导出excel By Asp.net</title>
-        <pubTime>2014-10-30T02:37:00.000Z</pubTime>
-        
-        <tag>asp.net</tag>
-         
-        <tag>Highcharts</tag>
-         
-         
-           
-             
-              <breadCrumb title="Highcharts" url="http://www.peng8.net/categories/Highcharts/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://www.peng8.net/2014/12/12/highchart-custom-events/</loc>
-    <lastmod>2018-09-25T03:18:16.806Z</lastmod>
-    <data>
-        <display>
-        <title>highchart 自定义事件插件</title>
-        <pubTime>2014-12-12T03:00:18.000Z</pubTime>
-        
-        <tag>Highcharts</tag>
-         
-         
-           
-             
-              <breadCrumb title="Highcharts" url="http://www.peng8.net/categories/Highcharts/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://www.peng8.net/2014/10/14/use-cut-image-in-kindeditor/</loc>
-    <lastmod>2018-09-25T03:18:16.806Z</lastmod>
-    <data>
-        <display>
-        <title>教你如何在kindeditor中扩展图片裁剪的功能</title>
-        <pubTime>2014-10-14T07:26:00.000Z</pubTime>
-        
-        <tag>jquery</tag>
-         
-        <tag>asp.net</tag>
-         
-         
-           
-             
-              <breadCrumb title="jquery" url="http://www.peng8.net/categories/jquery/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://www.peng8.net/2015/03/31/use-custom-property-with-highchart/</loc>
-    <lastmod>2018-09-25T03:18:16.806Z</lastmod>
-    <data>
-        <display>
-        <title>highchart 图表之自定义属性的应用</title>
-        <pubTime>2015-03-31T06:06:41.000Z</pubTime>
-        
-        <tag>Highcharts自定义属性</tag>
-         
-         
-           
-             
-              <breadCrumb title="Highcharts" url="http://www.peng8.net/categories/Highcharts/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://www.peng8.net/2014/07/21/render-charts-serverside/</loc>
-    <lastmod>2018-09-25T03:18:16.806Z</lastmod>
-    <data>
-        <display>
-        <title>highcharts 结合phantomjs纯后台生成图片</title>
-        <pubTime>2014-07-21T05:33:02.000Z</pubTime>
-        
-        <tag>Highcharts</tag>
-         
-        <tag>phantomjs</tag>
-         
-         
-           
-             
-              <breadCrumb title="Highcharts" url="http://www.peng8.net/categories/Highcharts/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://www.peng8.net/2014/10/16/highchart-common-options/</loc>
-    <lastmod>2018-09-25T03:18:16.806Z</lastmod>
-    <data>
-        <display>
-        <title>highchart通用配置文件及使用说明</title>
-        <pubTime>2014-10-16T03:24:24.000Z</pubTime>
-        
-        <tag>Highcharts</tag>
-         
-         
-           
-             
-              <breadCrumb title="Highcharts" url="http://www.peng8.net/categories/Highcharts/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://www.peng8.net/2014/04/09/difference-photo/</loc>
-    <lastmod>2018-09-25T03:18:16.805Z</lastmod>
-    <data>
-        <display>
-        <title>随手用手机拍的一张图片</title>
-        <pubTime>2014-04-09T07:32:46.000Z</pubTime>
-        
-        <tag>美图</tag>
-         
-         
-           
-             
-              <breadCrumb title="随笔日记" url="http://www.peng8.net/categories/%E9%9A%8F%E7%AC%94%E6%97%A5%E8%AE%B0/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://www.peng8.net/2015/07/20/gojs-notes-one/</loc>
-    <lastmod>2018-09-25T03:18:16.805Z</lastmod>
-    <data>
-        <display>
-        <title>gojs 学习笔记（1）</title>
-        <pubTime>2015-07-20T06:27:54.000Z</pubTime>
-        
-        <tag>gojs入门笔记</tag>
-         
-         
-           
-             
-              <breadCrumb title="javascript" url="http://www.peng8.net/categories/javascript/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://www.peng8.net/2015/12/30/highmaps-of-china-extend/</loc>
-    <lastmod>2018-09-25T03:18:16.805Z</lastmod>
-    <data>
-        <display>
-        <title>阿鹏 细说highmaps</title>
-        <pubTime>2015-12-30T06:40:12.000Z</pubTime>
-        
-        <tag>Highmaps</tag>
-         
-        <tag>地图</tag>
-         
-         
-           
-             
-              <breadCrumb title="Highcharts" url="http://www.peng8.net/categories/Highcharts/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://www.peng8.net/2015/01/31/how-to-use-highstock/</loc>
-    <lastmod>2018-09-25T03:18:16.805Z</lastmod>
-    <data>
-        <display>
-        <title>highstock高级篇之股票分时图</title>
-        <pubTime>2015-01-31T09:43:22.000Z</pubTime>
-        
-        <tag>Highstock 分时图</tag>
-         
-         
-           
-             
-              <breadCrumb title="Highcharts" url="http://www.peng8.net/categories/Highcharts/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://www.peng8.net/2014/05/11/how-to-install-dnn-website/</loc>
-    <lastmod>2018-09-25T03:18:16.803Z</lastmod>
-    <data>
-        <display>
-        <title>DNN (DotNetNuke) 7.2版本的安装与介绍</title>
-        <pubTime>2014-05-11T05:10:40.000Z</pubTime>
-        
-        <tag>asp.net</tag>
-         
-        <tag>dnn</tag>
-         
-         
-           
-             
-              <breadCrumb title="dnn" url="http://www.peng8.net/categories/dnn/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://www.peng8.net/2015/10/12/how-to-create-heatmap-one/</loc>
-    <lastmod>2018-09-25T03:18:16.802Z</lastmod>
-    <data>
-        <display>
-        <title>热点图的深入分析(1)</title>
-        <pubTime>2015-10-12T04:03:24.000Z</pubTime>
-        
-        <tag>热点图</tag>
-         
-        <tag>热力图</tag>
-         
-        <tag>heatmap</tag>
-         
-         
-           
-             
-              <breadCrumb title="javascript" url="http://www.peng8.net/categories/javascript/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://www.peng8.net/2015/09/06/the-hope/</loc>
-    <lastmod>2018-09-25T03:18:16.802Z</lastmod>
-    <data>
-        <display>
-        <title>你想要的生活都会还给你</title>
-        <pubTime>2015-09-06T03:22:37.000Z</pubTime>
-        
-        <tag>希望</tag>
-         
-         
-           
-             
-              <breadCrumb title="随笔日记" url="http://www.peng8.net/categories/%E9%9A%8F%E7%AC%94%E6%97%A5%E8%AE%B0/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://www.peng8.net/2014/05/20/image-lazyload-by-scroll/</loc>
-    <lastmod>2018-09-25T03:18:16.801Z</lastmod>
-    <data>
-        <display>
-        <title>jQuery 滑动滚动条延迟加载图片(附带相册展示插件)</title>
-        <pubTime>2014-05-20T05:31:21.000Z</pubTime>
-        
-        <tag>jquery</tag>
-         
-        <tag>延迟加载</tag>
-         
-         
-           
-             
-              <breadCrumb title="jquery" url="http://www.peng8.net/categories/jquery/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-    
-  <url>
-    <loc>http://www.peng8.net/2015/03/02/highchart-copy-title-to-clipboard/</loc>
-    <lastmod>2018-09-25T03:18:16.800Z</lastmod>
-    <data>
-        <display>
-        <title>highchart如何实现点击标题复制到剪切板</title>
-        <pubTime>2015-03-02T08:27:02.000Z</pubTime>
-        
-        <tag>Highcharts复制标题</tag>
-         
-         
-           
-             
-              <breadCrumb title="Highcharts" url="http://www.peng8.net/categories/Highcharts/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://www.peng8.net/2015/12/31/2015-summary/</loc>
-    <lastmod>2018-09-25T03:18:16.799Z</lastmod>
-    <data>
-        <display>
-        <title>这一年</title>
-        <pubTime>2015-12-31T10:35:46.000Z</pubTime>
-        
-        <tag>2015总结</tag>
-         
-         
-           
-             
-              <breadCrumb title="随笔日记" url="http://www.peng8.net/categories/%E9%9A%8F%E7%AC%94%E6%97%A5%E8%AE%B0/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-    
-    
-  <url>
-    <loc>http://www.peng8.net/2015/05/27/unknown-attribute-of-highchart/</loc>
-    <lastmod>2015-10-22T09:23:26.000Z</lastmod>
-    <data>
-        <display>
-        <title>你所不知的highchart常用属性</title>
-        <pubTime>2015-05-27T03:26:33.000Z</pubTime>
-        
-        <tag>Highcharts</tag>
-         
-        <tag>Highcharts不常用属性</tag>
-         
-         
-           
-             
-              <breadCrumb title="Highcharts" url="http://www.peng8.net/categories/Highcharts/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://www.peng8.net/2014/04/20/checkclient-pc-or-mobile/</loc>
-    <lastmod>2015-10-12T10:04:00.000Z</lastmod>
-    <data>
-        <display>
-        <title>Asp.Net和Javscript 判断客户端是否为移动端</title>
-        <pubTime>2014-04-20T07:55:20.000Z</pubTime>
-        
-        <tag>asp.net</tag>
-         
-        <tag>javascript</tag>
-         
-         
-           
-             
-              <breadCrumb title="javascript" url="http://www.peng8.net/categories/javascript/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://www.peng8.net/2014/04/26/javascript-and-css-compression/</loc>
-    <lastmod>2015-10-12T10:03:46.000Z</lastmod>
-    <data>
-        <display>
-        <title>Asp.net 动态压缩脚本或样式 (网页加载性能提升)</title>
-        <pubTime>2014-04-26T07:07:58.000Z</pubTime>
-        
-        <tag>asp.net</tag>
-         
-        <tag>javascript</tag>
-         
-         
-           
-             
-              <breadCrumb title="javascript" url="http://www.peng8.net/categories/javascript/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://www.peng8.net/2014/07/01/html-doctype-instruction/</loc>
-    <lastmod>2015-10-12T10:02:48.000Z</lastmod>
-    <data>
-        <display>
-        <title>html里关于doctype 文档类型的介绍</title>
-        <pubTime>2014-07-01T03:44:27.000Z</pubTime>
-        
-        <tag>javascript</tag>
-         
-        <tag>doctype</tag>
-         
-         
-           
-             
-              <breadCrumb title="javascript" url="http://www.peng8.net/categories/javascript/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://www.peng8.net/2014/07/07/angularjs-show-html-in-ngmodel/</loc>
-    <lastmod>2015-10-12T10:02:28.000Z</lastmod>
-    <data>
-        <display>
-        <title>angularjs 如何实现自定义html的显示</title>
-        <pubTime>2014-07-07T08:21:30.000Z</pubTime>
+        <title>angularjs 拦截器与全局错误处理</title>
+        <pubTime>2014-08-15T09:16:52.000Z</pubTime>
         
         <tag>angularjs</tag>
          
@@ -937,68 +326,8 @@
 
     
   <url>
-    <loc>http://www.peng8.net/2014/08/21/judge-object-is-null-or-empty/</loc>
-    <lastmod>2015-10-12T10:01:46.000Z</lastmod>
-    <data>
-        <display>
-        <title>JavaScript 判断对象是否存在的几种写法</title>
-        <pubTime>2014-08-21T02:25:59.000Z</pubTime>
-        
-        <tag>javascript</tag>
-         
-         
-           
-             
-              <breadCrumb title="javascript" url="http://www.peng8.net/categories/javascript/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://www.peng8.net/2014/10/20/highchart-generate-multiple-images-on-one-picture/</loc>
-    <lastmod>2015-10-12T10:00:00.000Z</lastmod>
-    <data>
-        <display>
-        <title>Highcharts 扩展之多张图表合并生成一张图</title>
-        <pubTime>2014-10-20T08:28:44.000Z</pubTime>
-        
-        <tag>Highcharts</tag>
-         
-         
-           
-             
-              <breadCrumb title="Highcharts" url="http://www.peng8.net/categories/Highcharts/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://www.peng8.net/2014/11/05/how-to-amplify-highchart/</loc>
-    <lastmod>2015-10-12T09:59:38.000Z</lastmod>
-    <data>
-        <display>
-        <title>highchart 之放大显示的几种方式</title>
-        <pubTime>2014-11-05T05:19:05.000Z</pubTime>
-        
-        <tag>Highcharts</tag>
-         
-         
-           
-             
-              <breadCrumb title="Highcharts" url="http://www.peng8.net/categories/Highcharts/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://www.peng8.net/2014/11/13/change-background/</loc>
-    <lastmod>2015-10-12T09:59:12.000Z</lastmod>
+    <lastmod>2018-12-05T09:20:09.759Z</lastmod>
     <data>
         <display>
         <title>动态更换网页背景</title>
@@ -1017,8 +346,70 @@
 
     
   <url>
+    <loc>http://www.peng8.net/2015/03/09/how-to-use-highmaps/</loc>
+    <lastmod>2018-12-05T09:20:09.758Z</lastmod>
+    <data>
+        <display>
+        <title>如何使用highmaps制作中国地图</title>
+        <pubTime>2015-03-09T08:52:42.000Z</pubTime>
+        
+        <tag>Highcharts</tag>
+         
+        <tag>highmaps使用</tag>
+         
+         
+           
+             
+              <breadCrumb title="Highcharts" url="http://www.peng8.net/categories/Highcharts/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.peng8.net/2014/05/21/css-priority-mechanism/</loc>
+    <lastmod>2018-12-05T09:20:09.757Z</lastmod>
+    <data>
+        <display>
+        <title>css 样式优先级的重新认识</title>
+        <pubTime>2014-05-21T02:43:56.000Z</pubTime>
+        
+        <tag>css</tag>
+         
+         
+           
+             
+              <breadCrumb title="css" url="http://www.peng8.net/categories/css/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.peng8.net/2014/12/31/my-2014-summary/</loc>
+    <lastmod>2018-12-05T09:20:09.757Z</lastmod>
+    <data>
+        <display>
+        <title>一个小攻城师2014年的总结</title>
+        <pubTime>2014-12-31T09:04:15.000Z</pubTime>
+        
+        <tag>2014总结</tag>
+         
+         
+           
+             
+              <breadCrumb title="随笔日记" url="http://www.peng8.net/categories/%E9%9A%8F%E7%AC%94%E6%97%A5%E8%AE%B0/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://www.peng8.net/2015/01/05/easyui-datagrid-checkbox-status/</loc>
-    <lastmod>2015-10-12T09:54:46.000Z</lastmod>
+    <lastmod>2018-12-05T09:20:09.756Z</lastmod>
     <data>
         <display>
         <title>EasyUI datagrid实现翻页客户端保存checkbox状态</title>
@@ -1042,21 +433,21 @@
 
     
   <url>
-    <loc>http://www.peng8.net/2015/04/08/angularjs-post-param-solution/</loc>
-    <lastmod>2015-10-12T09:52:40.000Z</lastmod>
+    <loc>http://www.peng8.net/2016/01/19/tagedit-demo-by-peng8/</loc>
+    <lastmod>2018-12-05T09:20:09.755Z</lastmod>
     <data>
         <display>
-        <title>如何解决angularjs中post参数获取不到的问题</title>
-        <pubTime>2015-04-08T08:50:56.000Z</pubTime>
+        <title>简易模糊查询tagedit的实现</title>
+        <pubTime>2016-01-19T11:57:46.000Z</pubTime>
         
-        <tag>angularjs</tag>
+        <tag>智能查询</tag>
          
-        <tag>angularjs post</tag>
+        <tag>tagedit</tag>
          
          
            
              
-              <breadCrumb title="angularjs" url="http://www.peng8.net/categories/angularjs/"/>
+              <breadCrumb title="javascript" url="http://www.peng8.net/categories/javascript/"/>
           
         </display>
     </data>
@@ -1064,30 +455,445 @@
 
     
   <url>
-    <loc>http://www.peng8.net/2015/05/11/angularjs-custom-render-mark/</loc>
-    <lastmod>2015-10-12T09:52:06.000Z</lastmod>
+    <loc>http://www.peng8.net/2015/10/09/create-bowerrc-file/</loc>
+    <lastmod>2018-12-05T09:20:09.755Z</lastmod>
     <data>
         <display>
-        <title>angularjs中自定义绑定标签</title>
-        <pubTime>2015-05-11T06:27:54.000Z</pubTime>
+        <title>创建 .bowerrc 文件 , 使用代理下载资源</title>
+        <pubTime>2015-10-09T10:44:47.000Z</pubTime>
         
-        <tag>angularjs自定义标签</tag>
+        <tag>bowerrc创建</tag>
          
          
            
              
-              <breadCrumb title="angularjs" url="http://www.peng8.net/categories/angularjs/"/>
+              <breadCrumb title="javascript" url="http://www.peng8.net/categories/javascript/"/>
           
         </display>
     </data>
     </url>
 
     
+  <url>
+    <loc>http://www.peng8.net/2014/09/12/mypagination-example-instruction/</loc>
+    <lastmod>2018-12-05T09:20:09.754Z</lastmod>
+    <data>
+        <display>
+        <title>myPagination 使用说明及介绍</title>
+        <pubTime>2014-09-12T02:50:00.000Z</pubTime>
+        
+        <tag>jquery</tag>
+         
+        <tag>myPagination</tag>
+         
+         
+           
+             
+              <breadCrumb title="jquery" url="http://www.peng8.net/categories/jquery/"/>
+          
+        </display>
+    </data>
+    </url>
+
     
+  <url>
+    <loc>http://www.peng8.net/2014/12/09/highchart-rounded-corners/</loc>
+    <lastmod>2018-12-05T09:20:09.753Z</lastmod>
+    <data>
+        <display>
+        <title>Highcharts部分图表圆角显示</title>
+        <pubTime>2014-12-09T05:22:32.000Z</pubTime>
+        
+        <tag>Highcharts</tag>
+         
+         
+           
+             
+              <breadCrumb title="Highcharts" url="http://www.peng8.net/categories/Highcharts/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.peng8.net/2014/12/04/highchart-click-show-window-dialog/</loc>
+    <lastmod>2018-12-05T09:20:09.752Z</lastmod>
+    <data>
+        <display>
+        <title>highchart 点击图表弹出层展示新图表</title>
+        <pubTime>2014-12-04T08:48:39.000Z</pubTime>
+        
+        <tag>Highcharts</tag>
+         
+         
+           
+             
+              <breadCrumb title="Highcharts" url="http://www.peng8.net/categories/Highcharts/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.peng8.net/2015/02/06/how-to-use-highstock-with-kline/</loc>
+    <lastmod>2018-12-05T09:20:09.751Z</lastmod>
+    <data>
+        <display>
+        <title>highstock高级篇之股票K线图</title>
+        <pubTime>2015-02-06T08:33:03.000Z</pubTime>
+        
+        <tag>Highstock K线图</tag>
+         
+         
+           
+             
+              <breadCrumb title="Highcharts" url="http://www.peng8.net/categories/Highcharts/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.peng8.net/2015/05/26/highchart-gauge/</loc>
+    <lastmod>2018-12-05T09:20:09.750Z</lastmod>
+    <data>
+        <display>
+        <title>highchart 半圆仪表盘</title>
+        <pubTime>2015-05-26T07:35:21.000Z</pubTime>
+        
+        <tag>Highcharts仪表盘</tag>
+         
+         
+           
+             
+              <breadCrumb title="Highcharts" url="http://www.peng8.net/categories/Highcharts/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.peng8.net/2015/10/13/how-to-create-heatmap-two/</loc>
+    <lastmod>2018-12-05T09:20:09.750Z</lastmod>
+    <data>
+        <display>
+        <title>热点图的深入分析(2)</title>
+        <pubTime>2015-10-13T08:43:36.000Z</pubTime>
+        
+        <tag>热点图</tag>
+         
+        <tag>热力图</tag>
+         
+        <tag>heatmap</tag>
+         
+         
+           
+             
+              <breadCrumb title="javascript" url="http://www.peng8.net/categories/javascript/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.peng8.net/2015/11/17/highstock-advanced-usage/</loc>
+    <lastmod>2018-12-05T09:20:09.749Z</lastmod>
+    <data>
+        <display>
+        <title>highstock 新属性及进阶用法</title>
+        <pubTime>2015-11-17T07:30:24.000Z</pubTime>
+        
+        <tag>Highstock 分时图</tag>
+         
+        <tag>分时图</tag>
+         
+         
+           
+             
+              <breadCrumb title="Highcharts" url="http://www.peng8.net/categories/Highcharts/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.peng8.net/2015/03/13/draw-custom-element-on-chart/</loc>
+    <lastmod>2018-12-05T09:20:09.748Z</lastmod>
+    <data>
+        <display>
+        <title>如何在highchart中绘制自定义元素</title>
+        <pubTime>2015-03-13T02:35:12.000Z</pubTime>
+        
+        <tag>Highcharts绘制自定义元素</tag>
+         
+         
+           
+             
+              <breadCrumb title="Highcharts" url="http://www.peng8.net/categories/Highcharts/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.peng8.net/2015/06/23/my-turning-point/</loc>
+    <lastmod>2018-12-05T09:20:09.748Z</lastmod>
+    <data>
+        <display>
+        <title>转折点</title>
+        <pubTime>2015-06-23T07:39:52.000Z</pubTime>
+        
+        <tag>随笔</tag>
+         
+         
+           
+             
+              <breadCrumb title="随笔日记" url="http://www.peng8.net/categories/%E9%9A%8F%E7%AC%94%E6%97%A5%E8%AE%B0/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.peng8.net/2014/11/05/how-to-amplify-highchart/</loc>
+    <lastmod>2018-12-05T09:20:09.747Z</lastmod>
+    <data>
+        <display>
+        <title>highchart 之放大显示的几种方式</title>
+        <pubTime>2014-11-05T05:19:05.000Z</pubTime>
+        
+        <tag>Highcharts</tag>
+         
+         
+           
+             
+              <breadCrumb title="Highcharts" url="http://www.peng8.net/categories/Highcharts/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.peng8.net/2016/07/06/write-checkbox-component-in-React/</loc>
+    <lastmod>2018-12-05T09:20:09.746Z</lastmod>
+    <data>
+        <display>
+        <title>React-Native 中自定义checkbox组件</title>
+        <pubTime>2016-07-06T07:19:20.000Z</pubTime>
+        
+        <tag>react</tag>
+         
+        <tag>react-native</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.peng8.net/2014/10/14/use-cut-image-in-kindeditor/</loc>
+    <lastmod>2018-12-05T09:20:09.746Z</lastmod>
+    <data>
+        <display>
+        <title>教你如何在kindeditor中扩展图片裁剪的功能</title>
+        <pubTime>2014-10-14T07:26:00.000Z</pubTime>
+        
+        <tag>jquery</tag>
+         
+        <tag>asp.net</tag>
+         
+         
+           
+             
+              <breadCrumb title="jquery" url="http://www.peng8.net/categories/jquery/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.peng8.net/2014/07/01/html-doctype-instruction/</loc>
+    <lastmod>2018-12-05T09:20:09.745Z</lastmod>
+    <data>
+        <display>
+        <title>html里关于doctype 文档类型的介绍</title>
+        <pubTime>2014-07-01T03:44:27.000Z</pubTime>
+        
+        <tag>javascript</tag>
+         
+        <tag>doctype</tag>
+         
+         
+           
+             
+              <breadCrumb title="javascript" url="http://www.peng8.net/categories/javascript/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.peng8.net/2014/04/20/checkclient-pc-or-mobile/</loc>
+    <lastmod>2018-12-05T09:20:09.745Z</lastmod>
+    <data>
+        <display>
+        <title>Asp.Net和Javscript 判断客户端是否为移动端</title>
+        <pubTime>2014-04-20T07:55:20.000Z</pubTime>
+        
+        <tag>javascript</tag>
+         
+        <tag>asp.net</tag>
+         
+         
+           
+             
+              <breadCrumb title="javascript" url="http://www.peng8.net/categories/javascript/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.peng8.net/2014/10/16/highchart-common-options/</loc>
+    <lastmod>2018-12-05T09:20:09.744Z</lastmod>
+    <data>
+        <display>
+        <title>highchart通用配置文件及使用说明</title>
+        <pubTime>2014-10-16T03:24:24.000Z</pubTime>
+        
+        <tag>Highcharts</tag>
+         
+         
+           
+             
+              <breadCrumb title="Highcharts" url="http://www.peng8.net/categories/Highcharts/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.peng8.net/2015/04/09/aspose-introduction/</loc>
+    <lastmod>2018-12-05T09:20:09.743Z</lastmod>
+    <data>
+        <display>
+        <title>分享 aspose 的一些基本用法</title>
+        <pubTime>2015-04-09T02:46:46.000Z</pubTime>
+        
+        <tag>aspose</tag>
+         
+         
+           
+             
+              <breadCrumb title="asp.net" url="http://www.peng8.net/categories/asp-net/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.peng8.net/2014/12/12/highchart-custom-events/</loc>
+    <lastmod>2018-12-05T09:20:09.742Z</lastmod>
+    <data>
+        <display>
+        <title>highchart 自定义事件插件</title>
+        <pubTime>2014-12-12T03:00:18.000Z</pubTime>
+        
+        <tag>Highcharts</tag>
+         
+         
+           
+             
+              <breadCrumb title="Highcharts" url="http://www.peng8.net/categories/Highcharts/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.peng8.net/2014/07/21/render-charts-serverside/</loc>
+    <lastmod>2018-12-05T09:20:09.741Z</lastmod>
+    <data>
+        <display>
+        <title>highcharts 结合phantomjs纯后台生成图片</title>
+        <pubTime>2014-07-21T05:33:02.000Z</pubTime>
+        
+        <tag>Highcharts</tag>
+         
+        <tag>phantomjs</tag>
+         
+         
+           
+             
+              <breadCrumb title="Highcharts" url="http://www.peng8.net/categories/Highcharts/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.peng8.net/2015/01/31/how-to-use-highstock/</loc>
+    <lastmod>2018-12-05T09:20:09.741Z</lastmod>
+    <data>
+        <display>
+        <title>highstock高级篇之股票分时图</title>
+        <pubTime>2015-01-31T09:43:22.000Z</pubTime>
+        
+        <tag>Highstock 分时图</tag>
+         
+         
+           
+             
+              <breadCrumb title="Highcharts" url="http://www.peng8.net/categories/Highcharts/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.peng8.net/2014/10/30/highchart-export-excel/</loc>
+    <lastmod>2018-12-05T09:20:09.740Z</lastmod>
+    <data>
+        <display>
+        <title>highchart 导出excel By Asp.net</title>
+        <pubTime>2014-10-30T02:37:00.000Z</pubTime>
+        
+        <tag>asp.net</tag>
+         
+        <tag>Highcharts</tag>
+         
+         
+           
+             
+              <breadCrumb title="Highcharts" url="http://www.peng8.net/categories/Highcharts/"/>
+          
+        </display>
+    </data>
+    </url>
+
     
   <url>
     <loc>http://www.peng8.net/2014/11/20/common-module-definition/</loc>
-    <lastmod>2015-01-06T07:04:02.000Z</lastmod>
+    <lastmod>2018-12-05T09:20:09.739Z</lastmod>
     <data>
         <display>
         <title>前端模块化开发的价值</title>
@@ -1106,16 +912,34 @@
 
     
   <url>
-    <loc>http://www.peng8.net/2014/04/15/highchart-custom-button-generate-images/</loc>
-    <lastmod>2015-01-06T07:03:46.000Z</lastmod>
+    <loc>http://www.peng8.net/2014/04/09/difference-photo/</loc>
+    <lastmod>2018-12-05T09:20:09.739Z</lastmod>
     <data>
         <display>
-        <title>如何使用highcharts自定义按钮导出图片</title>
-        <pubTime>2014-04-15T06:09:21.000Z</pubTime>
+        <title>随手用手机拍的一张图片</title>
+        <pubTime>2014-04-09T07:32:46.000Z</pubTime>
         
-        <tag>jquery</tag>
+        <tag>美图</tag>
          
-        <tag>Highcharts</tag>
+         
+           
+             
+              <breadCrumb title="随笔日记" url="http://www.peng8.net/categories/%E9%9A%8F%E7%AC%94%E6%97%A5%E8%AE%B0/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.peng8.net/2015/03/31/use-custom-property-with-highchart/</loc>
+    <lastmod>2018-12-05T09:20:09.738Z</lastmod>
+    <data>
+        <display>
+        <title>highchart 图表之自定义属性的应用</title>
+        <pubTime>2015-03-31T06:06:41.000Z</pubTime>
+        
+        <tag>Highcharts自定义属性</tag>
          
          
            
@@ -1128,14 +952,56 @@
 
     
   <url>
-    <loc>http://www.peng8.net/2014/08/15/interceptors-in-angularjs/</loc>
-    <lastmod>2015-01-06T07:03:38.000Z</lastmod>
+    <loc>http://www.peng8.net/2014/05/11/how-to-install-dnn-website/</loc>
+    <lastmod>2018-12-05T09:20:09.736Z</lastmod>
     <data>
         <display>
-        <title>angularjs 拦截器与全局错误处理</title>
-        <pubTime>2014-08-15T09:16:52.000Z</pubTime>
+        <title>DNN (DotNetNuke) 7.2版本的安装与介绍</title>
+        <pubTime>2014-05-11T05:10:40.000Z</pubTime>
         
-        <tag>angularjs</tag>
+        <tag>asp.net</tag>
+         
+        <tag>dnn</tag>
+         
+         
+           
+             
+              <breadCrumb title="dnn" url="http://www.peng8.net/categories/dnn/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.peng8.net/2015/07/20/gojs-notes-one/</loc>
+    <lastmod>2018-12-05T09:20:09.735Z</lastmod>
+    <data>
+        <display>
+        <title>gojs 学习笔记（1）</title>
+        <pubTime>2015-07-20T06:27:54.000Z</pubTime>
+        
+        <tag>gojs入门笔记</tag>
+         
+         
+           
+             
+              <breadCrumb title="javascript" url="http://www.peng8.net/categories/javascript/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.peng8.net/2015/05/11/angularjs-custom-render-mark/</loc>
+    <lastmod>2018-12-05T09:20:09.734Z</lastmod>
+    <data>
+        <display>
+        <title>angularjs中自定义绑定标签</title>
+        <pubTime>2015-05-11T06:27:54.000Z</pubTime>
+        
+        <tag>angularjs自定义标签</tag>
          
          
            
@@ -1148,19 +1014,61 @@
 
     
   <url>
-    <loc>http://www.peng8.net/2014/05/21/css-priority-mechanism/</loc>
-    <lastmod>2015-01-06T07:03:28.000Z</lastmod>
+    <loc>http://www.peng8.net/2015/12/30/highmaps-of-china-extend/</loc>
+    <lastmod>2018-12-05T09:20:09.733Z</lastmod>
     <data>
         <display>
-        <title>css 样式优先级的重新认识</title>
-        <pubTime>2014-05-21T02:43:56.000Z</pubTime>
+        <title>阿鹏 细说highmaps</title>
+        <pubTime>2015-12-30T06:40:12.000Z</pubTime>
         
-        <tag>css</tag>
+        <tag>Highmaps</tag>
+         
+        <tag>地图</tag>
          
          
            
              
-              <breadCrumb title="css" url="http://www.peng8.net/categories/css/"/>
+              <breadCrumb title="Highcharts" url="http://www.peng8.net/categories/Highcharts/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.peng8.net/2015/09/06/the-hope/</loc>
+    <lastmod>2018-12-05T09:20:09.731Z</lastmod>
+    <data>
+        <display>
+        <title>你想要的生活都会还给你</title>
+        <pubTime>2015-09-06T03:22:37.000Z</pubTime>
+        
+        <tag>希望</tag>
+         
+         
+           
+             
+              <breadCrumb title="随笔日记" url="http://www.peng8.net/categories/%E9%9A%8F%E7%AC%94%E6%97%A5%E8%AE%B0/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.peng8.net/2014/08/21/judge-object-is-null-or-empty/</loc>
+    <lastmod>2018-12-05T09:20:09.730Z</lastmod>
+    <data>
+        <display>
+        <title>JavaScript 判断对象是否存在的几种写法</title>
+        <pubTime>2014-08-21T02:25:59.000Z</pubTime>
+        
+        <tag>javascript</tag>
+         
+         
+           
+             
+              <breadCrumb title="javascript" url="http://www.peng8.net/categories/javascript/"/>
           
         </display>
     </data>
@@ -1169,7 +1077,7 @@
     
   <url>
     <loc>http://www.peng8.net/2014/11/28/monitor-angularjs-dom-loaded/</loc>
-    <lastmod>2015-01-06T07:02:04.000Z</lastmod>
+    <lastmod>2018-12-05T09:20:09.729Z</lastmod>
     <data>
         <display>
         <title>如何监听angularjs列表数据是否渲染完毕</title>
@@ -1186,4 +1094,96 @@
     </data>
     </url>
 
+    
+  <url>
+    <loc>http://www.peng8.net/2014/10/20/highchart-generate-multiple-images-on-one-picture/</loc>
+    <lastmod>2018-12-05T09:20:09.728Z</lastmod>
+    <data>
+        <display>
+        <title>Highcharts 扩展之多张图表合并生成一张图</title>
+        <pubTime>2014-10-20T08:28:44.000Z</pubTime>
+        
+        <tag>Highcharts</tag>
+         
+         
+           
+             
+              <breadCrumb title="Highcharts" url="http://www.peng8.net/categories/Highcharts/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.peng8.net/2014/05/20/image-lazyload-by-scroll/</loc>
+    <lastmod>2018-12-05T09:20:09.727Z</lastmod>
+    <data>
+        <display>
+        <title>jQuery 滑动滚动条延迟加载图片(附带相册展示插件)</title>
+        <pubTime>2014-05-20T05:31:21.000Z</pubTime>
+        
+        <tag>jquery</tag>
+         
+        <tag>延迟加载</tag>
+         
+         
+           
+             
+              <breadCrumb title="jquery" url="http://www.peng8.net/categories/jquery/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.peng8.net/2015/03/02/highchart-copy-title-to-clipboard/</loc>
+    <lastmod>2018-12-05T09:20:09.726Z</lastmod>
+    <data>
+        <display>
+        <title>highchart如何实现点击标题复制到剪切板</title>
+        <pubTime>2015-03-02T08:27:02.000Z</pubTime>
+        
+        <tag>Highcharts复制标题</tag>
+         
+         
+           
+             
+              <breadCrumb title="Highcharts" url="http://www.peng8.net/categories/Highcharts/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.peng8.net/2015/10/12/how-to-create-heatmap-one/</loc>
+    <lastmod>2018-12-05T09:20:09.724Z</lastmod>
+    <data>
+        <display>
+        <title>热点图的深入分析(1)</title>
+        <pubTime>2015-10-12T04:03:24.000Z</pubTime>
+        
+        <tag>热点图</tag>
+         
+        <tag>热力图</tag>
+         
+        <tag>heatmap</tag>
+         
+         
+           
+             
+              <breadCrumb title="javascript" url="http://www.peng8.net/categories/javascript/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+    
+    
+    
+    
+    
 </urlset>
