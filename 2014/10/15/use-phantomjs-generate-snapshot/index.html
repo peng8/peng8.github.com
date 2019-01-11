@@ -112,7 +112,7 @@ document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">private void GenerateImage(string url)</span><br><span class="line">&#123;</span><br><span class="line">     string links = url.IndexOf(&quot;http://&quot;) &gt; -1 ? url : &quot;http://&quot; + url;</span><br><span class="line">     Process p = new Process();</span><br><span class="line">     p.StartInfo.FileName = Environment.CurrentDirectory + &quot;//phantomjs.exe&quot;;</span><br><span class="line">     p.StartInfo.WorkingDirectory = Environment.CurrentDirectory + &quot;//pic//&quot;;</span><br><span class="line">     p.StartInfo.Arguments = string.Format(&quot;--ignore-ssl-errors=yes --load-plugins=yes &quot; + Environment.CurrentDirectory + &quot;//rasterize.js  &quot; + links + &quot; &quot; + url + &quot;.png&quot;);</span><br><span class="line">     p.StartInfo.CreateNoWindow = true;</span><br><span class="line">     p.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;</span><br><span class="line">     if (!p.Start())</span><br><span class="line">     &#123;</span><br><span class="line">         throw new Exception(&quot;无法启动Headless测试引擎.&quot;);</span><br><span class="line">     &#125;         </span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<p>效果图如下：<br><img src="http://pj99n6r03.bkt.clouddn.com/peng8_6353135332581821705538457.jpg" alt="phantomjs 生成的快照图片"></p>
+<p>效果图如下：<br><img src="http://pl5bz5veh.bkt.clouddn.com/peng8_6353135332581821705538457.jpg" alt="phantomjs 生成的快照图片"></p>
 
       
     </div>
@@ -211,7 +211,7 @@ filter: progid:DXImageTransform.Microsoft.Shadow(color='#C3C3C3', Direction=135,
     <div class="widget">
 		<div style="padding:0px;text-align:center">
 			<h5>扫描下面二维码可加我哦</h5>
-			<img src="http://pj99n6r03.bkt.clouddn.com/peng8_weixin_big.jpg" style="width:250px;"/>
+			<img src="http://pl5bz5veh.bkt.clouddn.com/peng8_weixin_big.jpg" style="width:250px;"/>
 		</div>
     </div>
  </div>
@@ -221,7 +221,7 @@ filter: progid:DXImageTransform.Microsoft.Shadow(color='#C3C3C3', Direction=135,
     <div class="widget">
 		<div style="padding:0px;text-align:center">
 			<h5>扫描下面二维码可加群</h5>
-			<img src="http://pj99n6r03.bkt.clouddn.com/peng_qqgroup.jpg" style="width:250px;"/>
+			<img src="http://pl5bz5veh.bkt.clouddn.com/peng_qqgroup.jpg" style="width:250px;"/>
 		</div>
 		<div style="width:100%;">
 			<h5>QQ群:86031665</h5>
@@ -346,7 +346,7 @@ filter: progid:DXImageTransform.Microsoft.Shadow(color='#C3C3C3', Direction=135,
   
   <div class="outer">
     <div id="footer-info" class="inner">
-      &copy; 2018 黑桃 K<br>
+      &copy; 2019 黑桃 K<br>
       Powered by <a href="http://peng8.net" target="_blank">Peng8.net</a>  
       
     </div>

@@ -134,7 +134,7 @@ document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3
 <li><code>text()</code> 用来画文本字符<br>参数 (String str, Number x, Number y)<br>x，y分别为x和y轴坐标，str表示需要绘制的字符串文本<a id="more"></a>
 ####给初始化的chart添加一个按钮</li>
 </ul>
-<p>#####先来个图直观点<br><img src="http://pj99n6r03.bkt.clouddn.com/peng_20150312180006.png" alt=""></p>
+<p>#####先来个图直观点<br><img src="http://pl5bz5veh.bkt.clouddn.com/peng_20150312180006.png" alt=""></p>
 <p>#####再来段例子的代码<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    $(<span class="string">'#container'</span>).highcharts(&#123;</span><br><span class="line">        title:&#123;<span class="attr">text</span>:<span class="string">"请看左侧的按钮，试着点击按钮"</span>&#125;,</span><br><span class="line">        xAxis: &#123;</span><br><span class="line">            categories: [<span class="string">'Jan'</span>, <span class="string">'Feb'</span>, <span class="string">'Mar'</span>]</span><br><span class="line">        &#125;,</span><br><span class="line">        series: [&#123;</span><br><span class="line">            data: [<span class="number">29.9</span>, <span class="number">71.5</span>, <span class="number">106.4</span>],<span class="attr">name</span>:<span class="string">"peng8"</span></span><br><span class="line">        &#125;]</span><br><span class="line">    &#125;, <span class="function"><span class="keyword">function</span> (<span class="params">chart</span>) </span>&#123; <span class="comment">// 此处为图表渲染完毕的回调函数</span></span><br><span class="line">        <span class="keyword">var</span> group = chart.renderer.g().on(<span class="string">"click"</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">            alert(<span class="string">"1"</span>);</span><br><span class="line">        &#125;).add();</span><br><span class="line">         chart.renderer.rect(<span class="number">9</span>, <span class="number">9</span>, <span class="number">12</span>, <span class="number">12</span>, <span class="number">1</span>)</span><br><span class="line">        .attr(&#123;</span><br><span class="line">            <span class="string">'stroke-width'</span>: <span class="number">1</span>,</span><br><span class="line">            stroke: <span class="string">'silver'</span>,</span><br><span class="line">            fill: <span class="string">'#66707B'</span>,</span><br><span class="line">            zIndex: <span class="number">0</span></span><br><span class="line">        &#125;)</span><br><span class="line">        .add(group);</span><br><span class="line">        chart.renderer.path([<span class="string">'M'</span>, <span class="number">10</span>, <span class="number">10</span>, <span class="string">'L'</span>, <span class="number">20</span>, <span class="number">20</span>,<span class="string">'M'</span>,<span class="number">20</span>,<span class="number">10</span>,<span class="string">'L'</span>,<span class="number">10</span>,<span class="number">20</span>])</span><br><span class="line">            .attr(&#123;</span><br><span class="line">                <span class="string">'stroke-width'</span>: <span class="number">2</span>,</span><br><span class="line">                stroke: <span class="string">'#fff'</span>,</span><br><span class="line">                zIndex: <span class="number">1</span></span><br><span class="line">            &#125;)</span><br><span class="line">            .add(group);</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
 <h5 id="代码分析"><a href="#代码分析" class="headerlink" title="代码分析"></a>代码分析</h5><p>看完上面那段代码，我来细说下原理</p>
 <ol>
@@ -251,7 +251,7 @@ filter: progid:DXImageTransform.Microsoft.Shadow(color='#C3C3C3', Direction=135,
     <div class="widget">
 		<div style="padding:0px;text-align:center">
 			<h5>扫描下面二维码可加我哦</h5>
-			<img src="http://pj99n6r03.bkt.clouddn.com/peng8_weixin_big.jpg" style="width:250px;"/>
+			<img src="http://pl5bz5veh.bkt.clouddn.com/peng8_weixin_big.jpg" style="width:250px;"/>
 		</div>
     </div>
  </div>
@@ -261,7 +261,7 @@ filter: progid:DXImageTransform.Microsoft.Shadow(color='#C3C3C3', Direction=135,
     <div class="widget">
 		<div style="padding:0px;text-align:center">
 			<h5>扫描下面二维码可加群</h5>
-			<img src="http://pj99n6r03.bkt.clouddn.com/peng_qqgroup.jpg" style="width:250px;"/>
+			<img src="http://pl5bz5veh.bkt.clouddn.com/peng_qqgroup.jpg" style="width:250px;"/>
 		</div>
 		<div style="width:100%;">
 			<h5>QQ群:86031665</h5>
@@ -386,7 +386,7 @@ filter: progid:DXImageTransform.Microsoft.Shadow(color='#C3C3C3', Direction=135,
   
   <div class="outer">
     <div id="footer-info" class="inner">
-      &copy; 2018 黑桃 K<br>
+      &copy; 2019 黑桃 K<br>
       Powered by <a href="http://peng8.net" target="_blank">Peng8.net</a>  
       
     </div>

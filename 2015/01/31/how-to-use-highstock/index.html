@@ -111,7 +111,7 @@ document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3
         <blockquote>
 <p> 一直在用<code>highchart</code>在做图表，最近一段时间突然接到一活，需要用 <code>highstock</code> 帮客户完成一个股票K线图和分时图。虽然用法和<code>api</code>上与 <code>highchart</code> 没什么区别，但还是研究一番做出了对应的DEMO，于是抽空与大家分享下。</p>
 </blockquote>
-<h4 id="预期想要达成的效果图"><a href="#预期想要达成的效果图" class="headerlink" title="预期想要达成的效果图"></a>预期想要达成的效果图</h4><p><img src="http://pj99n6r03.bkt.clouddn.com/peng_20150131164032.png" alt=""></p>
+<h4 id="预期想要达成的效果图"><a href="#预期想要达成的效果图" class="headerlink" title="预期想要达成的效果图"></a>预期想要达成的效果图</h4><p><img src="http://pl5bz5veh.bkt.clouddn.com/peng_20150131164032.png" alt=""></p>
 <a id="more"></a>
 <p>####highstock 开发股票或者财经的分时图</p>
 <ul>
@@ -132,7 +132,7 @@ document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3
 <li><p>请求的<code>json</code>格式，当然格式可以自己定义 ，但是需要修改上面方法里的属性</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">   &quot;datas&quot;: [</span><br><span class="line">       &#123;</span><br><span class="line">           &quot;open&quot;: 2055,</span><br><span class="line">           &quot;updatetime&quot;: &quot;20150129 08:00:00&quot;,</span><br><span class="line">           &quot;status&quot;: 1,</span><br><span class="line">           &quot;high&quot;: 2055,</span><br><span class="line">           &quot;low&quot;: 2053,</span><br><span class="line">           &quot;close&quot;: 2054</span><br><span class="line">       &#125;,</span><br><span class="line">       &#123;</span><br><span class="line">           &quot;open&quot;: 2055,</span><br><span class="line">           &quot;updatetime&quot;: &quot;20150129 08:01:00&quot;,</span><br><span class="line">           &quot;status&quot;: 1,</span><br><span class="line">           &quot;high&quot;: 2055,</span><br><span class="line">           &quot;low&quot;: 2054,</span><br><span class="line">           &quot;close&quot;: 2054</span><br><span class="line">       &#125;,</span><br><span class="line">       &#123;</span><br><span class="line">           &quot;open&quot;: 2055,</span><br><span class="line">           &quot;updatetime&quot;: &quot;20150129 08:02:00&quot;,</span><br><span class="line">           &quot;status&quot;: 1,</span><br><span class="line">           &quot;high&quot;: 2055,</span><br><span class="line">           &quot;low&quot;: 2055,</span><br><span class="line">           &quot;close&quot;: 2055</span><br><span class="line">       &#125;]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>最后完成的效果图(当然样式和其他方面还得做调整)<br><img src="http://pj99n6r03.bkt.clouddn.com/peng_20150131171924.png" alt="初始化的效果图"><br><img src="http://pj99n6r03.bkt.clouddn.com/peng_20150131171749.png" alt="鼠标移上去的效果图"><br>#####方法解释说明<br><code>initHourChart</code> 方法为渲染的核心方法，它先请求服务端的<code>json数据</code>，拿到<code>json数据</code>后，循环遍历开始组建图表所需要的<code>data格式</code>，一个<code>UTC</code> 时间戳，另外一个就是对应的数据值 。需要注意的是<strong>xAxis</strong> 属性里需要设置 <strong>tickInterval</strong> 、<strong>min</strong>和<strong>max</strong> 参数，而且必须要设置。因为股票的分时图一般会有开盘时间和收盘时间，这里的<strong>min</strong>和<strong>max</strong> 决定了<strong>x</strong> 轴时间的<strong>开始</strong>和<strong>结束</strong> ，<strong>tickInterval</strong> 决定了<strong>x </strong>的间隔时间（例子里我以2小时为间隔展示了一天的数据）。</p>
+<li><p>最后完成的效果图(当然样式和其他方面还得做调整)<br><img src="http://pl5bz5veh.bkt.clouddn.com/peng_20150131171924.png" alt="初始化的效果图"><br><img src="http://pl5bz5veh.bkt.clouddn.com/peng_20150131171749.png" alt="鼠标移上去的效果图"><br>#####方法解释说明<br><code>initHourChart</code> 方法为渲染的核心方法，它先请求服务端的<code>json数据</code>，拿到<code>json数据</code>后，循环遍历开始组建图表所需要的<code>data格式</code>，一个<code>UTC</code> 时间戳，另外一个就是对应的数据值 。需要注意的是<strong>xAxis</strong> 属性里需要设置 <strong>tickInterval</strong> 、<strong>min</strong>和<strong>max</strong> 参数，而且必须要设置。因为股票的分时图一般会有开盘时间和收盘时间，这里的<strong>min</strong>和<strong>max</strong> 决定了<strong>x</strong> 轴时间的<strong>开始</strong>和<strong>结束</strong> ，<strong>tickInterval</strong> 决定了<strong>x </strong>的间隔时间（例子里我以2小时为间隔展示了一天的数据）。</p>
 </li>
 </ol>
 <p>接着我来解释为什么前面我说必须要用<strong>v1.2.5</strong> 版本</p>
@@ -140,7 +140,7 @@ document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3
 <li><strong>旧版支持时间段固定显示模式，例如上图初始化 就可以显示 早上8点到晚上8点的刻度值，即使当前的数据没有16点以后的数据。而新版当没有16点以后的数据时，会无法显示后面时间段的空白区域，除非将时间点填充null的值，如果后面点有值了动态去更新</strong>。</li>
 <li><strong>定时器功能，我们会在load事件里增加一个定时器，动态为图表增加新的点。因为从开盘后，不是所有时间段的数据都会有。然而这点上，新版增加数据后整个线会向左移动，然后新添加的点才增加进来，具体看官网的DEMO。旧版的处理方式是图表不懂，自动在最后一个点上增加新的数据</strong>。</li>
 </ol>
-<p>附上2张图分别采用新版和旧版，解释上面2个观点<br><img src="http://pj99n6r03.bkt.clouddn.com/peng_20150131173612.png" alt="新版js初始化的图表"><br><img src="http://pj99n6r03.bkt.clouddn.com/peng_20150131173315.png" alt="旧版js初始化的图表"></p>
+<p>附上2张图分别采用新版和旧版，解释上面2个观点<br><img src="http://pl5bz5veh.bkt.clouddn.com/peng_20150131173612.png" alt="新版js初始化的图表"><br><img src="http://pl5bz5veh.bkt.clouddn.com/peng_20150131173315.png" alt="旧版js初始化的图表"></p>
 </li>
 </ul>
 <blockquote>
@@ -244,7 +244,7 @@ filter: progid:DXImageTransform.Microsoft.Shadow(color='#C3C3C3', Direction=135,
     <div class="widget">
 		<div style="padding:0px;text-align:center">
 			<h5>扫描下面二维码可加我哦</h5>
-			<img src="http://pj99n6r03.bkt.clouddn.com/peng8_weixin_big.jpg" style="width:250px;"/>
+			<img src="http://pl5bz5veh.bkt.clouddn.com/peng8_weixin_big.jpg" style="width:250px;"/>
 		</div>
     </div>
  </div>
@@ -254,7 +254,7 @@ filter: progid:DXImageTransform.Microsoft.Shadow(color='#C3C3C3', Direction=135,
     <div class="widget">
 		<div style="padding:0px;text-align:center">
 			<h5>扫描下面二维码可加群</h5>
-			<img src="http://pj99n6r03.bkt.clouddn.com/peng_qqgroup.jpg" style="width:250px;"/>
+			<img src="http://pl5bz5veh.bkt.clouddn.com/peng_qqgroup.jpg" style="width:250px;"/>
 		</div>
 		<div style="width:100%;">
 			<h5>QQ群:86031665</h5>
@@ -379,7 +379,7 @@ filter: progid:DXImageTransform.Microsoft.Shadow(color='#C3C3C3', Direction=135,
   
   <div class="outer">
     <div id="footer-info" class="inner">
-      &copy; 2018 黑桃 K<br>
+      &copy; 2019 黑桃 K<br>
       Powered by <a href="http://peng8.net" target="_blank">Peng8.net</a>  
       
     </div>

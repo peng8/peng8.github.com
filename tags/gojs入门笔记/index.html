@@ -119,7 +119,7 @@ document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3
 <p>最后就是如何给流程图填充动态数据了，这里我采用了json的方式，流程图赋值就是一句话就够了<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">myDiagram.model = go.Model.fromJson(jsonList);</span><br></pre></td></tr></table></figure></p>
 <p>jsonList 是我前端定义用来接收ajax返回数据的一个对象，它的数据结构是<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> jsonList = &#123;</span><br><span class="line">       nodeKeyProperty: <span class="string">"key"</span>,</span><br><span class="line">       nodeDataArray: [&#123;<span class="attr">key</span>:<span class="number">1</span>,<span class="attr">text</span>:<span class="string">"节点a"</span>&#125;,&#123;<span class="attr">key</span>:<span class="number">2</span>,<span class="attr">text</span>:<span class="string">"节点b"</span>&#125;,&#123;<span class="attr">key</span>:<span class="number">3</span>,<span class="attr">text</span>:<span class="string">"节点c"</span>&#125;],</span><br><span class="line">       linkDataArray: [&#123;<span class="attr">from</span>:<span class="number">1</span>,<span class="attr">to</span>:<span class="number">2</span>,<span class="attr">text</span>:<span class="string">"我是节点a指向节点b"</span>&#125;,&#123;<span class="attr">from</span>:<span class="number">2</span>,<span class="attr">to</span>:<span class="number">3</span>,<span class="attr">text</span>:<span class="string">"我是节点b指向节点c"</span>&#125;,&#123;<span class="attr">from</span>:<span class="number">3</span>,<span class="attr">to</span>:<span class="number">1</span>,<span class="attr">text</span>:<span class="string">"我是节点c指向节点a"</span>&#125;]</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
 <p>注释：jsonList 的结构是固定的，包含了<code>nodeKeyProperty</code> 、<code>nodeDataArray</code>、<code>linkDataArray</code> 三个属性，分别代表了 <strong>关联的主键</strong>，<strong>节点数据</strong>，<strong>节点对应关系数据</strong> ，上面from 和to 即 开始节点的主键指向结束节点的主键。<br>我们把上面所有代码合起来，就形成了一个简单的流程图，上图上真相</p>
-<p><img src="http://pj99n6r03.bkt.clouddn.com/peng8_20150720151518.png" alt="简单的流程图"></p>
+<p><img src="http://pl5bz5veh.bkt.clouddn.com/peng8_20150720151518.png" alt="简单的流程图"></p>
 <blockquote>
 <p>gojs简单流程图先介绍到这里，后续还会有自定义节点图标、节点编辑、节点扩充等等相关的介绍</p>
 </blockquote>
@@ -171,7 +171,7 @@ filter: progid:DXImageTransform.Microsoft.Shadow(color='#C3C3C3', Direction=135,
     <div class="widget">
 		<div style="padding:0px;text-align:center">
 			<h5>扫描下面二维码可加我哦</h5>
-			<img src="http://pj99n6r03.bkt.clouddn.com/peng8_weixin_big.jpg" style="width:250px;"/>
+			<img src="http://pl5bz5veh.bkt.clouddn.com/peng8_weixin_big.jpg" style="width:250px;"/>
 		</div>
     </div>
  </div>
@@ -181,7 +181,7 @@ filter: progid:DXImageTransform.Microsoft.Shadow(color='#C3C3C3', Direction=135,
     <div class="widget">
 		<div style="padding:0px;text-align:center">
 			<h5>扫描下面二维码可加群</h5>
-			<img src="http://pj99n6r03.bkt.clouddn.com/peng_qqgroup.jpg" style="width:250px;"/>
+			<img src="http://pl5bz5veh.bkt.clouddn.com/peng_qqgroup.jpg" style="width:250px;"/>
 		</div>
 		<div style="width:100%;">
 			<h5>QQ群:86031665</h5>
@@ -306,7 +306,7 @@ filter: progid:DXImageTransform.Microsoft.Shadow(color='#C3C3C3', Direction=135,
   
   <div class="outer">
     <div id="footer-info" class="inner">
-      &copy; 2018 黑桃 K<br>
+      &copy; 2019 黑桃 K<br>
       Powered by <a href="http://peng8.net" target="_blank">Peng8.net</a>  
       
     </div>
