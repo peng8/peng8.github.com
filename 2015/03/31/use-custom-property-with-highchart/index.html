@@ -112,7 +112,7 @@ document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3
 <p>有时候很多场景可能对于图表自身所带的数据不能满足当前业务的需求，例如目前图表api里提供了有<code>name</code>、<code>x</code>、<code>y</code> 、<code>color</code> 等属性。我们在<code>tooltip</code>、<code>label</code>、<code>legend</code> 等对象的formatter里可以使用到这些属性，但有时候我们还需要额外的属性或者扩展字段，有些小伙伴就不知道如何处理了！下面就给大家讲解下。</p>
 </blockquote>
 <p>####Demo 场景之一</p>
-<p><div style="background-color:#EFF6FB;padding:10px 5px 10px 5px;"><strong>需求：</strong>我需要图表 渲染完毕后 ，鼠标移到某个点上，tooltip里既要显示y轴的值，又要显示y轴值所占总数的百分比，另外点击这个点又能发生一个跳转，或者根据某个字段传值去弹出一个层展示一个新的列表，遇到这样的需求该如何处理？</div><br><strong>效果图</strong><br><img src="http://pmwcsddk9.bkt.clouddn.com/peng_20150331143630.png" alt=""></p>
+<p><div style="background-color:#EFF6FB;padding:10px 5px 10px 5px;"><strong>需求：</strong>我需要图表 渲染完毕后 ，鼠标移到某个点上，tooltip里既要显示y轴的值，又要显示y轴值所占总数的百分比，另外点击这个点又能发生一个跳转，或者根据某个字段传值去弹出一个层展示一个新的列表，遇到这样的需求该如何处理？</div><br><strong>效果图</strong><br><img src="http://peng8-blog.oss-cn-beijing.aliyuncs.com/blog/peng_20150331143630.png" alt=""></p>
 <p>####解决方案</p>
 <ul>
 <li>series 数据代码(series 里我们增加了自定义的属性<strong>totals和url 2个</strong> )  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">series: [&#123;</span><br><span class="line">	name:<span class="string">"www.peng8.net"</span>,</span><br><span class="line">       data: [&#123;</span><br><span class="line">           name: <span class="string">'Point 1'</span>,</span><br><span class="line">			url:<span class="string">'http://www.peng8.net'</span>,</span><br><span class="line">			totals:<span class="string">"20%"</span>,</span><br><span class="line">           y: <span class="number">1</span></span><br><span class="line">       &#125;, &#123;</span><br><span class="line">           name: <span class="string">'Point 2'</span>,</span><br><span class="line">			url:<span class="string">'http://www.peng8.net'</span>,</span><br><span class="line">			totals:<span class="string">"30%"</span>,</span><br><span class="line">           y: <span class="number">5</span></span><br><span class="line">       &#125;, &#123;</span><br><span class="line">           name: <span class="string">'Point 3'</span>,</span><br><span class="line">			url:<span class="string">'http://www.peng8.net'</span>,</span><br><span class="line">			totals:<span class="string">"40%"</span>,</span><br><span class="line">           y: <span class="number">5</span></span><br><span class="line">       &#125;, &#123;</span><br><span class="line">           name: <span class="string">'Point 4'</span>,</span><br><span class="line">			url:<span class="string">'http://www.peng8.net'</span>,</span><br><span class="line">			totals:<span class="string">"50%"</span>,</span><br><span class="line">           y: <span class="number">5</span></span><br><span class="line">       &#125;]</span><br><span class="line">   &#125;]</span><br></pre></td></tr></table></figure>
@@ -231,7 +231,7 @@ filter: progid:DXImageTransform.Microsoft.Shadow(color='#C3C3C3', Direction=135,
     <div class="widget">
 		<div style="padding:0px;text-align:center">
 			<h5>扫描下面二维码可加我哦</h5>
-			<img src="http://pmwcsddk9.bkt.clouddn.com/peng8_weixin_big.jpg" style="width:250px;"/>
+			<img src="http://peng8-blog.oss-cn-beijing.aliyuncs.com/blog/peng8_weixin_big.jpg" style="width:250px;"/>
 		</div>
     </div>
  </div>
@@ -241,7 +241,7 @@ filter: progid:DXImageTransform.Microsoft.Shadow(color='#C3C3C3', Direction=135,
     <div class="widget">
 		<div style="padding:0px;text-align:center">
 			<h5>扫描下面二维码可加群</h5>
-			<img src="http://pmwcsddk9.bkt.clouddn.com/peng_qqgroup.jpg" style="width:250px;"/>
+			<img src="http://peng8-blog.oss-cn-beijing.aliyuncs.com/blog/peng_qqgroup.jpg" style="width:250px;"/>
 		</div>
 		<div style="width:100%;">
 			<h5>QQ群:86031665</h5>
