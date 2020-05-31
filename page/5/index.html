@@ -104,8 +104,7 @@ document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3
         <blockquote>
 </blockquote>
 <p>使用 <code>highcharts</code> 已经有好几年的时间了，用过很多图表插件！例如 <code>funsionchart</code>、<code>dhtmlxChart</code>、<code>jqPlot</code>、<code>JS Charts</code>、<code>Open Flash Chart</code>、<code>Flot</code>，在到国产最近比较好的 <code>echarts</code> ，这里面有基于javascript的，也有基于flash的，但最喜欢的还是 <code>highcharts</code>，这些图表插件基本的图表功能大部分都能满足，但区别在于图表的功能可扩展性及浏览器兼容性上，<code>highcharts</code> 有明显的优势。</p>
-<p>###配置文件介绍</p>
-<ul>
+<h3 id="配置文件介绍"><a href="#配置文件介绍" class="headerlink" title="配置文件介绍"></a>配置文件介绍</h3><ul>
 <li>下面步入正题，给大家分享一个 <strong>highcharts 全局配置文件</strong>，其实也没什么，无非就是将通用api里的参数放在了一个方法里，这样初始化图表就不用每次都去写一大串配置，而是用到什么参数就写什么参数，具体请看下面这段javascript代码
         
           <p class="article-more-link">
@@ -116,7 +115,7 @@ document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://www.peng8.net/2014/10/16/highchart-common-options/" data-id="ckaux7k9c001s7y2ab1vb35lp" class="article-share-link" data-share="baidu">分享到</a>
+        <a data-url="http://www.peng8.net/2014/10/16/highchart-common-options/" data-id="ckauy6yii0016gp2aq9jzwafm" class="article-share-link" data-share="baidu">分享到</a>
       
 
       
@@ -178,7 +177,7 @@ document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://www.peng8.net/2014/10/15/use-phantomjs-generate-snapshot/" data-id="ckaux7kar004o7y2azkmlmy6q" class="article-share-link" data-share="baidu">分享到</a>
+        <a data-url="http://www.peng8.net/2014/10/15/use-phantomjs-generate-snapshot/" data-id="ckauy6yk6004wgp2a3uxnoiee" class="article-share-link" data-share="baidu">分享到</a>
       
 
       
@@ -241,7 +240,7 @@ document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://www.peng8.net/2014/10/14/use-cut-image-in-kindeditor/" data-id="ckaux7kaq004k7y2a5n269nb5" class="article-share-link" data-share="baidu">分享到</a>
+        <a data-url="http://www.peng8.net/2014/10/14/use-cut-image-in-kindeditor/" data-id="ckauy6yk4004tgp2asi9lru4j" class="article-share-link" data-share="baidu">分享到</a>
       
 
       
@@ -306,7 +305,7 @@ document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://www.peng8.net/2014/09/27/how-to-use-timelinejs/" data-id="ckaux7k9s002q7y2ahar42vsd" class="article-share-link" data-share="baidu">分享到</a>
+        <a data-url="http://www.peng8.net/2014/09/27/how-to-use-timelinejs/" data-id="ckauy6yjb002wgp2ab0yrxko1" class="article-share-link" data-share="baidu">分享到</a>
       
 
       
@@ -355,8 +354,8 @@ document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3
 <ul>
 <li>我目前用的是myPagination 6.0 版本，这个版本也有些BUG，我看下了源码做了下细微的调整(例如增加了总记录数的显示等，我分享的下载包里 <strong>mypagination.js</strong> 即修改后的)</li>
 </ul>
-<p>####引入js和css文件<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"Scripts/myPagination/mypagination.js"</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">href</span>=<span class="string">"Scripts/myPagination/page.css"</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span> <span class="attr">type</span>=<span class="string">"text/css"</span> /&gt;</span></span><br></pre></td></tr></table></figure></p>
-<p>####前端HTML<br>注：这里html自己就随便写啦，可以是table或者自己定义的任何形式，但是一定要有一个DIV用来渲染page。<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"content"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"pagelist"</span> <span class="attr">style</span>=<span class="string">"float: left; width: 100%"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<h4 id="引入js和css文件"><a href="#引入js和css文件" class="headerlink" title="引入js和css文件"></a>引入js和css文件</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"Scripts/myPagination/mypagination.js"</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">href</span>=<span class="string">"Scripts/myPagination/page.css"</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span> <span class="attr">type</span>=<span class="string">"text/css"</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+<h4 id="前端HTML"><a href="#前端HTML" class="headerlink" title="前端HTML"></a>前端HTML</h4><p>注：这里html自己就随便写啦，可以是table或者自己定义的任何形式，但是一定要有一个DIV用来渲染page。<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"content"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"pagelist"</span> <span class="attr">style</span>=<span class="string">"float: left; width: 100%"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
         
           <p class="article-more-link">
             <a href="/2014/09/12/mypagination-example-instruction/#more">查看更多</a>
@@ -366,7 +365,7 @@ document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://www.peng8.net/2014/09/12/mypagination-example-instruction/" data-id="ckaux7kae003p7y2a1cu8hfky" class="article-share-link" data-share="baidu">分享到</a>
+        <a data-url="http://www.peng8.net/2014/09/12/mypagination-example-instruction/" data-id="ckauy6yjs003ygp2a603xuhe1" class="article-share-link" data-share="baidu">分享到</a>
       
 
       
@@ -430,7 +429,7 @@ document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://www.peng8.net/2014/08/21/judge-object-is-null-or-empty/" data-id="ckaux7kak00457y2a41o2s8n2" class="article-share-link" data-share="baidu">分享到</a>
+        <a data-url="http://www.peng8.net/2014/08/21/judge-object-is-null-or-empty/" data-id="ckauy6yjk003fgp2awnnvlxfr" class="article-share-link" data-share="baidu">分享到</a>
       
 
       
@@ -486,7 +485,7 @@ document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://www.peng8.net/2014/08/15/interceptors-in-angularjs/" data-id="ckaux7kao004g7y2aumbo7sgb" class="article-share-link" data-share="baidu">分享到</a>
+        <a data-url="http://www.peng8.net/2014/08/15/interceptors-in-angularjs/" data-id="ckauy6yjg0037gp2ac1gxjpg8" class="article-share-link" data-share="baidu">分享到</a>
       
 
       
@@ -546,7 +545,7 @@ document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://www.peng8.net/2014/07/21/render-charts-serverside/" data-id="ckaux7kag003u7y2ad1qdu1ez" class="article-share-link" data-share="baidu">分享到</a>
+        <a data-url="http://www.peng8.net/2014/07/21/render-charts-serverside/" data-id="ckauy6yjv0046gp2amaitbdgs" class="article-share-link" data-share="baidu">分享到</a>
       
 
       
@@ -618,7 +617,7 @@ document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://www.peng8.net/2014/07/07/angularjs-show-html-in-ngmodel/" data-id="ckaux7k8f000a7y2a4p8e4f0d" class="article-share-link" data-share="baidu">分享到</a>
+        <a data-url="http://www.peng8.net/2014/07/07/angularjs-show-html-in-ngmodel/" data-id="ckauy6yhz0008gp2apsf0fsjw" class="article-share-link" data-share="baidu">分享到</a>
       
 
       
@@ -663,8 +662,7 @@ document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3
       
 		
 		
-        <p>####DOCTYPE 标签  –  定义了标准文档的类型</p>
-<ul>
+        <h4 id="DOCTYPE-标签-–-定义了标准文档的类型"><a href="#DOCTYPE-标签-–-定义了标准文档的类型" class="headerlink" title="DOCTYPE 标签  –  定义了标准文档的类型"></a>DOCTYPE 标签  –  定义了标准文档的类型</h4><ul>
 <li>DOCTYPE标签是单独出现的<ul>
 <li>文档类型，会使浏览器使用相应标准加载网页并显示</li>
 <li>文档类型定义在HTML文档的第一行，在html标签之前</li>
@@ -673,7 +671,7 @@ document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3
 </li>
 <li>DOCTYPE，简称为DTDs，是英文Document type的缩写，中文“文档类型”</li>
 </ul>
-<p>####HTML DOCTYPE文档类型举例说明<br>HTML4.01文档过渡定义类型，此类型定义的文档可以使用HTML中的标签与元素包括一些不被W3C推荐的标签（例如：font、b等），不可以使用框架<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.01 Transitional//EN&quot; &quot;http://www.w3.org/TR/html4/loose.dtd&quot;&gt;</span><br></pre></td></tr></table></figure></p>
+<h4 id="HTML-DOCTYPE文档类型举例说明"><a href="#HTML-DOCTYPE文档类型举例说明" class="headerlink" title="HTML DOCTYPE文档类型举例说明"></a>HTML DOCTYPE文档类型举例说明</h4><p>HTML4.01文档过渡定义类型，此类型定义的文档可以使用HTML中的标签与元素包括一些不被W3C推荐的标签（例如：font、b等），不可以使用框架<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.01 Transitional//EN&quot; &quot;http://www.w3.org/TR/html4/loose.dtd&quot;&gt;</span><br></pre></td></tr></table></figure></p>
 <p>HTML4.01文档严格定义类型，此类型定义的文档可以使用HTML中的标签与元素，不能包含不被W3C推荐的标签（例如：font、b等），不可以使用框架<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.01//EN&quot; &quot;http://www.w3.org/TR/html4/strict.dtd&quot;&gt;</span><br></pre></td></tr></table></figure></p>
 <p>HTML4.01文档框架定义类型，此类型等同于HTML4.01文档过渡定义类型，但可以使用框架<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.01 Frameset//EN&quot; &quot;http://www.w3.org/TR/html4/frameset.dtd&quot;&gt;</span><br></pre></td></tr></table></figure></p>
 <p>XHTML1.0文档过渡定义类型，此类型定义的文档可以使用HTML中的标签与元素包括一些不被W3C推荐的标签（例如：font、b等），不可以使用框架<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.0 Transitional//EN&quot; &quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd&quot;&gt;</span><br></pre></td></tr></table></figure></p>
@@ -686,7 +684,7 @@ document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://www.peng8.net/2014/07/01/html-doctype-instruction/" data-id="ckaux7k9p002j7y2au5lyolo6" class="article-share-link" data-share="baidu">分享到</a>
+        <a data-url="http://www.peng8.net/2014/07/01/html-doctype-instruction/" data-id="ckauy6yjd0030gp2abhme41wl" class="article-share-link" data-share="baidu">分享到</a>
       
 
       

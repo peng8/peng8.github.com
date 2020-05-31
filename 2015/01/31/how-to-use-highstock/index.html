@@ -104,7 +104,7 @@ document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3
 			<div id="toc" class="toc-article">			
 				<strong class="toc-title">文章目录</strong>
 			
-				<ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#预期想要达成的效果图"><span class="toc-text">预期想要达成的效果图</span></a></li></ol>
+				<ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#预期想要达成的效果图"><span class="toc-text">预期想要达成的效果图</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#highstock-开发股票或者财经的分时图"><span class="toc-text">highstock 开发股票或者财经的分时图</span></a></li></ol>
 			
 			</div>
 		
@@ -113,8 +113,7 @@ document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3
 </blockquote>
 <h4 id="预期想要达成的效果图"><a href="#预期想要达成的效果图" class="headerlink" title="预期想要达成的效果图"></a>预期想要达成的效果图</h4><p><img src="http://peng8-blog.oss-cn-beijing.aliyuncs.com/blog/peng_20150131164032.png" alt=""></p>
 <a id="more"></a>
-<p>####highstock 开发股票或者财经的分时图</p>
-<ul>
+<h4 id="highstock-开发股票或者财经的分时图"><a href="#highstock-开发股票或者财经的分时图" class="headerlink" title="highstock 开发股票或者财经的分时图"></a>highstock 开发股票或者财经的分时图</h4><ul>
 <li><p>准备工作</p>
 <p> <strong>引入 <code>highstock</code> 文件</strong><br><strong>[</strong>这里需要重点注意了，需要引入 <code>highstock</code> 的版本 为 <strong>v1.2.5</strong> 版本，最新版和老版本有很大的区别，至于为什么随后在代码结束后为大家解释 ！<strong>]</strong> </p>
 </li>
@@ -132,9 +131,10 @@ document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3
 <li><p>请求的<code>json</code>格式，当然格式可以自己定义 ，但是需要修改上面方法里的属性</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">   &quot;datas&quot;: [</span><br><span class="line">       &#123;</span><br><span class="line">           &quot;open&quot;: 2055,</span><br><span class="line">           &quot;updatetime&quot;: &quot;20150129 08:00:00&quot;,</span><br><span class="line">           &quot;status&quot;: 1,</span><br><span class="line">           &quot;high&quot;: 2055,</span><br><span class="line">           &quot;low&quot;: 2053,</span><br><span class="line">           &quot;close&quot;: 2054</span><br><span class="line">       &#125;,</span><br><span class="line">       &#123;</span><br><span class="line">           &quot;open&quot;: 2055,</span><br><span class="line">           &quot;updatetime&quot;: &quot;20150129 08:01:00&quot;,</span><br><span class="line">           &quot;status&quot;: 1,</span><br><span class="line">           &quot;high&quot;: 2055,</span><br><span class="line">           &quot;low&quot;: 2054,</span><br><span class="line">           &quot;close&quot;: 2054</span><br><span class="line">       &#125;,</span><br><span class="line">       &#123;</span><br><span class="line">           &quot;open&quot;: 2055,</span><br><span class="line">           &quot;updatetime&quot;: &quot;20150129 08:02:00&quot;,</span><br><span class="line">           &quot;status&quot;: 1,</span><br><span class="line">           &quot;high&quot;: 2055,</span><br><span class="line">           &quot;low&quot;: 2055,</span><br><span class="line">           &quot;close&quot;: 2055</span><br><span class="line">       &#125;]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>最后完成的效果图(当然样式和其他方面还得做调整)<br><img src="http://peng8-blog.oss-cn-beijing.aliyuncs.com/blog/peng_20150131171924.png" alt="初始化的效果图"><br><img src="http://peng8-blog.oss-cn-beijing.aliyuncs.com/blog/peng_20150131171749.png" alt="鼠标移上去的效果图"><br>#####方法解释说明<br><code>initHourChart</code> 方法为渲染的核心方法，它先请求服务端的<code>json数据</code>，拿到<code>json数据</code>后，循环遍历开始组建图表所需要的<code>data格式</code>，一个<code>UTC</code> 时间戳，另外一个就是对应的数据值 。需要注意的是<strong>xAxis</strong> 属性里需要设置 <strong>tickInterval</strong> 、<strong>min</strong>和<strong>max</strong> 参数，而且必须要设置。因为股票的分时图一般会有开盘时间和收盘时间，这里的<strong>min</strong>和<strong>max</strong> 决定了<strong>x</strong> 轴时间的<strong>开始</strong>和<strong>结束</strong> ，<strong>tickInterval</strong> 决定了<strong>x </strong>的间隔时间（例子里我以2小时为间隔展示了一天的数据）。</p>
+<li><p>最后完成的效果图(当然样式和其他方面还得做调整)<br><img src="http://peng8-blog.oss-cn-beijing.aliyuncs.com/blog/peng_20150131171924.png" alt="初始化的效果图"><br><img src="http://peng8-blog.oss-cn-beijing.aliyuncs.com/blog/peng_20150131171749.png" alt="鼠标移上去的效果图"></p>
 </li>
 </ol>
+<p>#####方法解释说明<br><code>initHourChart</code> 方法为渲染的核心方法，它先请求服务端的<code>json数据</code>，拿到<code>json数据</code>后，循环遍历开始组建图表所需要的<code>data格式</code>，一个<code>UTC</code> 时间戳，另外一个就是对应的数据值 。需要注意的是<strong>xAxis</strong> 属性里需要设置 <strong>tickInterval</strong> 、<strong>min</strong>和<strong>max</strong> 参数，而且必须要设置。因为股票的分时图一般会有开盘时间和收盘时间，这里的<strong>min</strong>和<strong>max</strong> 决定了<strong>x</strong> 轴时间的<strong>开始</strong>和<strong>结束</strong> ，<strong>tickInterval</strong> 决定了<strong>x </strong>的间隔时间（例子里我以2小时为间隔展示了一天的数据）。</p>
 <p>接着我来解释为什么前面我说必须要用<strong>v1.2.5</strong> 版本</p>
 <ol>
 <li><strong>旧版支持时间段固定显示模式，例如上图初始化 就可以显示 早上8点到晚上8点的刻度值，即使当前的数据没有16点以后的数据。而新版当没有16点以后的数据时，会无法显示后面时间段的空白区域，除非将时间点填充null的值，如果后面点有值了动态去更新</strong>。</li>
@@ -151,7 +151,7 @@ document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://www.peng8.net/2015/01/31/how-to-use-highstock/" data-id="ckaux7k9v002x7y2ayxgo1q9v" class="article-share-link" data-share="baidu">分享到</a>
+        <a data-url="http://www.peng8.net/2015/01/31/how-to-use-highstock/" data-id="ckauy6yj9002ugp2a00vddjt5" class="article-share-link" data-share="baidu">分享到</a>
       
 
       

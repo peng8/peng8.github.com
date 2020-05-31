@@ -111,8 +111,7 @@ document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3
 <li>需要借助<code>ZeroClipboard.js</code>和<code>ZeroClipboard.swf</code></li>
 <li>需要highchart 事件扩展的插件<code>customEvents.js</code>，<a href="http://blacklabel.github.io/custom_events/customEvents.js" target="_blank" rel="noopener">传送门</a></li>
 </ul>
-<p>####具体实现</p>
-<ul>
+<h4 id="具体实现"><a href="#具体实现" class="headerlink" title="具体实现"></a>具体实现</h4><ul>
 <li>ZeroClipboard的初始化<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> client=<span class="literal">null</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">initClipboard</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">	client = <span class="keyword">new</span> ZeroClipboard( <span class="built_in">document</span>.getElementById(<span class="string">"sp_title"</span>) );</span><br><span class="line">	<span class="comment">//client.clip(document.getElementById("d_clip_button"))</span></span><br><span class="line">	client.on( <span class="string">"ready"</span>, <span class="function"><span class="keyword">function</span>(<span class="params"> readyEvent </span>) </span>&#123;</span><br><span class="line">		client.on( <span class="string">"aftercopy"</span>, <span class="function"><span class="keyword">function</span>(<span class="params"> event </span>) </span>&#123;</span><br><span class="line">			alert(<span class="string">"您复制的内容为: "</span> + event.data[<span class="string">"text/plain"</span>] );</span><br><span class="line">		&#125; );</span><br><span class="line">		client.on( <span class="string">'copy'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">event</span>) </span>&#123;</span><br><span class="line">			event.clipboardData.setData(<span class="string">'text/plain'</span>,event.target.innerHTML);</span><br><span class="line">        &#125; );</span><br><span class="line">	&#125; );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
@@ -133,7 +132,7 @@ document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://www.peng8.net/2015/03/02/highchart-copy-title-to-clipboard/" data-id="ckaux7k92001c7y2afqapiuyk" class="article-share-link" data-share="baidu">分享到</a>
+        <a data-url="http://www.peng8.net/2015/03/02/highchart-copy-title-to-clipboard/" data-id="ckauy6yik001agp2a2uro4o4i" class="article-share-link" data-share="baidu">分享到</a>
       
 
       

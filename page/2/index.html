@@ -132,7 +132,7 @@ document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://www.peng8.net/2015/09/11/render-serverside-as-webserver/" data-id="ckaux7kai00417y2akt4efdy4" class="article-share-link" data-share="baidu">分享到</a>
+        <a data-url="http://www.peng8.net/2015/09/11/render-serverside-as-webserver/" data-id="ckauy6yjx004agp2ag4s8uzoe" class="article-share-link" data-share="baidu">分享到</a>
       
 
       
@@ -192,7 +192,7 @@ document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://www.peng8.net/2015/09/06/the-hope/" data-id="ckaux7kav004v7y2a33satdi1" class="article-share-link" data-share="baidu">分享到</a>
+        <a data-url="http://www.peng8.net/2015/09/06/the-hope/" data-id="ckauy6yk1004mgp2arcmtks4y" class="article-share-link" data-share="baidu">分享到</a>
       
 
       
@@ -256,7 +256,7 @@ document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://www.peng8.net/2015/07/23/use-swiftype-create-engine/" data-id="ckaux7kax00507y2ajinrlx0u" class="article-share-link" data-share="baidu">分享到</a>
+        <a data-url="http://www.peng8.net/2015/07/23/use-swiftype-create-engine/" data-id="ckauy6yk7004zgp2a57va6hwq" class="article-share-link" data-share="baidu">分享到</a>
       
 
       
@@ -306,7 +306,7 @@ document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3
 </blockquote>
 <p></p><p class="article-style1"><code>gojs</code> 是一款非常强大的绘图工具，可以用来画流程图、树图、关系图、力导图、甘特图、电流图等等一些很复杂炫酷的图形。以下是我学习的笔记，帮助大家理解，如有不对的地方请谅解</p>
 <h4 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h4><p>官方网站下载gojs相关的资源包，里面包含了例子、API等资源文件 <a href="http://gojs.net/latest/index.html" target="_blank" rel="noopener">传送门</a></p>
-<p>####一个简单的流程图<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> $ = go.GraphObject.make;</span><br></pre></td></tr></table></figure></p>
+<h4 id="一个简单的流程图"><a href="#一个简单的流程图" class="headerlink" title="一个简单的流程图"></a>一个简单的流程图</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> $ = go.GraphObject.make;</span><br></pre></td></tr></table></figure>
 <p>注释：按照我自己的理解，这个全局变量相当于一个画笔，即定义一个画笔工具。之后我们就可以通过<code>$</code>符号来调用它自身的一些方法、属性、枚举对象等。<br>有了画笔，那我们还需要画布，于是我们需要定义一个画布用来装载一些具体内容<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> myDiagram =$(go.Diagram, <span class="string">"myDiagram"</span>,&#123;</span><br><span class="line">    initialAutoScale: go.Diagram.Uniform,</span><br><span class="line">    contentAlignment: go.Spot.Center,</span><br><span class="line">    layout:$(go.ForceDirectedLayout,&#123; </span><br><span class="line">     defaultSpringLength: <span class="number">30</span>, </span><br><span class="line">     defaultElectricalCharge: <span class="number">100</span> </span><br><span class="line">     &#125;)</span><br><span class="line"> &#125;);</span><br></pre></td></tr></table></figure></p>
 <p>注释：<code>go.Diagram</code> 就是我们要定义的画布，注意了，第二个参数 “myDiagram” ，这里是要渲染的DIV 的Id 名称，<code>contentAlignment</code>是内容的对齐方式，<code>layout</code> 代表画布里的元素布局方式，采用了力导图自然排列。<br>这个画笔可以绘制节点、链接、区域、图案、形状、文本等，例如我们要写一个文本就可以这样写：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$(go.TextBlock,&#123;</span><br><span class="line">    text:<span class="string">"www.peng8.net"</span>,</span><br><span class="line">    stroke: <span class="string">"red"</span>,</span><br><span class="line">    font: <span class="string">"bold 10pt helvetica, bold arial, sans-serif"</span>,</span><br><span class="line">    margin: <span class="number">4</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
 <p>注释：上面这段代码应该很好理解，用画笔绘制了一个文本对象<code>go.TextBlock</code> ，并为它填充了属性 text、stroke、font、margin 等。</p>
@@ -327,7 +327,7 @@ document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://www.peng8.net/2015/07/20/gojs-notes-one/" data-id="ckaux7k8w000z7y2a4v5io59h" class="article-share-link" data-share="baidu">分享到</a>
+        <a data-url="http://www.peng8.net/2015/07/20/gojs-notes-one/" data-id="ckauy6yig0011gp2awo8kou1s" class="article-share-link" data-share="baidu">分享到</a>
       
 
       
@@ -372,13 +372,13 @@ document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3
       
 		
 		
-        <p>####战略转折点来的时候，如果你不想被摧毁，就只能快速反应、适应，并且改变。<br><img src="http://peng8-blog.oss-cn-beijing.aliyuncs.com/blog/peng8_zhuanzhedian.jpg" alt=""></p>
+        <h4 id="战略转折点来的时候，如果你不想被摧毁，就只能快速反应、适应，并且改变。"><a href="#战略转折点来的时候，如果你不想被摧毁，就只能快速反应、适应，并且改变。" class="headerlink" title="战略转折点来的时候，如果你不想被摧毁，就只能快速反应、适应，并且改变。"></a>战略转折点来的时候，如果你不想被摧毁，就只能快速反应、适应，并且改变。</h4><p><img src="http://peng8-blog.oss-cn-beijing.aliyuncs.com/blog/peng8_zhuanzhedian.jpg" alt=""></p>
 
       
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://www.peng8.net/2015/06/23/my-turning-point/" data-id="ckaux7ka7003f7y2al5738bzk" class="article-share-link" data-share="baidu">分享到</a>
+        <a data-url="http://www.peng8.net/2015/06/23/my-turning-point/" data-id="ckauy6yjr003vgp2a6lfjzlc9" class="article-share-link" data-share="baidu">分享到</a>
       
 
       
@@ -450,7 +450,7 @@ document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://www.peng8.net/2015/05/27/unknown-attribute-of-highchart/" data-id="ckaux7kam00487y2acgncc1l5" class="article-share-link" data-share="baidu">分享到</a>
+        <a data-url="http://www.peng8.net/2015/05/27/unknown-attribute-of-highchart/" data-id="ckauy6yk0004igp2apt3yew2r" class="article-share-link" data-share="baidu">分享到</a>
       
 
       
@@ -498,16 +498,15 @@ document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3
         <blockquote>
 <p>highchart 仪表盘半圆形</p>
 </blockquote>
-<p>####效果图<br><img src="http://peng8-blog.oss-cn-beijing.aliyuncs.com/blog/peng8_20150526141433.png" alt=""></p>
-<p>####核心代码</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">pane: &#123;</span><br><span class="line">  startAngle: <span class="number">-90</span>,</span><br><span class="line">  endAngle: <span class="number">90</span>,</span><br><span class="line">  background: [ &#123;</span><br><span class="line">     backgroundColor: <span class="string">'#fff'</span>,</span><br><span class="line">     borderWidth: <span class="number">0</span> </span><br><span class="line"> &#125;]  </span><br><span class="line">&#125;,</span><br><span class="line">chart: &#123;</span><br><span class="line">    type: <span class="string">'gauge'</span>,</span><br><span class="line">    plotBackgroundColor: <span class="literal">null</span>,</span><br><span class="line">    plotBackgroundImage: <span class="literal">null</span>,</span><br><span class="line">    plotBorderWidth: <span class="number">0</span>,</span><br><span class="line">    plotShadow: <span class="literal">false</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>####在线地址<br>DEMO地址：<a href="http://runjs.cn/detail/u5hy1sut" target="_blank" rel="noopener">传送门</a></p>
+<h4 id="效果图"><a href="#效果图" class="headerlink" title="效果图"></a>效果图</h4><p><img src="http://peng8-blog.oss-cn-beijing.aliyuncs.com/blog/peng8_20150526141433.png" alt=""></p>
+<h4 id="核心代码"><a href="#核心代码" class="headerlink" title="核心代码"></a>核心代码</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">pane: &#123;</span><br><span class="line">  startAngle: <span class="number">-90</span>,</span><br><span class="line">  endAngle: <span class="number">90</span>,</span><br><span class="line">  background: [ &#123;</span><br><span class="line">     backgroundColor: <span class="string">'#fff'</span>,</span><br><span class="line">     borderWidth: <span class="number">0</span> </span><br><span class="line"> &#125;]  </span><br><span class="line">&#125;,</span><br><span class="line">chart: &#123;</span><br><span class="line">    type: <span class="string">'gauge'</span>,</span><br><span class="line">    plotBackgroundColor: <span class="literal">null</span>,</span><br><span class="line">    plotBackgroundImage: <span class="literal">null</span>,</span><br><span class="line">    plotBorderWidth: <span class="number">0</span>,</span><br><span class="line">    plotShadow: <span class="literal">false</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="在线地址"><a href="#在线地址" class="headerlink" title="在线地址"></a>在线地址</h4><p>DEMO地址：<a href="http://runjs.cn/detail/u5hy1sut" target="_blank" rel="noopener">传送门</a></p>
 
       
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://www.peng8.net/2015/05/26/highchart-gauge/" data-id="ckaux7k99001n7y2a502gfsrs" class="article-share-link" data-share="baidu">分享到</a>
+        <a data-url="http://www.peng8.net/2015/05/26/highchart-gauge/" data-id="ckauy6yiq001mgp2aexikr83k" class="article-share-link" data-share="baidu">分享到</a>
       
 
       
@@ -561,7 +560,7 @@ document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3
 </ul>
 <p class="article-style1">说明：上述代码是一段扩展，在callback中为图标重新绑定了mousemove事件，当鼠标滑过某个点，动态修改legendItem的属性，并重新渲染</p>
 
-<p>####来张效果示意图<br><img src="http://peng8-blog.oss-cn-beijing.aliyuncs.com/blog/peng8_20150519103625.png" alt=""></p>
+<h4 id="来张效果示意图"><a href="#来张效果示意图" class="headerlink" title="来张效果示意图"></a>来张效果示意图</h4><p><img src="http://peng8-blog.oss-cn-beijing.aliyuncs.com/blog/peng8_20150519103625.png" alt=""></p>
 <blockquote>
 <p>DEMO地址入口：<a href="http://runjs.cn/detail/re3ncudx" target="_blank" rel="noopener">传送门</a></p>
 </blockquote>
@@ -570,7 +569,7 @@ document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://www.peng8.net/2015/05/19/highchart-show-value-in-legend/" data-id="ckaux7k9h00237y2aqxtb674t" class="article-share-link" data-share="baidu">分享到</a>
+        <a data-url="http://www.peng8.net/2015/05/19/highchart-show-value-in-legend/" data-id="ckauy6yit001wgp2a18ubkbt7" class="article-share-link" data-share="baidu">分享到</a>
       
 
       
@@ -618,12 +617,12 @@ document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3
         <blockquote>
 <p> 在使用ng的过程中，默认的绑定符号是 <code>\{\{ng变量\}\}</code>，但有时候会与其他插件的一些模版符号冲突，因此我们需要自定义ng渲染的符号，能不能将 <code>\{\{ng变量\}\}</code> 替换成 <code>[[ng变量]]</code> 或者 <code>{[ng变量]}</code>，答案是肯定的，  主要是利用 <code>$interpolateProvider</code>内置服务 修改标识符。代码如下所示</p>
 </blockquote>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span> <span class="attr">ng-app</span>=<span class="string">"MyModule"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">id</span>=<span class="string">"form1"</span> <span class="attr">runat</span>=<span class="string">"server"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">div</span> <span class="attr">ng-controller</span>=<span class="string">"main"</span>&gt;</span></span><br><span class="line">          [[test]]</span><br><span class="line">      <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript">    angular.module(<span class="string">'MyModule'</span>, []).config([<span class="string">'$interpolateProvider'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">$interpolateProvider</span>) </span>&#123;</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="javascript">        angular.bootstrap(<span class="built_in">document</span>.documentElement,</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="javascript">        [<span class="function"><span class="keyword">function</span> (<span class="params">$interpolateProvider</span>) </span>&#123;</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="javascript">            $interpolateProvider.startSymbol(<span class="string">'[['</span>);</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="javascript">            $interpolateProvider.endSymbol(<span class="string">']]'</span>);</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="undefined">        &#125;]);</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="undefined">    &#125;]);</span></span><br><span class="line"><span class="javascript">    <span class="function"><span class="keyword">function</span> <span class="title">main</span>(<span class="params">$scope, $http</span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">        $scope.test = <span class="string">"aaaa"</span>;</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span> <span class="attr">ng-app</span>=<span class="string">"MyModule"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">id</span>=<span class="string">"form1"</span> <span class="attr">runat</span>=<span class="string">"server"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">div</span> <span class="attr">ng-controller</span>=<span class="string">"main"</span>&gt;</span></span><br><span class="line">          [[test]]</span><br><span class="line">      <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="undefined">    angular.module('MyModule', []).config(['$interpolateProvider', function ($interpolateProvider) &#123;</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="undefined">        angular.bootstrap(document.documentElement,</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="undefined">        [function ($interpolateProvider) &#123;</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="undefined">            $interpolateProvider.startSymbol('[[');</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="undefined">            $interpolateProvider.endSymbol(']]');</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="undefined">        &#125;]);</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="undefined">    &#125;]);</span></span><br><span class="line"><span class="undefined">    function main($scope, $http) &#123;</span></span><br><span class="line"><span class="undefined">        $scope.test = "aaaa";</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
       
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://www.peng8.net/2015/05/11/angularjs-custom-render-mark/" data-id="ckaux7k8e00087y2a34q3cqe8" class="article-share-link" data-share="baidu">分享到</a>
+        <a data-url="http://www.peng8.net/2015/05/11/angularjs-custom-render-mark/" data-id="ckauy6yhr0002gp2a8xkwtuwf" class="article-share-link" data-share="baidu">分享到</a>
       
 
       
@@ -670,7 +669,7 @@ document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3
 <p><strong><code>Aspose</code></strong>  是Aspose公司旗下的最全的一套office文档管理解决方案，主要提供.net跟java两个开发语言的控件套包。功能异常强大，各个平台基本都支持，强力推荐大家使用。<br>本文就根据我所用的经历简要介绍Aspose的一些用法！</p>
 </blockquote>
 <p>注：由于小弟只在ASP.NET 中曾用Aspose 导出过word ，所以接下来的介绍都是asp.net环境下的一些用法。</p>
-<p>####资源包<br>首先我们得去官网下载 asp.net aspose的DLL 程序集，稍后会在项目中使用。<br>官网的DLL 会带有水印和商标，因此大家可以在网上搜索破解版，这里我就不啰嗦了</p>
+<h4 id="资源包"><a href="#资源包" class="headerlink" title="资源包"></a>资源包</h4><p>首先我们得去官网下载 asp.net aspose的DLL 程序集，稍后会在项目中使用。<br>官网的DLL 会带有水印和商标，因此大家可以在网上搜索破解版，这里我就不啰嗦了</p>
 <p><img src="http://peng8-blog.oss-cn-beijing.aliyuncs.com/blog/peng_20150409102142.png" alt=""></p>
 <h4 id="基本用法"><a href="#基本用法" class="headerlink" title="基本用法"></a>基本用法</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Aspose.Words.Document doc = new Aspose.Words.Document();</span><br></pre></td></tr></table></figure>
 <p class="article-style1">用来申明一个 word文件对象，后面() 里可以增加参数，实例化有5个重载，括号中什么都不写表示空文档对象，若写上本地word的路径，则是将word文件读取到当前word文件对象中。</p>
@@ -686,7 +685,7 @@ document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://www.peng8.net/2015/04/09/aspose-introduction/" data-id="ckaux7k8l000g7y2asdrlo92g" class="article-share-link" data-share="baidu">分享到</a>
+        <a data-url="http://www.peng8.net/2015/04/09/aspose-introduction/" data-id="ckauy6yi00009gp2ahxpir3o1" class="article-share-link" data-share="baidu">分享到</a>
       
 
       

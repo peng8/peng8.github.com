@@ -101,8 +101,7 @@ document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3
 <p>感觉有一段时间没写东西了，原因是从年初来了后，公司开展了移动端的业务，用的是<code>React-native</code> 这个前端框架，所以这段时间一直很忙，需要去研究 React的Api、语法、兼容性、难点突破等等。</p>
 </blockquote>
 <p>这次给大家分享一下 React中 ListView这个组件以及全选和单选按钮的封装使用。当然核心部分还是讲解自定义封装的 checkbox 组件！<br>React 有一个优势就是组件的复用性特别高，在原生组件中，官方并没有向我们提供checkbox这样的多选或单选的组件，因此需要我们自己去封装。</p>
-<p>###checkbox组件封装</p>
-<p>####准备条件<br>若我们需要在列表的右侧展现checkbox那样的复选框，一般在网页中会有自带的checkbox标签元素，那在react中我们需要用图片或者字体图标来实现checkbox样式的显示，当然也可以通过样式来控制</p>
+<h3 id="checkbox组件封装"><a href="#checkbox组件封装" class="headerlink" title="checkbox组件封装"></a>checkbox组件封装</h3><h4 id="准备条件"><a href="#准备条件" class="headerlink" title="准备条件"></a>准备条件</h4><p>若我们需要在列表的右侧展现checkbox那样的复选框，一般在网页中会有自带的checkbox标签元素，那在react中我们需要用图片或者字体图标来实现checkbox样式的显示，当然也可以通过样式来控制</p>
 <ul>
 <li><p>字体图标方式<br>在此我们需要通过npm的方式去安装 字体图标的依赖包，传送门 <a href="https://github.com/oblador/react-native-vector-icons" target="_blank" rel="noopener">点我点我</a></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">npm install react-native-vector-icons --save</span><br><span class="line"></span><br><span class="line">安装完毕后，我们通过require的方式，将包导入进来，如下</span><br><span class="line">var Icon=require(&apos;react-native-vector-icons/FontAwesome&apos;);</span><br><span class="line"></span><br><span class="line">render()&#123;</span><br><span class="line">	return &lt;Icon name=&apos;square-o&apos; size=&#123;16&#125; style=&#123;styles.checkbox&#125; color=&quot;#00B4F7&quot; &gt;&lt;/Icon&gt;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -120,7 +119,7 @@ document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://www.peng8.net/2016/07/06/write-checkbox-component-in-React/" data-id="ckaux7kat004s7y2atbvpeddb" class="article-share-link" data-share="baidu">分享到</a>
+        <a data-url="http://www.peng8.net/2016/07/06/write-checkbox-component-in-React/" data-id="ckauy6ykb0052gp2aabz0dzbl" class="article-share-link" data-share="baidu">分享到</a>
       
 
       
@@ -176,7 +175,7 @@ document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://www.peng8.net/2016/02/23/learn-react-native/" data-id="ckaux7ka5003a7y2amq3fv8qr" class="article-share-link" data-share="baidu">分享到</a>
+        <a data-url="http://www.peng8.net/2016/02/23/learn-react-native/" data-id="ckauy6yjm003igp2afgqrdd0z" class="article-share-link" data-share="baidu">分享到</a>
       
 
       

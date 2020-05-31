@@ -104,23 +104,21 @@ document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3
 			<div id="toc" class="toc-article">			
 				<strong class="toc-title">文章目录</strong>
 			
-				
+				<ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#样式嵌入分类"><span class="toc-text">样式嵌入分类</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#css选择器的优先权"><span class="toc-text">css选择器的优先权</span></a></li></ol>
 			
 			</div>
 		
         <blockquote>
 </blockquote>
 <p>可能一开始接触web前端的开发，没有对css样式有特别深入的了解。只是笼统的知道行内样式的权值最高，其次是ID选择器的优先级&gt;class选择器&gt;html选择器，今天抽时间看了下相关的文章，原来关于样式的权值不是那么简单，给大家分享下心得</p>
-<p>####样式嵌入分类</p>
-<ol>
+<h4 id="样式嵌入分类"><a href="#样式嵌入分类" class="headerlink" title="样式嵌入分类"></a>样式嵌入分类</h4><ol>
 <li>外部样式表</li>
 <li>内部样式表（位于 <head> 标签内部）</head></li>
 <li>内联样式（在 HTML 元素内部）</li>
 </ol>
 <p>一般情况下优先级的顺序如下：<br><strong>（外部样式）External style sheet &lt;（内部样式）Internal style sheet &lt;（内联样式）Inline style</strong><br>但是不是所有的都遵循这个规则？大部分是，但也有特例，比如：<br><span style="color:red"><strong>「如果外部样式放在内部样式的后面，则外部样式将覆盖内部样式。」</strong></span><br>示例如下：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>样式覆盖测试<span class="tag">&lt;/<span class="name">title</span>&gt;</span>    </span><br><span class="line">    <span class="tag">&lt;<span class="name">style</span> <span class="attr">type</span>=<span class="string">"text/css"</span>&gt;</span><span class="undefined">    </span></span><br><span class="line"><span class="undefined">      /* 内部样式 */    </span></span><br><span class="line"><span class="undefined">      h1&#123;color:green;&#125;    </span></span><br><span class="line"><span class="undefined">    </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span>    </span><br><span class="line">    <span class="comment">&lt;!-- 引入外部样式 style.css --&gt;</span>    </span><br><span class="line">    <span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span> <span class="attr">type</span>=<span class="string">"text/css"</span> <span class="attr">href</span>=<span class="string">"style.css"</span>/&gt;</span>    </span><br><span class="line">    <span class="comment">&lt;!-- 设置：h1&#123;color:blue;&#125; --&gt;</span>    </span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span>    </span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span>    </span><br><span class="line">    <span class="tag">&lt;<span class="name">h1</span>&gt;</span>猜猜我是什么颜色？<span class="tag">&lt;/<span class="name">h1</span>&gt;</span>    </span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
 <p><strong>答案是 blue</strong><br><a id="more"></a></p>
-<p>####css选择器的优先权 </p>
-<ol>
+<h4 id="css选择器的优先权"><a href="#css选择器的优先权" class="headerlink" title="css选择器的优先权"></a>css选择器的优先权</h4><ol>
 <li><p>在 Selectors Level 3 规范中，一个选择器的优先级（权重）由依次串联的a、b、c三个标记来计算，<br>ID选择器「如 #header」的个数（a来表示）</p>
 </li>
 <li><p>Class选择器「如 .foo」、属性选择器「如 [class]」、伪类「如 :link」的个数（b来表示）</p>
@@ -167,7 +165,7 @@ document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://www.peng8.net/2014/05/21/css-priority-mechanism/" data-id="ckaux7k8y00137y2agdcxxt8m" class="article-share-link" data-share="baidu">分享到</a>
+        <a data-url="http://www.peng8.net/2014/05/21/css-priority-mechanism/" data-id="ckauy6yib000pgp2acy6wol0n" class="article-share-link" data-share="baidu">分享到</a>
       
 
       

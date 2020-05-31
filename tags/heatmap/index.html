@@ -106,7 +106,7 @@ document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3
 </blockquote>
 <p>上一篇给大家介绍了热点图数据的收集，那这篇主要是给大伙讲解如何展现，就直接步入正题了</p>
 <hr>
-<p>###如何动态载入网页<br>我们需要将原始的网页加载到iframe中，然后用一个遮罩层盖住这个iframe，最后用canvas绘制出热图覆盖在这个上面。<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"overflowDiv"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"heatmapArea"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"maskDiv"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">iframe</span> <span class="attr">src</span>=<span class="string">""</span> <span class="attr">id</span>=<span class="string">"webPageFrame"</span> <span class="attr">frameborder</span>=<span class="string">"0"</span> <span class="attr">name</span>=<span class="string">"webPageFrame"</span> <span class="attr">scrolling</span>=<span class="string">"no"</span> <span class="attr">width</span>=<span class="string">"1280"</span>&gt;</span><span class="tag">&lt;/<span class="name">iframe</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="如何动态载入网页"><a href="#如何动态载入网页" class="headerlink" title="如何动态载入网页"></a>如何动态载入网页</h3><p>我们需要将原始的网页加载到iframe中，然后用一个遮罩层盖住这个iframe，最后用canvas绘制出热图覆盖在这个上面。<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"overflowDiv"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"heatmapArea"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"maskDiv"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">iframe</span> <span class="attr">src</span>=<span class="string">""</span> <span class="attr">id</span>=<span class="string">"webPageFrame"</span> <span class="attr">frameborder</span>=<span class="string">"0"</span> <span class="attr">name</span>=<span class="string">"webPageFrame"</span> <span class="attr">scrolling</span>=<span class="string">"no"</span> <span class="attr">width</span>=<span class="string">"1280"</span>&gt;</span><span class="tag">&lt;/<span class="name">iframe</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
         
           <p class="article-more-link">
             <a href="/2015/10/13/how-to-create-heatmap-two/#more">查看更多</a>
@@ -116,7 +116,7 @@ document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://www.peng8.net/2015/10/13/how-to-create-heatmap-two/" data-id="ckaux7k9q002n7y2aid55y0d3" class="article-share-link" data-share="baidu">分享到</a>
+        <a data-url="http://www.peng8.net/2015/10/13/how-to-create-heatmap-two/" data-id="ckauy6yj2002ggp2aas2wewb1" class="article-share-link" data-share="baidu">分享到</a>
       
 
       
@@ -159,7 +159,7 @@ document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>###啥是热点图(热力图)？<br>我们在站长统计里、百度统计、谷歌统计等纵多统计系统中会发现这个功能，它叫 clickmap或者heatmap。<br>说简单点就是收集用户的点击行为，然后用不同深度不同颜色将用户点击的行为展现出来。于是我们看到如下图例（来自于百度的截图）<br><br></p>
+        <h3 id="啥是热点图-热力图-？"><a href="#啥是热点图-热力图-？" class="headerlink" title="啥是热点图(热力图)？"></a>啥是热点图(热力图)？</h3><p>我们在站长统计里、百度统计、谷歌统计等纵多统计系统中会发现这个功能，它叫 clickmap或者heatmap。<br>说简单点就是收集用户的点击行为，然后用不同深度不同颜色将用户点击的行为展现出来。于是我们看到如下图例（来自于百度的截图）<br><br></p>
 <p><img src="http://peng8-blog.oss-cn-beijing.aliyuncs.com/blog/peng_20151012155932.png" alt=""></p>
         
           <p class="article-more-link">
@@ -170,7 +170,7 @@ document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://www.peng8.net/2015/10/12/how-to-create-heatmap-one/" data-id="ckaux7k9k00287y2a85256jhw" class="article-share-link" data-share="baidu">分享到</a>
+        <a data-url="http://www.peng8.net/2015/10/12/how-to-create-heatmap-one/" data-id="ckauy6yj1002cgp2a7bfi6aft" class="article-share-link" data-share="baidu">分享到</a>
       
 
       
