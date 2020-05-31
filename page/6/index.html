@@ -75,6 +75,325 @@ document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3
       <div class="outer">
         <section id="main">
   
+    <article id="post-judge-object-is-null-or-empty" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2014/08/21/judge-object-is-null-or-empty/" class="article-date">
+  <time datetime="2014-08-21T02:25:59.000Z" itemprop="datePublished">2014/08/21</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/javascript/">javascript</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2014/08/21/judge-object-is-null-or-empty/">JavaScript 判断对象是否存在的几种写法</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在平日的前端开发中，我们会经常遇到一个问题，就是 “某某某对象未定义或者underfined”，为了避免这样的问题，我们在用一个对象或者变量的时候得预先判断，然后做下一步操作，判断对象是否存在的方法有很多种，大致总结了下有如下：</p>
+<ul>
+<li><p><strong>第一种</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (!myObj) &#123;</span><br><span class="line">　　<span class="keyword">var</span> myObj = &#123; &#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>第二种</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (!<span class="built_in">window</span>.myObj) &#123;</span><br><span class="line">　　<span class="keyword">var</span> myObj = &#123; &#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>第三种</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (!<span class="keyword">this</span>.myObj) &#123;　　　　</span><br><span class="line">    <span class="keyword">this</span>.myObj = &#123; &#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+        
+          <p class="article-more-link">
+            <a href="/2014/08/21/judge-object-is-null-or-empty/#more">查看更多</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      
+        <a data-url="http://www.peng8.net/2014/08/21/judge-object-is-null-or-empty/" data-id="ckav23r67003e2d2aw8ztxu16" class="article-share-link" data-share="baidu">分享到</a>
+      
+
+      
+
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
+
+
+    </footer>
+  </div>
+  
+</article>
+
+  
+ 
+  
+    <article id="post-interceptors-in-angularjs" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2014/08/15/interceptors-in-angularjs/" class="article-date">
+  <time datetime="2014-08-15T09:16:52.000Z" itemprop="datePublished">2014/08/15</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/angularjs/">angularjs</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2014/08/15/interceptors-in-angularjs/">angularjs 拦截器与全局错误处理</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>用angularjs（后面简称 ng）刚开始可能会遇到这样一些疑问，ng 大多时候请求的是静态资源和片段<br>如何在请求片段的之前去捕获请求，并判断用户是否在登录状态 ，或者用户登录是否过期？</p>
+</blockquote>
+<p><code>$httpAngularJS</code> 的 <code>$http</code> 服务允许我们通过发送 <code>HTTP</code> 请求方式与后台进行通信。在某些情况下，我们希望可以俘获所有的请求，并且在将其发送到服务端之前进行操作。还有一些情况是我们希望俘获响应，并且在完成完成调用之前处理它。一个很好例子就是处理全局 http 异常。拦截器(<code>Interceptors</code>)应运而生。<br>
+        
+          <p class="article-more-link">
+            <a href="/2014/08/15/interceptors-in-angularjs/#more">查看更多</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      
+        <a data-url="http://www.peng8.net/2014/08/15/interceptors-in-angularjs/" data-id="ckav23r6400362d2ay9rspjox" class="article-share-link" data-share="baidu">分享到</a>
+      
+
+      
+
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/angularjs/">angularjs</a></li></ul>
+
+
+    </footer>
+  </div>
+  
+</article>
+
+  
+ 
+  
+    <article id="post-render-charts-serverside" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2014/07/21/render-charts-serverside/" class="article-date">
+  <time datetime="2014-07-21T05:33:02.000Z" itemprop="datePublished">2014/07/21</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Highcharts/">Highcharts</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2014/07/21/render-charts-serverside/">highcharts 结合phantomjs纯后台生成图片</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+</blockquote>
+<p>highcharts 这个图表展示插件我想大家应该都知道，纯javascript编写，相比那些flash图表插件有很大的优势，至少浏览器不用考虑是否装了flash插件，功能也非常的强大，详细请看官网 ，我就不做多介绍了。</p>
+<p>那今天咱们讨论的难题是我们平时用highchart生成图片时，首先要在前端展示出图表，然后通过图表的API 按钮或者自定义的按钮 来向后台发起请求，后台获取到图片的SVG信息时，然后根据SVG的信息生成对应的图片或者PDF文件输出到流供客户端下载或者直接保存在服务端。</p>
+<blockquote>
+<p><span style="color:red">那么这个图片生成必须依赖前台生成的图表来触发，那有些图片我们又想自动生成又不需要前端，生成后直接通过邮件发送或者写入word文件，该如何做呢？</span></p>
+</blockquote>
+<p>有人会想可以模拟前台自动向后台发送请求，我这样试过，效率非常不敬人意！后来看了官方的一些介绍，引入了phantomjs 这个好东西，它是个javascript引擎库，基于webkit内核，能解析前台的HTML及javascript并生成对应的图片，最重要的一点是它能够以服务的形式独立运行在后端，接下来是详细步骤：<br>
+        
+          <p class="article-more-link">
+            <a href="/2014/07/21/render-charts-serverside/#more">查看更多</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      
+        <a data-url="http://www.peng8.net/2014/07/21/render-charts-serverside/" data-id="ckav23r6n00492d2anarxx5tn" class="article-share-link" data-share="baidu">分享到</a>
+      
+
+      
+
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Highcharts/">Highcharts</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/phantomjs/">phantomjs</a></li></ul>
+
+
+    </footer>
+  </div>
+  
+</article>
+
+  
+ 
+  
+    <article id="post-angularjs-show-html-in-ngmodel" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2014/07/07/angularjs-show-html-in-ngmodel/" class="article-date">
+  <time datetime="2014-07-07T08:21:30.000Z" itemprop="datePublished">2014/07/07</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/angularjs/">angularjs</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2014/07/07/angularjs-show-html-in-ngmodel/">angularjs 如何实现自定义html的显示</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+		
+		
+        <p>最近在使用angularjs做一个列表展示的功能，突然发现自定义行的内容里不能包含html标签。于是翻阅了一些资料和API找到了解决的办法。</p>
+<ul>
+<li>首先我们看下面一段代码     </li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">table</span> <span class="attr">data-ng-controller</span>=<span class="string">"ListController"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">tr</span> <span class="attr">data-ng-repeat</span>=<span class="string">"item in items"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">td</span>&gt;</span>&#123;&#123;item.title&#125;&#125;<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">td</span>&gt;</span>&#123;&#123;item.content&#125;&#125;<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">table</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>这里item对象的content属性里包含 <strong>html标签</strong>，例如 <strong>item.content=”<a href="’www.peng8.net’">我是内容</a>”</strong>，如果出现这样的内容，不做任何处理的情况下页面会报错，导致内容无法显示，这是因为 <em>angularjs的安全机制</em>  引起的，angularjs渲染时不允许片段里包含html元素，如果需要加入自定义的html片段，需要调用它内部的<strong>服务$sce里的trustAsHtml</strong>方法来过滤既然angularjs 为我们提供了这个方法，于是我们稍微改写下前端的html，变成下面这样：</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">table</span> <span class="attr">data-ng-controller</span>=<span class="string">"ListController"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">tr</span> <span class="attr">data-ng-repeat</span>=<span class="string">"item in items"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">td</span>&gt;</span>&#123;&#123;item.title&#125;&#125;<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">td</span>&gt;</span>&#123;&#123;getContentHtml(item.content)&#125;&#125;<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">table</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>接着我们在ListController里定义一个getContentHtml 方法来处理 这段文本内容。ListController 里需要引入$sce 服务</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">ListController</span>(<span class="params">$sce,$scope</span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    $scope.items=[</span><br><span class="line">        &#123;<span class="string">"title"</span>:<span class="string">"aaa"</span>,<span class="string">"content"</span>:<span class="string">"&lt;a href='www.peng8.net'&gt;aaaa&lt;/a&gt;"</span>&#125;,</span><br><span class="line">        &#123;<span class="string">"title"</span>:<span class="string">"bbb"</span>,<span class="string">"content"</span>:<span class="string">"&lt;a href='www.peng8.net'&gt;bbbb&lt;/a&gt;"</span>&#125;</span><br><span class="line">    ]</span><br><span class="line">    $scope.getContentHtml=<span class="function"><span class="keyword">function</span>(<span class="params">content</span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="comment">//可以在此拼接其他的html</span></span><br><span class="line">        <span class="keyword">return</span> $sce.trustAsHtml(content);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>以上是一种解决方案，那其实还有一种处理方案，也是通过$sce.trustAsHtml，但我们将其写在过滤器中，这样就可以避免多个controller里都要写相应的处理方法，但有些页面的业务逻辑比较复杂，还是得单独写在自己的controller里，依情况而定！为指定的模块 创建过滤器，例如我们为 app.controllers 创建了一个名叫 to_trusted 的过滤器</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">angular.module(<span class="string">'app.controllers'</span>, [])</span><br><span class="line">.filter(<span class="string">'to_trusted'</span>, [<span class="string">'$sce'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">$sce</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params">text</span>) </span>&#123;</span><br><span class="line">            <span class="keyword">return</span> $sce.trustAsHtml(text);</span><br><span class="line">        &#125;;</span><br><span class="line">&#125;]);</span><br></pre></td></tr></table></figure>
+<ul>
+<li>前端页面的处理将会更加简洁，我们稍作修改变成如下：</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">table</span> <span class="attr">data-ng-controller</span>=<span class="string">"ListController"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">tr</span> <span class="attr">data-ng-repeat</span>=<span class="string">"item in items"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">td</span>&gt;</span>&#123;&#123;item.title&#125;&#125;<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">td</span> <span class="attr">ng-bind-html</span>=<span class="string">"item.content | to_trusted"</span>&gt;</span><span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">table</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>这样，angularjs渲染的时候过滤器会自动去处理这段Html。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+        <a data-url="http://www.peng8.net/2014/07/07/angularjs-show-html-in-ngmodel/" data-id="ckav23r4i000a2d2almh8dxzz" class="article-share-link" data-share="baidu">分享到</a>
+      
+
+      
+
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/angularjs/">angularjs</a></li></ul>
+
+
+    </footer>
+  </div>
+  
+</article>
+
+  
+ 
+  
+    <article id="post-html-doctype-instruction" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2014/07/01/html-doctype-instruction/" class="article-date">
+  <time datetime="2014-07-01T03:44:27.000Z" itemprop="datePublished">2014/07/01</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/javascript/">javascript</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2014/07/01/html-doctype-instruction/">html里关于doctype 文档类型的介绍</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+		
+		
+        <h4 id="DOCTYPE-标签-–-定义了标准文档的类型"><a href="#DOCTYPE-标签-–-定义了标准文档的类型" class="headerlink" title="DOCTYPE 标签  –  定义了标准文档的类型"></a>DOCTYPE 标签  –  定义了标准文档的类型</h4><ul>
+<li>DOCTYPE标签是单独出现的<ul>
+<li>文档类型，会使浏览器使用相应标准加载网页并显示</li>
+<li>文档类型定义在HTML文档的第一行，在html标签之前</li>
+<li>文档不定义DOCTYPE，浏览器将无法获知HTML或XHTML文档的类型，因此会进入混乱模式</li>
+</ul>
+</li>
+<li>DOCTYPE，简称为DTDs，是英文Document type的缩写，中文“文档类型”</li>
+</ul>
+<h4 id="HTML-DOCTYPE文档类型举例说明"><a href="#HTML-DOCTYPE文档类型举例说明" class="headerlink" title="HTML DOCTYPE文档类型举例说明"></a>HTML DOCTYPE文档类型举例说明</h4><p>HTML4.01文档过渡定义类型，此类型定义的文档可以使用HTML中的标签与元素包括一些不被W3C推荐的标签（例如：font、b等），不可以使用框架<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.01 Transitional//EN&quot; &quot;http://www.w3.org/TR/html4/loose.dtd&quot;&gt;</span><br></pre></td></tr></table></figure></p>
+<p>HTML4.01文档严格定义类型，此类型定义的文档可以使用HTML中的标签与元素，不能包含不被W3C推荐的标签（例如：font、b等），不可以使用框架<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.01//EN&quot; &quot;http://www.w3.org/TR/html4/strict.dtd&quot;&gt;</span><br></pre></td></tr></table></figure></p>
+<p>HTML4.01文档框架定义类型，此类型等同于HTML4.01文档过渡定义类型，但可以使用框架<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.01 Frameset//EN&quot; &quot;http://www.w3.org/TR/html4/frameset.dtd&quot;&gt;</span><br></pre></td></tr></table></figure></p>
+<p>XHTML1.0文档过渡定义类型，此类型定义的文档可以使用HTML中的标签与元素包括一些不被W3C推荐的标签（例如：font、b等），不可以使用框架<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.0 Transitional//EN&quot; &quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd&quot;&gt;</span><br></pre></td></tr></table></figure></p>
+<p>XHTML1.0文档严格定义类型，此类型定义的文档只可以使用HTML中定义的标签与元素，不能包含不被W3C推荐的标签（例如：font、b）(梦之都就使用了此类型)，不可以使用框架<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.0 Strict//EN&quot; &quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd&quot;&gt;</span><br></pre></td></tr></table></figure></p>
+<p>XHTML1.0文档框架定义类型，等同于XHTML1.0文档过渡定义类型，但可以使用框架<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.0 Frameset//EN&quot; &quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-frameset.dtd&quot;&gt;</span><br></pre></td></tr></table></figure></p>
+<p>XHTML1.1文档严格定义类型，等同于XHTML1.0文档过渡定义类型<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.1//EN&quot; &quot;http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd&quot;&gt;</span><br></pre></td></tr></table></figure></p>
+<p>HTML5文档类型<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+        <a data-url="http://www.peng8.net/2014/07/01/html-doctype-instruction/" data-id="ckav23r6100302d2aiovcgmys" class="article-share-link" data-share="baidu">分享到</a>
+      
+
+      
+
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/doctype/">doctype</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
+
+
+    </footer>
+  </div>
+  
+</article>
+
+  
+ 
+  
     <article id="post-css-priority-mechanism" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2014/05/21/css-priority-mechanism/" class="article-date">
@@ -120,7 +439,7 @@ document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://www.peng8.net/2014/05/21/css-priority-mechanism/" data-id="ckauy6yib000pgp2acy6wol0n" class="article-share-link" data-share="baidu">分享到</a>
+        <a data-url="http://www.peng8.net/2014/05/21/css-priority-mechanism/" data-id="ckav23r4u000r2d2az3vfh55q" class="article-share-link" data-share="baidu">分享到</a>
       
 
       
@@ -176,7 +495,7 @@ document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://www.peng8.net/2014/05/20/image-lazyload-by-scroll/" data-id="ckauy6yje0032gp2a5jy6w2v5" class="article-share-link" data-share="baidu">分享到</a>
+        <a data-url="http://www.peng8.net/2014/05/20/image-lazyload-by-scroll/" data-id="ckav23r6300332d2ax7bzzkji" class="article-share-link" data-share="baidu">分享到</a>
       
 
       
@@ -232,7 +551,7 @@ document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://www.peng8.net/2014/05/11/how-to-install-dnn-website/" data-id="ckauy6yj5002jgp2afz08f61c" class="article-share-link" data-share="baidu">分享到</a>
+        <a data-url="http://www.peng8.net/2014/05/11/how-to-install-dnn-website/" data-id="ckav23r5s002k2d2atdqk0ien" class="article-share-link" data-share="baidu">分享到</a>
       
 
       
@@ -288,7 +607,7 @@ document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://www.peng8.net/2014/04/26/javascript-and-css-compression/" data-id="ckauy6yjh003agp2ay4i7jx69" class="article-share-link" data-share="baidu">分享到</a>
+        <a data-url="http://www.peng8.net/2014/04/26/javascript-and-css-compression/" data-id="ckav23r66003a2d2a5swky7jq" class="article-share-link" data-share="baidu">分享到</a>
       
 
       
@@ -353,7 +672,7 @@ document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://www.peng8.net/2014/04/20/checkclient-pc-or-mobile/" data-id="ckauy6yi5000egp2am2kfma39" class="article-share-link" data-share="baidu">分享到</a>
+        <a data-url="http://www.peng8.net/2014/04/20/checkclient-pc-or-mobile/" data-id="ckav23r4q000l2d2ae5u1hqiw" class="article-share-link" data-share="baidu">分享到</a>
       
 
       
@@ -370,123 +689,9 @@ document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3
   
  
   
-    <article id="post-highchart-custom-button-generate-images" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2014/04/15/highchart-custom-button-generate-images/" class="article-date">
-  <time datetime="2014-04-15T06:09:21.000Z" itemprop="datePublished">2014/04/15</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Highcharts/">Highcharts</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2014/04/15/highchart-custom-button-generate-images/">如何使用highcharts自定义按钮导出图片</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <blockquote>
-<p>接触highcharts这个图表插件已经有好几年了，摸打滚爬到现在可以说对highchart已经有一定的了解了</p>
-</blockquote>
-<p>首先 <strong>Highcharts</strong> 本身就提供了导出图片的功能，只需要在配置中增加相应的参数即可<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">navigation : &#123;</span><br><span class="line">	buttonOptions : &#123;</span><br><span class="line">		enabled : <span class="literal">true</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>设置完毕即可导出图片了，但是这种方式有个缺点，就是导出图片时会请求highchart官方的服务器生成图片，最后返回客户端给用户下载，我们可以在官方源码中看到这样一段代码：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">defaultOptions.exporting = &#123;</span><br><span class="line">	<span class="comment">//enabled: true,</span></span><br><span class="line">	<span class="comment">//filename: 'chart',</span></span><br><span class="line">	type: <span class="string">'image/png'</span>,</span><br><span class="line">	url: <span class="string">'http://export.highcharts.com/'</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<blockquote>
-<p>那如何请求自己的服务器生成对应的图片呢？官方API已经为我们留出了对应的接口供我们调用<br><a href="http://www.hcharts.cn/api/index.php#Chart.exportChart" target="_blank" rel="noopener">点击这里可以查看exportChart相关属性</a></p>
-</blockquote>
-        
-          <p class="article-more-link">
-            <a href="/2014/04/15/highchart-custom-button-generate-images/#more">查看更多</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      
-        <a data-url="http://www.peng8.net/2014/04/15/highchart-custom-button-generate-images/" data-id="ckauy6yil001bgp2axfmawb7n" class="article-share-link" data-share="baidu">分享到</a>
-      
-
-      
-
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Highcharts/">Highcharts</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jquery/">jquery</a></li></ul>
-
-
-    </footer>
-  </div>
-  
-</article>
-
-  
- 
-  
-    <article id="post-difference-photo" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2014/04/09/difference-photo/" class="article-date">
-  <time datetime="2014-04-09T07:32:46.000Z" itemprop="datePublished">2014/04/09</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/随笔日记/">随笔日记</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2014/04/09/difference-photo/">随手用手机拍的一张图片</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-		
-		
-        <blockquote>
-<p>o(∩_∩)o 拍摄的不错吧，用手机拍摄的，分享给你们欣赏</p>
-</blockquote>
-<p><img src="http://peng8-blog.oss-cn-beijing.aliyuncs.com/blog/IMG_0389.jpg" alt="北京动物园拍摄"></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      
-        <a data-url="http://www.peng8.net/2014/04/09/difference-photo/" data-id="ckauy6yic000qgp2ameko0gph" class="article-share-link" data-share="baidu">分享到</a>
-      
-
-      
-
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/美图/">美图</a></li></ul>
-
-
-    </footer>
-  </div>
-  
-</article>
-
-  
- 
-  
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/5/">&laquo; 上一页</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span>
+      <a class="extend prev" rel="prev" href="/page/5/">&laquo; 上一页</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/7/">下一页 &raquo;</a>
     </nav>
   
 </section>
@@ -536,7 +741,7 @@ filter: progid:DXImageTransform.Microsoft.Shadow(color='#C3C3C3', Direction=135,
   <div class="widget-wrap">
     <h3 class="widget-title">分类</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Highcharts/">Highcharts</a><span class="category-list-count">22</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java/">Java</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/angularjs/">angularjs</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/asp-net/">asp.net</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/css/">css</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/dnn/">dnn</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/easyui/">easyui</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/easyui/datagrid/">datagrid</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript/">javascript</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/jquery/">jquery</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/phantomjs/">phantomjs</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/reactjs/">reactjs</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/随笔日记/">随笔日记</a><span class="category-list-count">5</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Highcharts/">Highcharts</a><span class="category-list-count">22</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java/">Java</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/angularjs/">angularjs</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/asp-net/">asp.net</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/css/">css</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/dnn/">dnn</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/easyui/">easyui</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/easyui/datagrid/">datagrid</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript/">javascript</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/jquery/">jquery</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/phantomjs/">phantomjs</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/reactjs/">reactjs</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/随笔日记/">随笔日记</a><span class="category-list-count">5</span></li></ul>
     </div>
   </div>
 
@@ -545,7 +750,7 @@ filter: progid:DXImageTransform.Microsoft.Shadow(color='#C3C3C3', Direction=135,
   <div class="widget-wrap">
     <h3 class="widget-title">标签云</h3>
     <div class="widget tagcloud">
-      <a href="/tags/2014总结/" style="font-size: 10px; color: #7dc3de">2014总结</a> <a href="/tags/2015总结/" style="font-size: 10px; color: #7dc3de">2015总结</a> <a href="/tags/Highcharts/" style="font-size: 20px; color: #800080">Highcharts</a> <a href="/tags/Highcharts-legend/" style="font-size: 10px; color: #7dc3de">Highcharts legend</a> <a href="/tags/Highcharts不常用属性/" style="font-size: 10px; color: #7dc3de">Highcharts不常用属性</a> <a href="/tags/Highcharts仪表盘/" style="font-size: 10px; color: #7dc3de">Highcharts仪表盘</a> <a href="/tags/Highcharts复制标题/" style="font-size: 10px; color: #7dc3de">Highcharts复制标题</a> <a href="/tags/Highcharts绘制自定义元素/" style="font-size: 10px; color: #7dc3de">Highcharts绘制自定义元素</a> <a href="/tags/Highcharts自定义属性/" style="font-size: 10px; color: #7dc3de">Highcharts自定义属性</a> <a href="/tags/Highmaps/" style="font-size: 10px; color: #7dc3de">Highmaps</a> <a href="/tags/Highstock-K线图/" style="font-size: 10px; color: #7dc3de">Highstock K线图</a> <a href="/tags/Highstock-分时图/" style="font-size: 12.5px; color: #7e92c7">Highstock 分时图</a> <a href="/tags/Swiftype/" style="font-size: 10px; color: #7dc3de">Swiftype</a> <a href="/tags/android/" style="font-size: 10px; color: #7dc3de">android</a> <a href="/tags/angularjs/" style="font-size: 15px; color: #7f62af">angularjs</a> <a href="/tags/angularjs-post/" style="font-size: 10px; color: #7dc3de">angularjs post</a> <a href="/tags/angularjs自定义标签/" style="font-size: 10px; color: #7dc3de">angularjs自定义标签</a> <a href="/tags/asp-net/" style="font-size: 17.5px; color: #7f3198">asp.net</a> <a href="/tags/aspose/" style="font-size: 10px; color: #7dc3de">aspose</a> <a href="/tags/bowerrc创建/" style="font-size: 10px; color: #7dc3de">bowerrc创建</a> <a href="/tags/css/" style="font-size: 10px; color: #7dc3de">css</a> <a href="/tags/dnn/" style="font-size: 10px; color: #7dc3de">dnn</a> <a href="/tags/doctype/" style="font-size: 10px; color: #7dc3de">doctype</a> <a href="/tags/easyui/" style="font-size: 10px; color: #7dc3de">easyui</a> <a href="/tags/gojs入门笔记/" style="font-size: 10px; color: #7dc3de">gojs入门笔记</a> <a href="/tags/heatmap/" style="font-size: 12.5px; color: #7e92c7">heatmap</a> <a href="/tags/highchart/" style="font-size: 10px; color: #7dc3de">highchart</a> <a href="/tags/highmaps使用/" style="font-size: 10px; color: #7dc3de">highmaps使用</a> <a href="/tags/javascript/" style="font-size: 17.5px; color: #7f3198">javascript</a> <a href="/tags/jquery/" style="font-size: 17.5px; color: #7f3198">jquery</a> <a href="/tags/myPagination/" style="font-size: 10px; color: #7dc3de">myPagination</a> <a href="/tags/phantomjs/" style="font-size: 15px; color: #7f62af">phantomjs</a> <a href="/tags/phantomjs单独部署/" style="font-size: 10px; color: #7dc3de">phantomjs单独部署</a> <a href="/tags/react/" style="font-size: 12.5px; color: #7e92c7">react</a> <a href="/tags/react-native/" style="font-size: 12.5px; color: #7e92c7">react-native</a> <a href="/tags/tagedit/" style="font-size: 10px; color: #7dc3de">tagedit</a> <a href="/tags/timelinejs/" style="font-size: 10px; color: #7dc3de">timelinejs</a> <a href="/tags/分时图/" style="font-size: 10px; color: #7dc3de">分时图</a> <a href="/tags/地图/" style="font-size: 10px; color: #7dc3de">地图</a> <a href="/tags/希望/" style="font-size: 10px; color: #7dc3de">希望</a> <a href="/tags/延迟加载/" style="font-size: 10px; color: #7dc3de">延迟加载</a> <a href="/tags/智能查询/" style="font-size: 10px; color: #7dc3de">智能查询</a> <a href="/tags/热力图/" style="font-size: 12.5px; color: #7e92c7">热力图</a> <a href="/tags/热点图/" style="font-size: 12.5px; color: #7e92c7">热点图</a> <a href="/tags/美图/" style="font-size: 10px; color: #7dc3de">美图</a> <a href="/tags/随笔/" style="font-size: 10px; color: #7dc3de">随笔</a>
+      <a href="/tags/2014总结/" style="font-size: 10px; color: #7dc3de">2014总结</a> <a href="/tags/2015总结/" style="font-size: 10px; color: #7dc3de">2015总结</a> <a href="/tags/Highcharts/" style="font-size: 20px; color: #800080">Highcharts</a> <a href="/tags/Highcharts-legend/" style="font-size: 10px; color: #7dc3de">Highcharts legend</a> <a href="/tags/Highcharts不常用属性/" style="font-size: 10px; color: #7dc3de">Highcharts不常用属性</a> <a href="/tags/Highcharts仪表盘/" style="font-size: 10px; color: #7dc3de">Highcharts仪表盘</a> <a href="/tags/Highcharts复制标题/" style="font-size: 10px; color: #7dc3de">Highcharts复制标题</a> <a href="/tags/Highcharts绘制自定义元素/" style="font-size: 10px; color: #7dc3de">Highcharts绘制自定义元素</a> <a href="/tags/Highcharts自定义属性/" style="font-size: 10px; color: #7dc3de">Highcharts自定义属性</a> <a href="/tags/Highmaps/" style="font-size: 10px; color: #7dc3de">Highmaps</a> <a href="/tags/Highstock-K线图/" style="font-size: 10px; color: #7dc3de">Highstock K线图</a> <a href="/tags/Highstock-分时图/" style="font-size: 12.5px; color: #7e92c7">Highstock 分时图</a> <a href="/tags/Swiftype/" style="font-size: 10px; color: #7dc3de">Swiftype</a> <a href="/tags/android/" style="font-size: 17.5px; color: #7f3198">android</a> <a href="/tags/angularjs/" style="font-size: 15px; color: #7f62af">angularjs</a> <a href="/tags/angularjs-post/" style="font-size: 10px; color: #7dc3de">angularjs post</a> <a href="/tags/angularjs自定义标签/" style="font-size: 10px; color: #7dc3de">angularjs自定义标签</a> <a href="/tags/asp-net/" style="font-size: 17.5px; color: #7f3198">asp.net</a> <a href="/tags/aspose/" style="font-size: 10px; color: #7dc3de">aspose</a> <a href="/tags/bowerrc创建/" style="font-size: 10px; color: #7dc3de">bowerrc创建</a> <a href="/tags/css/" style="font-size: 10px; color: #7dc3de">css</a> <a href="/tags/dnn/" style="font-size: 10px; color: #7dc3de">dnn</a> <a href="/tags/doctype/" style="font-size: 10px; color: #7dc3de">doctype</a> <a href="/tags/easyui/" style="font-size: 10px; color: #7dc3de">easyui</a> <a href="/tags/gojs入门笔记/" style="font-size: 10px; color: #7dc3de">gojs入门笔记</a> <a href="/tags/heatmap/" style="font-size: 12.5px; color: #7e92c7">heatmap</a> <a href="/tags/highchart/" style="font-size: 10px; color: #7dc3de">highchart</a> <a href="/tags/highmaps使用/" style="font-size: 10px; color: #7dc3de">highmaps使用</a> <a href="/tags/javascript/" style="font-size: 17.5px; color: #7f3198">javascript</a> <a href="/tags/jquery/" style="font-size: 17.5px; color: #7f3198">jquery</a> <a href="/tags/myPagination/" style="font-size: 10px; color: #7dc3de">myPagination</a> <a href="/tags/phantomjs/" style="font-size: 15px; color: #7f62af">phantomjs</a> <a href="/tags/phantomjs单独部署/" style="font-size: 10px; color: #7dc3de">phantomjs单独部署</a> <a href="/tags/react/" style="font-size: 12.5px; color: #7e92c7">react</a> <a href="/tags/react-native/" style="font-size: 12.5px; color: #7e92c7">react-native</a> <a href="/tags/tagedit/" style="font-size: 10px; color: #7dc3de">tagedit</a> <a href="/tags/timelinejs/" style="font-size: 10px; color: #7dc3de">timelinejs</a> <a href="/tags/分时图/" style="font-size: 10px; color: #7dc3de">分时图</a> <a href="/tags/地图/" style="font-size: 10px; color: #7dc3de">地图</a> <a href="/tags/希望/" style="font-size: 10px; color: #7dc3de">希望</a> <a href="/tags/延迟加载/" style="font-size: 10px; color: #7dc3de">延迟加载</a> <a href="/tags/智能查询/" style="font-size: 10px; color: #7dc3de">智能查询</a> <a href="/tags/热力图/" style="font-size: 12.5px; color: #7e92c7">热力图</a> <a href="/tags/热点图/" style="font-size: 12.5px; color: #7e92c7">热点图</a> <a href="/tags/美图/" style="font-size: 10px; color: #7dc3de">美图</a> <a href="/tags/随笔/" style="font-size: 10px; color: #7dc3de">随笔</a>
     </div>
   </div>
 
@@ -554,7 +759,7 @@ filter: progid:DXImageTransform.Microsoft.Shadow(color='#C3C3C3', Direction=135,
   <div class="widget-wrap">
     <h3 class="widget-title">归档</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">五月 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">七月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">二月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">一月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">十二月 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">十一月 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">十月 2015</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">九月 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">七月 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">六月 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/05/">五月 2015</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/04/">四月 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">三月 2015</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">二月 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">一月 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/12/">十二月 2014</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">十一月 2014</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">十月 2014</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/09/">九月 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08/">八月 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/07/">七月 2014</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/05/">五月 2014</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/04/">四月 2014</a><span class="archive-list-count">4</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">五月 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">四月 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">三月 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">七月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">二月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">一月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">十二月 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">十一月 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">十月 2015</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">九月 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">七月 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">六月 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/05/">五月 2015</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/04/">四月 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">三月 2015</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">二月 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">一月 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/12/">十二月 2014</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">十一月 2014</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">十月 2014</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/09/">九月 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08/">八月 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/07/">七月 2014</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/05/">五月 2014</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/04/">四月 2014</a><span class="archive-list-count">4</span></li></ul>
     </div>
   </div>
 
@@ -566,23 +771,23 @@ filter: progid:DXImageTransform.Microsoft.Shadow(color='#C3C3C3', Direction=135,
       <ul>
         
           <li>
-            <a href="/2020/05/31/ok-http/">okhttp使用</a>
+            <a href="/2020/05/10/recyclerview2/">RecyclerView布局</a>
           </li>
         
           <li>
-            <a href="/2016/07/06/write-checkbox-component-in-React/">React-Native 中自定义checkbox组件</a>
+            <a href="/2020/05/01/ok-go/">okgo使用</a>
           </li>
         
           <li>
-            <a href="/2016/02/23/learn-react-native/">React-Native 环境搭建指南[阿鹏出品]</a>
+            <a href="/2020/04/11/retrofit/">retrofit的初步使用</a>
           </li>
         
           <li>
-            <a href="/2016/01/19/tagedit-demo-by-peng8/">简易模糊查询tagedit的实现</a>
+            <a href="/2020/04/02/ok-http/">okhttp使用</a>
           </li>
         
           <li>
-            <a href="/2015/12/31/2015-summary/">这一年</a>
+            <a href="/2020/03/31/android-studio/">AndroidStudio搭建</a>
           </li>
         
       </ul>

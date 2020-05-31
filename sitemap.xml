@@ -2,6 +2,48 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://www.peng8.net/2020/04/02/ok-http/</loc>
+    
+    <lastmod>2020-05-31T12:43:03.363Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.peng8.net/2020/05/10/recyclerview2/</loc>
+    
+    <lastmod>2020-05-31T12:36:02.166Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.peng8.net/2020/04/11/retrofit/</loc>
+    
+    <lastmod>2020-05-31T12:27:13.865Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.peng8.net/2020/03/11/recyclerview-adapter/</loc>
+    
+    <lastmod>2020-05-31T12:26:16.043Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.peng8.net/2020/03/31/android-studio/</loc>
+    
+    <lastmod>2020-05-31T12:23:21.148Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.peng8.net/2020/05/01/ok-go/</loc>
+    
+    <lastmod>2020-05-31T12:20:54.895Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://www.peng8.net/2016/07/06/write-checkbox-component-in-React/</loc>
     
     <lastmod>2020-05-31T11:16:08.626Z</lastmod>
@@ -219,30 +261,9 @@
   </url>
   
   <url>
-    <loc>http://www.peng8.net/2020/05/31/ok-http/</loc>
-    
-    <lastmod>2020-05-31T10:56:49.773Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://www.peng8.net/2015/10/09/create-bowerrc-file/</loc>
     
     <lastmod>2019-02-27T08:47:18.936Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.peng8.net/2014/09/27/how-to-use-timelinejs/</loc>
-    
-    <lastmod>2019-02-27T08:47:16.485Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.peng8.net/2015/09/11/render-serverside-as-webserver/</loc>
-    
-    <lastmod>2019-02-27T08:47:16.485Z</lastmod>
     
   </url>
   
@@ -254,7 +275,14 @@
   </url>
   
   <url>
-    <loc>http://www.peng8.net/2014/10/15/use-phantomjs-generate-snapshot/</loc>
+    <loc>http://www.peng8.net/2016/02/23/learn-react-native/</loc>
+    
+    <lastmod>2019-02-27T08:47:16.485Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.peng8.net/2014/09/27/how-to-use-timelinejs/</loc>
     
     <lastmod>2019-02-27T08:47:16.485Z</lastmod>
     
@@ -268,7 +296,14 @@
   </url>
   
   <url>
-    <loc>http://www.peng8.net/2016/02/23/learn-react-native/</loc>
+    <loc>http://www.peng8.net/2014/10/15/use-phantomjs-generate-snapshot/</loc>
+    
+    <lastmod>2019-02-27T08:47:16.485Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.peng8.net/2015/09/11/render-serverside-as-webserver/</loc>
     
     <lastmod>2019-02-27T08:47:16.485Z</lastmod>
     
@@ -289,6 +324,13 @@
   </url>
   
   <url>
+    <loc>http://www.peng8.net/2014/07/21/render-charts-serverside/</loc>
+    
+    <lastmod>2019-02-27T08:47:16.479Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://www.peng8.net/live/index.html</loc>
     
     <lastmod>2019-02-27T08:47:16.479Z</lastmod>
@@ -297,13 +339,6 @@
   
   <url>
     <loc>http://www.peng8.net/2014/04/09/difference-photo/</loc>
-    
-    <lastmod>2019-02-27T08:47:16.479Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.peng8.net/2014/07/21/render-charts-serverside/</loc>
     
     <lastmod>2019-02-27T08:47:16.479Z</lastmod>
     

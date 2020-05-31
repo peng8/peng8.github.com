@@ -75,6 +75,313 @@ document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3
       <div class="outer">
         <section id="main">
   
+    <article id="post-unknown-attribute-of-highchart" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/05/27/unknown-attribute-of-highchart/" class="article-date">
+  <time datetime="2015-05-27T03:26:33.000Z" itemprop="datePublished">2015/05/27</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Highcharts/">Highcharts</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/05/27/unknown-attribute-of-highchart/">你所不知的highchart常用属性</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+		
+		
+        <blockquote>
+<p>那些你没用过，你所不知道的highchart秘密，不定期更新。</p>
+</blockquote>
+<h3 id="Highcharts-4-1-9"><a href="#Highcharts-4-1-9" class="headerlink" title="Highcharts 4.1.9"></a>Highcharts 4.1.9</h3><p>####<code>axis.visible</code><br>这个属性用来控制是否显示yAxis或者xAxis，之前我们想要隐藏x和y轴是通过设置它的宽度为0来控制的，现在可以通过这个属性来设置了</p>
+<p>####<code>softThreshold</code><br>此属性是在series里设置的，默认为true。如果设置false，当series里的值出现 0，1，2值会使y轴出现负值，我想大家都遇到过此问题，我们会设置y轴的最小值使y的坐标从0开始<br>如果是true，则不用设置最小值，直接从0开始</p>
+<h3 id="Highcharts-4-1-8"><a href="#Highcharts-4-1-8" class="headerlink" title="Highcharts 4.1.8"></a>Highcharts 4.1.8</h3><p>####<code>exporting.allowHTML</code><br>导出配置的一个属性，这个属性默认是false，默认导出不允许导出的svg中包含自定义的html元素。设置true即可支持自定义html元素导出<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">The HTML is rendered in a foreignObject tag in the generated SVG. </span><br><span class="line">The official export server is based on PhantomJS, which supports this, </span><br><span class="line">but other SVG clients, like Batik, does not support it.</span><br></pre></td></tr></table></figure></p>
+<p>我们会看到官方给出了这样一段话，什么意思呢？就是说渲染svg以外的html元素，官方的phantomjs 是支持的，但其他的客户端导出 例如Batik 是不支持的。</p>
+<h4 id="maxPointWidth"><a href="#maxPointWidth" class="headerlink" title="maxPointWidth"></a><code>maxPointWidth</code></h4><p>默认值是null，用来设置柱子的最大宽度，当图表里只有几根柱子时，柱子会非常的粗，此时就需要应用此属性来设置了。</p>
+<h3 id="Highcharts-4-1-6"><a href="#Highcharts-4-1-6" class="headerlink" title="Highcharts 4.1.6"></a>Highcharts 4.1.6</h3><ul>
+<li>增加<code>xAxis.title.x</code> 和 <code>xAxis.title.y</code> 配置标题的作为</li>
+<li>3D图上 增加scaling 缩放 Z 轴</li>
+</ul>
+<h3 id="Highcharts-4-1-5-以内"><a href="#Highcharts-4-1-5-以内" class="headerlink" title="Highcharts 4.1.5 以内"></a>Highcharts 4.1.5 以内</h3><p>####<code>series.keys</code><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">series: [&#123;</span><br><span class="line">     type: <span class="string">'pie'</span>,</span><br><span class="line">     name: <span class="string">'Browser share'</span>,</span><br><span class="line">     data: [</span><br><span class="line">         [<span class="string">'Firefox'</span>,   <span class="number">45.0</span>],</span><br><span class="line">         [<span class="string">'Chrome'</span>, <span class="number">12.8</span>, <span class="literal">true</span>, <span class="literal">true</span>],</span><br><span class="line">         [<span class="string">'Safari'</span>,    <span class="number">8.5</span>]</span><br><span class="line">     ],</span><br><span class="line">     keys: [<span class="string">'name'</span>, <span class="string">'y'</span>, <span class="string">'sliced'</span>, <span class="string">'selected'</span>]</span><br><span class="line">     <span class="comment">//设置key的顺序后，会按照data提供的数据顺序获取</span></span><br><span class="line">&#125;]</span><br></pre></td></tr></table></figure></p>
+<h4 id="xAxis-labels-autoRotationLimit"><a href="#xAxis-labels-autoRotationLimit" class="headerlink" title="xAxis.labels.autoRotationLimit"></a><code>xAxis.labels.autoRotationLimit</code></h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">xAxis: &#123;</span><br><span class="line">    type: <span class="string">'category'</span>,</span><br><span class="line">    labels: &#123;</span><br><span class="line">        autoRotationLimit: <span class="number">40</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//X轴的label超过指定长度后自动截取</span></span><br></pre></td></tr></table></figure>
+<h4 id="plotOptions-series-pointIntervalUnit"><a href="#plotOptions-series-pointIntervalUnit" class="headerlink" title="plotOptions.series.pointIntervalUnit"></a><code>plotOptions.series.pointIntervalUnit</code></h4><p>  当x轴为 datetime模式时，可以将此属性 设置为 <code>day</code>,<code>month</code>,<code>year</code> ，代表间隔单位</p>
+<p>####<code>xAxis.labels.autoRotation</code><br>此属性是一个数组用来分别设置categories的倾斜度数，例如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">categories: [&apos;January&apos;, &apos;February&apos;, &apos;March&apos;],</span><br><span class="line">labels: &#123;</span><br><span class="line">    autoRotation: [-10, -20, -30]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>####<code>yAxis.tickAmount</code><br>用来设置y轴 label的显示个数</p>
+<h4 id="events-selection"><a href="#events-selection" class="headerlink" title="events.selection"></a><code>events.selection</code></h4><p>当设置了zoomType时，选中图表某个区域，能在此事件中获取到选中的区域的值范围。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">selection: <span class="function"><span class="keyword">function</span> (<span class="params">event</span>) </span>&#123;</span><br><span class="line">	<span class="keyword">var</span> min=Highcharts.numberFormat(event.xAxis[<span class="number">0</span>].min, <span class="number">2</span>);</span><br><span class="line">	<span class="keyword">var</span> max=Highcharts.numberFormat(event.xAxis[<span class="number">0</span>].max, <span class="number">2</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h4 id="chart-panning、chart-panKey"><a href="#chart-panning、chart-panKey" class="headerlink" title="chart.panning、chart.panKey"></a><code>chart.panning</code>、<code>chart.panKey</code></h4><p>这2个属性基本同时出现，要使用panKey，必须先将panning设置为true。它的作用是：设置一个快捷键，当x轴启用zoomType时，放大某一块区域，然后按住所设置的快捷键，点击图表拖拽可以滑动查看。</p>
+<h4 id="xAxis-breaks"><a href="#xAxis-breaks" class="headerlink" title="xAxis.breaks"></a><code>xAxis.breaks</code></h4><p>此属性是一个数组，作用是用一个区间段来代表x轴 某个起始点到某个结束点。例如x轴有1~10个点，我想把 5~8 之间的点不显示，直接显示 1,2,3,4,5,8,9,10。这样6,7 两个点就不显示在x轴上了。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">xAxis: &#123;</span><br><span class="line">	tickInterval: <span class="number">1</span>,</span><br><span class="line">	breaks: [&#123;</span><br><span class="line">		<span class="keyword">from</span>: <span class="number">5</span>,</span><br><span class="line">		to: <span class="number">8</span>,</span><br><span class="line">		breakSize: <span class="number">1</span></span><br><span class="line">	&#125;]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h4 id="xAxis-labels-staggerLines"><a href="#xAxis-labels-staggerLines" class="headerlink" title="xAxis.labels.staggerLines"></a><code>xAxis.labels.staggerLines</code></h4><p>用来设置x轴分行显示</p>
+<h4 id="plotOptions-line-linecap"><a href="#plotOptions-line-linecap" class="headerlink" title="plotOptions.line.linecap"></a><code>plotOptions.line.linecap</code></h4><p>用来设置线条的渲染形状 弧形和方形，默认是弧形，以下设置为方形<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">plotOptions: &#123;</span><br><span class="line">  line: &#123;</span><br><span class="line">      linecap:&quot;square&quot;</span><br><span class="line">  &#125;&#125;</span><br></pre></td></tr></table></figure></p>
+<h4 id="后面待续。。。。不定期更新"><a href="#后面待续。。。。不定期更新" class="headerlink" title="后面待续。。。。不定期更新"></a>后面待续。。。。不定期更新</h4>
+      
+    </div>
+    <footer class="article-footer">
+      
+        <a data-url="http://www.peng8.net/2015/05/27/unknown-attribute-of-highchart/" data-id="ckav23r79005g2d2ahzbmbu2a" class="article-share-link" data-share="baidu">分享到</a>
+      
+
+      
+
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Highcharts/">Highcharts</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Highcharts不常用属性/">Highcharts不常用属性</a></li></ul>
+
+
+    </footer>
+  </div>
+  
+</article>
+
+  
+ 
+  
+    <article id="post-highchart-gauge" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/05/26/highchart-gauge/" class="article-date">
+  <time datetime="2015-05-26T07:35:21.000Z" itemprop="datePublished">2015/05/26</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Highcharts/">Highcharts</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/05/26/highchart-gauge/">highchart 半圆仪表盘</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+		
+		
+        <blockquote>
+<p>highchart 仪表盘半圆形</p>
+</blockquote>
+<h4 id="效果图"><a href="#效果图" class="headerlink" title="效果图"></a>效果图</h4><p><img src="http://peng8-blog.oss-cn-beijing.aliyuncs.com/blog/peng8_20150526141433.png" alt=""></p>
+<h4 id="核心代码"><a href="#核心代码" class="headerlink" title="核心代码"></a>核心代码</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">pane: &#123;</span><br><span class="line">  startAngle: <span class="number">-90</span>,</span><br><span class="line">  endAngle: <span class="number">90</span>,</span><br><span class="line">  background: [ &#123;</span><br><span class="line">     backgroundColor: <span class="string">'#fff'</span>,</span><br><span class="line">     borderWidth: <span class="number">0</span> </span><br><span class="line"> &#125;]  </span><br><span class="line">&#125;,</span><br><span class="line">chart: &#123;</span><br><span class="line">    type: <span class="string">'gauge'</span>,</span><br><span class="line">    plotBackgroundColor: <span class="literal">null</span>,</span><br><span class="line">    plotBackgroundImage: <span class="literal">null</span>,</span><br><span class="line">    plotBorderWidth: <span class="number">0</span>,</span><br><span class="line">    plotShadow: <span class="literal">false</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="在线地址"><a href="#在线地址" class="headerlink" title="在线地址"></a>在线地址</h4><p>DEMO地址：<a href="http://runjs.cn/detail/u5hy1sut" target="_blank" rel="noopener">传送门</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+        <a data-url="http://www.peng8.net/2015/05/26/highchart-gauge/" data-id="ckav23r5c001p2d2a8k57palw" class="article-share-link" data-share="baidu">分享到</a>
+      
+
+      
+
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Highcharts仪表盘/">Highcharts仪表盘</a></li></ul>
+
+
+    </footer>
+  </div>
+  
+</article>
+
+  
+ 
+  
+    <article id="post-highchart-show-value-in-legend" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/05/19/highchart-show-value-in-legend/" class="article-date">
+  <time datetime="2015-05-19T02:42:21.000Z" itemprop="datePublished">2015/05/19</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Highcharts/">Highcharts</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/05/19/highchart-show-value-in-legend/">highchart 在legend中动态显示point点的值</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+		
+		
+        <blockquote>
+<p>插件分享，闲话就不多说了，主要是实现在legend中动态展示point点的值！</p>
+</blockquote>
+<ul>
+<li>将以下代码单独拷入到文件中，引用在highchart.js文件之后<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">(<span class="function"><span class="keyword">function</span> (<span class="params">H</span>) </span>&#123;</span><br><span class="line">   H.Series.prototype.point = &#123;&#125;; </span><br><span class="line">   H.Chart.prototype.callbacks.push(<span class="function"><span class="keyword">function</span> (<span class="params">chart</span>) </span>&#123;</span><br><span class="line">       $(chart.container).bind(<span class="string">'mousemove'</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">           <span class="keyword">var</span> legendOptions = chart.legend.options,</span><br><span class="line">               hoverPoints = chart.hoverPoints;</span><br><span class="line">           </span><br><span class="line">           <span class="keyword">if</span> (!hoverPoints &amp;&amp; chart.hoverPoint) &#123;</span><br><span class="line">               hoverPoints = [chart.hoverPoint];</span><br><span class="line">           &#125;</span><br><span class="line">           <span class="keyword">if</span> (hoverPoints) &#123;</span><br><span class="line">               H.each(hoverPoints, <span class="function"><span class="keyword">function</span> (<span class="params">point</span>) </span>&#123;</span><br><span class="line">                   point.series.point = point;</span><br><span class="line">               &#125;);</span><br><span class="line">               H.each(chart.legend.allItems, <span class="function"><span class="keyword">function</span> (<span class="params">item</span>) </span>&#123;</span><br><span class="line">                   item.legendItem.attr(&#123;</span><br><span class="line">                       text: legendOptions.labelFormat ? </span><br><span class="line">                           H.format(legendOptions.labelFormat, item) :</span><br><span class="line">                           legendOptions.labelFormatter.call(item)</span><br><span class="line">                   &#125;);</span><br><span class="line">               &#125;);</span><br><span class="line">               chart.legend.render();</span><br><span class="line">           &#125;</span><br><span class="line">       &#125;);</span><br><span class="line">   &#125;);</span><br><span class="line">   <span class="comment">// 隐藏tooltip，允许crosshair</span></span><br><span class="line">   H.Tooltip.prototype.defaultFormatter = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123; <span class="keyword">return</span> <span class="literal">false</span>; &#125;;</span><br><span class="line">&#125;(Highcharts));</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p class="article-style1">说明：上述代码是一段扩展，在callback中为图标重新绑定了mousemove事件，当鼠标滑过某个点，动态修改legendItem的属性，并重新渲染</p>
+
+<h4 id="来张效果示意图"><a href="#来张效果示意图" class="headerlink" title="来张效果示意图"></a>来张效果示意图</h4><p><img src="http://peng8-blog.oss-cn-beijing.aliyuncs.com/blog/peng8_20150519103625.png" alt=""></p>
+<blockquote>
+<p>DEMO地址入口：<a href="http://runjs.cn/detail/re3ncudx" target="_blank" rel="noopener">传送门</a></p>
+</blockquote>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+        <a data-url="http://www.peng8.net/2015/05/19/highchart-show-value-in-legend/" data-id="ckav23r5h001x2d2a8tk7mqq0" class="article-share-link" data-share="baidu">分享到</a>
+      
+
+      
+
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Highcharts/">Highcharts</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Highcharts-legend/">Highcharts legend</a></li></ul>
+
+
+    </footer>
+  </div>
+  
+</article>
+
+  
+ 
+  
+    <article id="post-angularjs-custom-render-mark" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/05/11/angularjs-custom-render-mark/" class="article-date">
+  <time datetime="2015-05-11T06:27:54.000Z" itemprop="datePublished">2015/05/11</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/angularjs/">angularjs</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/05/11/angularjs-custom-render-mark/">angularjs中自定义绑定标签</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+		
+		
+        <blockquote>
+<p> 在使用ng的过程中，默认的绑定符号是 <code>\{\{ng变量\}\}</code>，但有时候会与其他插件的一些模版符号冲突，因此我们需要自定义ng渲染的符号，能不能将 <code>\{\{ng变量\}\}</code> 替换成 <code>[[ng变量]]</code> 或者 <code>{[ng变量]}</code>，答案是肯定的，  主要是利用 <code>$interpolateProvider</code>内置服务 修改标识符。代码如下所示</p>
+</blockquote>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span> <span class="attr">ng-app</span>=<span class="string">"MyModule"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">id</span>=<span class="string">"form1"</span> <span class="attr">runat</span>=<span class="string">"server"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">div</span> <span class="attr">ng-controller</span>=<span class="string">"main"</span>&gt;</span></span><br><span class="line">          [[test]]</span><br><span class="line">      <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="undefined">    angular.module('MyModule', []).config(['$interpolateProvider', function ($interpolateProvider) &#123;</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="undefined">        angular.bootstrap(document.documentElement,</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="undefined">        [function ($interpolateProvider) &#123;</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="undefined">            $interpolateProvider.startSymbol('[[');</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="undefined">            $interpolateProvider.endSymbol(']]');</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="undefined">        &#125;]);</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="undefined">    &#125;]);</span></span><br><span class="line"><span class="undefined">    function main($scope, $http) &#123;</span></span><br><span class="line"><span class="undefined">        $scope.test = "aaaa";</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      
+        <a data-url="http://www.peng8.net/2015/05/11/angularjs-custom-render-mark/" data-id="ckav23r4a00042d2aj13z4d88" class="article-share-link" data-share="baidu">分享到</a>
+      
+
+      
+
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/angularjs自定义标签/">angularjs自定义标签</a></li></ul>
+
+
+    </footer>
+  </div>
+  
+</article>
+
+  
+ 
+  
+    <article id="post-aspose-introduction" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/04/09/aspose-introduction/" class="article-date">
+  <time datetime="2015-04-09T02:46:46.000Z" itemprop="datePublished">2015/04/09</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/asp-net/">asp.net</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/04/09/aspose-introduction/">分享 aspose 的一些基本用法</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p><strong><code>Aspose</code></strong>  是Aspose公司旗下的最全的一套office文档管理解决方案，主要提供.net跟java两个开发语言的控件套包。功能异常强大，各个平台基本都支持，强力推荐大家使用。<br>本文就根据我所用的经历简要介绍Aspose的一些用法！</p>
+</blockquote>
+<p>注：由于小弟只在ASP.NET 中曾用Aspose 导出过word ，所以接下来的介绍都是asp.net环境下的一些用法。</p>
+<h4 id="资源包"><a href="#资源包" class="headerlink" title="资源包"></a>资源包</h4><p>首先我们得去官网下载 asp.net aspose的DLL 程序集，稍后会在项目中使用。<br>官网的DLL 会带有水印和商标，因此大家可以在网上搜索破解版，这里我就不啰嗦了</p>
+<p><img src="http://peng8-blog.oss-cn-beijing.aliyuncs.com/blog/peng_20150409102142.png" alt=""></p>
+<h4 id="基本用法"><a href="#基本用法" class="headerlink" title="基本用法"></a>基本用法</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Aspose.Words.Document doc = new Aspose.Words.Document();</span><br></pre></td></tr></table></figure>
+<p class="article-style1">用来申明一个 word文件对象，后面() 里可以增加参数，实例化有5个重载，括号中什么都不写表示空文档对象，若写上本地word的路径，则是将word文件读取到当前word文件对象中。</p>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Aspose.Words.DocumentBuilder builder = new Aspose.Words.DocumentBuilder(doc);</span><br></pre></td></tr></table></figure>
+<p class="article-style1">DocumentBuilder  类似一个文档操作工具，用来操作已经实例化的Document 对象，DocumentBuilder 里有许多方法 例如插入文本、插入图片、插入段落、插入表格等等</p>
+        
+          <p class="article-more-link">
+            <a href="/2015/04/09/aspose-introduction/#more">查看更多</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      
+        <a data-url="http://www.peng8.net/2015/04/09/aspose-introduction/" data-id="ckav23r4o000h2d2aj728e370" class="article-share-link" data-share="baidu">分享到</a>
+      
+
+      
+
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/aspose/">aspose</a></li></ul>
+
+
+    </footer>
+  </div>
+  
+</article>
+
+  
+ 
+  
     <article id="post-angularjs-post-param-solution" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2015/04/08/angularjs-post-param-solution/" class="article-date">
@@ -112,7 +419,7 @@ document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://www.peng8.net/2015/04/08/angularjs-post-param-solution/" data-id="ckauy6yhy0007gp2ap49ijzwj" class="article-share-link" data-share="baidu">分享到</a>
+        <a data-url="http://www.peng8.net/2015/04/08/angularjs-post-param-solution/" data-id="ckav23r4k000c2d2awbfodqln" class="article-share-link" data-share="baidu">分享到</a>
       
 
       
@@ -187,7 +494,7 @@ document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://www.peng8.net/2015/03/31/use-custom-property-with-highchart/" data-id="ckauy6yk3004pgp2akrrk0uqy" class="article-share-link" data-share="baidu">分享到</a>
+        <a data-url="http://www.peng8.net/2015/03/31/use-custom-property-with-highchart/" data-id="ckav23r70004x2d2alnyqlmhw" class="article-share-link" data-share="baidu">分享到</a>
       
 
       
@@ -263,7 +570,7 @@ document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://www.peng8.net/2015/03/13/draw-custom-element-on-chart/" data-id="ckauy6yid000ugp2agryxqc7v" class="article-share-link" data-share="baidu">分享到</a>
+        <a data-url="http://www.peng8.net/2015/03/13/draw-custom-element-on-chart/" data-id="ckav23r4y000x2d2alz9dgf5n" class="article-share-link" data-share="baidu">分享到</a>
       
 
       
@@ -320,7 +627,7 @@ document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://www.peng8.net/2015/03/09/how-to-use-highmaps/" data-id="ckauy6yj6002ngp2anrlmfqdk" class="article-share-link" data-share="baidu">分享到</a>
+        <a data-url="http://www.peng8.net/2015/03/09/how-to-use-highmaps/" data-id="ckav23r5u002n2d2ag1yweldb" class="article-share-link" data-share="baidu">分享到</a>
       
 
       
@@ -394,7 +701,7 @@ document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://www.peng8.net/2015/03/02/highchart-copy-title-to-clipboard/" data-id="ckauy6yik001agp2a2uro4o4i" class="article-share-link" data-share="baidu">分享到</a>
+        <a data-url="http://www.peng8.net/2015/03/02/highchart-copy-title-to-clipboard/" data-id="ckav23r55001b2d2a0nnfcwxm" class="article-share-link" data-share="baidu">分享到</a>
       
 
       
@@ -411,296 +718,9 @@ document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3
   
  
   
-    <article id="post-how-to-use-highstock-with-kline" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2015/02/06/how-to-use-highstock-with-kline/" class="article-date">
-  <time datetime="2015-02-06T08:33:03.000Z" itemprop="datePublished">2015/02/06</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Highcharts/">Highcharts</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/02/06/how-to-use-highstock-with-kline/">highstock高级篇之股票K线图</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <blockquote>
-<p>上篇为大家讲解了股票分时的基本用法，这次接着上篇谈谈K线图，分时图和K线图都属于highstock里的功能图表，所以在使用上基本上相同，但也略有区别。</p>
-</blockquote>
-<h4 id="预期想要达成的效果图"><a href="#预期想要达成的效果图" class="headerlink" title="预期想要达成的效果图"></a>预期想要达成的效果图</h4><p><img src="http://peng8-blog.oss-cn-beijing.aliyuncs.com/blog/peng_20150206151850.png" alt=""></p>
-        
-          <p class="article-more-link">
-            <a href="/2015/02/06/how-to-use-highstock-with-kline/#more">查看更多</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      
-        <a data-url="http://www.peng8.net/2015/02/06/how-to-use-highstock-with-kline/" data-id="ckauy6yj8002qgp2avq98smcj" class="article-share-link" data-share="baidu">分享到</a>
-      
-
-      
-
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Highstock-K线图/">Highstock K线图</a></li></ul>
-
-
-    </footer>
-  </div>
-  
-</article>
-
-  
- 
-  
-    <article id="post-how-to-use-highstock" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2015/01/31/how-to-use-highstock/" class="article-date">
-  <time datetime="2015-01-31T09:43:22.000Z" itemprop="datePublished">2015/01/31</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Highcharts/">Highcharts</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/01/31/how-to-use-highstock/">highstock高级篇之股票分时图</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <blockquote>
-<p> 一直在用<code>highchart</code>在做图表，最近一段时间突然接到一活，需要用 <code>highstock</code> 帮客户完成一个股票K线图和分时图。虽然用法和<code>api</code>上与 <code>highchart</code> 没什么区别，但还是研究一番做出了对应的DEMO，于是抽空与大家分享下。</p>
-</blockquote>
-<h4 id="预期想要达成的效果图"><a href="#预期想要达成的效果图" class="headerlink" title="预期想要达成的效果图"></a>预期想要达成的效果图</h4><p><img src="http://peng8-blog.oss-cn-beijing.aliyuncs.com/blog/peng_20150131164032.png" alt=""></p>
-        
-          <p class="article-more-link">
-            <a href="/2015/01/31/how-to-use-highstock/#more">查看更多</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      
-        <a data-url="http://www.peng8.net/2015/01/31/how-to-use-highstock/" data-id="ckauy6yj9002ugp2a00vddjt5" class="article-share-link" data-share="baidu">分享到</a>
-      
-
-      
-
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Highstock-分时图/">Highstock 分时图</a></li></ul>
-
-
-    </footer>
-  </div>
-  
-</article>
-
-  
- 
-  
-    <article id="post-easyui-datagrid-checkbox-status" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2015/01/05/easyui-datagrid-checkbox-status/" class="article-date">
-  <time datetime="2015-01-05T01:37:51.000Z" itemprop="datePublished">2015/01/05</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/easyui/">easyui</a>►<a class="article-category-link" href="/categories/easyui/datagrid/">datagrid</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/01/05/easyui-datagrid-checkbox-status/">EasyUI datagrid实现翻页客户端保存checkbox状态</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-		
-		
-        <p>1、首先设置datagrid属性的idField主键，这里假如为id，若idField为其他的，记住下面的代码里的 id也要做相应的修改。</p>
-<p>2、建立一个全局的javascript数组var checkedItems = []，用来存放选中checkbox的值。</p>
-<p>3、核心方法，<code>addcheckItem()</code>、<code>removeAllItem(rows)</code>、<code>removeSingleItem(rowIndex, rowData)</code>当选中或者取消checkbox时触发。</p>
-<p>　   用来将checkbox的主键值保存在checkedItems数组，或者从数组中删除对应的id值，findCheckedItem(ID)这个函数用来查找数组中是否存在checkbox的值，存在则返回id值，不存在则返回-1.</p>
-<p>4、什么时候调用这些方法呢？分别在<code>datagrid</code>的 <code>onCheckAll: addcheckItem</code>,<code>onCheck: addcheckItem</code>,<code>onUncheckAll: removeAllItem</code>,<code>onUncheck: removeSingleItem</code> 这四个事件中调用对应的方法。</p>
-<p>5、翻页后如何给checkbox赋值呢？关键就在这里，datagrid重写了<code>$.fn.datagrid.defaults.view</code>的<code>onAfterRender</code>事件，因此在datagrid的view事件里绑定这个函数就OK了。<code>onAfterRender</code>事件是当easyui的元素渲染完毕后执行的事件，在这里会调用手写的 <strong>ischeckItem</strong> 函数来实现对checkbox的赋值！<br>　　<br>下面为大家贴上实现的具体代码：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"> $(<span class="string">"#maingrid"</span>).datagrid(&#123; </span><br><span class="line">    idField: <span class="string">'id'</span>, </span><br><span class="line">    view: fileview </span><br><span class="line"> &#125;);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> fileview = $.extend(&#123;&#125;, $.fn.datagrid.defaults.view, &#123; <span class="attr">onAfterRender</span>: <span class="function"><span class="keyword">function</span> (<span class="params">target</span>) </span>&#123; ischeckItem(); &#125; &#125;);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> checkedItems = [];</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">ischeckItem</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; checkedItems.length; i++) &#123;</span><br><span class="line">        $(<span class="string">'#maingrid'</span>).datagrid(<span class="string">'selectRecord'</span>, checkedItems[i]); <span class="comment">//根据id选中行 </span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">findCheckedItem</span>(<span class="params">ID</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; checkedItems.length; i++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (checkedItems[i] == ID) <span class="keyword">return</span> i;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">addcheckItem</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> row = $(<span class="string">'#maingrid'</span>).datagrid(<span class="string">'getChecked'</span>);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; row.length; i++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (findCheckedItem(row[i].id) == <span class="number">-1</span>) &#123;</span><br><span class="line">            checkedItems.push(row[i].id);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">removeAllItem</span>(<span class="params">rows</span>) </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; rows.length; i++) &#123;</span><br><span class="line">        <span class="keyword">var</span> k = findCheckedItem(rows[i].id);</span><br><span class="line">        <span class="keyword">if</span> (k != <span class="number">-1</span>) &#123;</span><br><span class="line">            checkedItems.splice(i, <span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">removeSingleItem</span>(<span class="params">rowIndex, rowData</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> k = findCheckedItem(rowData.id);</span><br><span class="line">    <span class="keyword">if</span> (k != <span class="number">-1</span>) &#123;</span><br><span class="line">        checkedItems.splice(k, <span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>下面是批量删除的代码<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">destroyItems</span>(<span class="params">items</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> row = <span class="literal">null</span>;</span><br><span class="line">    <span class="keyword">if</span> (items == <span class="string">"list"</span>) &#123;</span><br><span class="line">        items = checkedItems.join(<span class="string">','</span>);</span><br><span class="line">        row = $(<span class="string">'#maingrid'</span>).datagrid(<span class="string">'getSelections'</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> &#123;</span><br><span class="line">        row = items;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (row != <span class="literal">null</span>) &#123;</span><br><span class="line">        $.messager.confirm(<span class="string">'Confirm'</span>, <span class="string">'您确定要删除此记录?'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">r</span>) </span>&#123;</span><br><span class="line">            <span class="keyword">if</span> (r) &#123;</span><br><span class="line">                $.post(location.href, &#123; <span class="attr">id</span>: items, <span class="attr">action</span>: <span class="string">"deletelist"</span> &#125;, <span class="function"><span class="keyword">function</span> (<span class="params">result</span>) </span>&#123;</span><br><span class="line">                    <span class="keyword">if</span> (result == <span class="string">"1"</span>) &#123;</span><br><span class="line">                        $(<span class="string">'#maingrid'</span>).datagrid(<span class="string">'reload'</span>);</span><br><span class="line">                    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                        $.messager.show(&#123;</span><br><span class="line">                            title: <span class="string">'Error'</span>,</span><br><span class="line">                            msg: result</span><br><span class="line">                        &#125;);</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> &#123; $.messager.alert(<span class="string">'-警告-'</span>, <span class="string">'请选择至少一条记录才能进行删除'</span>, <span class="string">'info'</span>); &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      
-        <a data-url="http://www.peng8.net/2015/01/05/easyui-datagrid-checkbox-status/" data-id="ckauy6yie000wgp2audrkbnbf" class="article-share-link" data-share="baidu">分享到</a>
-      
-
-      
-
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/easyui/">easyui</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
-
-
-    </footer>
-  </div>
-  
-</article>
-
-  
- 
-  
-    <article id="post-my-2014-summary" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2014/12/31/my-2014-summary/" class="article-date">
-  <time datetime="2014-12-31T09:04:15.000Z" itemprop="datePublished">2014/12/31</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/随笔日记/">随笔日记</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2014/12/31/my-2014-summary/">一个小攻城师2014年的总结</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <blockquote>
-<p>今儿是2014的最后一天，我是不是要写点东西总结下自己呢？</p>
-</blockquote>
-<h4 id="2014年一路走过"><a href="#2014年一路走过" class="headerlink" title="2014年一路走过"></a>2014年一路走过</h4><p>   对于一个北漂的人来说，唉，每年都TMD过的太快了，一线城市的生活就是这么快节奏，就是这么任性！还计划着今年要干什么干什么，却一晃就漂到年底了，猛的醒过来，“fuck，什么都没完成！于是有了下面一幅图的出现” </p>
-<p><img src="http://peng8-blog.oss-cn-beijing.aliyuncs.com/blog/peng_201412310942.jpg" alt=""></p>
-<p>看完这个段子，大家是不是感觉趟枪了，o(∩_∩)o 哈哈，事实就是这个样子！</p>
-<hr>
-<p>说点认真的吧，这年还是收获很多的。<br>工作上，掌握一些新的技术和一些编程理念，最重要的是自己由后台慢慢转变为一名前端攻城师，接触了<code>angularjs</code>前端框架，后端语言也由<code>asp.net</code> 转变成了 <code>java</code>，遇到问题更加冷静去思考去寻找解决问题的方案。总之呢，时间长了，会突然觉得所谓的大神，所谓的高手 不是他们的技术有多牛，不是他们的学历有多高，而是在工作中日积月累的解决问题的能力，慢慢培养出解决问题的思维方式和编程理念，当然我不否认在此基础之上需要夯实的基础知识！</p>
-<p>在说说大部队吧，由开始的十几个人，由于各种原因，走了一批人，来了一批人，来不及感伤，来不及道别，只能快速融入新组建的团队中。然后嘻嘻嘻哈哈开始新产品的规划与开发。很幸运，大家相处很融洽和舒服，我们在朝着共同的目标奋斗着，希望有一天我们的产品能有越来越多的用户！</p>
-<p>我呢，是一个不善言谈的人，在人际交际中，不喜欢阿谀奉承，不喜欢勾心斗角，不喜欢拍人马屁，喜欢较真，喜欢说大实话。说到这里，像我这种性格的人也许不适合在当今的社会中生存，更别说什么搞好层级关系，职位提升等等。但随着时间的流逝和自己意志力的流逝，自己总会被周遭所同化，你必须学会阿谀奉承、必须学会拍人马屁、必须学会掩饰自己，必须学会如何处理人际关系，我们必须扮演好在生活中、在工作中的角色，正如 《楚门的世界》 里所反应的，我们每个人都是生活中的演员！</p>
-        
-          <p class="article-more-link">
-            <a href="/2014/12/31/my-2014-summary/#more">查看更多</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      
-        <a data-url="http://www.peng8.net/2014/12/31/my-2014-summary/" data-id="ckauy6yjp003qgp2asvltemzu" class="article-share-link" data-share="baidu">分享到</a>
-      
-
-      
-
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/2014总结/">2014总结</a></li></ul>
-
-
-    </footer>
-  </div>
-  
-</article>
-
-  
- 
-  
-    <article id="post-highchart-custom-events" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2014/12/12/highchart-custom-events/" class="article-date">
-  <time datetime="2014-12-12T03:00:18.000Z" itemprop="datePublished">2014/12/12</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Highcharts/">Highcharts</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2014/12/12/highchart-custom-events/">highchart 自定义事件插件</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <blockquote>
-<p><strong>highchart 插件之自定义事件</strong>  </p>
-</blockquote>
-<h4 id="下面是扩展插件的代码"><a href="#下面是扩展插件的代码" class="headerlink" title="下面是扩展插件的代码"></a>下面是扩展插件的代码</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br></pre></td><td class="code"><pre><span class="line">(<span class="function"><span class="keyword">function</span> (<span class="params">HC</span>) </span>&#123;</span><br><span class="line">        <span class="comment">/*jshint expr:true, boss:true */</span></span><br><span class="line">        <span class="keyword">var</span> UNDEFINED;</span><br><span class="line">        <span class="comment">//reseting all events, fired by Highcharts</span></span><br><span class="line">        HC.Chart.prototype.callbacks.push(<span class="function"><span class="keyword">function</span> (<span class="params">chart</span>) </span>&#123;</span><br><span class="line">            <span class="keyword">var</span> resetAxisEvents = chart.customEvent.resetAxisEvents,</span><br><span class="line">                series = chart.series,</span><br><span class="line">                serLen = series.length,</span><br><span class="line">                xAxis = chart.xAxis,</span><br><span class="line">                yAxis = chart.yAxis,</span><br><span class="line">                i = <span class="number">0</span>;</span><br><span class="line">            </span><br><span class="line">            resetAxisEvents(xAxis, <span class="string">'xAxis'</span>, chart);</span><br><span class="line">            resetAxisEvents(yAxis, <span class="string">'yAxis'</span>, chart);</span><br><span class="line">        </span><br><span class="line">            <span class="keyword">for</span> (; i &lt; serLen; i++) &#123;</span><br><span class="line">                series[i].update(&#123;</span><br><span class="line">                    customEvents: &#123;</span><br><span class="line">                        series: series[i].options.events,</span><br><span class="line">                        point: series[i].options.point.events</span><br><span class="line">                    &#125;,</span><br><span class="line">                    events: &#123;</span><br><span class="line">                        click: <span class="literal">null</span></span><br><span class="line">                    &#125;,</span><br><span class="line">                    point: &#123;</span><br><span class="line">                        events: &#123;</span><br><span class="line">                            click: <span class="literal">null</span></span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;,<span class="literal">false</span>);</span><br><span class="line">            &#125;</span><br><span class="line">            </span><br><span class="line">            chart.xAxis[<span class="number">0</span>].isDirty = <span class="literal">true</span>;</span><br><span class="line">            chart.redraw();</span><br><span class="line">        &#125;);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//custom event body</span></span><br><span class="line">        <span class="keyword">var</span> customEvent = HC.Chart.prototype.customEvent = <span class="function"><span class="keyword">function</span> (<span class="params">obj, proto</span>) </span>&#123;</span><br><span class="line">            customEvent.add = <span class="function"><span class="keyword">function</span> (<span class="params">elem, events, obj</span>) </span>&#123;</span><br><span class="line">                <span class="keyword">for</span> (<span class="keyword">var</span> key <span class="keyword">in</span> events) &#123;</span><br><span class="line"></span><br><span class="line">                    (<span class="function"><span class="keyword">function</span> (<span class="params">key</span>) </span>&#123;</span><br><span class="line">                        <span class="keyword">if</span> (events.hasOwnProperty(key)) &#123;</span><br><span class="line">                            <span class="keyword">if</span>(!elem[key] || elem[key] === UNDEFINED) &#123;</span><br><span class="line">                                HC.addEvent(elem.element, key, <span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;</span><br><span class="line">                                    events[key].call(obj, e);</span><br><span class="line">                                    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">                                &#125;);</span><br><span class="line">                            &#125;</span><br><span class="line">                            </span><br><span class="line">                            elem[key] = <span class="literal">true</span>;</span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125;)(key)</span><br><span class="line"></span><br><span class="line">                &#125;</span><br><span class="line">            &#125;;</span><br><span class="line">            </span><br><span class="line">            HC.Chart.prototype.customEvent.resetAxisEvents = <span class="function"><span class="keyword">function</span>(<span class="params">axis, type, chart</span>) </span>&#123;</span><br><span class="line">                <span class="keyword">var</span> axisLength = axis.length,</span><br><span class="line">                    userOptions = chart.userOptions,</span><br><span class="line">                    i = <span class="number">0</span>,</span><br><span class="line">                    j = <span class="number">0</span>,</span><br><span class="line">                    redraw = <span class="literal">false</span>,</span><br><span class="line">                    customEvents, plotBandsLength, plotLinesLength, plotLines, plotBands,cAxis;</span><br><span class="line">                </span><br><span class="line">                <span class="keyword">for</span>(;i&lt;axisLength;i++) &#123;</span><br><span class="line"></span><br><span class="line">                    <span class="keyword">if</span>(type === <span class="string">'xAxis'</span> &amp;&amp; userOptions.xAxis !== UNDEFINED) &#123;</span><br><span class="line">                        </span><br><span class="line">                            cAxis = HC.splat(userOptions.xAxis);</span><br><span class="line">                            plotLines = cAxis[i].plotLines;</span><br><span class="line">                            plotBands = cAxis[i].plotBands;</span><br><span class="line"></span><br><span class="line">                    &#125; <span class="keyword">else</span> <span class="keyword">if</span>(type === <span class="string">'yAxis'</span> &amp;&amp; userOptions.yAxis !== UNDEFINED) &#123;</span><br><span class="line">                        </span><br><span class="line">                            cAxis = HC.splat(userOptions.yAxis);</span><br><span class="line">                            plotLines = cAxis[i].plotLines;</span><br><span class="line">                            plotBands = cAxis[i].plotBands;</span><br><span class="line">                    &#125;</span><br><span class="line">                    </span><br><span class="line">                    <span class="keyword">if</span>(plotLines !== UNDEFINED) &#123;</span><br><span class="line">                        plotLinesLength = plotLines.length;</span><br><span class="line">                        </span><br><span class="line">                        <span class="keyword">for</span>(j=<span class="number">0</span>;j&lt;plotLinesLength;j++)&#123;</span><br><span class="line">                            <span class="keyword">var</span> t = plotLines[j].events;</span><br><span class="line">                            <span class="keyword">if</span>(t) &#123;</span><br><span class="line">                                plotLines[j].customEvents = t;</span><br><span class="line">                                plotLines[j].events = <span class="literal">null</span>;</span><br><span class="line">                            &#125;</span><br><span class="line">                        &#125;;</span><br><span class="line">                        </span><br><span class="line">                        redraw = <span class="literal">true</span>;</span><br><span class="line">                    &#125;</span><br><span class="line">                    </span><br><span class="line">                    <span class="keyword">if</span>(plotBands !== UNDEFINED) &#123;</span><br><span class="line">                         plotBandsLength = plotBands.length;</span><br><span class="line">                         </span><br><span class="line">                        <span class="keyword">for</span>(j=<span class="number">0</span>;j&lt;plotBandsLength;j++) &#123;</span><br><span class="line">                             <span class="keyword">var</span> t = plotBands[j].events;</span><br><span class="line">                             <span class="keyword">if</span>(t) &#123;</span><br><span class="line">                                 plotBands[j].customEvents = t;</span><br><span class="line">                                 plotBands[j].events = <span class="literal">null</span>;</span><br><span class="line">                             &#125;</span><br><span class="line">                        &#125;;</span><br><span class="line">                        </span><br><span class="line">                        redraw = <span class="literal">true</span>;</span><br><span class="line">                    &#125;</span><br><span class="line">                    </span><br><span class="line">                    <span class="keyword">if</span>(redraw) &#123;</span><br><span class="line">                        chart.yAxis[i].update(&#123;</span><br><span class="line">                            plotLines: plotLines,</span><br><span class="line">                            plotBands: plotBands</span><br><span class="line">                        &#125;,<span class="literal">false</span>);</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;;</span><br><span class="line">            &#125;;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">            HC.wrap(obj, proto, <span class="function"><span class="keyword">function</span> (<span class="params">proceed</span>) </span>&#123;</span><br><span class="line">                <span class="keyword">var</span> events,</span><br><span class="line">                element,</span><br><span class="line">                eventsPoint,</span><br><span class="line">                elementPoint,</span><br><span class="line">                op;</span><br><span class="line"></span><br><span class="line">                <span class="comment">//call default actions</span></span><br><span class="line">                proceed.apply(<span class="keyword">this</span>, <span class="built_in">Array</span>.prototype.slice.call(<span class="built_in">arguments</span>, <span class="number">1</span>));</span><br><span class="line"></span><br><span class="line">                    <span class="comment">//switch on object</span></span><br><span class="line">                    <span class="keyword">switch</span> (proto) &#123;</span><br><span class="line">                        <span class="keyword">case</span> <span class="string">'addLabel'</span>:</span><br><span class="line">                            events = <span class="keyword">this</span>.axis.options.labels.events;</span><br><span class="line">                            element = <span class="keyword">this</span>.label;</span><br><span class="line">                            <span class="keyword">break</span>;</span><br><span class="line">                        <span class="keyword">case</span> <span class="string">'setTitle'</span>:</span><br><span class="line">                            events = <span class="keyword">this</span>.options.title.events;</span><br><span class="line">                            element = <span class="keyword">this</span>.title;</span><br><span class="line">                            <span class="keyword">break</span>;</span><br><span class="line">                        <span class="keyword">case</span> <span class="string">'drawDataLabels'</span>:</span><br><span class="line">                            events = <span class="keyword">this</span>.dataLabelsGroup ? <span class="keyword">this</span>.options.dataLabels.events : <span class="literal">null</span>;</span><br><span class="line">                            element = <span class="keyword">this</span>.dataLabelsGroup ? <span class="keyword">this</span>.dataLabelsGroup : <span class="literal">null</span>;</span><br><span class="line">                            <span class="keyword">break</span>;</span><br><span class="line">                        <span class="keyword">case</span> <span class="string">'render'</span>:</span><br><span class="line">                            <span class="keyword">if</span> (<span class="keyword">this</span>.axisTitle) &#123;</span><br><span class="line">                                events = <span class="keyword">this</span>.options.title.events;</span><br><span class="line">                                element = <span class="keyword">this</span>.axisTitle;</span><br><span class="line">                            &#125;</span><br><span class="line">                            <span class="keyword">if</span> (<span class="keyword">this</span>.options.value || <span class="keyword">this</span>.options.from) &#123;</span><br><span class="line">                                events = <span class="keyword">this</span>.options.customEvents;</span><br><span class="line">                                element = <span class="keyword">this</span>.svgElem;</span><br><span class="line">                            &#125;</span><br><span class="line">                            <span class="keyword">break</span>;</span><br><span class="line">                        <span class="keyword">case</span> <span class="string">'drawPoints'</span>:</span><br><span class="line">                            op = <span class="keyword">this</span>.options;</span><br><span class="line">                            events = op.customEvents ? op.customEvents.series : op,</span><br><span class="line">                            element = <span class="keyword">this</span>.group;</span><br><span class="line">                            eventsPoint = op.customEvents ? op.customEvents.point : op.point.events;</span><br><span class="line">                            elementPoint = <span class="keyword">this</span>.points;</span><br><span class="line">                            <span class="keyword">break</span>;</span><br><span class="line">                        <span class="keyword">case</span> <span class="string">'renderItem'</span>:</span><br><span class="line">                            events = <span class="keyword">this</span>.options.itemEvents;</span><br><span class="line">                            element = <span class="keyword">this</span>.group;</span><br><span class="line">                            <span class="keyword">break</span>;</span><br><span class="line">                    &#125;</span><br><span class="line">    </span><br><span class="line">                    </span><br><span class="line">                    <span class="keyword">if</span> (events || eventsPoint) &#123;</span><br><span class="line">    </span><br><span class="line">                        <span class="keyword">if</span> (eventsPoint) &#123;</span><br><span class="line">                            <span class="keyword">var</span> len = elementPoint.length</span><br><span class="line">                            j = <span class="number">0</span>;</span><br><span class="line">    </span><br><span class="line">                            <span class="keyword">for</span> (; j &lt; len; j++) &#123;</span><br><span class="line">                                <span class="keyword">var</span> elemPoint = elementPoint[j].graphic;</span><br><span class="line">    </span><br><span class="line">                                <span class="keyword">if</span> (elementPoint[j].y &amp;&amp; elemPoint !== UNDEFINED) &#123;</span><br><span class="line">                                    customEvent.add(elemPoint, eventsPoint, elementPoint[j]);</span><br><span class="line">                                &#125;</span><br><span class="line">                            &#125;</span><br><span class="line">                        &#125;</span><br><span class="line">    </span><br><span class="line">                        customEvent.add(element, events, <span class="keyword">this</span>);</span><br><span class="line">                    &#125;</span><br><span class="line">                    </span><br><span class="line">                </span><br><span class="line">            &#125;);</span><br><span class="line">        &#125;;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//labels </span></span><br><span class="line">        customEvent(HC.Tick.prototype, <span class="string">'addLabel'</span>);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//axis</span></span><br><span class="line">        <span class="comment">//title</span></span><br><span class="line">        customEvent(HC.Axis.prototype, <span class="string">'render'</span>);</span><br><span class="line">        <span class="comment">//plotbands + plotlines</span></span><br><span class="line">        customEvent(HC.PlotLineOrBand.prototype, <span class="string">'render'</span>);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//series events &amp; point events</span></span><br><span class="line">        customEvent(HC.Series.prototype, <span class="string">'drawPoints'</span>);</span><br><span class="line">        customEvent(HC.seriesTypes.column.prototype, <span class="string">'drawPoints'</span>);</span><br><span class="line">        customEvent(HC.seriesTypes.pie.prototype, <span class="string">'drawPoints'</span>);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//datalabels events</span></span><br><span class="line">        customEvent(HC.Series.prototype, <span class="string">'drawDataLabels'</span>);</span><br><span class="line">        customEvent(HC.seriesTypes.column.prototype, <span class="string">'drawDataLabels'</span>);</span><br><span class="line">        customEvent(HC.seriesTypes.pie.prototype, <span class="string">'drawDataLabels'</span>);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//title events</span></span><br><span class="line">        customEvent(HC.Chart.prototype, <span class="string">'setTitle'</span>);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//legend items</span></span><br><span class="line">        customEvent(HC.Legend.prototype, <span class="string">'renderItem'</span>);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//bubble charts</span></span><br><span class="line">        <span class="keyword">if</span>(HC.seriesTypes.bubble) &#123;</span><br><span class="line">            customEvent(HC.seriesTypes.bubble.prototype, <span class="string">'drawPoints'</span>);</span><br><span class="line">            customEvent(HC.seriesTypes.bubble.prototype, <span class="string">'drawDataLabels'</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">    &#125;)(Highcharts);</span><br></pre></td></tr></table></figure>
-        
-          <p class="article-more-link">
-            <a href="/2014/12/12/highchart-custom-events/#more">查看更多</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      
-        <a data-url="http://www.peng8.net/2014/12/12/highchart-custom-events/" data-id="ckauy6yim001fgp2arrz06up4" class="article-share-link" data-share="baidu">分享到</a>
-      
-
-      
-
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Highcharts/">Highcharts</a></li></ul>
-
-
-    </footer>
-  </div>
-  
-</article>
-
-  
- 
-  
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/2/">&laquo; 上一页</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/4/">下一页 &raquo;</a>
+      <a class="extend prev" rel="prev" href="/page/2/">&laquo; 上一页</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/4/">下一页 &raquo;</a>
     </nav>
   
 </section>
@@ -750,7 +770,7 @@ filter: progid:DXImageTransform.Microsoft.Shadow(color='#C3C3C3', Direction=135,
   <div class="widget-wrap">
     <h3 class="widget-title">分类</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Highcharts/">Highcharts</a><span class="category-list-count">22</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java/">Java</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/angularjs/">angularjs</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/asp-net/">asp.net</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/css/">css</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/dnn/">dnn</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/easyui/">easyui</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/easyui/datagrid/">datagrid</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript/">javascript</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/jquery/">jquery</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/phantomjs/">phantomjs</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/reactjs/">reactjs</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/随笔日记/">随笔日记</a><span class="category-list-count">5</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Highcharts/">Highcharts</a><span class="category-list-count">22</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java/">Java</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/angularjs/">angularjs</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/asp-net/">asp.net</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/css/">css</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/dnn/">dnn</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/easyui/">easyui</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/easyui/datagrid/">datagrid</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript/">javascript</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/jquery/">jquery</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/phantomjs/">phantomjs</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/reactjs/">reactjs</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/随笔日记/">随笔日记</a><span class="category-list-count">5</span></li></ul>
     </div>
   </div>
 
@@ -759,7 +779,7 @@ filter: progid:DXImageTransform.Microsoft.Shadow(color='#C3C3C3', Direction=135,
   <div class="widget-wrap">
     <h3 class="widget-title">标签云</h3>
     <div class="widget tagcloud">
-      <a href="/tags/2014总结/" style="font-size: 10px; color: #7dc3de">2014总结</a> <a href="/tags/2015总结/" style="font-size: 10px; color: #7dc3de">2015总结</a> <a href="/tags/Highcharts/" style="font-size: 20px; color: #800080">Highcharts</a> <a href="/tags/Highcharts-legend/" style="font-size: 10px; color: #7dc3de">Highcharts legend</a> <a href="/tags/Highcharts不常用属性/" style="font-size: 10px; color: #7dc3de">Highcharts不常用属性</a> <a href="/tags/Highcharts仪表盘/" style="font-size: 10px; color: #7dc3de">Highcharts仪表盘</a> <a href="/tags/Highcharts复制标题/" style="font-size: 10px; color: #7dc3de">Highcharts复制标题</a> <a href="/tags/Highcharts绘制自定义元素/" style="font-size: 10px; color: #7dc3de">Highcharts绘制自定义元素</a> <a href="/tags/Highcharts自定义属性/" style="font-size: 10px; color: #7dc3de">Highcharts自定义属性</a> <a href="/tags/Highmaps/" style="font-size: 10px; color: #7dc3de">Highmaps</a> <a href="/tags/Highstock-K线图/" style="font-size: 10px; color: #7dc3de">Highstock K线图</a> <a href="/tags/Highstock-分时图/" style="font-size: 12.5px; color: #7e92c7">Highstock 分时图</a> <a href="/tags/Swiftype/" style="font-size: 10px; color: #7dc3de">Swiftype</a> <a href="/tags/android/" style="font-size: 10px; color: #7dc3de">android</a> <a href="/tags/angularjs/" style="font-size: 15px; color: #7f62af">angularjs</a> <a href="/tags/angularjs-post/" style="font-size: 10px; color: #7dc3de">angularjs post</a> <a href="/tags/angularjs自定义标签/" style="font-size: 10px; color: #7dc3de">angularjs自定义标签</a> <a href="/tags/asp-net/" style="font-size: 17.5px; color: #7f3198">asp.net</a> <a href="/tags/aspose/" style="font-size: 10px; color: #7dc3de">aspose</a> <a href="/tags/bowerrc创建/" style="font-size: 10px; color: #7dc3de">bowerrc创建</a> <a href="/tags/css/" style="font-size: 10px; color: #7dc3de">css</a> <a href="/tags/dnn/" style="font-size: 10px; color: #7dc3de">dnn</a> <a href="/tags/doctype/" style="font-size: 10px; color: #7dc3de">doctype</a> <a href="/tags/easyui/" style="font-size: 10px; color: #7dc3de">easyui</a> <a href="/tags/gojs入门笔记/" style="font-size: 10px; color: #7dc3de">gojs入门笔记</a> <a href="/tags/heatmap/" style="font-size: 12.5px; color: #7e92c7">heatmap</a> <a href="/tags/highchart/" style="font-size: 10px; color: #7dc3de">highchart</a> <a href="/tags/highmaps使用/" style="font-size: 10px; color: #7dc3de">highmaps使用</a> <a href="/tags/javascript/" style="font-size: 17.5px; color: #7f3198">javascript</a> <a href="/tags/jquery/" style="font-size: 17.5px; color: #7f3198">jquery</a> <a href="/tags/myPagination/" style="font-size: 10px; color: #7dc3de">myPagination</a> <a href="/tags/phantomjs/" style="font-size: 15px; color: #7f62af">phantomjs</a> <a href="/tags/phantomjs单独部署/" style="font-size: 10px; color: #7dc3de">phantomjs单独部署</a> <a href="/tags/react/" style="font-size: 12.5px; color: #7e92c7">react</a> <a href="/tags/react-native/" style="font-size: 12.5px; color: #7e92c7">react-native</a> <a href="/tags/tagedit/" style="font-size: 10px; color: #7dc3de">tagedit</a> <a href="/tags/timelinejs/" style="font-size: 10px; color: #7dc3de">timelinejs</a> <a href="/tags/分时图/" style="font-size: 10px; color: #7dc3de">分时图</a> <a href="/tags/地图/" style="font-size: 10px; color: #7dc3de">地图</a> <a href="/tags/希望/" style="font-size: 10px; color: #7dc3de">希望</a> <a href="/tags/延迟加载/" style="font-size: 10px; color: #7dc3de">延迟加载</a> <a href="/tags/智能查询/" style="font-size: 10px; color: #7dc3de">智能查询</a> <a href="/tags/热力图/" style="font-size: 12.5px; color: #7e92c7">热力图</a> <a href="/tags/热点图/" style="font-size: 12.5px; color: #7e92c7">热点图</a> <a href="/tags/美图/" style="font-size: 10px; color: #7dc3de">美图</a> <a href="/tags/随笔/" style="font-size: 10px; color: #7dc3de">随笔</a>
+      <a href="/tags/2014总结/" style="font-size: 10px; color: #7dc3de">2014总结</a> <a href="/tags/2015总结/" style="font-size: 10px; color: #7dc3de">2015总结</a> <a href="/tags/Highcharts/" style="font-size: 20px; color: #800080">Highcharts</a> <a href="/tags/Highcharts-legend/" style="font-size: 10px; color: #7dc3de">Highcharts legend</a> <a href="/tags/Highcharts不常用属性/" style="font-size: 10px; color: #7dc3de">Highcharts不常用属性</a> <a href="/tags/Highcharts仪表盘/" style="font-size: 10px; color: #7dc3de">Highcharts仪表盘</a> <a href="/tags/Highcharts复制标题/" style="font-size: 10px; color: #7dc3de">Highcharts复制标题</a> <a href="/tags/Highcharts绘制自定义元素/" style="font-size: 10px; color: #7dc3de">Highcharts绘制自定义元素</a> <a href="/tags/Highcharts自定义属性/" style="font-size: 10px; color: #7dc3de">Highcharts自定义属性</a> <a href="/tags/Highmaps/" style="font-size: 10px; color: #7dc3de">Highmaps</a> <a href="/tags/Highstock-K线图/" style="font-size: 10px; color: #7dc3de">Highstock K线图</a> <a href="/tags/Highstock-分时图/" style="font-size: 12.5px; color: #7e92c7">Highstock 分时图</a> <a href="/tags/Swiftype/" style="font-size: 10px; color: #7dc3de">Swiftype</a> <a href="/tags/android/" style="font-size: 17.5px; color: #7f3198">android</a> <a href="/tags/angularjs/" style="font-size: 15px; color: #7f62af">angularjs</a> <a href="/tags/angularjs-post/" style="font-size: 10px; color: #7dc3de">angularjs post</a> <a href="/tags/angularjs自定义标签/" style="font-size: 10px; color: #7dc3de">angularjs自定义标签</a> <a href="/tags/asp-net/" style="font-size: 17.5px; color: #7f3198">asp.net</a> <a href="/tags/aspose/" style="font-size: 10px; color: #7dc3de">aspose</a> <a href="/tags/bowerrc创建/" style="font-size: 10px; color: #7dc3de">bowerrc创建</a> <a href="/tags/css/" style="font-size: 10px; color: #7dc3de">css</a> <a href="/tags/dnn/" style="font-size: 10px; color: #7dc3de">dnn</a> <a href="/tags/doctype/" style="font-size: 10px; color: #7dc3de">doctype</a> <a href="/tags/easyui/" style="font-size: 10px; color: #7dc3de">easyui</a> <a href="/tags/gojs入门笔记/" style="font-size: 10px; color: #7dc3de">gojs入门笔记</a> <a href="/tags/heatmap/" style="font-size: 12.5px; color: #7e92c7">heatmap</a> <a href="/tags/highchart/" style="font-size: 10px; color: #7dc3de">highchart</a> <a href="/tags/highmaps使用/" style="font-size: 10px; color: #7dc3de">highmaps使用</a> <a href="/tags/javascript/" style="font-size: 17.5px; color: #7f3198">javascript</a> <a href="/tags/jquery/" style="font-size: 17.5px; color: #7f3198">jquery</a> <a href="/tags/myPagination/" style="font-size: 10px; color: #7dc3de">myPagination</a> <a href="/tags/phantomjs/" style="font-size: 15px; color: #7f62af">phantomjs</a> <a href="/tags/phantomjs单独部署/" style="font-size: 10px; color: #7dc3de">phantomjs单独部署</a> <a href="/tags/react/" style="font-size: 12.5px; color: #7e92c7">react</a> <a href="/tags/react-native/" style="font-size: 12.5px; color: #7e92c7">react-native</a> <a href="/tags/tagedit/" style="font-size: 10px; color: #7dc3de">tagedit</a> <a href="/tags/timelinejs/" style="font-size: 10px; color: #7dc3de">timelinejs</a> <a href="/tags/分时图/" style="font-size: 10px; color: #7dc3de">分时图</a> <a href="/tags/地图/" style="font-size: 10px; color: #7dc3de">地图</a> <a href="/tags/希望/" style="font-size: 10px; color: #7dc3de">希望</a> <a href="/tags/延迟加载/" style="font-size: 10px; color: #7dc3de">延迟加载</a> <a href="/tags/智能查询/" style="font-size: 10px; color: #7dc3de">智能查询</a> <a href="/tags/热力图/" style="font-size: 12.5px; color: #7e92c7">热力图</a> <a href="/tags/热点图/" style="font-size: 12.5px; color: #7e92c7">热点图</a> <a href="/tags/美图/" style="font-size: 10px; color: #7dc3de">美图</a> <a href="/tags/随笔/" style="font-size: 10px; color: #7dc3de">随笔</a>
     </div>
   </div>
 
@@ -768,7 +788,7 @@ filter: progid:DXImageTransform.Microsoft.Shadow(color='#C3C3C3', Direction=135,
   <div class="widget-wrap">
     <h3 class="widget-title">归档</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">五月 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">七月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">二月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">一月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">十二月 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">十一月 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">十月 2015</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">九月 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">七月 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">六月 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/05/">五月 2015</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/04/">四月 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">三月 2015</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">二月 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">一月 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/12/">十二月 2014</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">十一月 2014</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">十月 2014</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/09/">九月 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08/">八月 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/07/">七月 2014</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/05/">五月 2014</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/04/">四月 2014</a><span class="archive-list-count">4</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">五月 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">四月 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">三月 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">七月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">二月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">一月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">十二月 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">十一月 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">十月 2015</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">九月 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">七月 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">六月 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/05/">五月 2015</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/04/">四月 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">三月 2015</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">二月 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">一月 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/12/">十二月 2014</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">十一月 2014</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">十月 2014</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/09/">九月 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08/">八月 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/07/">七月 2014</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/05/">五月 2014</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/04/">四月 2014</a><span class="archive-list-count">4</span></li></ul>
     </div>
   </div>
 
@@ -780,23 +800,23 @@ filter: progid:DXImageTransform.Microsoft.Shadow(color='#C3C3C3', Direction=135,
       <ul>
         
           <li>
-            <a href="/2020/05/31/ok-http/">okhttp使用</a>
+            <a href="/2020/05/10/recyclerview2/">RecyclerView布局</a>
           </li>
         
           <li>
-            <a href="/2016/07/06/write-checkbox-component-in-React/">React-Native 中自定义checkbox组件</a>
+            <a href="/2020/05/01/ok-go/">okgo使用</a>
           </li>
         
           <li>
-            <a href="/2016/02/23/learn-react-native/">React-Native 环境搭建指南[阿鹏出品]</a>
+            <a href="/2020/04/11/retrofit/">retrofit的初步使用</a>
           </li>
         
           <li>
-            <a href="/2016/01/19/tagedit-demo-by-peng8/">简易模糊查询tagedit的实现</a>
+            <a href="/2020/04/02/ok-http/">okhttp使用</a>
           </li>
         
           <li>
-            <a href="/2015/12/31/2015-summary/">这一年</a>
+            <a href="/2020/03/31/android-studio/">AndroidStudio搭建</a>
           </li>
         
       </ul>

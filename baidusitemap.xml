@@ -4,6 +4,126 @@
 
     
   <url>
+    <loc>http://www.peng8.net/2020/04/02/ok-http/</loc>
+    <lastmod>2020-05-31T12:43:03.363Z</lastmod>
+    <data>
+        <display>
+        <title>okhttp使用</title>
+        <pubTime>2020-04-02T05:10:40.000Z</pubTime>
+        
+        <tag>android</tag>
+         
+         
+           
+             
+              <breadCrumb title="Java" url="http://www.peng8.net/categories/Java/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.peng8.net/2020/05/10/recyclerview2/</loc>
+    <lastmod>2020-05-31T12:36:02.166Z</lastmod>
+    <data>
+        <display>
+        <title>RecyclerView布局</title>
+        <pubTime>2020-05-10T02:10:40.000Z</pubTime>
+        
+        <tag>android</tag>
+         
+         
+           
+             
+              <breadCrumb title="Java" url="http://www.peng8.net/categories/Java/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.peng8.net/2020/04/11/retrofit/</loc>
+    <lastmod>2020-05-31T12:27:13.865Z</lastmod>
+    <data>
+        <display>
+        <title>retrofit的初步使用</title>
+        <pubTime>2020-04-11T02:10:40.000Z</pubTime>
+        
+        <tag>android</tag>
+         
+         
+           
+             
+              <breadCrumb title="Java" url="http://www.peng8.net/categories/Java/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.peng8.net/2020/03/11/recyclerview-adapter/</loc>
+    <lastmod>2020-05-31T12:26:16.043Z</lastmod>
+    <data>
+        <display>
+        <title>RecyclerView适配器的封装及实现</title>
+        <pubTime>2020-03-11T02:10:40.000Z</pubTime>
+        
+        <tag>android</tag>
+         
+         
+           
+             
+              <breadCrumb title="Java" url="http://www.peng8.net/categories/Java/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.peng8.net/2020/03/31/android-studio/</loc>
+    <lastmod>2020-05-31T12:23:21.148Z</lastmod>
+    <data>
+        <display>
+        <title>AndroidStudio搭建</title>
+        <pubTime>2020-03-31T02:10:40.000Z</pubTime>
+        
+        <tag>android</tag>
+         
+         
+           
+             
+              <breadCrumb title="Java" url="http://www.peng8.net/categories/Java/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.peng8.net/2020/05/01/ok-go/</loc>
+    <lastmod>2020-05-31T12:20:54.895Z</lastmod>
+    <data>
+        <display>
+        <title>okgo使用</title>
+        <pubTime>2020-05-01T05:10:40.000Z</pubTime>
+        
+        <tag>android</tag>
+         
+         
+           
+             
+              <breadCrumb title="Java" url="http://www.peng8.net/categories/Java/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://www.peng8.net/2016/07/06/write-checkbox-component-in-React/</loc>
     <lastmod>2020-05-31T11:16:08.626Z</lastmod>
     <data>
@@ -649,26 +769,6 @@
 
     
   <url>
-    <loc>http://www.peng8.net/2020/05/31/ok-http/</loc>
-    <lastmod>2020-05-31T10:56:49.773Z</lastmod>
-    <data>
-        <display>
-        <title>okhttp使用</title>
-        <pubTime>2020-05-31T05:10:40.000Z</pubTime>
-        
-        <tag>android</tag>
-         
-         
-           
-             
-              <breadCrumb title="Java" url="http://www.peng8.net/categories/Java/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://www.peng8.net/2015/10/09/create-bowerrc-file/</loc>
     <lastmod>2019-02-27T08:47:18.936Z</lastmod>
     <data>
@@ -682,6 +782,48 @@
            
              
               <breadCrumb title="javascript" url="http://www.peng8.net/categories/javascript/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.peng8.net/2015/07/23/use-swiftype-create-engine/</loc>
+    <lastmod>2019-02-27T08:47:16.485Z</lastmod>
+    <data>
+        <display>
+        <title>使用 Swiftype 创建一个随心所欲的搜索引擎</title>
+        <pubTime>2015-07-23T03:58:04.000Z</pubTime>
+        
+        <tag>Swiftype</tag>
+         
+         
+           
+             
+              <breadCrumb title="javascript" url="http://www.peng8.net/categories/javascript/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.peng8.net/2016/02/23/learn-react-native/</loc>
+    <lastmod>2019-02-27T08:47:16.485Z</lastmod>
+    <data>
+        <display>
+        <title>React-Native 环境搭建指南[阿鹏出品]</title>
+        <pubTime>2016-02-23T08:07:02.000Z</pubTime>
+        
+        <tag>react</tag>
+         
+        <tag>react-native</tag>
+         
+         
+           
+             
+              <breadCrumb title="reactjs" url="http://www.peng8.net/categories/reactjs/"/>
           
         </display>
     </data>
@@ -711,38 +853,16 @@
 
     
   <url>
-    <loc>http://www.peng8.net/2015/09/11/render-serverside-as-webserver/</loc>
+    <loc>http://www.peng8.net/2016/01/19/tagedit-demo-by-peng8/</loc>
     <lastmod>2019-02-27T08:47:16.485Z</lastmod>
     <data>
         <display>
-        <title>如何将phantomjs单独部署在服务端</title>
-        <pubTime>2015-09-11T09:34:13.000Z</pubTime>
+        <title>简易模糊查询tagedit的实现</title>
+        <pubTime>2016-01-19T11:57:46.000Z</pubTime>
         
-        <tag>phantomjs</tag>
+        <tag>智能查询</tag>
          
-        <tag>phantomjs单独部署</tag>
-         
-        <tag>highchart</tag>
-         
-         
-           
-             
-              <breadCrumb title="phantomjs" url="http://www.peng8.net/categories/phantomjs/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://www.peng8.net/2015/07/23/use-swiftype-create-engine/</loc>
-    <lastmod>2019-02-27T08:47:16.485Z</lastmod>
-    <data>
-        <display>
-        <title>使用 Swiftype 创建一个随心所欲的搜索引擎</title>
-        <pubTime>2015-07-23T03:58:04.000Z</pubTime>
-        
-        <tag>Swiftype</tag>
+        <tag>tagedit</tag>
          
          
            
@@ -777,43 +897,23 @@
 
     
   <url>
-    <loc>http://www.peng8.net/2016/01/19/tagedit-demo-by-peng8/</loc>
+    <loc>http://www.peng8.net/2015/09/11/render-serverside-as-webserver/</loc>
     <lastmod>2019-02-27T08:47:16.485Z</lastmod>
     <data>
         <display>
-        <title>简易模糊查询tagedit的实现</title>
-        <pubTime>2016-01-19T11:57:46.000Z</pubTime>
+        <title>如何将phantomjs单独部署在服务端</title>
+        <pubTime>2015-09-11T09:34:13.000Z</pubTime>
         
-        <tag>智能查询</tag>
+        <tag>phantomjs</tag>
          
-        <tag>tagedit</tag>
+        <tag>phantomjs单独部署</tag>
+         
+        <tag>highchart</tag>
          
          
            
              
-              <breadCrumb title="javascript" url="http://www.peng8.net/categories/javascript/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://www.peng8.net/2016/02/23/learn-react-native/</loc>
-    <lastmod>2019-02-27T08:47:16.485Z</lastmod>
-    <data>
-        <display>
-        <title>React-Native 环境搭建指南[阿鹏出品]</title>
-        <pubTime>2016-02-23T08:07:02.000Z</pubTime>
-        
-        <tag>react</tag>
-         
-        <tag>react-native</tag>
-         
-         
-           
-             
-              <breadCrumb title="reactjs" url="http://www.peng8.net/categories/reactjs/"/>
+              <breadCrumb title="phantomjs" url="http://www.peng8.net/categories/phantomjs/"/>
           
         </display>
     </data>
@@ -864,27 +964,6 @@
     </url>
 
     
-    
-  <url>
-    <loc>http://www.peng8.net/2014/04/09/difference-photo/</loc>
-    <lastmod>2019-02-27T08:47:16.479Z</lastmod>
-    <data>
-        <display>
-        <title>随手用手机拍的一张图片</title>
-        <pubTime>2014-04-09T07:32:46.000Z</pubTime>
-        
-        <tag>美图</tag>
-         
-         
-           
-             
-              <breadCrumb title="随笔日记" url="http://www.peng8.net/categories/%E9%9A%8F%E7%AC%94%E6%97%A5%E8%AE%B0/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
   <url>
     <loc>http://www.peng8.net/2014/07/21/render-charts-serverside/</loc>
     <lastmod>2019-02-27T08:47:16.479Z</lastmod>
@@ -901,6 +980,27 @@
            
              
               <breadCrumb title="Highcharts" url="http://www.peng8.net/categories/Highcharts/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+    
+  <url>
+    <loc>http://www.peng8.net/2014/04/09/difference-photo/</loc>
+    <lastmod>2019-02-27T08:47:16.479Z</lastmod>
+    <data>
+        <display>
+        <title>随手用手机拍的一张图片</title>
+        <pubTime>2014-04-09T07:32:46.000Z</pubTime>
+        
+        <tag>美图</tag>
+         
+         
+           
+             
+              <breadCrumb title="随笔日记" url="http://www.peng8.net/categories/%E9%9A%8F%E7%AC%94%E6%97%A5%E8%AE%B0/"/>
           
         </display>
     </data>
