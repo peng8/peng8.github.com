@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://www.peng8.net/2020/05/31/ok-http/</loc>
+    
+    <lastmod>2020-05-31T10:44:32.612Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://www.peng8.net/2015/10/09/create-bowerrc-file/</loc>
     
     <lastmod>2019-02-27T08:47:18.936Z</lastmod>
@@ -9,7 +16,7 @@
   </url>
   
   <url>
-    <loc>http://www.peng8.net/2015/03/09/how-to-use-highmaps/</loc>
+    <loc>http://www.peng8.net/2015/09/11/render-serverside-as-webserver/</loc>
     
     <lastmod>2019-02-27T08:47:16.485Z</lastmod>
     
@@ -23,13 +30,6 @@
   </url>
   
   <url>
-    <loc>http://www.peng8.net/2014/10/15/use-phantomjs-generate-snapshot/</loc>
-    
-    <lastmod>2019-02-27T08:47:16.485Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://www.peng8.net/2016/02/23/learn-react-native/</loc>
     
     <lastmod>2019-02-27T08:47:16.485Z</lastmod>
@@ -37,7 +37,7 @@
   </url>
   
   <url>
-    <loc>http://www.peng8.net/2014/09/27/how-to-use-timelinejs/</loc>
+    <loc>http://www.peng8.net/2015/03/09/how-to-use-highmaps/</loc>
     
     <lastmod>2019-02-27T08:47:16.485Z</lastmod>
     
@@ -51,14 +51,7 @@
   </url>
   
   <url>
-    <loc>http://www.peng8.net/2014/12/10/highchart-draggable-legend/</loc>
-    
-    <lastmod>2019-02-27T08:47:16.485Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.peng8.net/2015/09/11/render-serverside-as-webserver/</loc>
+    <loc>http://www.peng8.net/2014/09/27/how-to-use-timelinejs/</loc>
     
     <lastmod>2019-02-27T08:47:16.485Z</lastmod>
     
@@ -66,6 +59,13 @@
   
   <url>
     <loc>http://www.peng8.net/2016/01/19/tagedit-demo-by-peng8/</loc>
+    
+    <lastmod>2019-02-27T08:47:16.485Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.peng8.net/2014/10/15/use-phantomjs-generate-snapshot/</loc>
     
     <lastmod>2019-02-27T08:47:16.485Z</lastmod>
     
@@ -86,35 +86,21 @@
   </url>
   
   <url>
+    <loc>http://www.peng8.net/2014/12/10/highchart-draggable-legend/</loc>
+    
+    <lastmod>2019-02-27T08:47:16.485Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.peng8.net/2015/12/30/highmaps-of-china-extend/</loc>
+    
+    <lastmod>2019-02-27T08:47:16.484Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://www.peng8.net/2014/12/04/highchart-click-show-window-dialog/</loc>
-    
-    <lastmod>2019-02-27T08:47:16.484Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.peng8.net/2015/02/06/how-to-use-highstock-with-kline/</loc>
-    
-    <lastmod>2019-02-27T08:47:16.484Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.peng8.net/2015/04/09/aspose-introduction/</loc>
-    
-    <lastmod>2019-02-27T08:47:16.484Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.peng8.net/2014/12/12/highchart-custom-events/</loc>
-    
-    <lastmod>2019-02-27T08:47:16.484Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.peng8.net/2016/07/06/write-checkbox-component-in-React/</loc>
     
     <lastmod>2019-02-27T08:47:16.484Z</lastmod>
     
@@ -128,7 +114,42 @@
   </url>
   
   <url>
-    <loc>http://www.peng8.net/2014/10/14/use-cut-image-in-kindeditor/</loc>
+    <loc>http://www.peng8.net/2014/12/12/highchart-custom-events/</loc>
+    
+    <lastmod>2019-02-27T08:47:16.484Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.peng8.net/2015/04/09/aspose-introduction/</loc>
+    
+    <lastmod>2019-02-27T08:47:16.484Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.peng8.net/2015/05/26/highchart-gauge/</loc>
+    
+    <lastmod>2019-02-27T08:47:16.484Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.peng8.net/2014/09/12/mypagination-example-instruction/</loc>
+    
+    <lastmod>2019-02-27T08:47:16.484Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.peng8.net/2015/02/06/how-to-use-highstock-with-kline/</loc>
+    
+    <lastmod>2019-02-27T08:47:16.484Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.peng8.net/2016/07/06/write-checkbox-component-in-React/</loc>
     
     <lastmod>2019-02-27T08:47:16.484Z</lastmod>
     
@@ -149,13 +170,6 @@
   </url>
   
   <url>
-    <loc>http://www.peng8.net/2014/09/12/mypagination-example-instruction/</loc>
-    
-    <lastmod>2019-02-27T08:47:16.484Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://www.peng8.net/2015/03/13/draw-custom-element-on-chart/</loc>
     
     <lastmod>2019-02-27T08:47:16.484Z</lastmod>
@@ -170,28 +184,21 @@
   </url>
   
   <url>
-    <loc>http://www.peng8.net/2015/12/30/highmaps-of-china-extend/</loc>
+    <loc>http://www.peng8.net/2014/10/14/use-cut-image-in-kindeditor/</loc>
     
     <lastmod>2019-02-27T08:47:16.484Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://www.peng8.net/2015/05/26/highchart-gauge/</loc>
-    
-    <lastmod>2019-02-27T08:47:16.484Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.peng8.net/live/index.html</loc>
+    <loc>http://www.peng8.net/2014/10/16/highchart-common-options/</loc>
     
     <lastmod>2019-02-27T08:47:16.479Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://www.peng8.net/2014/10/30/highchart-export-excel/</loc>
+    <loc>http://www.peng8.net/live/index.html</loc>
     
     <lastmod>2019-02-27T08:47:16.479Z</lastmod>
     
@@ -212,14 +219,7 @@
   </url>
   
   <url>
-    <loc>http://www.peng8.net/2014/10/16/highchart-common-options/</loc>
-    
-    <lastmod>2019-02-27T08:47:16.479Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.peng8.net/2014/07/21/render-charts-serverside/</loc>
+    <loc>http://www.peng8.net/2014/10/30/highchart-export-excel/</loc>
     
     <lastmod>2019-02-27T08:47:16.479Z</lastmod>
     
@@ -227,6 +227,13 @@
   
   <url>
     <loc>http://www.peng8.net/2015/01/31/how-to-use-highstock/</loc>
+    
+    <lastmod>2019-02-27T08:47:16.479Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.peng8.net/2014/07/21/render-charts-serverside/</loc>
     
     <lastmod>2019-02-27T08:47:16.479Z</lastmod>
     
@@ -268,6 +275,13 @@
   </url>
   
   <url>
+    <loc>http://www.peng8.net/2015/12/31/2015-summary/</loc>
+    
+    <lastmod>2019-02-27T08:47:16.419Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://www.peng8.net/2015/10/12/how-to-create-heatmap-one/</loc>
     
     <lastmod>2019-02-27T08:47:16.419Z</lastmod>
@@ -282,128 +296,121 @@
   </url>
   
   <url>
-    <loc>http://www.peng8.net/2015/12/31/2015-summary/</loc>
-    
-    <lastmod>2019-02-27T08:47:16.419Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://www.peng8.net/2015/05/27/unknown-attribute-of-highchart/</loc>
     
-    <lastmod>2018-12-05T09:20:09.767Z</lastmod>
+    <lastmod>2018-12-29T04:07:09.768Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://www.peng8.net/2014/04/15/highchart-custom-button-generate-images/</loc>
     
-    <lastmod>2018-12-05T09:20:09.765Z</lastmod>
+    <lastmod>2018-12-29T04:07:09.767Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://www.peng8.net/2014/04/26/javascript-and-css-compression/</loc>
     
-    <lastmod>2018-12-05T09:20:09.765Z</lastmod>
+    <lastmod>2018-12-29T04:07:09.766Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://www.peng8.net/2015/04/08/angularjs-post-param-solution/</loc>
     
-    <lastmod>2018-12-05T09:20:09.764Z</lastmod>
+    <lastmod>2018-12-29T04:07:09.766Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://www.peng8.net/2014/07/07/angularjs-show-html-in-ngmodel/</loc>
     
-    <lastmod>2018-12-05T09:20:09.763Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.peng8.net/2014/11/13/change-background/</loc>
-    
-    <lastmod>2018-12-05T09:20:09.759Z</lastmod>
+    <lastmod>2018-12-29T04:07:09.765Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://www.peng8.net/2014/08/15/interceptors-in-angularjs/</loc>
     
-    <lastmod>2018-12-05T09:20:09.759Z</lastmod>
+    <lastmod>2018-12-29T04:07:09.763Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.peng8.net/2014/11/13/change-background/</loc>
+    
+    <lastmod>2018-12-29T04:07:09.762Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://www.peng8.net/2014/05/21/css-priority-mechanism/</loc>
     
-    <lastmod>2018-12-05T09:20:09.757Z</lastmod>
+    <lastmod>2018-12-29T04:07:09.761Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://www.peng8.net/2015/01/05/easyui-datagrid-checkbox-status/</loc>
     
-    <lastmod>2018-12-05T09:20:09.756Z</lastmod>
+    <lastmod>2018-12-29T04:07:09.760Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://www.peng8.net/2014/11/05/how-to-amplify-highchart/</loc>
     
-    <lastmod>2018-12-05T09:20:09.747Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.peng8.net/2014/04/20/checkclient-pc-or-mobile/</loc>
-    
-    <lastmod>2018-12-05T09:20:09.745Z</lastmod>
+    <lastmod>2018-12-29T04:07:09.755Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://www.peng8.net/2014/07/01/html-doctype-instruction/</loc>
     
-    <lastmod>2018-12-05T09:20:09.745Z</lastmod>
+    <lastmod>2018-12-29T04:07:09.753Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.peng8.net/2014/04/20/checkclient-pc-or-mobile/</loc>
+    
+    <lastmod>2018-12-29T04:07:09.752Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://www.peng8.net/2014/11/20/common-module-definition/</loc>
     
-    <lastmod>2018-12-05T09:20:09.739Z</lastmod>
+    <lastmod>2018-12-29T04:07:09.747Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://www.peng8.net/2015/05/11/angularjs-custom-render-mark/</loc>
     
-    <lastmod>2018-12-05T09:20:09.734Z</lastmod>
+    <lastmod>2018-12-29T04:07:09.743Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://www.peng8.net/2014/08/21/judge-object-is-null-or-empty/</loc>
     
-    <lastmod>2018-12-05T09:20:09.730Z</lastmod>
+    <lastmod>2018-12-29T04:07:09.741Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://www.peng8.net/2014/11/28/monitor-angularjs-dom-loaded/</loc>
     
-    <lastmod>2018-12-05T09:20:09.729Z</lastmod>
+    <lastmod>2018-12-29T04:07:09.740Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://www.peng8.net/2014/10/20/highchart-generate-multiple-images-on-one-picture/</loc>
     
-    <lastmod>2018-12-05T09:20:09.728Z</lastmod>
+    <lastmod>2018-12-29T04:07:09.739Z</lastmod>
     
   </url>
   

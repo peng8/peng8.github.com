@@ -75,6 +75,65 @@ document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3
       <div class="outer">
         <section id="main">
   
+    <article id="post-highchart-draggable-legend" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2014/12/10/highchart-draggable-legend/" class="article-date">
+  <time datetime="2014-12-10T01:18:12.000Z" itemprop="datePublished">2014/12/10</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Highcharts/">Highcharts</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2014/12/10/highchart-draggable-legend/">highchart legend 可拖拽扩展</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+		
+		
+        <blockquote>
+<p><strong>highchart 插件之legend 拖拽扩展</strong>  </p>
+</blockquote>
+<p>####下面是扩展插件的代码<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line">(<span class="function"><span class="keyword">function</span> (<span class="params">H</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> addEvent = H.addEvent;</span><br><span class="line"></span><br><span class="line">    H.wrap(H.Chart.prototype, <span class="string">'init'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">proceed</span>) </span>&#123;</span><br><span class="line">        proceed.apply(<span class="keyword">this</span>, <span class="built_in">Array</span>.prototype.slice.call(<span class="built_in">arguments</span>, <span class="number">1</span>));</span><br><span class="line"></span><br><span class="line">        <span class="keyword">var</span> chart = <span class="keyword">this</span>,</span><br><span class="line">            legend = chart.legend,</span><br><span class="line">            box = legend.box,</span><br><span class="line">            options = legend.options,</span><br><span class="line">            isDragging,</span><br><span class="line">            downX,</span><br><span class="line">            downY,</span><br><span class="line">            optionsX,</span><br><span class="line">            optionsY,</span><br><span class="line">            currentX,</span><br><span class="line">            currentY;</span><br><span class="line">        <span class="keyword">if</span> (options.draggable) &#123;</span><br><span class="line">            box.css(&#123;</span><br><span class="line">                cursor: <span class="string">'move'</span></span><br><span class="line">            &#125;);</span><br><span class="line">            addEvent(box.element, <span class="string">'mousedown'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;</span><br><span class="line">                e = chart.pointer.normalize(e);</span><br><span class="line">                downX = e.chartX;</span><br><span class="line">                downY = e.chartY;</span><br><span class="line">                optionsX = options.x;</span><br><span class="line">                optionsY = options.y;</span><br><span class="line">                currentX = legend.group.attr(<span class="string">'translateX'</span>);</span><br><span class="line">                currentY = legend.group.attr(<span class="string">'translateY'</span>);</span><br><span class="line">                isDragging = <span class="literal">true</span>;</span><br><span class="line">            &#125;);</span><br><span class="line">            addEvent(chart.container, <span class="string">'mousemove'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;</span><br><span class="line">                <span class="keyword">if</span> (isDragging) &#123;</span><br><span class="line">                    e = chart.pointer.normalize(e);</span><br><span class="line">                    <span class="keyword">var</span> draggedX = e.chartX - downX,</span><br><span class="line">                        draggedY = e.chartY - downY;</span><br><span class="line"></span><br><span class="line">                    options.x = optionsX + draggedX;</span><br><span class="line">                    options.y = optionsY + draggedY;</span><br><span class="line"></span><br><span class="line">                    <span class="comment">// Do the move is we're inside the chart</span></span><br><span class="line">                    <span class="keyword">if</span> (currentX + draggedX &gt; <span class="number">0</span> &amp;&amp; currentX + draggedX + legend.legendWidth &lt; chart.chartWidth &amp;&amp; currentY + draggedY &gt; <span class="number">0</span> &amp;&amp; currentY + draggedY + legend.legendHeight &lt; chart.chartHeight) &#123;</span><br><span class="line">                        legend.group.placed = <span class="literal">false</span>; <span class="comment">// prevent animation</span></span><br><span class="line">                        legend.group.align(H.extend(&#123;</span><br><span class="line">                            width: legend.legendWidth,</span><br><span class="line">                            height: legend.legendHeight</span><br><span class="line">                        &#125;, options), <span class="literal">true</span>, <span class="string">'spacingBox'</span>);</span><br><span class="line">                    &#125;</span><br><span class="line">                    <span class="keyword">if</span> (chart.pointer.selectionMarker) &#123;</span><br><span class="line">                        chart.pointer.selectionMarker = chart.pointer.selectionMarker.destroy();</span><br><span class="line">                    &#125;</span><br><span class="line"></span><br><span class="line">                &#125;</span><br><span class="line">            &#125;);</span><br><span class="line">            addEvent(<span class="built_in">document</span>, <span class="string">'mouseup'</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">                isDragging = <span class="literal">false</span>;</span><br><span class="line">            &#125;);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;(Highcharts));</span><br></pre></td></tr></table></figure></p>
+<p>####前端初始化代码<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> chart = <span class="keyword">new</span> Highcharts.Chart(&#123;</span><br><span class="line">        chart: &#123;</span><br><span class="line">            renderTo: <span class="string">'container'</span>,</span><br><span class="line">            type: <span class="string">'line'</span></span><br><span class="line">        &#125;,</span><br><span class="line">        title: &#123;</span><br><span class="line">            text: <span class="string">'Highcharts Draggable Legend Demo'</span></span><br><span class="line">        &#125;,</span><br><span class="line">        xAxis: &#123;</span><br><span class="line">            categories: [<span class="string">'Jan'</span>, <span class="string">'Feb'</span>, <span class="string">'Mar'</span>, <span class="string">'Apr'</span>, <span class="string">'May'</span>, <span class="string">'Jun'</span>,</span><br><span class="line">                <span class="string">'Jul'</span>, <span class="string">'Aug'</span>, <span class="string">'Sep'</span>, <span class="string">'Oct'</span>, <span class="string">'Nov'</span>, <span class="string">'Dec'</span>],</span><br><span class="line">            labels: &#123;</span><br><span class="line">                zIndex: <span class="number">6</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;,</span><br><span class="line">        yAxis: &#123;</span><br><span class="line">            title: &#123;</span><br><span class="line">                text: <span class="string">'Temperature (°C)'</span></span><br><span class="line">            &#125;,</span><br><span class="line">            plotLines: [&#123;</span><br><span class="line">                value: <span class="number">0</span>,</span><br><span class="line">                width: <span class="number">1</span>,</span><br><span class="line">                color: <span class="string">'#808080'</span></span><br><span class="line">            &#125;],</span><br><span class="line">            labels: &#123;</span><br><span class="line">                zIndex: <span class="number">6</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;,</span><br><span class="line">        tooltip: &#123;</span><br><span class="line">            formatter: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="string">'&lt;b&gt;'</span> + <span class="keyword">this</span>.series.name + <span class="string">'&lt;/b&gt;&lt;br/&gt;'</span> + <span class="keyword">this</span>.x + <span class="string">': '</span> + <span class="keyword">this</span>.y + <span class="string">'°C'</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;,</span><br><span class="line">        legend: &#123;</span><br><span class="line">            layout: <span class="string">'vertical'</span>,</span><br><span class="line">            backgroundColor: <span class="string">'white'</span>,</span><br><span class="line">            align: <span class="string">'right'</span>,</span><br><span class="line">            verticalAlign: <span class="string">'top'</span>,</span><br><span class="line">            y: <span class="number">165</span>,</span><br><span class="line">            x: <span class="number">-220</span>,</span><br><span class="line">            borderWidth: <span class="number">1</span>,</span><br><span class="line">            borderRadius: <span class="number">5</span>,</span><br><span class="line"></span><br><span class="line">            floating: <span class="literal">true</span>,</span><br><span class="line">            draggable: <span class="literal">true</span>,</span><br><span class="line">            zIndex: <span class="number">20</span></span><br><span class="line">        &#125;,</span><br><span class="line">        series: [&#123;</span><br><span class="line">            name: <span class="string">'Tokyo'</span>,</span><br><span class="line">            data: [<span class="number">7.0</span>, <span class="number">6.9</span>, <span class="number">9.5</span>, <span class="number">14.5</span>, <span class="number">18.2</span>, <span class="number">21.5</span>, <span class="number">25.2</span>, <span class="number">26.5</span>, <span class="number">23.3</span>, <span class="number">18.3</span>, <span class="number">13.9</span>, <span class="number">9.6</span>]</span><br><span class="line">        &#125;, &#123;</span><br><span class="line">            name: <span class="string">'New York'</span>,</span><br><span class="line">            data: [<span class="number">-0.2</span>, <span class="number">0.8</span>, <span class="number">5.7</span>, <span class="number">11.3</span>, <span class="number">17.0</span>, <span class="number">22.0</span>, <span class="number">24.8</span>, <span class="number">24.1</span>, <span class="number">20.1</span>, <span class="number">14.1</span>, <span class="number">8.6</span>, <span class="number">2.5</span>]</span><br><span class="line">        &#125;, &#123;</span><br><span class="line">            name: <span class="string">'Berlin'</span>,</span><br><span class="line">            data: [<span class="number">-0.9</span>, <span class="number">0.6</span>, <span class="number">3.5</span>, <span class="number">8.4</span>, <span class="number">13.5</span>, <span class="number">17.0</span>, <span class="number">18.6</span>, <span class="number">17.9</span>, <span class="number">14.3</span>, <span class="number">9.0</span>, <span class="number">3.9</span>, <span class="number">1.0</span>]</span><br><span class="line">        &#125;, &#123;</span><br><span class="line">            name: <span class="string">'London'</span>,</span><br><span class="line">            data: [<span class="number">3.9</span>, <span class="number">4.2</span>, <span class="number">5.7</span>, <span class="number">8.5</span>, <span class="number">11.9</span>, <span class="number">15.2</span>, <span class="number">17.0</span>, <span class="number">16.6</span>, <span class="number">14.2</span>, <span class="number">10.3</span>, <span class="number">6.6</span>, <span class="number">4.8</span>]</span><br><span class="line">        &#125;]</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<p>####效果图<br><img src="http://peng8-blog.oss-cn-beijing.aliyuncs.com/blog/peng_20141210092820.png" alt=""></p>
+<blockquote>
+<p><a href="http://runjs.cn/detail/umm47qeo" target="_blank" rel="noopener">demo在线预览</a></p>
+</blockquote>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+        <a data-url="http://www.peng8.net/2014/12/10/highchart-draggable-legend/" data-id="ckaux7k9000197y2arehs9u5e" class="article-share-link" data-share="baidu">分享到</a>
+      
+
+      
+
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Highcharts/">Highcharts</a></li></ul>
+
+
+    </footer>
+  </div>
+  
+</article>
+
+  
+ 
+  
     <article id="post-highchart-rounded-corners" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2014/12/09/highchart-rounded-corners/" class="article-date">
@@ -117,7 +176,7 @@ document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://www.peng8.net/2014/12/09/highchart-rounded-corners/" data-id="cjpazlooq001sxt2al5n76bg4" class="article-share-link" data-share="baidu">分享到</a>
+        <a data-url="http://www.peng8.net/2014/12/09/highchart-rounded-corners/" data-id="ckaux7k9g00207y2aaut1897t" class="article-share-link" data-share="baidu">分享到</a>
       
 
       
@@ -182,7 +241,7 @@ document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://www.peng8.net/2014/12/04/highchart-click-show-window-dialog/" data-id="cjpazlooe0013xt2abgejwwu9" class="article-share-link" data-share="baidu">分享到</a>
+        <a data-url="http://www.peng8.net/2014/12/04/highchart-click-show-window-dialog/" data-id="ckaux7k8z00167y2aspg20lyx" class="article-share-link" data-share="baidu">分享到</a>
       
 
       
@@ -246,7 +305,7 @@ document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://www.peng8.net/2014/11/28/monitor-angularjs-dom-loaded/" data-id="cjpazlopj003oxt2ayij4k465" class="article-share-link" data-share="baidu">分享到</a>
+        <a data-url="http://www.peng8.net/2014/11/28/monitor-angularjs-dom-loaded/" data-id="ckaux7ka300387y2a4at0zvqs" class="article-share-link" data-share="baidu">分享到</a>
       
 
       
@@ -311,7 +370,7 @@ document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://www.peng8.net/2014/11/24/highchart-table-export-image-by-phantomjs/" data-id="cjpazloot0021xt2aklmcza7q" class="article-share-link" data-share="baidu">分享到</a>
+        <a data-url="http://www.peng8.net/2014/11/24/highchart-table-export-image-by-phantomjs/" data-id="ckaux7k9d001u7y2a0xw90835" class="article-share-link" data-share="baidu">分享到</a>
       
 
       
@@ -371,7 +430,7 @@ document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://www.peng8.net/2014/11/20/common-module-definition/" data-id="cjpazloo7000lxt2al76hardl" class="article-share-link" data-share="baidu">分享到</a>
+        <a data-url="http://www.peng8.net/2014/11/20/common-module-definition/" data-id="ckaux7k8u000s7y2a6ttamy70" class="article-share-link" data-share="baidu">分享到</a>
       
 
       
@@ -425,7 +484,7 @@ document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://www.peng8.net/2014/11/13/change-background/" data-id="cjpazloo2000gxt2asqm6rlc9" class="article-share-link" data-share="baidu">分享到</a>
+        <a data-url="http://www.peng8.net/2014/11/13/change-background/" data-id="ckaux7k8i000c7y2a5b1sq8jb" class="article-share-link" data-share="baidu">分享到</a>
       
 
       
@@ -481,7 +540,7 @@ document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://www.peng8.net/2014/11/05/how-to-amplify-highchart/" data-id="cjpazlooy002axt2atq6dvnex" class="article-share-link" data-share="baidu">分享到</a>
+        <a data-url="http://www.peng8.net/2014/11/05/how-to-amplify-highchart/" data-id="ckaux7k9j00257y2admjui4uo" class="article-share-link" data-share="baidu">分享到</a>
       
 
       
@@ -540,7 +599,7 @@ document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://www.peng8.net/2014/10/30/highchart-export-excel/" data-id="cjpazloom001jxt2a326z536l" class="article-share-link" data-share="baidu">分享到</a>
+        <a data-url="http://www.peng8.net/2014/10/30/highchart-export-excel/" data-id="ckaux7k97001j7y2axxzc9hue" class="article-share-link" data-share="baidu">分享到</a>
       
 
       
@@ -600,65 +659,7 @@ document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://www.peng8.net/2014/10/20/highchart-generate-multiple-images-on-one-picture/" data-id="cjpazloor001uxt2acr3ytu1r" class="article-share-link" data-share="baidu">分享到</a>
-      
-
-      
-
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Highcharts/">Highcharts</a></li></ul>
-
-
-    </footer>
-  </div>
-  
-</article>
-
-  
- 
-  
-    <article id="post-highchart-common-options" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2014/10/16/highchart-common-options/" class="article-date">
-  <time datetime="2014-10-16T03:24:24.000Z" itemprop="datePublished">2014/10/16</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Highcharts/">Highcharts</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2014/10/16/highchart-common-options/">highchart通用配置文件及使用说明</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <blockquote>
-</blockquote>
-<p>使用 <code>highcharts</code> 已经有好几年的时间了，用过很多图表插件！例如 <code>funsionchart</code>、<code>dhtmlxChart</code>、<code>jqPlot</code>、<code>JS Charts</code>、<code>Open Flash Chart</code>、<code>Flot</code>，在到国产最近比较好的 <code>echarts</code> ，这里面有基于javascript的，也有基于flash的，但最喜欢的还是 <code>highcharts</code>，这些图表插件基本的图表功能大部分都能满足，但区别在于图表的功能可扩展性及浏览器兼容性上，<code>highcharts</code> 有明显的优势。</p>
-<p>###配置文件介绍</p>
-<ul>
-<li>下面步入正题，给大家分享一个 <strong>highcharts 全局配置文件</strong>，其实也没什么，无非就是将通用api里的参数放在了一个方法里，这样初始化图表就不用每次都去写一大串配置，而是用到什么参数就写什么参数，具体请看下面这段javascript代码
-        
-          <p class="article-more-link">
-            <a href="/2014/10/16/highchart-common-options/#more">查看更多</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      
-        <a data-url="http://www.peng8.net/2014/10/16/highchart-common-options/" data-id="cjpazloog0016xt2aahb5xe7k" class="article-share-link" data-share="baidu">分享到</a>
+        <a data-url="http://www.peng8.net/2014/10/20/highchart-generate-multiple-images-on-one-picture/" data-id="ckaux7k9a001o7y2axfyja8bf" class="article-share-link" data-share="baidu">分享到</a>
       
 
       
@@ -727,7 +728,7 @@ filter: progid:DXImageTransform.Microsoft.Shadow(color='#C3C3C3', Direction=135,
   <div class="widget-wrap">
     <h3 class="widget-title">分类</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Highcharts/">Highcharts</a><span class="category-list-count">22</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/angularjs/">angularjs</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/asp-net/">asp.net</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/css/">css</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/dnn/">dnn</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/easyui/">easyui</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/easyui/datagrid/">datagrid</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript/">javascript</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/jquery/">jquery</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/phantomjs/">phantomjs</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/reactjs/">reactjs</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/随笔日记/">随笔日记</a><span class="category-list-count">5</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Highcharts/">Highcharts</a><span class="category-list-count">22</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java/">Java</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/angularjs/">angularjs</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/asp-net/">asp.net</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/css/">css</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/dnn/">dnn</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/easyui/">easyui</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/easyui/datagrid/">datagrid</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript/">javascript</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/jquery/">jquery</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/phantomjs/">phantomjs</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/reactjs/">reactjs</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/随笔日记/">随笔日记</a><span class="category-list-count">5</span></li></ul>
     </div>
   </div>
 
@@ -736,7 +737,7 @@ filter: progid:DXImageTransform.Microsoft.Shadow(color='#C3C3C3', Direction=135,
   <div class="widget-wrap">
     <h3 class="widget-title">标签云</h3>
     <div class="widget tagcloud">
-      <a href="/tags/2014总结/" style="font-size: 10px; color: #7dc3de">2014总结</a> <a href="/tags/2015总结/" style="font-size: 10px; color: #7dc3de">2015总结</a> <a href="/tags/Highcharts/" style="font-size: 20px; color: #800080">Highcharts</a> <a href="/tags/Highcharts-legend/" style="font-size: 10px; color: #7dc3de">Highcharts legend</a> <a href="/tags/Highcharts不常用属性/" style="font-size: 10px; color: #7dc3de">Highcharts不常用属性</a> <a href="/tags/Highcharts仪表盘/" style="font-size: 10px; color: #7dc3de">Highcharts仪表盘</a> <a href="/tags/Highcharts复制标题/" style="font-size: 10px; color: #7dc3de">Highcharts复制标题</a> <a href="/tags/Highcharts绘制自定义元素/" style="font-size: 10px; color: #7dc3de">Highcharts绘制自定义元素</a> <a href="/tags/Highcharts自定义属性/" style="font-size: 10px; color: #7dc3de">Highcharts自定义属性</a> <a href="/tags/Highmaps/" style="font-size: 10px; color: #7dc3de">Highmaps</a> <a href="/tags/Highstock-K线图/" style="font-size: 10px; color: #7dc3de">Highstock K线图</a> <a href="/tags/Highstock-分时图/" style="font-size: 12.5px; color: #7e92c7">Highstock 分时图</a> <a href="/tags/Swiftype/" style="font-size: 10px; color: #7dc3de">Swiftype</a> <a href="/tags/angularjs/" style="font-size: 15px; color: #7f62af">angularjs</a> <a href="/tags/angularjs-post/" style="font-size: 10px; color: #7dc3de">angularjs post</a> <a href="/tags/angularjs自定义标签/" style="font-size: 10px; color: #7dc3de">angularjs自定义标签</a> <a href="/tags/asp-net/" style="font-size: 17.5px; color: #7f3198">asp.net</a> <a href="/tags/aspose/" style="font-size: 10px; color: #7dc3de">aspose</a> <a href="/tags/bowerrc创建/" style="font-size: 10px; color: #7dc3de">bowerrc创建</a> <a href="/tags/css/" style="font-size: 10px; color: #7dc3de">css</a> <a href="/tags/dnn/" style="font-size: 10px; color: #7dc3de">dnn</a> <a href="/tags/doctype/" style="font-size: 10px; color: #7dc3de">doctype</a> <a href="/tags/easyui/" style="font-size: 10px; color: #7dc3de">easyui</a> <a href="/tags/gojs入门笔记/" style="font-size: 10px; color: #7dc3de">gojs入门笔记</a> <a href="/tags/heatmap/" style="font-size: 12.5px; color: #7e92c7">heatmap</a> <a href="/tags/highchart/" style="font-size: 10px; color: #7dc3de">highchart</a> <a href="/tags/highmaps使用/" style="font-size: 10px; color: #7dc3de">highmaps使用</a> <a href="/tags/javascript/" style="font-size: 17.5px; color: #7f3198">javascript</a> <a href="/tags/jquery/" style="font-size: 17.5px; color: #7f3198">jquery</a> <a href="/tags/myPagination/" style="font-size: 10px; color: #7dc3de">myPagination</a> <a href="/tags/phantomjs/" style="font-size: 15px; color: #7f62af">phantomjs</a> <a href="/tags/phantomjs单独部署/" style="font-size: 10px; color: #7dc3de">phantomjs单独部署</a> <a href="/tags/react/" style="font-size: 12.5px; color: #7e92c7">react</a> <a href="/tags/react-native/" style="font-size: 12.5px; color: #7e92c7">react-native</a> <a href="/tags/tagedit/" style="font-size: 10px; color: #7dc3de">tagedit</a> <a href="/tags/timelinejs/" style="font-size: 10px; color: #7dc3de">timelinejs</a> <a href="/tags/分时图/" style="font-size: 10px; color: #7dc3de">分时图</a> <a href="/tags/地图/" style="font-size: 10px; color: #7dc3de">地图</a> <a href="/tags/希望/" style="font-size: 10px; color: #7dc3de">希望</a> <a href="/tags/延迟加载/" style="font-size: 10px; color: #7dc3de">延迟加载</a> <a href="/tags/智能查询/" style="font-size: 10px; color: #7dc3de">智能查询</a> <a href="/tags/热力图/" style="font-size: 12.5px; color: #7e92c7">热力图</a> <a href="/tags/热点图/" style="font-size: 12.5px; color: #7e92c7">热点图</a> <a href="/tags/美图/" style="font-size: 10px; color: #7dc3de">美图</a> <a href="/tags/随笔/" style="font-size: 10px; color: #7dc3de">随笔</a>
+      <a href="/tags/2014总结/" style="font-size: 10px; color: #7dc3de">2014总结</a> <a href="/tags/2015总结/" style="font-size: 10px; color: #7dc3de">2015总结</a> <a href="/tags/Highcharts/" style="font-size: 20px; color: #800080">Highcharts</a> <a href="/tags/Highcharts-legend/" style="font-size: 10px; color: #7dc3de">Highcharts legend</a> <a href="/tags/Highcharts不常用属性/" style="font-size: 10px; color: #7dc3de">Highcharts不常用属性</a> <a href="/tags/Highcharts仪表盘/" style="font-size: 10px; color: #7dc3de">Highcharts仪表盘</a> <a href="/tags/Highcharts复制标题/" style="font-size: 10px; color: #7dc3de">Highcharts复制标题</a> <a href="/tags/Highcharts绘制自定义元素/" style="font-size: 10px; color: #7dc3de">Highcharts绘制自定义元素</a> <a href="/tags/Highcharts自定义属性/" style="font-size: 10px; color: #7dc3de">Highcharts自定义属性</a> <a href="/tags/Highmaps/" style="font-size: 10px; color: #7dc3de">Highmaps</a> <a href="/tags/Highstock-K线图/" style="font-size: 10px; color: #7dc3de">Highstock K线图</a> <a href="/tags/Highstock-分时图/" style="font-size: 12.5px; color: #7e92c7">Highstock 分时图</a> <a href="/tags/Swiftype/" style="font-size: 10px; color: #7dc3de">Swiftype</a> <a href="/tags/android/" style="font-size: 10px; color: #7dc3de">android</a> <a href="/tags/angularjs/" style="font-size: 15px; color: #7f62af">angularjs</a> <a href="/tags/angularjs-post/" style="font-size: 10px; color: #7dc3de">angularjs post</a> <a href="/tags/angularjs自定义标签/" style="font-size: 10px; color: #7dc3de">angularjs自定义标签</a> <a href="/tags/asp-net/" style="font-size: 17.5px; color: #7f3198">asp.net</a> <a href="/tags/aspose/" style="font-size: 10px; color: #7dc3de">aspose</a> <a href="/tags/bowerrc创建/" style="font-size: 10px; color: #7dc3de">bowerrc创建</a> <a href="/tags/css/" style="font-size: 10px; color: #7dc3de">css</a> <a href="/tags/dnn/" style="font-size: 10px; color: #7dc3de">dnn</a> <a href="/tags/doctype/" style="font-size: 10px; color: #7dc3de">doctype</a> <a href="/tags/easyui/" style="font-size: 10px; color: #7dc3de">easyui</a> <a href="/tags/gojs入门笔记/" style="font-size: 10px; color: #7dc3de">gojs入门笔记</a> <a href="/tags/heatmap/" style="font-size: 12.5px; color: #7e92c7">heatmap</a> <a href="/tags/highchart/" style="font-size: 10px; color: #7dc3de">highchart</a> <a href="/tags/highmaps使用/" style="font-size: 10px; color: #7dc3de">highmaps使用</a> <a href="/tags/javascript/" style="font-size: 17.5px; color: #7f3198">javascript</a> <a href="/tags/jquery/" style="font-size: 17.5px; color: #7f3198">jquery</a> <a href="/tags/myPagination/" style="font-size: 10px; color: #7dc3de">myPagination</a> <a href="/tags/phantomjs/" style="font-size: 15px; color: #7f62af">phantomjs</a> <a href="/tags/phantomjs单独部署/" style="font-size: 10px; color: #7dc3de">phantomjs单独部署</a> <a href="/tags/react/" style="font-size: 12.5px; color: #7e92c7">react</a> <a href="/tags/react-native/" style="font-size: 12.5px; color: #7e92c7">react-native</a> <a href="/tags/tagedit/" style="font-size: 10px; color: #7dc3de">tagedit</a> <a href="/tags/timelinejs/" style="font-size: 10px; color: #7dc3de">timelinejs</a> <a href="/tags/分时图/" style="font-size: 10px; color: #7dc3de">分时图</a> <a href="/tags/地图/" style="font-size: 10px; color: #7dc3de">地图</a> <a href="/tags/希望/" style="font-size: 10px; color: #7dc3de">希望</a> <a href="/tags/延迟加载/" style="font-size: 10px; color: #7dc3de">延迟加载</a> <a href="/tags/智能查询/" style="font-size: 10px; color: #7dc3de">智能查询</a> <a href="/tags/热力图/" style="font-size: 12.5px; color: #7e92c7">热力图</a> <a href="/tags/热点图/" style="font-size: 12.5px; color: #7e92c7">热点图</a> <a href="/tags/美图/" style="font-size: 10px; color: #7dc3de">美图</a> <a href="/tags/随笔/" style="font-size: 10px; color: #7dc3de">随笔</a>
     </div>
   </div>
 
@@ -745,7 +746,7 @@ filter: progid:DXImageTransform.Microsoft.Shadow(color='#C3C3C3', Direction=135,
   <div class="widget-wrap">
     <h3 class="widget-title">归档</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">七月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">二月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">一月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">十二月 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">十一月 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">十月 2015</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">九月 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">七月 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">六月 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/05/">五月 2015</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/04/">四月 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">三月 2015</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">二月 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">一月 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/12/">十二月 2014</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">十一月 2014</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">十月 2014</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/09/">九月 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08/">八月 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/07/">七月 2014</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/05/">五月 2014</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/04/">四月 2014</a><span class="archive-list-count">4</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">五月 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">七月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">二月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">一月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">十二月 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">十一月 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">十月 2015</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">九月 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">七月 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">六月 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/05/">五月 2015</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/04/">四月 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">三月 2015</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">二月 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">一月 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/12/">十二月 2014</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">十一月 2014</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">十月 2014</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/09/">九月 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08/">八月 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/07/">七月 2014</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/05/">五月 2014</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/04/">四月 2014</a><span class="archive-list-count">4</span></li></ul>
     </div>
   </div>
 
@@ -755,6 +756,10 @@ filter: progid:DXImageTransform.Microsoft.Shadow(color='#C3C3C3', Direction=135,
     <h3 class="widget-title">近期文章</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2020/05/31/ok-http/">okhttp使用</a>
+          </li>
         
           <li>
             <a href="/2016/07/06/write-checkbox-component-in-React/">React-Native 中自定义checkbox组件</a>
@@ -770,10 +775,6 @@ filter: progid:DXImageTransform.Microsoft.Shadow(color='#C3C3C3', Direction=135,
         
           <li>
             <a href="/2015/12/31/2015-summary/">这一年</a>
-          </li>
-        
-          <li>
-            <a href="/2015/12/30/highmaps-of-china-extend/">阿鹏 细说highmaps</a>
           </li>
         
       </ul>
@@ -839,7 +840,7 @@ filter: progid:DXImageTransform.Microsoft.Shadow(color='#C3C3C3', Direction=135,
   
   <div class="outer">
     <div id="footer-info" class="inner">
-      &copy; 2019 黑桃 K<br>
+      &copy; 2020 黑桃 K<br>
       Powered by <a href="http://peng8.net" target="_blank">Peng8.net</a>  
       
     </div>
