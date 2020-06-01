@@ -789,6 +789,30 @@
 
     
   <url>
+    <loc>http://www.peng8.net/2015/09/11/render-serverside-as-webserver/</loc>
+    <lastmod>2019-02-27T08:47:16.485Z</lastmod>
+    <data>
+        <display>
+        <title>如何将phantomjs单独部署在服务端</title>
+        <pubTime>2015-09-11T09:34:13.000Z</pubTime>
+        
+        <tag>phantomjs</tag>
+         
+        <tag>phantomjs单独部署</tag>
+         
+        <tag>highchart</tag>
+         
+         
+           
+             
+              <breadCrumb title="phantomjs" url="http://www.peng8.net/categories/phantomjs/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://www.peng8.net/2015/07/23/use-swiftype-create-engine/</loc>
     <lastmod>2019-02-27T08:47:16.485Z</lastmod>
     <data>
@@ -797,6 +821,50 @@
         <pubTime>2015-07-23T03:58:04.000Z</pubTime>
         
         <tag>Swiftype</tag>
+         
+         
+           
+             
+              <breadCrumb title="javascript" url="http://www.peng8.net/categories/javascript/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.peng8.net/2014/10/15/use-phantomjs-generate-snapshot/</loc>
+    <lastmod>2019-02-27T08:47:16.485Z</lastmod>
+    <data>
+        <display>
+        <title>.NET 利用phantomjs javascript引擎抓取网页快照</title>
+        <pubTime>2014-10-15T09:47:52.000Z</pubTime>
+        
+        <tag>asp.net</tag>
+         
+        <tag>phantomjs</tag>
+         
+         
+           
+             
+              <breadCrumb title="phantomjs" url="http://www.peng8.net/categories/phantomjs/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.peng8.net/2016/01/19/tagedit-demo-by-peng8/</loc>
+    <lastmod>2019-02-27T08:47:16.485Z</lastmod>
+    <data>
+        <display>
+        <title>简易模糊查询tagedit的实现</title>
+        <pubTime>2016-01-19T11:57:46.000Z</pubTime>
+        
+        <tag>智能查询</tag>
+         
+        <tag>tagedit</tag>
          
          
            
@@ -853,67 +921,21 @@
 
     
   <url>
-    <loc>http://www.peng8.net/2016/01/19/tagedit-demo-by-peng8/</loc>
-    <lastmod>2019-02-27T08:47:16.485Z</lastmod>
+    <loc>http://www.peng8.net/2014/10/14/use-cut-image-in-kindeditor/</loc>
+    <lastmod>2019-02-27T08:47:16.484Z</lastmod>
     <data>
         <display>
-        <title>简易模糊查询tagedit的实现</title>
-        <pubTime>2016-01-19T11:57:46.000Z</pubTime>
+        <title>教你如何在kindeditor中扩展图片裁剪的功能</title>
+        <pubTime>2014-10-14T07:26:00.000Z</pubTime>
         
-        <tag>智能查询</tag>
+        <tag>jquery</tag>
          
-        <tag>tagedit</tag>
-         
-         
-           
-             
-              <breadCrumb title="javascript" url="http://www.peng8.net/categories/javascript/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://www.peng8.net/2014/10/15/use-phantomjs-generate-snapshot/</loc>
-    <lastmod>2019-02-27T08:47:16.485Z</lastmod>
-    <data>
-        <display>
-        <title>.NET 利用phantomjs javascript引擎抓取网页快照</title>
-        <pubTime>2014-10-15T09:47:52.000Z</pubTime>
-        
         <tag>asp.net</tag>
          
-        <tag>phantomjs</tag>
-         
          
            
              
-              <breadCrumb title="phantomjs" url="http://www.peng8.net/categories/phantomjs/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://www.peng8.net/2015/09/11/render-serverside-as-webserver/</loc>
-    <lastmod>2019-02-27T08:47:16.485Z</lastmod>
-    <data>
-        <display>
-        <title>如何将phantomjs单独部署在服务端</title>
-        <pubTime>2015-09-11T09:34:13.000Z</pubTime>
-        
-        <tag>phantomjs</tag>
-         
-        <tag>phantomjs单独部署</tag>
-         
-        <tag>highchart</tag>
-         
-         
-           
-             
-              <breadCrumb title="phantomjs" url="http://www.peng8.net/categories/phantomjs/"/>
+              <breadCrumb title="jquery" url="http://www.peng8.net/categories/jquery/"/>
           
         </display>
     </data>
@@ -943,21 +965,19 @@
 
     
   <url>
-    <loc>http://www.peng8.net/2014/10/14/use-cut-image-in-kindeditor/</loc>
-    <lastmod>2019-02-27T08:47:16.484Z</lastmod>
+    <loc>http://www.peng8.net/2014/04/09/difference-photo/</loc>
+    <lastmod>2019-02-27T08:47:16.479Z</lastmod>
     <data>
         <display>
-        <title>教你如何在kindeditor中扩展图片裁剪的功能</title>
-        <pubTime>2014-10-14T07:26:00.000Z</pubTime>
+        <title>随手用手机拍的一张图片</title>
+        <pubTime>2014-04-09T07:32:46.000Z</pubTime>
         
-        <tag>jquery</tag>
-         
-        <tag>asp.net</tag>
+        <tag>美图</tag>
          
          
            
              
-              <breadCrumb title="jquery" url="http://www.peng8.net/categories/jquery/"/>
+              <breadCrumb title="随笔日记" url="http://www.peng8.net/categories/%E9%9A%8F%E7%AC%94%E6%97%A5%E8%AE%B0/"/>
           
         </display>
     </data>
@@ -988,26 +1008,6 @@
     
     
   <url>
-    <loc>http://www.peng8.net/2014/04/09/difference-photo/</loc>
-    <lastmod>2019-02-27T08:47:16.479Z</lastmod>
-    <data>
-        <display>
-        <title>随手用手机拍的一张图片</title>
-        <pubTime>2014-04-09T07:32:46.000Z</pubTime>
-        
-        <tag>美图</tag>
-         
-         
-           
-             
-              <breadCrumb title="随笔日记" url="http://www.peng8.net/categories/%E9%9A%8F%E7%AC%94%E6%97%A5%E8%AE%B0/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://www.peng8.net/2015/03/31/use-custom-property-with-highchart/</loc>
     <lastmod>2019-02-27T08:47:16.479Z</lastmod>
     <data>
@@ -1021,28 +1021,6 @@
            
              
               <breadCrumb title="Highcharts" url="http://www.peng8.net/categories/Highcharts/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://www.peng8.net/2014/05/11/how-to-install-dnn-website/</loc>
-    <lastmod>2019-02-27T08:47:16.456Z</lastmod>
-    <data>
-        <display>
-        <title>DNN (DotNetNuke) 7.2版本的安装与介绍</title>
-        <pubTime>2014-05-11T05:10:40.000Z</pubTime>
-        
-        <tag>asp.net</tag>
-         
-        <tag>dnn</tag>
-         
-         
-           
-             
-              <breadCrumb title="dnn" url="http://www.peng8.net/categories/dnn/"/>
           
         </display>
     </data>
@@ -1065,6 +1043,28 @@
            
              
               <breadCrumb title="jquery" url="http://www.peng8.net/categories/jquery/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.peng8.net/2014/05/11/how-to-install-dnn-website/</loc>
+    <lastmod>2019-02-27T08:47:16.456Z</lastmod>
+    <data>
+        <display>
+        <title>DNN (DotNetNuke) 7.2版本的安装与介绍</title>
+        <pubTime>2014-05-11T05:10:40.000Z</pubTime>
+        
+        <tag>asp.net</tag>
+         
+        <tag>dnn</tag>
+         
+         
+           
+             
+              <breadCrumb title="dnn" url="http://www.peng8.net/categories/dnn/"/>
           
         </display>
     </data>

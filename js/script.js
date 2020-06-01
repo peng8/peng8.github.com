@@ -156,20 +156,4 @@
     $container.removeClass('mobile-nav-on');
   });
 })(jQuery);
-
- function getBlogCount(){
-	$.ajax({
-		type : "get",
-		url : "http://peng8.sturgeon.mopaas.com/",
-		dataType : "jsonp",
-		jsonp: "callback",
-		jsonpCallback:"success_jsonpCallback",
-		success : function(json){
-			$("#lbCount").html("本站总访问量 <strong>"+json+"</strong> 次");
-		},
-		error:function(){
-
-		}
-	});
-}
  
